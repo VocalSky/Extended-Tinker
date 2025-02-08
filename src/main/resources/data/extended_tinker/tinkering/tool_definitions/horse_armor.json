@@ -7,7 +7,7 @@
         "tconstruct:shield_core",
         "tconstruct:maille",
         "tconstruct:shield_core",
-        "tconstruct:helmet_plating"
+        "extended_tinker:bridle"
       ],
       "stat_provider": "tconstruct:melee_harvest"
     },

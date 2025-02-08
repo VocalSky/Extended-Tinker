@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "extended_tinker:item/bridle_red_sand_cast"
+    }
+}

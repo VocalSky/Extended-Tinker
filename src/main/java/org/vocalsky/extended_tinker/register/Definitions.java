@@ -1,5 +1,6 @@
 package org.vocalsky.extended_tinker.register;
 
+import net.minecraft.sounds.SoundEvents;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.tconstruct.common.Sounds;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
@@ -17,6 +18,6 @@ public class Definitions {
 
         HORSE_ARMOR = ToolDefinition.create(Items.HORSE_ARMOR);
 
-        HORSE_ARMOR_MATERIAL = ModifiableArmorMaterial.create(Extended_tinker.getResource("horse_armor"), Sounds.EQUIP_SLIME.getSound());
+        HORSE_ARMOR_MATERIAL = ModifiableArmorMaterial.create(Extended_tinker.getResource("horse_armor"), SoundEvents.HORSE_ARMOR);
     }
 }
