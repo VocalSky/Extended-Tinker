@@ -1,0 +1,43 @@
+{
+  "tconstruct:tools/materials_and_you": {
+    "criteria": {
+      "crafted_book": "2025-02-08 14:05:02 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:internal/starting_book": {
+    "criteria": {
+      "tick": "2025-02-08 14:05:02 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:tools/material_master": {
+    "criteria": {
+      "cobalt": "2025-02-08 17:59:17 +0800",
+      "copper": "2025-02-08 18:11:53 +0800",
+      "wood": "2025-02-08 17:59:17 +0800",
+      "nahuatl": "2025-02-08 18:11:53 +0800"
+    },
+    "done": false
+  },
+  "tconstruct:tools/tinker_tool": {
+    "criteria": {
+      "crafted_tool": "2025-02-08 17:59:17 +0800"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:forest": "2025-02-08 14:05:07 +0800",
+      "minecraft:savanna": "2025-02-08 18:00:19 +0800"
+    },
+    "done": false
+  },
+  "minecraft:husbandry/tame_an_animal": {
+    "criteria": {
+      "tamed_animal": "2025-02-08 18:12:18 +0800"
+    },
+    "done": true
+  },
+  "DataVersion": 3120
+}

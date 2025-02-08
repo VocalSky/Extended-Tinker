@@ -1,0 +1,37 @@
+{
+  "translation_key": "item.extended_tinker.fishing_rod",
+  "icon": {
+    "item": "extended_tinker:fishing_rod",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#bowstring\",\"tconstruct:ui_render#round_plate\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "sortIndex": 114,
+  "input_slots": [
+    {
+      "icon": "tconstruct:tool_handle",
+      "translation_key": "item.tconstruct.tool_handle",
+      "x": 22,
+      "y": 53,
+      "filter": {
+        "item": "tconstruct:tool_handle"
+      }
+    },
+    {
+      "icon": "tconstruct:bowstring",
+      "translation_key": "item.tconstruct.bowstring",
+      "x": 53,
+      "y": 34,
+      "filter": {
+        "item": "tconstruct:bowstring"
+      }
+    },
+    {
+      "icon": "tconstruct:round_plate",
+      "translation_key": "item.tconstruct.round_plate",
+      "x": 47,
+      "y": 58,
+      "filter": {
+        "item": "tconstruct:round_plate"
+      }
+    }
+  ]
+}

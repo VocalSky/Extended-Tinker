@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.vocalsky.extended_tinker.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "extended_tinker.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
