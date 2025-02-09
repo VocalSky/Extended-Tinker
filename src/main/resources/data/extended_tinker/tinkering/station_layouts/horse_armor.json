@@ -11,7 +11,7 @@
       "icon": "tconstruct:maille",
       "translation_key": "item.tconstruct.maille",
       "x": 5,
-      "y": 40,
+      "y": 50,
       "filter": {
         "item": "tconstruct:maille"
       }
@@ -20,7 +20,7 @@
       "icon": "tconstruct:shield_core",
       "translation_key": "item.tconstruct.shield_core",
       "x": 25,
-      "y": 40,
+      "y": 50,
       "filter": {
         "item": "tconstruct:shield_core"
       }
@@ -28,8 +28,8 @@
     {
       "icon": "tconstruct:maille",
       "translation_key": "item.tconstruct.maille",
-      "x": 50,
-      "y": 40,
+      "x": 45,
+      "y": 50,
       "filter": {
         "item": "tconstruct:maille"
       }
@@ -37,8 +37,8 @@
     {
       "icon": "tconstruct:shield_core",
       "translation_key": "item.tconstruct.shield_core",
-      "x": 75,
-      "y": 40,
+      "x": 65,
+      "y": 50,
       "filter": {
         "item": "tconstruct:shield_core"
       }
@@ -46,8 +46,8 @@
     {
       "icon": "extended_tinker:bridle",
       "translation_key": "item.extended_tinker.bridle",
-      "x": 80,
-      "y": 20,
+      "x": 70,
+      "y": 30,
       "filter": {
         "item": "extended_tinker:bridle"
       }
