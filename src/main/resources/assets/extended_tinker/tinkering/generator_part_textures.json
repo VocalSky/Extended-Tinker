@@ -2,9 +2,6 @@
   "replace": false,
   "parts": [
     { "path": "extended_tinker:item/tool/parts/bridle",        "stat_type": "tconstruct:armor" },
-    { "path": "extended_tinker:item/tool/fishing_rod/handle",        "stat_type": "tconstruct:handle" },
-    { "path": "extended_tinker:item/tool/fishing_rod/fishing_line", "stat_type": "tconstruct:bowstring" },
-    { "path": "extended_tinker:item/tool/fishing_rod/fishhook",      "stat_type": "tconstruct:head" },
     { "path": "extended_tinker:item/tool/horse_armor/maille1",      "stat_type": "tconstruct:armor" },
     { "path": "extended_tinker:item/tool/horse_armor/shield1",      "stat_type": "tconstruct:armor" },
     { "path": "extended_tinker:item/tool/horse_armor/maille2",      "stat_type": "tconstruct:armor" },

@@ -10,7 +10,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.content.tools.FishingRod;
 import org.vocalsky.extended_tinker.content.tools.HorseArmor;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
@@ -29,7 +28,6 @@ public class Items {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Extended_tinker.MODID);
 
-    public static final RegistryObject<ModifiableItem>  FISHING_ROD = ITEMS.register( "fishing_rod", () -> new FishingRod(Stack1Item, Definitions.FISHING_ROD));
     public static final RegistryObject<HorseArmor>  HORSE_ARMOR = ITEMS.register( "horse_armor", () -> new HorseArmor(Definitions.HORSE_ARMOR_MATERIAL, EquipmentSlot.CHEST, Stack1Item, Definitions.HORSE_ARMOR));
 
     public static final RegistryObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(CommonItem, PlatingMaterialStats.CHESTPLATE.getId()));

@@ -30,8 +30,6 @@ public class ToolClientEvents {
     @SubscribeEvent
     static void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            TinkerItemProperties.registerToolProperties(Items.FISHING_ROD.get().asItem());
-
             TinkerItemProperties.registerToolProperties(Items.HORSE_ARMOR.get().asItem());
         });
     }
