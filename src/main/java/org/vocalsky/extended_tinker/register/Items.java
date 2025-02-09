@@ -20,7 +20,7 @@ public class Items {
     public static final CreativeModeTab Extended_Tinker_Tab = new CreativeModeTab("extended_tinker") {
         @Override
         public @NotNull ItemStack makeIcon() {
-            return new ItemStack(Items.FISHING_ROD.get());
+            return new ItemStack(Items.HORSE_ARMOR.get());
         }
     };
     private static final Item.Properties Stack1Item = new Item.Properties().stacksTo(1).tab(Extended_Tinker_Tab);
@@ -32,7 +32,7 @@ public class Items {
     public static final RegistryObject<ModifiableItem>  FISHING_ROD = ITEMS.register( "fishing_rod", () -> new FishingRod(Stack1Item, Definitions.FISHING_ROD));
     public static final RegistryObject<HorseArmor>  HORSE_ARMOR = ITEMS.register( "horse_armor", () -> new HorseArmor(Definitions.HORSE_ARMOR_MATERIAL, EquipmentSlot.CHEST, Stack1Item, Definitions.HORSE_ARMOR));
 
-    public static final RegistryObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(CommonItem, PlatingMaterialStats.HELMET.getId()));
+    public static final RegistryObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(CommonItem, PlatingMaterialStats.CHESTPLATE.getId()));
 
     public static final RegistryObject<Item> bridle_sand_cast= ITEMS.register("bridle_sand_cast", Items::register);
     public static final RegistryObject<Item> bridle_red_sand_cast= ITEMS.register("bridle_red_sand_cast", Items::register);

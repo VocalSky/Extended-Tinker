@@ -1,7 +1,55 @@
 {
+  "tconstruct:recipes/tconstruct/smeltery/smeltery/red_sand_cast": {
+    "criteria": {
+      "has_casting": "2025-02-09 09:59:50 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/tools/tools/armor/travelers_chestplate": {
+    "criteria": {
+      "has_item": "2025-02-09 09:53:33 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/lever": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_stairs_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_a_mob": {
+    "criteria": {
+      "minecraft:zombie": "2025-02-09 10:52:19 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/golden_pickaxe": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/common/gold_platform": {
+    "criteria": {
+      "has_gold": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
   "tconstruct:tools/materials_and_you": {
     "criteria": {
       "crafted_book": "2025-02-08 14:05:02 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/gold_block": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
     },
     "done": true
   },
@@ -11,42 +59,63 @@
     },
     "done": true
   },
-  "minecraft:recipes/food/bread": {
+  "minecraft:recipes/combat/golden_chestplate": {
     "criteria": {
-      "has_wheat": "2025-02-08 22:25:33 +0800"
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
     },
     "done": true
   },
-  "tconstruct:tools/make_part": {
+  "tconstruct:recipes/tconstruct/general/common/materials/copper_nugget_from_ingot": {
     "criteria": {
-      "crafted_part": "2025-02-08 21:03:31 +0800"
+      "has_item": "2025-02-09 09:53:33 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/decorations/chest": {
+  "tconstruct:world/slimesuit": {
     "criteria": {
-      "has_lots_of_items": "2025-02-08 22:50:51 +0800"
-    },
-    "done": true
-  },
-  "tconstruct:tools/material_master": {
-    "criteria": {
-      "cobalt": "2025-02-08 17:59:17 +0800",
-      "copper": "2025-02-08 18:11:53 +0800",
-      "wood": "2025-02-08 17:59:17 +0800",
-      "nahuatl": "2025-02-08 18:11:53 +0800"
+      "crafted_helmet": "2025-02-09 10:51:19 +0800"
     },
     "done": false
   },
-  "tconstruct:tools/tinker_tool": {
+  "minecraft:story/mine_stone": {
     "criteria": {
-      "crafted_tool": "2025-02-08 17:59:17 +0800"
+      "get_stone": "2025-02-09 09:53:49 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/hay_block": {
+  "minecraft:recipes/building_blocks/stone": {
     "criteria": {
-      "has_wheat": "2025-02-08 22:25:33 +0800"
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/common/materials_and_you": {
+    "criteria": {
+      "has_item": "2025-02-09 09:48:45 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/furnace": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/tables/tinkers_chest": {
+    "criteria": {
+      "has_item": "2025-02-09 09:48:45 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/tools/tools/armor/travelers_pants": {
+    "criteria": {
+      "has_item": "2025-02-09 09:53:33 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:tools/tinker_station": {
+    "criteria": {
+      "crafted_block": "2025-02-09 09:48:22 +0800"
     },
     "done": true
   },
@@ -58,9 +127,361 @@
     },
     "done": false
   },
+  "tconstruct:foundry/encyclopedia": {
+    "criteria": {
+      "crafted_book": "2025-02-09 09:06:19 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/golden_hoe": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/bread": {
+    "criteria": {
+      "has_wheat": "2025-02-08 22:25:33 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/copper_block": {
+    "criteria": {
+      "has_copper_ingot": "2025-02-09 09:53:33 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/common/copper_platform": {
+    "criteria": {
+      "has_bars": "2025-02-09 09:53:33 +0800"
+    },
+    "done": true
+  },
+  "minecraft:story/lava_bucket": {
+    "criteria": {
+      "lava_bucket": "2025-02-09 10:00:14 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:smeltery/tinkers_anvil": {
+    "criteria": {
+      "crafted_overworld": "2025-02-09 09:48:00 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_slab_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/polished_diorite_slab_from_polished_diorite_stonecutting": {
+    "criteria": {
+      "has_polished_diorite": "2025-02-09 10:49:20 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2025-02-08 22:50:51 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/golden_sword": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/golden_apple": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/stone_sword": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/polished_diorite_slab": {
+    "criteria": {
+      "has_polished_diorite": "2025-02-09 10:49:20 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/cobblestone_wall": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/tables/crafting_station": {
+    "criteria": {
+      "has_item": "2025-02-09 09:48:45 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_pickaxe": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:tools/make_part": {
+    "criteria": {
+      "crafted_part": "2025-02-08 21:03:31 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/tables/part_chest": {
+    "criteria": {
+      "has_item": "2025-02-09 09:48:45 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:smeltery/tool_forge": {
+    "criteria": {
+      "broad_axe": "2025-02-09 10:51:49 +0800"
+    },
+    "done": false
+  },
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2025-02-09 10:52:19 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/smeltery/smeltery/copper_can": {
+    "criteria": {
+      "has_item": "2025-02-09 09:53:33 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/tables/tinker_station": {
+    "criteria": {
+      "has_item": "2025-02-09 09:48:45 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/cobblestone_wall_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/light_weighted_pressure_plate": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_shovel": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_hoe": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:foundry/plate_armor": {
+    "criteria": {
+      "crafted_chestplate": "2025-02-09 11:24:29 +0800"
+    },
+    "done": false
+  },
+  "tconstruct:recipes/misc/tables/book_substitute": {
+    "criteria": {
+      "has_item": "2025-02-09 09:48:45 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/lightning_rod": {
+    "criteria": {
+      "has_copper_ingot": "2025-02-09 09:53:33 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:tools/tinker_tool": {
+    "criteria": {
+      "crafted_tool": "2025-02-08 17:59:17 +0800"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_all_mobs": {
+    "criteria": {
+      "minecraft:zombie": "2025-02-09 10:52:19 +0800"
+    },
+    "done": false
+  },
+  "minecraft:recipes/misc/gold_nugget": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/golden_axe": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/tables/crafting_station_from_logs": {
+    "criteria": {
+      "has_item": "2025-02-09 09:48:45 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/tables/cast_chest": {
+    "criteria": {
+      "has_item": "2025-02-09 10:01:17 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/golden_leggings": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_slab": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/golden_helmet": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:tools/material_master": {
+    "criteria": {
+      "cobalt": "2025-02-08 17:59:17 +0800",
+      "manyullyn": "2025-02-09 11:10:11 +0800",
+      "copper": "2025-02-08 18:11:53 +0800",
+      "wood": "2025-02-08 17:59:17 +0800",
+      "rose_gold": "2025-02-09 10:54:19 +0800",
+      "queens_slime": "2025-02-09 10:51:49 +0800",
+      "nahuatl": "2025-02-08 18:11:53 +0800"
+    },
+    "done": false
+  },
+  "tconstruct:smeltery/melter": {
+    "criteria": {
+      "seared_fuel_gauge": "2025-02-09 10:00:40 +0800",
+      "seared_table": "2025-02-09 10:00:43 +0800",
+      "seared_faucet": "2025-02-09 10:00:45 +0800",
+      "seared_melter": "2025-02-09 10:00:41 +0800"
+    },
+    "done": false
+  },
+  "minecraft:recipes/building_blocks/cobblestone_stairs": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/polished_diorite_stairs_from_polished_diorite_stonecutting": {
+    "criteria": {
+      "has_polished_diorite": "2025-02-09 10:49:20 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:world/slimeskull": {
+    "criteria": {
+      "rotten_flesh": "2025-02-09 10:51:19 +0800",
+      "rose_gold": "2025-02-09 10:54:19 +0800"
+    },
+    "done": false
+  },
+  "tconstruct:tools/netherite_tier": {
+    "criteria": {
+      "harvest_level": "2025-02-09 10:51:49 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/common/gold_bars": {
+    "criteria": {
+      "has_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:smeltery/gold_casting": {
+    "criteria": {
+      "crafted_cast": "2025-02-09 10:01:17 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/general/tables/part_builder": {
+    "criteria": {
+      "has_item": "2025-02-09 09:48:45 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/tools/tools/armor/travelers_boots": {
+    "criteria": {
+      "has_item": "2025-02-09 09:53:33 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/polished_diorite_stairs": {
+    "criteria": {
+      "has_polished_diorite": "2025-02-09 10:49:20 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/tools/tools/armor/travelers_goggles": {
+    "criteria": {
+      "has_item": "2025-02-09 09:53:33 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:recipes/tconstruct/smeltery/smeltery/sand_cast": {
+    "criteria": {
+      "has_casting": "2025-02-09 09:59:50 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_axe": {
+    "criteria": {
+      "has_cobblestone": "2025-02-09 09:53:49 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:tools/part_builder": {
+    "criteria": {
+      "crafted_block": "2025-02-09 09:47:59 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/hay_block": {
+    "criteria": {
+      "has_wheat": "2025-02-08 22:25:33 +0800"
+    },
+    "done": true
+  },
   "minecraft:husbandry/tame_an_animal": {
     "criteria": {
       "tamed_animal": "2025-02-08 18:12:18 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/golden_shovel": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/golden_boots": {
+    "criteria": {
+      "has_gold_ingot": "2025-02-09 10:00:05 +0800"
     },
     "done": true
   },

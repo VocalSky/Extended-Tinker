@@ -39,7 +39,10 @@
     {
       "type": "tconstruct:multiply_stats",
       "multipliers": {
-        "tconstruct:durability": 1.25
+        "tconstruct:durability": 0.85,
+        "tconstruct:armor": 2,
+        "tconstruct:armor_toughness": 1.5,
+        "tconstruct:knockback_resistance": 1.25
       }
     },
     {

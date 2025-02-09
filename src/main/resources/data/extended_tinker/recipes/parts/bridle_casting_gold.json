@@ -3,6 +3,6 @@
   "cast": {
     "tag": "tconstruct:casts/multi_use/bridle"
   },
-  "item_cost": 1,
+  "item_cost": 4,
   "result": "extended_tinker:bridle"
 }

@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.TConstruct;
@@ -79,6 +80,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
     protected final float knockbackResistance;
     protected final ArmorMaterial material;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+    private final ResourceLocation texture;
 
     public static boolean dispenseArmor(BlockSource p_40399_, ItemStack p_40400_) {
         BlockPos blockpos = p_40399_.getPos().relative((Direction)p_40399_.getBlockState().getValue(DispenserBlock.FACING));
@@ -101,6 +103,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
 
     public HorseArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builderIn, ToolDefinition toolDefinition) {
         super(0, "tcon", builderIn.defaultDurability(materialIn.getDurabilityForSlot(slot)));
+        texture = Extended_tinker.getResource("textures/entity/horse/armor/horse_armor_tcon.png");
         this.material = materialIn;
         this.slot = slot;
         this.defense = materialIn.getDefenseForSlot(slot);
@@ -119,12 +122,15 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         this.toolDefinition = toolDefinition;
     }
 
-    public HorseArmor(ModifiableArmorMaterial material, ArmorSlotType slotType, Item.Properties properties) {
-        this(material, slotType.getEquipmentSlot(), properties, (ToolDefinition)Objects.requireNonNull(material.getArmorDefinition(slotType), "Missing tool definition for " + slotType));
-    }
+//    public HorseArmor(ModifiableArmorMaterial material, ArmorSlotType slotType, Item.Properties properties) {
+//        this(material, slotType.getEquipmentSlot(), properties, (ToolDefinition)Objects.requireNonNull(material.getArmorDefinition(slotType), "Missing tool definition for " + slotType));
+//    }
 
     public int getProtection() {
         return this.getDefense();
+    }
+    public ResourceLocation getTexture() {
+        return this.texture;
     }
 
     public EquipmentSlot getSlot() {
@@ -394,11 +400,6 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
     }
 
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-//        tooltip.removeIf(component -> component.getString().contains("When on"));
-        tooltip.add(Component.literal("+" + Float.toString(this.getProtection()) + " ")
-                .append(Component.translatable("item.extended_tinker.horse_armor_protection_tooltip"))
-                .withStyle(ChatFormatting.DARK_BLUE));
-        super.appendHoverText(stack, level, tooltip, flag);
         TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
     }
 

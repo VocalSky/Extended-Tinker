@@ -5,6 +5,6 @@
     { "tag": "tconstruct:patterns/default" },
     { "item": "extended_tinker:bridle_gold_cast" }
   ],
-  "cost": 1,
+  "cost": 4,
   "result": { "item": "extended_tinker:bridle" }
 }
