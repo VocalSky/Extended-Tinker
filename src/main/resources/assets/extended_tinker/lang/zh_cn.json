@@ -1,0 +1,12 @@
+{
+  "itemGroup.extended_tinker": "工匠扩张",
+
+  "pattern.extended_tinker.bridle": "马笼头",
+  "item.extended_tinker.bridle": "马笼头",
+  "item.extended_tinker.bridle_sand_cast": "马笼头沙子铸模",
+  "item.extended_tinker.bridle_red_sand_cast": "马笼头红沙铸模",
+  "item.extended_tinker.bridle_gold_cast": "马笼头金质铸模",
+
+  "item.extended_tinker.horse_armor": "马铠",
+  "item.extended_tinker.horse_armor.description": "马铠是一件防具，能保护你的马。"
+}
