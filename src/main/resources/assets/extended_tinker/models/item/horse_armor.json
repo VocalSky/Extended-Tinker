@@ -2,13 +2,13 @@
   "loader": "tconstruct:tool",
   "parent": "forge:item/default-tool",
   "textures": {
-    "maille1":      "extended_tinker:item/tool/horse_armor/maille1",
-    "shield1":        "extended_tinker:item/tool/horse_armor/shield1",
-    "maille2":      "extended_tinker:item/tool/horse_armor/maille2",
-    "shield2":        "extended_tinker:item/tool/horse_armor/shield2",
-    "head":         "extended_tinker:item/tool/horse_armor/head"
+    "maille1":      "extended_tinker:item/armor/horse_armor/maille1",
+    "shield1":        "extended_tinker:item/armor/horse_armor/shield1",
+    "maille2":      "extended_tinker:item/armor/horse_armor/maille2",
+    "shield2":        "extended_tinker:item/armor/horse_armor/shield2",
+    "head":         "extended_tinker:item/armor/horse_armor/head"
   },
-  "modifier_roots": [ "extended_tinker:item/tool/horse_armor/modifiers/" ],
+  "modifier_roots": [ "extended_tinker:item/armor/horse_armor/modifiers/" ],
   "parts": [
     { "name": "maille1", "index": 0 },
     { "name": "shield1",    "index": 1 },

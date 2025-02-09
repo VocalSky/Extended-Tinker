@@ -1,0 +1,12 @@
+{
+  "tool": "extended_tinker:horse_armor",
+  "text": [
+    { "text": "Horse Armor is a piece of armor that protects your horse." }
+  ],
+  "properties": [
+    "200% Armor",
+    "150% Armor Toughness",
+    "125% Knockback Resistance",
+    "85% Durability"
+  ]
+}

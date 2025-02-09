@@ -1,4 +1,16 @@
 {
+  "minecraft:recipes/tools/fishing_rod": {
+    "criteria": {
+      "has_string": "2025-02-09 17:08:25 +0800"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/bow": {
+    "criteria": {
+      "has_string": "2025-02-09 17:08:25 +0800"
+    },
+    "done": true
+  },
   "tconstruct:recipes/tconstruct/smeltery/smeltery/red_sand_cast": {
     "criteria": {
       "has_casting": "2025-02-09 09:59:50 +0800"
@@ -77,6 +89,12 @@
     },
     "done": false
   },
+  "minecraft:recipes/decorations/loom": {
+    "criteria": {
+      "has_string": "2025-02-09 17:08:25 +0800"
+    },
+    "done": true
+  },
   "minecraft:story/mine_stone": {
     "criteria": {
       "get_stone": "2025-02-09 09:53:49 +0800"
@@ -133,6 +151,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/candle": {
+    "criteria": {
+      "has_string": "2025-02-09 17:08:25 +0800"
+    },
+    "done": true
+  },
   "minecraft:recipes/tools/golden_hoe": {
     "criteria": {
       "has_gold_ingot": "2025-02-09 10:00:05 +0800"
@@ -178,6 +202,12 @@
   "minecraft:recipes/building_blocks/polished_diorite_slab_from_polished_diorite_stonecutting": {
     "criteria": {
       "has_polished_diorite": "2025-02-09 10:49:20 +0800"
+    },
+    "done": true
+  },
+  "minecraft:husbandry/root": {
+    "criteria": {
+      "consumed_item": "2025-02-09 17:10:33 +0800"
     },
     "done": true
   },
@@ -291,9 +321,17 @@
   },
   "tconstruct:foundry/plate_armor": {
     "criteria": {
+      "crafted_leggings": "2025-02-09 17:10:00 +0800",
+      "crafted_boots": "2025-02-09 17:09:57 +0800",
       "crafted_chestplate": "2025-02-09 11:24:29 +0800"
     },
     "done": false
+  },
+  "minecraft:recipes/building_blocks/white_wool_from_string": {
+    "criteria": {
+      "has_string": "2025-02-09 17:08:25 +0800"
+    },
+    "done": true
   },
   "tconstruct:recipes/misc/tables/book_substitute": {
     "criteria": {
@@ -315,6 +353,8 @@
   },
   "minecraft:adventure/kill_all_mobs": {
     "criteria": {
+      "minecraft:skeleton": "2025-02-09 17:09:19 +0800",
+      "minecraft:spider": "2025-02-09 17:08:25 +0800",
       "minecraft:zombie": "2025-02-09 10:52:19 +0800"
     },
     "done": false
@@ -343,6 +383,12 @@
     },
     "done": true
   },
+  "minecraft:husbandry/balanced_diet": {
+    "criteria": {
+      "bread": "2025-02-09 17:10:33 +0800"
+    },
+    "done": false
+  },
   "minecraft:recipes/combat/golden_leggings": {
     "criteria": {
       "has_gold_ingot": "2025-02-09 10:00:05 +0800"
@@ -369,9 +415,16 @@
       "wood": "2025-02-08 17:59:17 +0800",
       "rose_gold": "2025-02-09 10:54:19 +0800",
       "queens_slime": "2025-02-09 10:51:49 +0800",
+      "iron": "2025-02-09 17:09:57 +0800",
       "nahuatl": "2025-02-08 18:11:53 +0800"
     },
     "done": false
+  },
+  "minecraft:recipes/redstone/tripwire_hook": {
+    "criteria": {
+      "has_string": "2025-02-09 17:08:25 +0800"
+    },
+    "done": true
   },
   "tconstruct:smeltery/melter": {
     "criteria": {
@@ -381,6 +434,12 @@
       "seared_melter": "2025-02-09 10:00:41 +0800"
     },
     "done": false
+  },
+  "minecraft:recipes/misc/bone_meal": {
+    "criteria": {
+      "has_bone": "2025-02-09 17:09:20 +0800"
+    },
+    "done": true
   },
   "minecraft:recipes/building_blocks/cobblestone_stairs": {
     "criteria": {
@@ -434,6 +493,18 @@
   "minecraft:recipes/building_blocks/polished_diorite_stairs": {
     "criteria": {
       "has_polished_diorite": "2025-02-09 10:49:20 +0800"
+    },
+    "done": true
+  },
+  "tconstruct:tools/tool_smith": {
+    "criteria": {
+      "sword": "2025-02-09 17:08:40 +0800"
+    },
+    "done": false
+  },
+  "minecraft:recipes/combat/crossbow": {
+    "criteria": {
+      "has_string": "2025-02-09 17:08:25 +0800"
     },
     "done": true
   },

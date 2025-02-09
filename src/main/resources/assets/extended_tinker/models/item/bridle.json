@@ -2,6 +2,6 @@
   "loader": "tconstruct:material",
   "parent": "forge:item/default",
   "textures": {
-    "texture": "extended_tinker:item/tool/parts/bridle"
+    "texture": "extended_tinker:item/armor/parts/bridle"
   }
 }
