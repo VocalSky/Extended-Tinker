@@ -177,6 +177,9 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
     public float getToughness() {
         return this.toughness;
     }
+    public float getKnockbackResistance() {
+        return this.knockbackResistance;
+    }
 
     @Nullable
     public SoundEvent getEquipSound() {

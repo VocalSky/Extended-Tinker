@@ -448,7 +448,8 @@
   },
   "tconstruct:smeltery/tool_forge": {
     "criteria": {
-      "broad_axe": "2025-02-09 10:51:49 +0800"
+      "broad_axe": "2025-02-09 10:51:49 +0800",
+      "excavator": "2025-02-10 23:09:20 +0800"
     },
     "done": false
   },
