@@ -122,9 +122,9 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         this.toolDefinition = toolDefinition;
     }
 
-//    public HorseArmor(ModifiableArmorMaterial material, ArmorSlotType slotType, Item.Properties properties) {
-//        this(material, slotType.getEquipmentSlot(), properties, (ToolDefinition)Objects.requireNonNull(material.getArmorDefinition(slotType), "Missing tool definition for " + slotType));
-//    }
+    public HorseArmor(ModifiableArmorMaterial material, ArmorSlotType slotType, Item.Properties properties) {
+        this(material, slotType.getEquipmentSlot(), properties, (ToolDefinition)Objects.requireNonNull(material.getArmorDefinition(slotType), "Missing tool definition for " + slotType));
+    }
 
     public int getProtection() {
         return this.getDefense();

@@ -1,0 +1,56 @@
+{
+  "translation_key": "item.extended_tinker.horse_armor_chestplate",
+  "icon": {
+    "item": "extended_tinker:horse_armor_chestplate",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#maille\",\"tconstruct:ui_render#shield_core\",\"tconstruct:ui_render#maille\",\"tconstruct:ui_render#shield_core\",\"tconstruct:ui_render#bridle\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "sortIndex": 514,
+
+  "input_slots": [
+    {
+      "icon": "tconstruct:maille",
+      "translation_key": "item.tconstruct.maille",
+      "x": 5,
+      "y": 50,
+      "filter": {
+        "item": "tconstruct:maille"
+      }
+    },
+    {
+      "icon": "tconstruct:shield_core",
+      "translation_key": "item.tconstruct.shield_core",
+      "x": 25,
+      "y": 50,
+      "filter": {
+        "item": "tconstruct:shield_core"
+      }
+    },
+    {
+      "icon": "tconstruct:maille",
+      "translation_key": "item.tconstruct.maille",
+      "x": 45,
+      "y": 50,
+      "filter": {
+        "item": "tconstruct:maille"
+      }
+    },
+    {
+      "icon": "tconstruct:shield_core",
+      "translation_key": "item.tconstruct.shield_core",
+      "x": 65,
+      "y": 50,
+      "filter": {
+        "item": "tconstruct:shield_core"
+      }
+    },
+    {
+      "icon": "extended_tinker:bridle",
+      "translation_key": "item.extended_tinker.bridle",
+      "x": 70,
+      "y": 30,
+      "filter": {
+        "item": "extended_tinker:bridle"
+      }
+    }
+  ]
+}

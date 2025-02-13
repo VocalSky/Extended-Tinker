@@ -8,5 +8,6 @@
   "item.extended_tinker.bridle_gold_cast": "Bridle Gold Cast",
 
   "item.extended_tinker.horse_armor": "Horse Armor",
-  "item.extended_tinker.horse_armor.description": "Horse Armor is a piece of armor that protects your horse."
+  "item.extended_tinker.horse_armor_chestplate": "Horse Armor",
+  "item.extended_tinker.horse_armor_chestplate.description": "Horse Armor is a piece of armor that protects your horse."
 }

@@ -12,6 +12,7 @@ import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
+import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 public class Items {
@@ -27,7 +28,7 @@ public class Items {
 
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
 
-    public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor", () -> new HorseArmor(Definitions.HORSE_ARMOR_MATERIAL, EquipmentSlot.CHEST, Stack1Item, Definitions.HORSE_ARMOR));
+    public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(Definitions.HORSE_ARMOR_MATERIAL, ArmorSlotType.CHESTPLATE, Stack1Item));
 
     public static final ItemObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(CommonItem, PlatingMaterialStats.CHESTPLATE.getId()));
 
