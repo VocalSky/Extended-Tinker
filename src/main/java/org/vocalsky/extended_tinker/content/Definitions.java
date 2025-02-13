@@ -1,8 +1,7 @@
-package org.vocalsky.extended_tinker.register;
+package org.vocalsky.extended_tinker.content;
 
 import net.minecraft.sounds.SoundEvents;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import slimeknights.tconstruct.common.Sounds;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 

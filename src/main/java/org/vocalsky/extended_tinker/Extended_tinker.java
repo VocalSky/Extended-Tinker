@@ -15,7 +15,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
-import org.vocalsky.extended_tinker.register.Items;
+import org.vocalsky.extended_tinker.content.Items;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Extended_tinker.MODID)
