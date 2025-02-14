@@ -22,6 +22,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -103,7 +104,6 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
 
     public HorseArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builderIn, ToolDefinition toolDefinition) {
         super(0, "tcon", builderIn.defaultDurability(materialIn.getDurabilityForSlot(slot)));
-        texture = Extended_tinker.getResource("textures/entity/horse/armor/horse_armor_tcon.png");
         this.material = materialIn;
         this.slot = slot;
         this.defense = materialIn.getDefenseForSlot(slot);
@@ -120,6 +120,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         this.defaultModifiers = builder.build();
         this.toolForRendering = null;
         this.toolDefinition = toolDefinition;
+        texture = Extended_tinker.getResource("textures/entity/horse/armor/horse_armor_tcon");
     }
 
     public HorseArmor(ModifiableArmorMaterial material, ArmorSlotType slotType, Item.Properties properties) {
@@ -129,6 +130,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
     public int getProtection() {
         return this.getDefense();
     }
+
     public ResourceLocation getTexture() {
         return this.texture;
     }
@@ -395,7 +397,6 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
                 }
             }
         }
-
     }
 
     public Component getName(ItemStack stack) {

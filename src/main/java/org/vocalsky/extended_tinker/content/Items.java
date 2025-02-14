@@ -19,7 +19,7 @@ public class Items {
     public static final CreativeModeTab Extended_Tinker_Tab = new CreativeModeTab("extended_tinker") {
         @Override
         public @NotNull ItemStack makeIcon() {
-            return new ItemStack(Items.BRIDLE.get());
+            return HORSE_ARMOR.get().getRenderTool();
         }
     };
     private static final Item.Properties Stack1Item = new Item.Properties().stacksTo(1).tab(Extended_Tinker_Tab);
