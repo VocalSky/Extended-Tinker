@@ -3,6 +3,8 @@ package org.vocalsky.extended_tinker.content.tools;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.Model;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
@@ -29,12 +31,14 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.library.client.armor.ArmorModelManager;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.armor.ElytraFlightModifierHook;
@@ -57,8 +61,10 @@ import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.library.utils.Util;
+import slimeknights.tconstruct.tools.client.SlimeskullArmorModel;
 import slimeknights.tconstruct.tools.item.ArmorSlotType;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
@@ -82,6 +88,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
     protected final ArmorMaterial material;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
     private final ResourceLocation texture;
+    private final ResourceLocation name;
 
     public static boolean dispenseArmor(BlockSource p_40399_, ItemStack p_40400_) {
         BlockPos blockpos = p_40399_.getPos().relative((Direction)p_40399_.getBlockState().getValue(DispenserBlock.FACING));
@@ -102,7 +109,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         }
     }
 
-    public HorseArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builderIn, ToolDefinition toolDefinition) {
+    public HorseArmor(ModifiableArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builderIn, ToolDefinition toolDefinition) {
         super(0, "tcon", builderIn.defaultDurability(materialIn.getDurabilityForSlot(slot)));
         this.material = materialIn;
         this.slot = slot;
@@ -121,6 +128,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         this.toolForRendering = null;
         this.toolDefinition = toolDefinition;
         texture = Extended_tinker.getResource("textures/entity/horse/armor/horse_armor_tcon");
+        name = materialIn.getId();
     }
 
     public HorseArmor(ModifiableArmorMaterial material, ArmorSlotType slotType, Item.Properties properties) {
@@ -434,5 +442,21 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
 
     public ToolDefinition getToolDefinition() {
         return this.toolDefinition;
+    }
+
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(new ArmorModelManager.ArmorModelDispatcher() {
+            @Override
+            protected ResourceLocation getName() {
+                return name;
+            }
+
+            @Nonnull
+            @Override
+            public Model getGenericArmorModel(LivingEntity living, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
+                return SlimeskullArmorModel.INSTANCE.setup(living, stack, original, getModel(stack));
+            }
+        });
     }
 };
