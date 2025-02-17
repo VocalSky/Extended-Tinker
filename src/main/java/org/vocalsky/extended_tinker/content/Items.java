@@ -1,6 +1,5 @@
 package org.vocalsky.extended_tinker.content;
 
-import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -35,7 +34,6 @@ public class Items {
     public static final ItemObject<Item> BRIDLE_SAND_CAST = ITEMS.register("bridle_sand_cast", Items::register);
     public static final ItemObject<Item> BRIDLE_RED_SAND_CAST = ITEMS.register("bridle_red_sand_cast", Items::register);
     public static final ItemObject<Item> BRIDLE_GOLD_CAST = ITEMS.register("bridle_gold_cast", Items::register);
-    public static final CastItemObject BRIDLE_CAST = new CastItemObject(Extended_tinker.getResource("bridle"), BRIDLE_GOLD_CAST, BRIDLE_SAND_CAST, BRIDLE_RED_SAND_CAST);
 
     public static void registers(IEventBus eventBus)  {
         ITEMS.register(eventBus);

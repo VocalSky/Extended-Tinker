@@ -3,7 +3,6 @@ package org.vocalsky.extended_tinker.content;
 import net.minecraft.sounds.SoundEvents;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
-import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
 public class Definitions {
     public static final ModifiableArmorMaterial HORSE_ARMOR_MATERIAL;
