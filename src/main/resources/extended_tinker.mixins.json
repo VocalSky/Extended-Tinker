@@ -5,10 +5,10 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "extended_tinker.refmap.json",
   "mixins": [
-    "ForHorseArmor"
+    "HorseMixin"
   ],
   "client": [
-    "ForHorseArmorRender"
+    "HorseArmorLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
