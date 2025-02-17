@@ -4,13 +4,10 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.content.tools.HorseArmor;
-import org.vocalsky.extended_tinker.content.data.ArmorModelProvider;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
@@ -42,12 +39,5 @@ public class Items {
 
     public static void registers(IEventBus eventBus)  {
         ITEMS.register(eventBus);
-    }
-
-    @SubscribeEvent
-    void gatherData(final GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        boolean client = event.includeClient();
-        generator.addProvider(client, new ArmorModelProvider(generator));
     }
 }
