@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:armor_stand",
+      "amount_needed": 5
+    },
+    {
+      "item": "minecraft:golden_apple"
+    }
+  ],
+  "tools": {
+    "item": "extended_tinker:horse_armor_chestplate"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "allow_crystal": false,
+  "result": "extended_tinker:asone_horsearmor",
+  "max_level": 1
+}
