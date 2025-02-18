@@ -1,0 +1,12 @@
+{
+  "modifier_id": "extended_tinker:painless_horsearmor",
+  "text": [
+    {
+      "text": "When the player is riding, the horse will not stand due to injury."
+    }
+  ],
+  "effects": [
+    "Requires 1 ability slot per level",
+    "Ignore the pain"
+  ]
+}

@@ -1,5 +1,7 @@
 package org.vocalsky.extended_tinker.mixin;
 
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,8 +16,12 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.vocalsky.extended_tinker.content.Modifiers;
 import org.vocalsky.extended_tinker.content.tools.HorseArmor;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Mixin(Horse.class)
@@ -32,24 +38,31 @@ public abstract class HorseMixin extends AbstractHorse {
     public void setArmorEquipmentMixin(@NotNull ItemStack itemStack, CallbackInfo ci) {
         if (itemStack.getItem() instanceof HorseArmor) {
             float armor_toughness = ((HorseArmor)itemStack.getItem()).getToughness();
-            if (armor_toughness != 0) getAttribute(Attributes.ARMOR_TOUGHNESS).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", (double)armor_toughness, AttributeModifier.Operation.ADDITION));
+            if (armor_toughness != 0) Objects.requireNonNull(getAttribute(Attributes.ARMOR_TOUGHNESS)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_toughness, AttributeModifier.Operation.ADDITION));
             float knockback_resistance = ((HorseArmor)itemStack.getItem()).getKnockbackResistance();
-            if (knockback_resistance != 0) getAttribute(Attributes.KNOCKBACK_RESISTANCE).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", (double)armor_toughness, AttributeModifier.Operation.ADDITION));
+            if (knockback_resistance != 0) Objects.requireNonNull(getAttribute(Attributes.KNOCKBACK_RESISTANCE)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_toughness, AttributeModifier.Operation.ADDITION));
         }
     }
 
-    protected void hurtArmor(DamageSource p_21122_, float p_21123_) {
-        if (!(p_21123_ <= 0.0F)) {
-            p_21123_ /= 4.0F;
-            if (p_21123_ < 1.0F) {
-                p_21123_ = 1.0F;
+    protected void hurtArmor(@NotNull DamageSource damageSource, float damage) {
+        if (!(damage <= 0.0F)) {
+            damage /= 4.0F;
+            if (damage < 1.0F) {
+                damage = 1.0F;
             }
 
             ItemStack itemstack = this.getArmor();
-            if ((!p_21122_.isFire() || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof HorseArmor) {
-                itemstack.hurtAndBreak((int)p_21123_, (AbstractHorse)this, (p_35997_) -> p_35997_.broadcastBreakEvent(EquipmentSlot.CHEST));
+            if ((!damageSource.isFire() || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof HorseArmor) {
+                itemstack.hurtAndBreak((int)damage, (AbstractHorse)this, (abstractHorse) -> abstractHorse.broadcastBreakEvent(EquipmentSlot.CHEST));
             }
         }
+    }
+
+    @Inject(method = "getHurtSound", at = @At("HEAD"), cancellable = true)
+    public void getHurtSoundMixin(DamageSource damageSource, CallbackInfoReturnable<SoundEvent> cir) {
+        if (getArmor().getItem() instanceof HorseArmor)
+            if(isVehicle() && ToolStack.from(getArmor()).getModifierLevel(Modifiers.PAINLESS.get()) > 0)
+                cir.setReturnValue(SoundEvents.HORSE_HURT);
     }
 
 }

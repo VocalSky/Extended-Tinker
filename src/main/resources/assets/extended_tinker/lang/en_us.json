@@ -9,5 +9,9 @@
 
   "item.extended_tinker.horse_armor": "Horse Armor",
   "item.extended_tinker.horse_armor_chestplate": "Horse Armor",
-  "item.extended_tinker.horse_armor_chestplate.description": "Horse Armor is a piece of armor that protects your horse."
+  "item.extended_tinker.horse_armor_chestplate.description": "Horse Armor is a piece of armor that protects your horse.",
+
+  "modifier.extended_tinker.painless_horsearmor": "Painless",
+  "modifier.extended_tinker.painless_horsearmor.flavor": "Ignore the pain",
+  "modifier.extended_tinker.painless_horsearmor.description": "When the player is riding, the horse will not stand due to injury.",
 }

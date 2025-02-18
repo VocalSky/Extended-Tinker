@@ -1,0 +1,12 @@
+{
+  "tool": "extended_tinker:horse_armor_chestplate",
+  "text": [
+    { "text": "馬鎧是一件防具，能保護你的馬。" }
+  ],
+  "properties": [
+    "200% 護甲值",
+    "150% 盔甲韌性",
+    "125% 擊退抗性",
+    "85% 耐久係數"
+  ]
+}

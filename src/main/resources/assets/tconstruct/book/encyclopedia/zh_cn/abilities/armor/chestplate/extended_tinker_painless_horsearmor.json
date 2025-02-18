@@ -1,0 +1,12 @@
+{
+  "modifier_id": "extended_tinker:painless_horsearmor",
+  "text": [
+    {
+      "text": "当玩家乘骑时，马不会因为受伤而战立。"
+    }
+  ],
+  "effects": [
+    "需要1个能力槽",
+    "忽视痛觉"
+  ]
+}

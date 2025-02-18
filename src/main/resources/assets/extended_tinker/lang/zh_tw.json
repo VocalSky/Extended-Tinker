@@ -1,0 +1,17 @@
+{
+  "itemGroup.extended_tinker": "匠魂擴張",
+
+  "pattern.extended_tinker.bridle": "馬籠頭",
+  "item.extended_tinker.bridle": "馬籠頭",
+  "item.extended_tinker.bridle_sand_cast": "馬籠頭沙子鑄模",
+  "item.extended_tinker.bridle_red_sand_cast": "馬籠頭紅沙鑄模",
+  "item.extended_tinker.bridle_gold_cast": "馬籠頭金質鑄模",
+
+  "item.extended_tinker.horse_armor": "馬鎧",
+  "item.extended_tinker.horse_armor_chestplate": "馬鎧",
+  "item.extended_tinker.horse_armor_chestplate.description": "馬鎧是一件防具，能保護你的馬。",
+
+  "modifier.extended_tinker.painless_horsearmor": "無痛化",
+  "modifier.extended_tinker.painless_horsearmor.flavor": "忽視痛覺",
+  "modifier.extended_tinker.painless_horsearmor.description": "當玩家乘騎時，馬不會因為受傷而戰立"
+}
