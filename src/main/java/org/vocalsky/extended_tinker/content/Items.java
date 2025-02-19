@@ -6,7 +6,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.content.tools.HorseArmor;
+import org.vocalsky.extended_tinker.content.tool.FireCrack;
+import org.vocalsky.extended_tinker.content.tool.HorseArmor;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
@@ -14,6 +15,7 @@ import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 public class Items {
+    // Utils
     public static final CreativeModeTab Extended_Tinker_Tab = new CreativeModeTab("extended_tinker") {
         @Override
         public @NotNull ItemStack makeIcon() {
@@ -25,8 +27,13 @@ public class Items {
     private static Item register() {return new Item(CommonItem);}
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
 
+    // Tools
+    public static final ItemObject<FireCrack> FIRECRACK = ITEMS.register("firecrack", () -> new FireCrack(Stack1Item, Definitions.FIRECRACK));
+
+    // Armors
     public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(Definitions.HORSE_ARMOR_MATERIAL, ArmorSlotType.CHESTPLATE, Stack1Item));
 
+    // Parts & Casts
     public static final ItemObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(CommonItem, PlatingMaterialStats.CHESTPLATE.getId()));
     public static final ItemObject<Item> BRIDLE_SAND_CAST = ITEMS.register("bridle_sand_cast", Items::register);
     public static final ItemObject<Item> BRIDLE_RED_SAND_CAST = ITEMS.register("bridle_red_sand_cast", Items::register);

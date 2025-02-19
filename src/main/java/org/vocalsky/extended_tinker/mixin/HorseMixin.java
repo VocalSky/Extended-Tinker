@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.vocalsky.extended_tinker.content.Modifiers;
-import org.vocalsky.extended_tinker.content.tools.HorseArmor;
+import org.vocalsky.extended_tinker.content.tool.HorseArmor;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.Objects;

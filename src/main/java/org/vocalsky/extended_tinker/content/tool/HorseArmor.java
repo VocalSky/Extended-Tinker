@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.content.tools;
+package org.vocalsky.extended_tinker.content.tool;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;

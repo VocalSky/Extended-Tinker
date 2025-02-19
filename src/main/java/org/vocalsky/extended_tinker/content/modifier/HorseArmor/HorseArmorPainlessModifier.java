@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.content.modifiers.HorseArmor;
+package org.vocalsky.extended_tinker.content.modifier.HorseArmor;
 
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.modifiers.Modifier;

@@ -8,8 +8,7 @@
         "tconstruct:maille",
         "tconstruct:shield_core",
         "extended_tinker:bridle"
-      ],
-      "stat_provider": "tconstruct:melee_harvest"
+      ]
     },
     {
       "type": "tconstruct:default_materials",
