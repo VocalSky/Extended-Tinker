@@ -19,7 +19,8 @@ public class HorseArmorAsoneModifier extends Modifier {
 
     public HorseArmorAsoneModifier() {
         super();
-        MinecraftForge.EVENT_BUS.addListener(HorseArmorAsoneModifier::getHurt);
+        MinecraftForge.EVENT_BUS.addListener(HorseArmorAsoneModifier::onHurtSelf);
+        MinecraftForge.EVENT_BUS.addListener(HorseArmorAsoneModifier::onHurtPassenger);
     }
 
     @Override
@@ -27,7 +28,7 @@ public class HorseArmorAsoneModifier extends Modifier {
         hookBuilder.addModule(new ArmorLevelModule(ASONE, false, null));
     }
 
-    private static void getHurt(LivingHurtEvent event) {
+    private static void onHurtSelf(LivingHurtEvent event) {
         LivingEntity living = event.getEntity();
         if (!living.isSpectator()) {
             EquipmentContext context = new EquipmentContext(living);
@@ -60,6 +61,25 @@ public class HorseArmorAsoneModifier extends Modifier {
                                     event.setAmount(restAmount);
                                 } else event.setCanceled(true);
                             }
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+    private static void onHurtPassenger(LivingHurtEvent event) {
+        LivingEntity living = event.getEntity();
+        if (!living.isSpectator()) {
+            LivingEntity vehicle = (LivingEntity) living.getVehicle();
+            if (vehicle == null) return;
+            EquipmentContext context = new EquipmentContext(vehicle);
+            if (context.hasModifiableArmor()) {
+                if (!vehicle.level.isClientSide && vehicle.isAlive()) {
+                    vehicle.getCapability(TinkerDataCapability.CAPABILITY).ifPresent((holder) -> {
+                        if (holder.get(ASONE, 0) > 0) {
+                            event.setCanceled(true);
+                            vehicle.hurt(event.getSource(), event.getAmount());
                         }
                     });
                 }
