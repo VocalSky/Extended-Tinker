@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "extended_tinker.refmap.json",
   "mixins": [
-    "HorseMixin"
+    "HorseMixin",
+    "LivingHurtEventMixin"
   ],
   "client": [
     "HorseArmorLayerMixin"

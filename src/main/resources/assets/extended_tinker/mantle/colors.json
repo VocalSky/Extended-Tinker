@@ -1,4 +1,6 @@
 {
-  "painless_horsearmor": "#778899",
-  "asone_horsearmor": "#ffd54b"
+  "modifier.extended_tinker": {
+    "painless_horsearmor": "#778899",
+    "asone_horsearmor": "#ffd54b"
+  }
 }

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "extended_tinker:asone_horsearmor",
+  "text": [
+    {
+      "text": "不求同年同月同日生，但求同年同月同日死。"
+    }
+  ],
+  "effects": [
+    "需要1个能力槽"
+  ]
+}

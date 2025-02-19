@@ -23,7 +23,6 @@ import org.vocalsky.extended_tinker.content.Modifiers;
 public class Extended_tinker {
 
     public static final String MODID = "extended_tinker";
-    private static final Logger LOGGER = LogUtils.getLogger();
 
     public Extended_tinker() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

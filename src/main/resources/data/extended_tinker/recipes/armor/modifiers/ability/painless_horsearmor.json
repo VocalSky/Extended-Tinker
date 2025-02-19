@@ -5,8 +5,7 @@
       "item": "tconstruct:travelers_shield"
     },
     {
-      "item": "minecraft:hay_block",
-      "amount_needed": 5
+      "item": "minecraft:hay_block"
     },
     {
       "item": "tconstruct:plate_shield"

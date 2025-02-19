@@ -14,4 +14,8 @@
   "modifier.extended_tinker.painless_horsearmor": "Painless",
   "modifier.extended_tinker.painless_horsearmor.flavor": "Ignore the pain",
   "modifier.extended_tinker.painless_horsearmor.description": "When the player is riding, the horse will not stand due to injury.",
+
+  "modifier.extended_tinker.asone_horsearmor": "As one",
+  "modifier.extended_tinker.asone_horsearmor.flavor": "Born apart, die together.",
+  "modifier.extended_tinker.asone_horsearmor.description": "You will take damage along with your mount."
 }

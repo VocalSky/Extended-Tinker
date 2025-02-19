@@ -1,0 +1,11 @@
+{
+  "modifier_id": "extended_tinker:asone_horsearmor",
+  "text": [
+    {
+      "text": "You will take damage along with your mount."
+    }
+  ],
+  "effects": [
+    "Requires 1 ability slot per level"
+  ]
+}
