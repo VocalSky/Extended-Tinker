@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.content.modifier.HorseArmor;
+package org.vocalsky.extended_tinker.common.modifier.HorseArmor;
 
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;

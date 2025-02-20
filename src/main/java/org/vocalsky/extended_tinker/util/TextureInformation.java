@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.content.client;
+package org.vocalsky.extended_tinker.util;
 
 import net.minecraft.resources.ResourceLocation;
 

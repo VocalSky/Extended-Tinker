@@ -1,0 +1,9 @@
+{
+  "tool": "extended_tinker:firework_rocket",
+  "text": [
+    { "text": "Firework Rocket is a modular firework." }
+  ],
+  "properties": [
+    "200% Durability"
+  ]
+}

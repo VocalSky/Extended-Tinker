@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.content;
+package org.vocalsky.extended_tinker.common;
 
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -6,8 +6,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.content.modifier.HorseArmor.HorseArmorAsoneModifier;
-import org.vocalsky.extended_tinker.content.modifier.HorseArmor.HorseArmorPainlessModifier;
+import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorAsoneModifier;
+import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorPainlessModifier;
 import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;

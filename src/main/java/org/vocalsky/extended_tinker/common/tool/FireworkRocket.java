@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.content.tool;
+package org.vocalsky.extended_tinker.common.tool;
 
 import com.google.common.collect.Lists;
 import net.minecraft.ChatFormatting;
@@ -18,19 +18,24 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.NotNull;
+import org.vocalsky.extended_tinker.network.PacketHandler;
+import org.vocalsky.extended_tinker.network.packet.FireworkRocketShotPacket;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
-import slimeknights.tconstruct.library.tools.item.ranged.ModifiableBowItem;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import javax.annotation.Nullable;
+import javax.tools.Tool;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-public class FireCrack extends ModifiableBowItem {
+public class FireworkRocket extends ModifiableItem {
     public static final String TAG_FIREWORKS = "Fireworks";
     public static final String TAG_EXPLOSION = "Explosion";
     public static final String TAG_EXPLOSIONS = "Explosions";
@@ -42,19 +47,60 @@ public class FireCrack extends ModifiableBowItem {
     public static final String TAG_EXPLOSION_FADECOLORS = "FadeColors";
     public static final double ROCKET_PLACEMENT_OFFSET = 0.15;
 
-    public FireCrack(Properties properties, ToolDefinition toolDefinition) {
+    public FireworkRocket(Properties properties, ToolDefinition toolDefinition) {
         super(properties, toolDefinition);
+        MinecraftForge.EVENT_BUS.addListener(this::LeftClickEmpty);
+    }
+
+    private void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
+        if (event.getEntity() != null && event.getEntity().getMainHandItem().getItem() instanceof FireworkRocket)
+            PacketHandler.INSTANCE.sendToServer(new FireworkRocketShotPacket(event.getEntity().getId()));
+        else if (event.getEntity() != null && event.getEntity().getOffhandItem().getItem() instanceof FireworkRocket)
+            PacketHandler.INSTANCE.sendToServer(new FireworkRocketShotPacket(event.getEntity().getId()));
+    }
+
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity target) {
+        if (player instanceof ServerPlayer serverPlayer) fireworkRocketShot(serverPlayer);
+        return super.onLeftClickEntity(stack, player, target);
+    }
+
+    public static void fireworkRocketShot(ServerPlayer player) {
+        Level level = player.getLevel();
+        if (!level.isClientSide) {
+            ItemStack stack = player.getMainHandItem();
+            InteractionHand hand;
+            if (!(stack.getItem() instanceof FireworkRocket)) {
+                stack = player.getOffhandItem();
+                hand = InteractionHand.OFF_HAND;
+            } else
+                hand = InteractionHand.MAIN_HAND;
+            if (!(stack.getItem() instanceof FireworkRocket)) return;
+            ToolStack tool = ToolStack.from(stack);
+            if (tool.isBroken()) return;
+            double x = player.getLookAngle().x;
+            double y = player.getLookAngle().y;
+            double z = player.getLookAngle().z;
+            FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(level, player, player.getX() + x * 1.5,player.getY() + 0.6 * player.getBbHeight() + y * 1.5, player.getZ() + z * 1.5, stack);
+            fireworkRocketEntity.setOwner(player);
+            fireworkRocketEntity.setDeltaMovement(player.getLookAngle().scale(tool.getModifierLevel(ModifierIds.reach) + 1));
+            level.addFreshEntity(fireworkRocketEntity);
+            stack.hurtAndBreak(1, Objects.requireNonNull(player), (player1) -> player1.broadcastBreakEvent(hand));
+        }
     }
 
     public @NotNull InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         if (!level.isClientSide) {
             ItemStack stack = context.getItemInHand();
-            Vec3 clickLocation = context.getClickLocation();
-            Direction clickedFace = context.getClickedFace();
-            FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(level, context.getPlayer(), clickLocation.x + (double)clickedFace.getStepX() * 0.15, clickLocation.y + (double)clickedFace.getStepY() * 0.15, clickLocation.z + (double)clickedFace.getStepZ() * 0.15, stack);
-            level.addFreshEntity(fireworkRocketEntity);
-            stack.hurtAndBreak(1, Objects.requireNonNull(context.getPlayer()), (player) -> player.broadcastBreakEvent(context.getHand()));
+            ToolStack tool = ToolStack.from(stack);
+            if (!tool.isBroken()) {
+                Vec3 clickLocation = context.getClickLocation();
+                Direction clickedFace = context.getClickedFace();
+                FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(level, context.getPlayer(), clickLocation.x + (double) clickedFace.getStepX() * 0.15, clickLocation.y + (double) clickedFace.getStepY() * 0.15, clickLocation.z + (double) clickedFace.getStepZ() * 0.15, stack);
+                level.addFreshEntity(fireworkRocketEntity);
+                stack.hurtAndBreak(1, Objects.requireNonNull(context.getPlayer()), (player) -> player.broadcastBreakEvent(context.getHand()));
+            }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
@@ -62,7 +108,8 @@ public class FireCrack extends ModifiableBowItem {
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
         if (player.isFallFlying()) {
             ItemStack stack = player.getItemInHand(hand);
-            if (!level.isClientSide) {
+            ToolStack tool = ToolStack.from(stack);
+            if (!level.isClientSide && !tool.isBroken()) {
                 FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(level, stack, player);
                 level.addFreshEntity(fireworkRocketEntity);
                 if (!player.getAbilities().instabuild)
@@ -76,7 +123,6 @@ public class FireCrack extends ModifiableBowItem {
     }
 
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        super.appendHoverText(stack, level, tooltip, flag);
         CompoundTag tag = stack.getTagElement(TAG_FIREWORKS);
         if (tag != null) {
             if (tag.contains(TAG_FLIGHT, 99))
@@ -94,8 +140,8 @@ public class FireCrack extends ModifiableBowItem {
                     }
                 }
             }
-
         }
+        super.appendHoverText(stack, level, tooltip, flag);
     }
 
     public @NotNull ItemStack getDefaultInstance() {
