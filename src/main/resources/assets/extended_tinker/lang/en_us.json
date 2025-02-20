@@ -17,5 +17,8 @@
 
   "modifier.extended_tinker.asone_horsearmor": "As one",
   "modifier.extended_tinker.asone_horsearmor.flavor": "Born apart, die together.",
-  "modifier.extended_tinker.asone_horsearmor.description": "You will take damage along with your mount."
+  "modifier.extended_tinker.asone_horsearmor.description": "You will take damage along with your mount.",
+
+  "item.extended_tinker.firecrack": "Firecrack",
+  "item.extended_tinker.firecrack.description": "Firecrack is a modular firework."
 }

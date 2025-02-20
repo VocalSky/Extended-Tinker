@@ -6,19 +6,23 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
+import slimeknights.tconstruct.library.tools.item.ranged.ModifiableBowItem;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
@@ -26,7 +30,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-public class FireCrack extends ModifiableItem {
+public class FireCrack extends ModifiableBowItem {
     public static final String TAG_FIREWORKS = "Fireworks";
     public static final String TAG_EXPLOSION = "Explosion";
     public static final String TAG_EXPLOSIONS = "Explosions";
@@ -52,7 +56,6 @@ public class FireCrack extends ModifiableItem {
             level.addFreshEntity(fireworkRocketEntity);
             stack.hurtAndBreak(1, Objects.requireNonNull(context.getPlayer()), (player) -> player.broadcastBreakEvent(context.getHand()));
         }
-
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
@@ -66,19 +69,18 @@ public class FireCrack extends ModifiableItem {
                     stack.hurtAndBreak(1, Objects.requireNonNull(player), (player1) -> player1.broadcastBreakEvent(hand));
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
-
             return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide());
         } else {
             return InteractionResultHolder.pass(player.getItemInHand(hand));
         }
     }
 
-    public void appendHoverText(ItemStack stack, @Nullable Level p_41212_, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
         CompoundTag tag = stack.getTagElement(TAG_FIREWORKS);
         if (tag != null) {
-            if (tag.contains(TAG_FLIGHT, 99)) {
+            if (tag.contains(TAG_FLIGHT, 99))
                 tooltip.add(Component.translatable("item.minecraft.firework_rocket.flight").append(" ").append(String.valueOf(tag.getByte(TAG_FLIGHT))).withStyle(ChatFormatting.GRAY));
-            }
             ListTag explosions = tag.getList(TAG_EXPLOSIONS, 10);
             if (!explosions.isEmpty()) {
                 for(int i = 0; i < explosions.size(); ++i) {
