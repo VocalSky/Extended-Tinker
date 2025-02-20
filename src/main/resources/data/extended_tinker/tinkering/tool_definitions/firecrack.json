@@ -3,16 +3,15 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        "tconstruct:handle"
+        "tconstruct:tool_handle",
+        "tconstruct:bow_limb"
       ]
     },
     {
       "type": "tconstruct:default_materials",
       "materials": [
-        {
-          "type": "tconstruct:random",
-          "tier": 1
-        }
+        { "type": "tconstruct:random", "tier": 1 },
+        { "type": "tconstruct:random", "tier": 1 }
       ]
     },
     {

@@ -2,7 +2,7 @@
   "translation_key": "item.extended_tinker.horse_armor_chestplate",
   "icon": {
     "item": "extended_tinker:horse_armor_chestplate",
-    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#maille\",\"tconstruct:ui_render#shield_core\",\"tconstruct:ui_render#maille\",\"tconstruct:ui_render#shield_core\",\"tconstruct:ui_render#bridle\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#maille\",\"tconstruct:ui_render#shield_core\",\"tconstruct:ui_render#maille\",\"tconstruct:ui_render#shield_core\",\"extended_tinker:ui_render#bridle\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
   },
   "sortIndex": 514,
 

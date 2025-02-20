@@ -74,12 +74,12 @@ public class FireCrack extends ModifiableItem {
     }
 
     public void appendHoverText(ItemStack stack, @Nullable Level p_41212_, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        CompoundTag tag = stack.getTagElement("Fireworks");
+        CompoundTag tag = stack.getTagElement(TAG_FIREWORKS);
         if (tag != null) {
-            if (tag.contains("Flight", 99)) {
-                tooltip.add(Component.translatable("item.minecraft.firework_rocket.flight").append(" ").append(String.valueOf(tag.getByte("Flight"))).withStyle(ChatFormatting.GRAY));
+            if (tag.contains(TAG_FLIGHT, 99)) {
+                tooltip.add(Component.translatable("item.minecraft.firework_rocket.flight").append(" ").append(String.valueOf(tag.getByte(TAG_FLIGHT))).withStyle(ChatFormatting.GRAY));
             }
-            ListTag explosions = tag.getList("Explosions", 10);
+            ListTag explosions = tag.getList(TAG_EXPLOSIONS, 10);
             if (!explosions.isEmpty()) {
                 for(int i = 0; i < explosions.size(); ++i) {
                     CompoundTag compound = explosions.getCompound(i);
@@ -98,7 +98,7 @@ public class FireCrack extends ModifiableItem {
 
     public @NotNull ItemStack getDefaultInstance() {
         ItemStack stack = new ItemStack(this);
-        stack.getOrCreateTag().putByte("Flight", (byte)1);
+        stack.getOrCreateTag().putByte(TAG_FLIGHT, (byte)1);
         return stack;
     }
 
@@ -126,8 +126,8 @@ public class FireCrack extends ModifiableItem {
             return this.name;
         }
 
-        public static Shape byId(int p_41238_) {
-            return p_41238_ >= 0 && p_41238_ < BY_ID.length ? BY_ID[p_41238_] : SMALL_BALL;
+        public static Shape byId(int id) {
+            return id >= 0 && id < BY_ID.length ? BY_ID[id] : SMALL_BALL;
         }
     }
 }

@@ -12,6 +12,9 @@
     { "path": "extended_tinker:tinker_armor/horse_armor/shield1_armor", "stat_type": "tconstruct:shield_core" },
     { "path": "extended_tinker:tinker_armor/horse_armor/maille2_armor",    "stat_type": "tconstruct:armor_plating" },
     { "path": "extended_tinker:tinker_armor/horse_armor/shield2_armor", "stat_type": "tconstruct:shield_core" },
-    { "path": "extended_tinker:tinker_armor/horse_armor/head_armor",     "stat_type": "tconstruct:armor_plating" }
+    { "path": "extended_tinker:tinker_armor/horse_armor/head_armor",     "stat_type": "tconstruct:armor_plating" },
+
+    { "path": "extended_tinker:item/tool/firecrack/handle",     "stat_type": "tconstruct:handle" },
+    { "path": "extended_tinker:item/tool/firecrack/limb",     "stat_type": "tconstruct:handle" }
   ]
 }
