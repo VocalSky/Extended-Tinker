@@ -19,6 +19,6 @@
   "modifier.extended_tinker.asone_horsearmor.flavor": "不求同年同月生，但求同年同月死",
   "modifier.extended_tinker.asone_horsearmor.description": "當玩家乘騎時，馬和玩家分攤傷害。",
 
-  "item.extended_tinker.firework_rocket": "煙花火箭",
-  "item.extended_tinker.firework_rocket.description": "煙花火箭是一種模塊化的工具。"
+  "item.extended_tinker.firecrack": "煙火",
+  "item.extended_tinker.firecrack.description": "煙火是一種模塊化的工具。"
 }

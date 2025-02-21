@@ -29,13 +29,12 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import javax.annotation.Nullable;
-import javax.tools.Tool;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-public class FireworkRocket extends ModifiableItem {
+public class Firecrack extends ModifiableItem {
     public static final String TAG_FIREWORKS = "Fireworks";
     public static final String TAG_EXPLOSION = "Explosion";
     public static final String TAG_EXPLOSIONS = "Explosions";
@@ -47,15 +46,15 @@ public class FireworkRocket extends ModifiableItem {
     public static final String TAG_EXPLOSION_FADECOLORS = "FadeColors";
     public static final double ROCKET_PLACEMENT_OFFSET = 0.15;
 
-    public FireworkRocket(Properties properties, ToolDefinition toolDefinition) {
+    public Firecrack(Properties properties, ToolDefinition toolDefinition) {
         super(properties, toolDefinition);
         MinecraftForge.EVENT_BUS.addListener(this::LeftClickEmpty);
     }
 
     private void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
-        if (event.getEntity() != null && event.getEntity().getMainHandItem().getItem() instanceof FireworkRocket)
+        if (event.getEntity() != null && event.getEntity().getMainHandItem().getItem() instanceof Firecrack)
             PacketHandler.INSTANCE.sendToServer(new FireworkRocketShotPacket(event.getEntity().getId()));
-        else if (event.getEntity() != null && event.getEntity().getOffhandItem().getItem() instanceof FireworkRocket)
+        else if (event.getEntity() != null && event.getEntity().getOffhandItem().getItem() instanceof Firecrack)
             PacketHandler.INSTANCE.sendToServer(new FireworkRocketShotPacket(event.getEntity().getId()));
     }
 
@@ -70,12 +69,12 @@ public class FireworkRocket extends ModifiableItem {
         if (!level.isClientSide) {
             ItemStack stack = player.getMainHandItem();
             InteractionHand hand;
-            if (!(stack.getItem() instanceof FireworkRocket)) {
+            if (!(stack.getItem() instanceof Firecrack)) {
                 stack = player.getOffhandItem();
                 hand = InteractionHand.OFF_HAND;
             } else
                 hand = InteractionHand.MAIN_HAND;
-            if (!(stack.getItem() instanceof FireworkRocket)) return;
+            if (!(stack.getItem() instanceof Firecrack)) return;
             ToolStack tool = ToolStack.from(stack);
             if (tool.isBroken()) return;
             double x = player.getLookAngle().x;
@@ -128,7 +127,7 @@ public class FireworkRocket extends ModifiableItem {
         CompoundTag tag = stack.getTagElement(TAG_FIREWORKS);
         if (tag != null) {
             if (tag.contains(TAG_FLIGHT, 99))
-                tooltip.add(Component.translatable("item.minecraft.firework_rocket.flight").append(" ").append(String.valueOf(tag.getByte(TAG_FLIGHT))).withStyle(ChatFormatting.GRAY));
+                tooltip.add(Component.translatable("item.minecraft.firecrack.flight").append(" ").append(String.valueOf(tag.getByte(TAG_FLIGHT))).withStyle(ChatFormatting.GRAY));
             ListTag explosions = tag.getList(TAG_EXPLOSIONS, 10);
             if (!explosions.isEmpty()) {
                 for(int i = 0; i < explosions.size(); ++i) {

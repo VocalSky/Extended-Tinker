@@ -1,7 +1,7 @@
 {
   "tool": "extended_tinker:firecrack",
   "text": [
-    { "text": "煙火是一種模塊化的工具。" }
+    { "text": "烟火是一种模块化的工具。" }
   ],
   "properties": [
     "200% 耐久系数"

@@ -3,7 +3,7 @@ package org.vocalsky.extended_tinker.network.packet;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
-import static org.vocalsky.extended_tinker.common.tool.FireworkRocket.fireworkRocketShot;
+import static org.vocalsky.extended_tinker.common.tool.Firecrack.fireworkRocketShot;
 
 import java.util.function.Supplier;
 

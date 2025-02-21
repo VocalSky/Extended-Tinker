@@ -7,7 +7,7 @@ import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
 public class Definitions {
     // Tool Definitions
-    public static final ToolDefinition FIREWORK_ROCKET;
+    public static final ToolDefinition FIRECRACK;
 
     // Armor Definitions
     public static final ModifiableArmorMaterial HORSE_ARMOR_MATERIAL;
@@ -15,7 +15,7 @@ public class Definitions {
     public Definitions() {}
 
     static {
-        FIREWORK_ROCKET = ToolDefinition.create(Items.FIREWORK_ROCKET);
+        FIRECRACK = ToolDefinition.create(Items.FIRECRACK);
         HORSE_ARMOR_MATERIAL = ModifiableArmorMaterial.create(Extended_tinker.getResource("horse_armor"), SoundEvents.HORSE_ARMOR);
     }
 }

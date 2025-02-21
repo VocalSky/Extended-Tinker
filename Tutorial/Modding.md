@@ -150,13 +150,13 @@ public class B {
 
 下面两节会以工具和盔甲作为示例，描述如何添加一个新的 IModifiableDisplay 实现或者 ModifiableItem 的子类。
 
-### 工具示例：烟花火箭
+### 工具示例：烟火
 
-我知道这有点迷惑，但匠魂烟花火箭是个和匠魂打火石一样帅气的东西。
+我知道这有点迷惑，但匠魂烟火是个和匠魂打火石一样帅气的东西。
 
 我们新建一个包 tool，然后在 tool 目录下新建 FireworkRocket 类。
 
-事实上烟花火箭和普通匠魂物品的主要区别在于右键时有特殊的行为，因此可以直接继承 ModifiableItem，然后在其基础上修改。
+事实上烟火和普通匠魂物品的主要区别在于右键时有特殊的行为，因此可以直接继承 ModifiableItem，然后在其基础上修改。
 
 ```java
 public class FireworkRocket extends ModifiableItem {
@@ -166,7 +166,7 @@ public class FireworkRocket extends ModifiableItem {
     // useOn 会在右键使用物品时被调用进行处理，context 存储了关于这次使用的信息（哪只手，哪个玩家等）
     @Override
     public @NotNull InteractionResult useOn(UseOnContext context) {
-        // 这里实现右键地面时放一个烟花火箭
+        // 这里实现右键地面时放一个烟火
     }
     // use 会在右键使用物品时被调用进行处理，参数是使用时的信息。
     @Override
@@ -184,7 +184,7 @@ public class FireworkRocket extends ModifiableItem {
 
 删掉 FireworkRocketItem 的构造函数，我们已经实现了构造函数。
 
-然后回想一下，原版中烟花火箭使用后是数量减一，但我们这个是消耗耐久度，因此需要修改。
+然后回想一下，原版中烟火使用后是数量减一，但我们这个是消耗耐久度，因此需要修改。
 
 ```java
     @Override

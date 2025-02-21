@@ -1,9 +1,9 @@
 {
   "tool": "extended_tinker:firecrack",
   "text": [
-    { "text": "煙火是一種模塊化的工具。" }
+    { "text": "Firecrack is a modular firework." }
   ],
   "properties": [
-    "200% 耐久系数"
+    "200% Durability"
   ]
 }

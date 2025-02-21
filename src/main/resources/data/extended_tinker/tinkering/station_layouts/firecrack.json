@@ -1,7 +1,7 @@
 {
-  "translation_key": "item.extended_tinker.firework_rocket",
+  "translation_key": "item.extended_tinker.firecrack",
   "icon": {
-    "item": "extended_tinker:firework_rocket",
+    "item": "extended_tinker:firecrack",
     "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#tool_handle\",\"tconstruct:ui_render#bow_limb\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
   },
   "sortIndex": 1024,

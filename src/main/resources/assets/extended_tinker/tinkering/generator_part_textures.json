@@ -1,4 +1,4 @@
-{
+{extended_tinker_f
   "replace": false,
   "parts": [
     { "path": "extended_tinker:item/tool/parts/bridle",        "stat_type": "tconstruct:armor" },
@@ -14,7 +14,7 @@
     { "path": "extended_tinker:tinker_armor/horse_armor/shield2_armor", "stat_type": "tconstruct:shield_core" },
     { "path": "extended_tinker:tinker_armor/horse_armor/head_armor",     "stat_type": "tconstruct:armor_plating" },
 
-    { "path": "extended_tinker:item/tool/firework_rocket/handle",     "stat_type": "tconstruct:handle" },
-    { "path": "extended_tinker:item/tool/firework_rocket/limb",     "stat_type": "tconstruct:handle" }
+    { "path": "extended_tinker:item/tool/firecrack/handle",     "stat_type": "tconstruct:handle" },
+    { "path": "extended_tinker:item/tool/firecrack/limb",     "stat_type": "tconstruct:handle" }
   ]
 }

@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.tool.FireworkRocket;
+import org.vocalsky.extended_tinker.common.tool.Firecrack;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.object.ItemObject;
@@ -28,7 +28,7 @@ public class Items {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
 
     // Tools
-    public static final ItemObject<FireworkRocket> FIREWORK_ROCKET = ITEMS.register("firework_rocket", () -> new FireworkRocket(Stack1Item, Definitions.FIREWORK_ROCKET));
+    public static final ItemObject<Firecrack> FIRECRACK = ITEMS.register("firecrack", () -> new Firecrack(Stack1Item, Definitions.FIRECRACK));
 
     // Armors
     public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(Definitions.HORSE_ARMOR_MATERIAL, ArmorSlotType.CHESTPLATE, Stack1Item));
