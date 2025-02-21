@@ -13,6 +13,8 @@ import org.vocalsky.extended_tinker.common.modifier.FireworkRocket.FireworkRocke
 import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorAsoneModifier;
 import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorPainlessModifier;
 import slimeknights.mantle.recipe.helper.LoadableRecipeSerializer;
+import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
+import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.TinkerModule;
 import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 import slimeknights.tconstruct.library.modifiers.Modifier;
@@ -30,6 +32,7 @@ public class Modifiers extends TinkerModule {
         ITEM.register(bus);
         MODIFIERS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
+    protected static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, TConstruct.MOD_ID);
 
     public static StaticModifier<Modifier> PAINLESS = MODIFIERS.register("painless_horsearmor", HorseArmorPainlessModifier::new);
     public static StaticModifier<Modifier> ASONE = MODIFIERS.register("asone_horsearmor", HorseArmorAsoneModifier::new);

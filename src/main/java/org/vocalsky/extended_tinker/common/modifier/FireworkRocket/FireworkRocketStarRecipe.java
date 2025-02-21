@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
@@ -45,9 +46,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.vocalsky.extended_tinker.common.tool.FireworkRocket.TAG_EXPLOSION;
 import static org.vocalsky.extended_tinker.common.tool.FireworkRocket.TAG_EXPLOSIONS;
 
 public class FireworkRocketStarRecipe implements ITinkerStationRecipe, IMultiRecipe<IDisplayModifierRecipe> {
+    private static final Ingredient STAR_INGREDIENT = Ingredient.of(new ItemLike[]{Items.FIREWORK_STAR});
+
     public static final RecordLoadable<FireworkRocketStarRecipe> LOADER = RecordLoadable.create(ContextKey.ID.requiredField(), IngredientLoadable.DISALLOW_EMPTY.requiredField("tools", r -> r.toolRequirement), FireworkRocketStarRecipe::new);
 
     @Getter
@@ -70,7 +74,7 @@ public class FireworkRocketStarRecipe implements ITinkerStationRecipe, IMultiRec
         for (int i = 0; i < inv.getInputCount(); i++) {
             ItemStack input = inv.getInput(i);
             if (!input.isEmpty()) {
-                if (!input.is(Items.FIREWORK_STAR)) return false;
+                if (STAR_INGREDIENT.test(input)) return false;
                 if (found) return false;
                 found = true;
             }
@@ -82,71 +86,27 @@ public class FireworkRocketStarRecipe implements ITinkerStationRecipe, IMultiRec
     public @NotNull ItemStack assemble(ITinkerStationContainer inv) {
         ToolStack tool = inv.getTinkerable().copy();
         ModDataNBT persistentData = tool.getPersistentData();
-        ResourceLocation key = TinkerModifiers.dyed.getId();
-        int nr = 0, nb = 0, ng = 0;
-        int brightness = 0;
-        int count = 0;
-
-        // copy existing color
-        if (persistentData.contains(key, Tag.TAG_INT)) {
-            int color = persistentData.getInt(key);
-            int r = color >> 16 & 255;
-            int g = color >>  8 & 255;
-            int b = color       & 255;
-            brightness = Math.max(r, Math.max(g, b));
-            nr = r;
-            nb = b;
-            ng = g;
-            count++;
-        }
-
-        // copy color from each dye
+        ResourceLocation key = Modifiers.fireworkRocketStar.getId();
+        ListTag list = new ListTag();
         for (int i = 0; i < inv.getInputCount(); i++) {
             ItemStack stack = inv.getInput(i);
             if (!stack.isEmpty()) {
-                DyeColor dye = DyeColor.getColor(stack);
-                if (dye != null) {
-                    float[] color = dye.getTextureDiffuseColors();
-                    int r = (int)(color[0] * 255);
-                    int g = (int)(color[1] * 255);
-                    int b = (int)(color[2] * 255);
-                    brightness += Math.max(r, Math.max(g, b));
-                    nr += r;
-                    ng += g;
-                    nb += b;
-                    count++;
+                if (STAR_INGREDIENT.test(stack)) {
+                    CompoundTag tag = stack.getTagElement(TAG_EXPLOSION);
+                    if (tag != null) list.add(tag);
                 }
             }
         }
-
-        // should never happen, but lets not crash
-        if (count == 0) {
-            return ItemStack.EMPTY;
-        }
-
-        // build the final color
-        nr /= count;
-        ng /= count;
-        nb /= count;
-        float scaledBrightness = (float)brightness / (float)count;
-        brightness = Math.max(nr, Math.max(ng, nb));
-        nr = (int)((float)nr * scaledBrightness / brightness);
-        ng = (int)((float)ng * scaledBrightness / brightness);
-        nb = (int)((float)nb * scaledBrightness / brightness);
-        int finalColor = (nr << 16) | (ng << 8) | nb;
-        persistentData.putInt(key, finalColor);
-
-        // add the modifier if missing
-        ModifierId modifier = TinkerModifiers.dyed.getId();
-        if (tool.getModifierLevel(modifier) == 0) {
+        persistentData.put(key, list);
+        ModifierId modifier = Modifiers.fireworkRocketStar.getId();
+        if (tool.getModifierLevel(modifier) == 0)
             tool.addModifier(modifier, 1);
-        }
         return tool.createStack(Math.min(inv.getTinkerableSize(), shrinkToolSlotBy()));
     }
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return TinkerModifiers.armorDyeingSerializer.get();
+        return Modifiers.fireworkRocketStarSerializer.get();
     }
 
 
@@ -156,7 +116,7 @@ public class FireworkRocketStarRecipe implements ITinkerStationRecipe, IMultiRec
     private List<IDisplayModifierRecipe> displayRecipes;
 
     @Override
-    public List<IDisplayModifierRecipe> getRecipes() {
+    public @NotNull List<IDisplayModifierRecipe> getRecipes() {
         if (displayRecipes == null) {
             List<ItemStack> toolInputs = Arrays.stream(this.toolRequirement.getItems()).map(stack -> {
                 if (stack.getItem() instanceof IModifiableDisplay) {
@@ -164,7 +124,7 @@ public class FireworkRocketStarRecipe implements ITinkerStationRecipe, IMultiRec
                 }
                 return stack;
             }).toList();
-            ModifierEntry result = new ModifierEntry(TinkerModifiers.dyed.get(), 1);
+            ModifierEntry result = new ModifierEntry(Modifiers.fireworkRocketStar.get(), 1);
             displayRecipes = Arrays.stream(DyeColor.values()).map(dye -> new FireworkRocketStarRecipe.DisplayRecipe(result, toolInputs, dye)).collect(Collectors.toList());
         }
         return displayRecipes;
