@@ -89,6 +89,7 @@ public class FireworkRocket extends ModifiableItem {
         }
     }
 
+    @Override
     public @NotNull InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         if (!level.isClientSide) {
@@ -105,6 +106,7 @@ public class FireworkRocket extends ModifiableItem {
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
+    @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
         if (player.isFallFlying()) {
             ItemStack stack = player.getItemInHand(hand);
