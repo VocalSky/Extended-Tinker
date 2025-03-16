@@ -1,0 +1,36 @@
+{
+  "modules": [
+    {
+      "type": "tconstruct:part_stats",
+      "parts": [
+        "tconstruct:maille",
+        "tconstruct:shield_core",
+        "tconstruct:maille",
+        "tconstruct:shield_core",
+        "extended_tinker:bridle"
+      ],
+      "primary_part": 0
+    },
+    {
+      "type": "tconstruct:default_materials",
+      "materials": [
+        {
+          "type": "tconstruct:fixed",
+          "material": "tconstruct:cobalt"
+        },
+        {
+          "type": "tconstruct:fixed",
+          "material": "tconstruct:ancient_hide"
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:modifier_slots",
+      "slots": {
+        "abilities": 1,
+        "defense": 1,
+        "upgrades": 3
+      }
+    }
+  ]
+}
