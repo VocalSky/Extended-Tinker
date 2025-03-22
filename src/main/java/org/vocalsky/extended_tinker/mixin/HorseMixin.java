@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.vocalsky.extended_tinker.common.Modifiers;
+import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
@@ -62,7 +62,7 @@ public abstract class HorseMixin extends AbstractHorse {
     @Inject(method = "getHurtSound", at = @At("HEAD"), cancellable = true)
     public void getHurtSoundMixin(DamageSource damageSource, CallbackInfoReturnable<SoundEvent> cir) {
         if (getArmor().getItem() instanceof HorseArmor)
-            if(isVehicle() && ToolStack.from(getArmor()).getModifierLevel(Modifiers.PAINLESS.get()) > 0)
+            if(isVehicle() && ToolStack.from(getArmor()).getModifierLevel(ModModifiers.PAINLESS.get()) > 0)
                 cir.setReturnValue(SoundEvents.HORSE_HURT);
     }
 

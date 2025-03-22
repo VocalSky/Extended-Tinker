@@ -7,22 +7,22 @@ import static org.vocalsky.extended_tinker.common.tool.Firecrack.fireworkRocketS
 
 import java.util.function.Supplier;
 
-public class FireworkRocketShotPacket {
+public class FirecrackShotPacket {
     int playerId;
 
-    public FireworkRocketShotPacket(int playerId) {
+    public FirecrackShotPacket(int playerId) {
         this.playerId = playerId;
     }
 
-    public static void encode(FireworkRocketShotPacket packet, FriendlyByteBuf buf) {
+    public static void encode(FirecrackShotPacket packet, FriendlyByteBuf buf) {
         buf.writeInt(packet.playerId);
     }
 
-    public static FireworkRocketShotPacket decode(FriendlyByteBuf buf) {
-        return new FireworkRocketShotPacket(buf.readInt());
+    public static FirecrackShotPacket decode(FriendlyByteBuf buf) {
+        return new FirecrackShotPacket(buf.readInt());
     }
 
-    public static void handle(FireworkRocketShotPacket packet, Supplier<NetworkEvent.Context> supplier) {
+    public static void handle(FirecrackShotPacket packet, Supplier<NetworkEvent.Context> supplier) {
         if (supplier.get().getDirection().getReceptionSide().isServer()) {
             supplier.get().enqueueWork(() -> {
                 ServerPlayer player = supplier.get().getSender();

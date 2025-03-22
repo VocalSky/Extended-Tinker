@@ -14,7 +14,7 @@ import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
-public class Items {
+public class ModItems {
     // Utils
     public static final CreativeModeTab Extended_Tinker_Tab = new CreativeModeTab("extended_tinker") {
         @Override
@@ -28,16 +28,16 @@ public class Items {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
 
     // Tools
-    public static final ItemObject<Firecrack> FIRECRACK = ITEMS.register("firecrack", () -> new Firecrack(Stack1Item, Definitions.FIRECRACK));
+    public static final ItemObject<Firecrack> FIRECRACK = ITEMS.register("firecrack", () -> new Firecrack(Stack1Item, ModToolDefinitions.FIRECRACK));
 
     // Armors
-    public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(Definitions.HORSE_ARMOR_MATERIAL, ArmorSlotType.CHESTPLATE, Stack1Item));
+    public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL, ArmorSlotType.CHESTPLATE, Stack1Item));
 
     // Parts & Casts
     public static final ItemObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(CommonItem, PlatingMaterialStats.CHESTPLATE.getId()));
-    public static final ItemObject<Item> BRIDLE_SAND_CAST = ITEMS.register("bridle_sand_cast", Items::register);
-    public static final ItemObject<Item> BRIDLE_RED_SAND_CAST = ITEMS.register("bridle_red_sand_cast", Items::register);
-    public static final ItemObject<Item> BRIDLE_GOLD_CAST = ITEMS.register("bridle_gold_cast", Items::register);
+    public static final ItemObject<Item> BRIDLE_SAND_CAST = ITEMS.register("bridle_sand_cast", ModItems::register);
+    public static final ItemObject<Item> BRIDLE_RED_SAND_CAST = ITEMS.register("bridle_red_sand_cast", ModItems::register);
+    public static final ItemObject<Item> BRIDLE_GOLD_CAST = ITEMS.register("bridle_gold_cast", ModItems::register);
 
     public static void registers(IEventBus eventBus)  {
         ITEMS.register(eventBus);

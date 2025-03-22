@@ -10,8 +10,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.vocalsky.extended_tinker.common.Items;
-import org.vocalsky.extended_tinker.common.Modifiers;
+import org.vocalsky.extended_tinker.common.ModItems;
+import org.vocalsky.extended_tinker.common.ModEntity;
+import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.network.PacketHandler;
 
 @Mod(Extended_tinker.MODID)
@@ -24,13 +25,14 @@ public class Extended_tinker {
 
         modEventBus.addListener(this::commonSetup);
 
-        Items.registers(modEventBus);
+        ModItems.registers(modEventBus);
+        ModEntity.ENTITY_TYPES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        Modifiers.Init();
+        ModModifiers.Init();
 
         PacketHandler.Init();
     }

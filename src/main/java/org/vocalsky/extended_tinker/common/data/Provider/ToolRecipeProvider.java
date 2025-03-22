@@ -5,7 +5,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.Items;
+import org.vocalsky.extended_tinker.common.ModItems;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
 
@@ -29,8 +29,8 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
     private void addToolBuildingRecipes(Consumer<FinishedRecipe> consumer) {
         String folder = "tools/building/";
         String armorFolder = "tools/armor/";
-        toolBuilding(consumer, Items.FIRECRACK, folder);
-        toolBuilding(consumer, Items.HORSE_ARMOR, armorFolder);
+        toolBuilding(consumer, ModItems.FIRECRACK, folder);
+        toolBuilding(consumer, ModItems.HORSE_ARMOR, armorFolder);
     }
 
     @Override

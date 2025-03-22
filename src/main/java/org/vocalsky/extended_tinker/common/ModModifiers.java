@@ -1,16 +1,13 @@
 package org.vocalsky.extended_tinker.common;
 
-import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.common.modifier.Firecrack.FirecrackFlightModifier;
 import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorAsoneModifier;
 import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorPainlessModifier;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
@@ -21,7 +18,7 @@ import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
-public class Modifiers extends TinkerModule {
+public class ModModifiers extends TinkerModule {
     public static ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(Extended_tinker.MODID);
     private static final ItemDeferredRegisterExtension ITEM = new ItemDeferredRegisterExtension(Extended_tinker.MODID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Extended_tinker.MODID);
@@ -35,4 +32,5 @@ public class Modifiers extends TinkerModule {
 
     public static StaticModifier<Modifier> PAINLESS = MODIFIERS.register("painless_horsearmor", HorseArmorPainlessModifier::new);
     public static StaticModifier<Modifier> ASONE = MODIFIERS.register("asone_horsearmor", HorseArmorAsoneModifier::new);
+    public static StaticModifier<Modifier> FLIGHT = MODIFIERS.register("flight_firecrack", FirecrackFlightModifier::new);
 }
