@@ -20,7 +20,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.NotNull;
-import org.vocalsky.extended_tinker.common.ModEntity;
 import org.vocalsky.extended_tinker.common.entity.FirecrackEntity;
 import org.vocalsky.extended_tinker.network.PacketHandler;
 import org.vocalsky.extended_tinker.network.packet.FirecrackShotPacket;
@@ -36,16 +35,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class Firecrack extends ModifiableItem {
-    public static final String TAG_FIREWORKS = "Fireworks";
-    public static final String TAG_EXPLOSION = "Explosion";
-    public static final String TAG_EXPLOSIONS = "Explosions";
-    public static final String TAG_FLIGHT = "FirecrackFlightModifier";
-    public static final String TAG_EXPLOSION_TYPE = "Type";
-    public static final String TAG_EXPLOSION_TRAIL = "Trail";
-    public static final String TAG_EXPLOSION_FLICKER = "Flicker";
-    public static final String TAG_EXPLOSION_COLORS = "Colors";
-    public static final String TAG_EXPLOSION_FADECOLORS = "FadeColors";
-    public static final double ROCKET_PLACEMENT_OFFSET = 0.15;
 
     public Firecrack(Properties properties, ToolDefinition toolDefinition) {
         super(properties, toolDefinition);
@@ -121,63 +110,6 @@ public class Firecrack extends ModifiableItem {
             return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide());
         } else {
             return InteractionResultHolder.pass(player.getItemInHand(hand));
-        }
-    }
-
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        CompoundTag tag = stack.getTagElement(TAG_FIREWORKS);
-        if (tag != null) {
-            if (tag.contains(TAG_FLIGHT, 99))
-                tooltip.add(Component.translatable("item.minecraft.firecrack.flight").append(" ").append(String.valueOf(tag.getByte(TAG_FLIGHT))).withStyle(ChatFormatting.GRAY));
-            ListTag explosions = tag.getList(TAG_EXPLOSIONS, 10);
-            if (!explosions.isEmpty()) {
-                for(int i = 0; i < explosions.size(); ++i) {
-                    CompoundTag compound = explosions.getCompound(i);
-                    List<Component> starTooltip = Lists.newArrayList();
-                    FireworkStarItem.appendHoverText(compound, starTooltip);
-                    if (!starTooltip.isEmpty()) {
-                        for(int j = 1; j < starTooltip.size(); ++j)
-                            starTooltip.set(j, Component.literal("  ").append(starTooltip.get(j)).withStyle(ChatFormatting.GRAY));
-                        tooltip.addAll(starTooltip);
-                    }
-                }
-            }
-        }
-        super.appendHoverText(stack, level, tooltip, flag);
-    }
-
-    public @NotNull ItemStack getDefaultInstance() {
-        ItemStack stack = new ItemStack(this);
-        stack.getOrCreateTag().putByte(TAG_FLIGHT, (byte)1);
-        return stack;
-    }
-
-    public enum Shape {
-        SMALL_BALL(0, "small_ball"),
-        LARGE_BALL(1, "large_ball"),
-        STAR(2, "star"),
-        CREEPER(3, "creeper"),
-        BURST(4, "burst");
-
-        private static final Shape[] BY_ID = Arrays.stream(values()).sorted(Comparator.comparingInt((p_41240_) -> p_41240_.id)).toArray(Shape[]::new);
-        private final int id;
-        private final String name;
-
-        Shape(int p_41234_, String p_41235_) {
-            this.id = p_41234_;
-            this.name = p_41235_;
-        }
-
-        public int getId() {
-            return this.id;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-
-        public static Shape byId(int id) {
-            return id >= 0 && id < BY_ID.length ? BY_ID[id] : SMALL_BALL;
         }
     }
 }

@@ -20,5 +20,9 @@
   "modifier.extended_tinker.asone_horsearmor.description": "You will take damage along with your mount.",
 
   "item.extended_tinker.firecrack": "Firecrack",
-  "item.extended_tinker.firecrack.description": "Firecrack is a modular firework."
+  "item.extended_tinker.firecrack.description": "Firecrack is a modular firework.",
+
+  "modifier.extended_tinker.flight_firecrack": "Flight",
+  "modifier.extended_tinker.flight_firecrack.flavor": "Can it fly?",
+  "modifier.extended_tinker.flight_firecrack.description": "Try right-clicking."
 }

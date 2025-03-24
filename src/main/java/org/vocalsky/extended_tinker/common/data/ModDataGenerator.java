@@ -5,10 +5,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.data.Provider.ModifierTagProvider;
-import org.vocalsky.extended_tinker.common.data.Provider.StationSlotLayoutProvider;
-import org.vocalsky.extended_tinker.common.data.Provider.ToolDefinitionDataProvider;
-import org.vocalsky.extended_tinker.common.data.Provider.ToolRecipeProvider;
+import org.vocalsky.extended_tinker.common.data.Provider.*;
 
 @Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModDataGenerator {
@@ -19,6 +16,7 @@ public class ModDataGenerator {
         generator.addProvider(server, new ToolRecipeProvider(generator));
         generator.addProvider(server, new ToolDefinitionDataProvider(generator));
         generator.addProvider(server, new StationSlotLayoutProvider(generator));
+        generator.addProvider(server, new ModifierRecipeProvider(generator));
         generator.addProvider(server, new ModifierTagProvider(generator, event.getExistingFileHelper()));
     }
 }

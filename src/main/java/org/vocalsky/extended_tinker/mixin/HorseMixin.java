@@ -65,11 +65,4 @@ public abstract class HorseMixin extends AbstractHorse {
             if(isVehicle() && ToolStack.from(getArmor()).getModifierLevel(ModModifiers.PAINLESS.get()) > 0)
                 cir.setReturnValue(SoundEvents.HORSE_HURT);
     }
-
-    @Override
-    public boolean hurt(DamageSource damageSource, float amount) {
-        System.out.print("MIXIN HURT ");
-        System.out.println(amount);
-        return super.hurt(damageSource, amount);
-    }
 }

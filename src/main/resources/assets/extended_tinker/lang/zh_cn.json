@@ -20,5 +20,9 @@
   "modifier.extended_tinker.asone_horsearmor.description": "当玩家乘骑时，马和玩家分摊伤害。",
 
   "item.extended_tinker.firecrack": "烟火",
-  "item.extended_tinker.firecrack.description": "烟火是一种模块化的工具。"
+  "item.extended_tinker.firecrack.description": "烟火是一种模块化的工具。",
+
+  "modifier.extended_tinker.flight_firecrack": "飞行",
+  "modifier.extended_tinker.flight_firecrack.flavor": "它能飞吗？",
+  "modifier.extended_tinker.flight_firecrack.description": "试试右键。"
 }

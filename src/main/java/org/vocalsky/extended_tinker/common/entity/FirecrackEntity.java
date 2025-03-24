@@ -8,13 +8,10 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -24,9 +21,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.vocalsky.extended_tinker.common.ModEntity;
+import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.entity.damageSources.firecrackDamageSource;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.OptionalInt;
 
@@ -35,7 +35,7 @@ public class FirecrackEntity extends ItemProjectile {
     private int lifetime;
     private static final EntityDataAccessor<OptionalInt> DATA_ATTACHED_TO_TARGET;
     private static final EntityDataAccessor<Boolean> DATA_SHOT_AT_ANGLE;
-    private  LivingEntity attachedToEntity;
+    private LivingEntity attachedToEntity;
 
     public FirecrackEntity(EntityType<? extends FirecrackEntity> entityType, Level level, ItemStack itemStack) {
         super(entityType, level);
@@ -52,7 +52,7 @@ public class FirecrackEntity extends ItemProjectile {
         this.life = 0;
         this.setPos(x, y, z);
         this.setDeltaMovement(this.random.triangle(0.0, 0.002297), 0.05, this.random.triangle(0.0, 0.002297));
-        this.lifetime = 50 + this.random.nextInt(6) + this.random.nextInt(7);
+        this.lifetime = 10 * ToolStack.from(itemStack).getModifierLevel(ModModifiers.FLIGHT.get()) + this.random.nextInt(6) + this.random.nextInt(7);
     }
 
     public FirecrackEntity(Level level, @Nullable Entity entity, double x, double y, double z, ItemStack itemStack, boolean isShotAtAngle) {
@@ -61,7 +61,7 @@ public class FirecrackEntity extends ItemProjectile {
     }
 
     public FirecrackEntity(Level level, ItemStack itemStack, LivingEntity livingEntity) {
-        this(level, livingEntity, itemStack);
+        this(level, livingEntity, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(),itemStack);
         this.entityData.set(DATA_ATTACHED_TO_TARGET, OptionalInt.of(livingEntity.getId()));
         this.attachedToEntity = livingEntity;
     }
@@ -83,7 +83,7 @@ public class FirecrackEntity extends ItemProjectile {
     }
 
     public boolean isShotAtAngle() {
-        return (Boolean)this.entityData.get(DATA_SHOT_AT_ANGLE);
+        return this.entityData.get(DATA_SHOT_AT_ANGLE);
     }
 
     public boolean shouldRenderAtSqrDistance(double d) {
@@ -110,7 +110,7 @@ public class FirecrackEntity extends ItemProjectile {
 
             Vec3 vec3 = this.position();
 
-            for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate((double)5.0F))) {
+            for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(5.0))) {
                 if (livingentity != this.attachedToEntity && !(this.distanceToSqr(livingentity) > 25.0)) {
                     boolean flag = false;
 
@@ -187,7 +187,7 @@ public class FirecrackEntity extends ItemProjectile {
         }
 
         ++this.life;
-        if (this.level.isClientSide && this.life % 2 < 2) {
+        if (this.level.isClientSide) {
             this.level.addParticle(ParticleTypes.FIREWORK, this.getX(), this.getY(), this.getZ(), this.random.nextGaussian() * 0.05, -this.getDeltaMovement().y * (double)0.5F, this.random.nextGaussian() * 0.05);
         }
 
@@ -202,14 +202,14 @@ public class FirecrackEntity extends ItemProjectile {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag data) {
+    public void addAdditionalSaveData(@NotNull CompoundTag data) {
         super.addAdditionalSaveData(data);
         data.putInt("Life", this.life);
         data.putInt("LifeTime", this.lifetime);
         data.putBoolean("ShotAtAngle", this.entityData.get(DATA_SHOT_AT_ANGLE));
     }
 
-    public void readAdditionalSaveData(CompoundTag data) {
+    public void readAdditionalSaveData(@NotNull CompoundTag data) {
         super.readAdditionalSaveData(data);
         this.life = data.getInt("Life");
         this.lifetime = data.getInt("LifeTime");
