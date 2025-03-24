@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tconstruct:travelers_shield"
+    },
+    {
+      "item": "minecraft:hay_block"
+    },
+    {
+      "item": "tconstruct:plate_shield"
+    },
+    {
+      "item": "minecraft:lead"
+    },
+    {
+      "tag": "minecraft:music_discs"
+    }
+  ],
+  "level": 1,
+  "result": "extended_tinker:painless_horsearmor",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "extended_tinker:horse_armor_chestplate"
+  }
+}
