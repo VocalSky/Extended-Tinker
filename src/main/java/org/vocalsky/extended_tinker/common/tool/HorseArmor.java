@@ -2,6 +2,7 @@ package org.vocalsky.extended_tinker.common.tool;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import lombok.Getter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.NonNullList;
@@ -69,10 +70,15 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
             return dispenseArmor(p_40408_, p_40409_) ? p_40409_ : super.execute(p_40408_, p_40409_);
         }
     };
+    @Getter
     protected final EquipmentSlot slot;
+    @Getter
     private final int defense;
+    @Getter
     private final float toughness;
+    @Getter
     protected final float knockbackResistance;
+    @Getter
     protected final ArmorMaterial material;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
     private final ResourceLocation texture;
@@ -129,16 +135,8 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         return this.texture;
     }
 
-    public EquipmentSlot getSlot() {
-        return this.slot;
-    }
-
     public int getEnchantmentValue() {
         return this.material.getEnchantmentValue();
-    }
-
-    public ArmorMaterial getMaterial() {
-        return this.material;
     }
 
     public InteractionResultHolder<ItemStack> super_use(Level p_40395_, Player p_40396_, InteractionHand p_40397_) {
@@ -166,15 +164,6 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
 
     public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot p_40390_) {
         return p_40390_ == this.slot ? this.defaultModifiers : super.getDefaultAttributeModifiers(p_40390_);
-    }
-
-    public int getDefense() { return this.defense; }
-
-    public float getToughness() {
-        return this.toughness;
-    }
-    public float getKnockbackResistance() {
-        return this.knockbackResistance;
     }
 
     @Nullable

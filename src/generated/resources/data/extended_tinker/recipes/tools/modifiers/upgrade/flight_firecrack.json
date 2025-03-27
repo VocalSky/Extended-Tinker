@@ -3,18 +3,23 @@
   "allow_crystal": true,
   "inputs": [
     {
+      "amount_needed": 8,
       "tag": "forge:gunpowder"
     },
     {
+      "amount_needed": 8,
       "tag": "forge:gunpowder"
     },
     {
+      "amount_needed": 8,
       "tag": "forge:gunpowder"
     },
     {
+      "amount_needed": 4,
       "item": "minecraft:paper"
     },
     {
+      "amount_needed": 4,
       "item": "minecraft:paper"
     }
   ],
@@ -22,7 +27,10 @@
     "max": 5
   },
   "result": "extended_tinker:flight_firecrack",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": {
-    "tag": "tconstruct:modifiable"
+    "item": "extended_tinker:firecrack"
   }
 }

@@ -1,6 +1,7 @@
 package org.vocalsky.extended_tinker.common.data;
 
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -13,10 +14,17 @@ public class ModDataGenerator {
     public static void gatherData(GatherDataEvent event){
         DataGenerator generator = event.getGenerator();
         boolean server = event.includeServer();
+        boolean client = event.includeClient();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        BlockTagProvider blockTags = new BlockTagProvider(generator, existingFileHelper);
+        generator.addProvider(server, blockTags);
+        generator.addProvider(server, new ItemTagProvider(generator, blockTags, existingFileHelper));
         generator.addProvider(server, new ToolRecipeProvider(generator));
         generator.addProvider(server, new ToolDefinitionDataProvider(generator));
         generator.addProvider(server, new StationSlotLayoutProvider(generator));
+        generator.addProvider(server, new ModifierProvider(generator));
         generator.addProvider(server, new ModifierRecipeProvider(generator));
         generator.addProvider(server, new ModifierTagProvider(generator, event.getExistingFileHelper()));
+        generator.addProvider(client, new ModItemModelProvider(generator, event.getExistingFileHelper()));
     }
 }

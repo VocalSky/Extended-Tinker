@@ -1,11 +1,6 @@
 package org.vocalsky.extended_tinker.common.tool;
 
-import com.google.common.collect.Lists;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -28,10 +23,6 @@ import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
-import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Objects;
 
 public class Firecrack extends ModifiableItem {
@@ -49,7 +40,7 @@ public class Firecrack extends ModifiableItem {
     }
 
     @Override
-    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity target) {
+    public boolean onLeftClickEntity(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
         if (player instanceof ServerPlayer serverPlayer) fireworkRocketShot(serverPlayer);
         return super.onLeftClickEntity(stack, player, target);
     }

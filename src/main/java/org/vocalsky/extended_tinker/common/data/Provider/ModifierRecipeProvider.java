@@ -1,6 +1,5 @@
 package org.vocalsky.extended_tinker.common.data.Provider;
 
-import com.mojang.datafixers.types.templates.Tag;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -13,14 +12,11 @@ import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModModifiers;
+import org.vocalsky.extended_tinker.common.ModTools;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
-import slimeknights.tconstruct.common.TinkerTags;
-import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipe;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
-import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerTools;
-import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import java.util.function.Consumer;
 
@@ -30,7 +26,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         addModifierRecipes(consumer);
     }
 
@@ -51,7 +47,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(Items.ARMOR_STAND)
             .addInput(Items.GOLDEN_APPLE)
             .setSlots(SlotType.ABILITY, 1)
-            .setTools(Ingredient.of(ModItems.HORSE_ARMOR))
+            .setTools(Ingredient.of(ModTools.HORSE_ARMOR))
             .setMaxLevel(1)
             .saveSalvage(consumer, prefix(ModModifiers.ASONE.getId(), abilitySalvage))
             .save(consumer, prefix(ModModifiers.ASONE.getId(), abilityFolder));
@@ -62,7 +58,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(Items.LEAD)
             .addInput(ItemTags.MUSIC_DISCS)
             .setSlots(SlotType.ABILITY, 1)
-            .setTools(Ingredient.of(ModItems.HORSE_ARMOR))
+            .setTools(Ingredient.of(ModTools.HORSE_ARMOR))
             .setMaxLevel(1)
             .saveSalvage(consumer, prefix(ModModifiers.PAINLESS.getId(), abilitySalvage))
             .save(consumer, prefix(ModModifiers.PAINLESS.getId(), abilityFolder));
@@ -74,7 +70,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(Items.PAPER, 4)
             .setMaxLevel(5)
             .setSlots(SlotType.UPGRADE, 1)
-            .setTools(Ingredient.of(ModItems.FIRECRACK))
+            .setTools(Ingredient.of(ModTools.FIRECRACK))
             .saveSalvage(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeSalvage))
             .save(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeFolder));
     }

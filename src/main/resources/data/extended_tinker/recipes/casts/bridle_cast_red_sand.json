@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:molding_table",
-  "material": { "item": "tconstruct:blank_red_sand_cast" },
-  "pattern": {
-    "type": "tconstruct:material",
-    "item": "extended_tinker:bridle"
-  },
-  "result": "extended_tinker:bridle_red_sand_cast"
-}

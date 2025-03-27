@@ -1,6 +1,7 @@
-// 1.19.2	2025-03-24T13:41:38.6544852	Extended Tinker Modifier Recipe Provider
+// 1.19.2	2025-03-25T13:42:30.780166	Extended Tinker Modifier Recipe Provider
 a7abea216b95ff11c608c6d422084efb5ea73bfd data/extended_tinker/recipes/tools/modifiers/ability/asone_horsearmor.json
 af0b18ec06224fccffbfe62b1873ebfc9e673ec0 data/extended_tinker/recipes/tools/modifiers/ability/painless_horsearmor.json
 246a99414d632c8440d357e041eaa572a16b223d data/extended_tinker/recipes/tools/modifiers/salvage/ability/asone_horsearmor.json
 564701ee954dae61de0d393e231ffa2e26de3455 data/extended_tinker/recipes/tools/modifiers/salvage/ability/painless_horsearmor.json
-c003f8edeaddf7a1010d48e09ba2aaf4dcbc66b7 data/extended_tinker/recipes/tools/modifiers/upgrade/flight_firecrack.json
+64fa9437af385a37eb08b66d976a5c8a106d730f data/extended_tinker/recipes/tools/modifiers/salvage/upgrade/flight_firecrack.json
+1e66ba496853ed40d9464ac85cee7da8db801895 data/extended_tinker/recipes/tools/modifiers/upgrade/flight_firecrack.json
