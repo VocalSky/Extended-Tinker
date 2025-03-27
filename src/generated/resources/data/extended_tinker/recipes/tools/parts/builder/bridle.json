@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 4,
+  "pattern": "extended_tinker:bridle",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "extended_tinker:bridle_cast"
+    }
+  ],
+  "result": {
+    "item": "extended_tinker:bridle"
+  }
+}
