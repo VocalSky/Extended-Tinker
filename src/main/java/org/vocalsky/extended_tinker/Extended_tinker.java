@@ -21,20 +21,16 @@ public class Extended_tinker {
     public Extended_tinker() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        modEventBus.addListener(this::commonSetup);
-
+        ModModifiers.registers(modEventBus);
         ModItems.registers(modEventBus);
         ModEntity.registers(modEventBus);
-        ModParts.registers(modEventBus);
-        ModCasts.registers(modEventBus);
-        ModTools.registers(modEventBus);
+
+        modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        ModModifiers.Init();
-
         PacketHandler.Init();
     }
 

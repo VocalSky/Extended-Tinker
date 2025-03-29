@@ -5,8 +5,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.modifiers.modules.technical.ArmorLevelModule;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
@@ -14,7 +16,7 @@ import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 
 import java.util.stream.Stream;
 
-public class HorseArmorAsoneModifier extends Modifier {
+public class HorseArmorAsoneModifier extends NoLevelsModifier {
     private static final TinkerDataCapability.TinkerDataKey<Integer> ASONE = TConstruct.createKey("asone_horsearmor");
 
     public HorseArmorAsoneModifier() {
@@ -24,7 +26,8 @@ public class HorseArmorAsoneModifier extends Modifier {
     }
 
     @Override
-    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+    protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
         hookBuilder.addModule(new ArmorLevelModule(ASONE, false, null));
     }
 

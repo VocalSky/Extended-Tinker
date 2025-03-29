@@ -11,7 +11,7 @@ import org.vocalsky.extended_tinker.common.data.Provider.*;
 @Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModDataGenerator {
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event){
+    public static void gatherData(final GatherDataEvent event){
         DataGenerator generator = event.getGenerator();
         boolean server = event.includeServer();
         boolean client = event.includeClient();
@@ -22,9 +22,6 @@ public class ModDataGenerator {
         generator.addProvider(server, new ToolRecipeProvider(generator));
         generator.addProvider(server, new ToolDefinitionDataProvider(generator));
         generator.addProvider(server, new StationSlotLayoutProvider(generator));
-        generator.addProvider(server, new ModifierProvider(generator));
-        generator.addProvider(server, new ModifierRecipeProvider(generator));
-        generator.addProvider(server, new ModifierTagProvider(generator, event.getExistingFileHelper()));
-        generator.addProvider(client, new ModItemModelProvider(generator, event.getExistingFileHelper()));
+        generator.addProvider(client, new ModItemModelProvider(generator, existingFileHelper));
     }
 }

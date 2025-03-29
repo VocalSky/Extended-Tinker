@@ -1,5 +1,6 @@
-// 1.19.2	2025-03-25T13:42:30.780166	Extended Tinker Modifier Recipe Provider
+// 1.19.2	2025-03-29T23:02:22.1525126	Extended Tinker Modifier Recipe Provider
 a7abea216b95ff11c608c6d422084efb5ea73bfd data/extended_tinker/recipes/tools/modifiers/ability/asone_horsearmor.json
+b111e6b6e074f7c5dd39fb2133a1093b3ec1a0be data/extended_tinker/recipes/tools/modifiers/ability/firecrack_star.json
 af0b18ec06224fccffbfe62b1873ebfc9e673ec0 data/extended_tinker/recipes/tools/modifiers/ability/painless_horsearmor.json
 246a99414d632c8440d357e041eaa572a16b223d data/extended_tinker/recipes/tools/modifiers/salvage/ability/asone_horsearmor.json
 564701ee954dae61de0d393e231ffa2e26de3455 data/extended_tinker/recipes/tools/modifiers/salvage/ability/painless_horsearmor.json

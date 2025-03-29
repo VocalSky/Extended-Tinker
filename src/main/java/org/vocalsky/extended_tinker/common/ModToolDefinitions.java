@@ -13,7 +13,7 @@ public class ModToolDefinitions {
     public ModToolDefinitions() {}
 
     static {
-        FIRECRACK = ToolDefinition.create(ModTools.FIRECRACK);
+        FIRECRACK = ToolDefinition.create(ModItems.Tools.FIRECRACK);
         HORSE_ARMOR_MATERIAL = ModifiableArmorMaterial.create(Extended_tinker.getResource("horse_armor"), SoundEvents.HORSE_ARMOR);
     }
 }

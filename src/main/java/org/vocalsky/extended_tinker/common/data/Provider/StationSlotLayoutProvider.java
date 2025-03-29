@@ -2,8 +2,7 @@ package org.vocalsky.extended_tinker.common.data.Provider;
 
 import net.minecraft.data.DataGenerator;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModParts;
-import org.vocalsky.extended_tinker.common.ModTools;
+import org.vocalsky.extended_tinker.common.ModItems;
 import slimeknights.tconstruct.library.data.tinkering.AbstractStationSlotLayoutProvider;
 import slimeknights.tconstruct.library.recipe.partbuilder.Pattern;
 import slimeknights.tconstruct.tools.TinkerToolParts;
@@ -15,16 +14,16 @@ public class StationSlotLayoutProvider extends AbstractStationSlotLayoutProvider
 
     @Override
     protected void addLayouts() {
-        defineModifiable(ModTools.HORSE_ARMOR)
+        defineModifiable(ModItems.Tools.HORSE_ARMOR)
             .sortIndex(514)
             .addInputItem(TinkerToolParts.maille, 3, 50)
             .addInputItem(TinkerToolParts.shieldCore, 23, 50)
             .addInputItem(TinkerToolParts.maille, 43, 50)
             .addInputItem(TinkerToolParts.shieldCore, 63, 50)
-            .addInputItem(ModParts.BRIDLE, 78, 30)
+            .addInputItem(ModItems.Parts.BRIDLE, 78, 30)
             .build();
 
-        defineModifiable(ModTools.FIRECRACK)
+        defineModifiable(ModItems.Tools.FIRECRACK)
             .sortIndex(1145)
             .addInputItem(TinkerToolParts.toolHandle, 30, 50)
             .addInputItem(TinkerToolParts.bowLimb, 10, 50)

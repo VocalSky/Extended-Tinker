@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModModifiers;
-import org.vocalsky.extended_tinker.common.ModTools;
+import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
@@ -47,7 +47,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(Items.ARMOR_STAND)
             .addInput(Items.GOLDEN_APPLE)
             .setSlots(SlotType.ABILITY, 1)
-            .setTools(Ingredient.of(ModTools.HORSE_ARMOR))
+            .setTools(Ingredient.of(ModItems.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
             .saveSalvage(consumer, prefix(ModModifiers.ASONE.getId(), abilitySalvage))
             .save(consumer, prefix(ModModifiers.ASONE.getId(), abilityFolder));
@@ -58,7 +58,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(Items.LEAD)
             .addInput(ItemTags.MUSIC_DISCS)
             .setSlots(SlotType.ABILITY, 1)
-            .setTools(Ingredient.of(ModTools.HORSE_ARMOR))
+            .setTools(Ingredient.of(ModItems.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
             .saveSalvage(consumer, prefix(ModModifiers.PAINLESS.getId(), abilitySalvage))
             .save(consumer, prefix(ModModifiers.PAINLESS.getId(), abilityFolder));
@@ -70,9 +70,10 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(Items.PAPER, 4)
             .setMaxLevel(5)
             .setSlots(SlotType.UPGRADE, 1)
-            .setTools(Ingredient.of(ModTools.FIRECRACK))
+            .setTools(Ingredient.of(ModItems.Tools.FIRECRACK))
             .saveSalvage(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeSalvage))
             .save(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeFolder));
+        consumer.accept(new FirecrackStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firecrack_star"), Ingredient.of(ModItems.Tools.FIRECRACK)));
     }
 
     @Override

@@ -8,10 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModCasts;
 import org.vocalsky.extended_tinker.common.ModItems;
-import org.vocalsky.extended_tinker.common.ModParts;
-import org.vocalsky.extended_tinker.common.ModTools;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 
@@ -31,10 +28,10 @@ public class ItemTagProvider extends ItemTagsProvider {
     }
 
     private void addTools() {
-        addToolTags(ModTools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL);
-        addToolTags(ModTools.FIRECRACK, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, AOE, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS);
+        addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL);
+        addToolTags(ModItems.Tools.FIRECRACK, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, AOE, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS);
 
-        this.tag(TOOL_PARTS).replace(false).add(ModParts.BRIDLE.get());
+        this.tag(TOOL_PARTS).replace(false).add(ModItems.Parts.BRIDLE.get());
     }
 
     private void addSmeltry() {
@@ -55,7 +52,7 @@ public class ItemTagProvider extends ItemTagsProvider {
             multiUseCasts.addTag(cast.getMultiUseTag());
             this.tag(cast.getMultiUseTag()).add(cast.get());
         };
-        addCast.accept(ModCasts.BRIDLE_CAST);
+        addCast.accept(ModItems.Casts.BRIDLE_CAST);
     }
 
     @SafeVarargs

@@ -11,9 +11,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModCasts;
 import org.vocalsky.extended_tinker.common.ModItems;
-import org.vocalsky.extended_tinker.common.ModParts;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.data.model.MaterialModelBuilder;
 import slimeknights.tconstruct.common.registration.CastItemObject;
@@ -27,9 +25,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        part(ModParts.BRIDLE);
+        part(ModItems.Parts.BRIDLE);
 
-        cast(ModCasts.BRIDLE_CAST);
+        cast(ModItems.Casts.BRIDLE_CAST);
     }
 
     private ResourceLocation id(ItemLike item) {
