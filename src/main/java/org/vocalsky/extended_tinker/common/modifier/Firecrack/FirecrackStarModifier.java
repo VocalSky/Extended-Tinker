@@ -17,7 +17,7 @@ public class FirecrackStarModifier extends Modifier implements ModifierRemovalHo
     @Override
     protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(ModifierHooks.REMOVE);
+        hookBuilder.addHook(this, ModifierHooks.REMOVE);
     }
 
     @Override

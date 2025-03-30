@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.modifier.Firecrack.FirecrackStarModifier;
 import slimeknights.mantle.data.loadable.common.IngredientLoadable;
@@ -200,88 +201,53 @@ import java.util.stream.Collectors;
 
 public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
     private final ResourceLocation id;
-    public static final ResourceLocation GLORIOUS_KEY = Extended_tinker.getResource("glorious_seal_modifiable");
-    public static final ResourceLocation GLORIOUS_META_KEY = Extended_tinker.getResource("glorious_seal_meta");
+    public static final ResourceLocation STAR_KEY = Extended_tinker.getResource("star_modifier");
 
     public FirecrackStarModifierRecipe(ResourceLocation id) {
         this.id = id;
+        ModifierRecipeLookup.addRecipeModifier(SlotType.ABILITY, ModModifiers.STAR);
     }
 
     private boolean checkMeta(ITinkerStationContainer inv) {
-        ItemStack paper = ItemStack.EMPTY;
-        ItemStack gold_block = ItemStack.EMPTY;
-        ItemStack sea_dream_ingo = ItemStack.EMPTY;
-        ItemStack manyullyn_ingot = ItemStack.EMPTY;
+        ItemStack star = ItemStack.EMPTY;
 
         for(int i = 0; i < inv.getInputCount(); ++i) {
             ItemStack input = inv.getInput(i);
-            if (input.is(Items.PAPER)) {
-                paper = input;
-            } else if (input.is(Items.GOLD_BLOCK)) {
-                gold_block = input;
-//            } else if (input.is((Item)TIItems.SEA_DREAM_INGOT.get())) {
-//                sea_dream_ingo = input;
-            } else if (input.is(TinkerMaterials.manyullyn.getIngot())) {
-                manyullyn_ingot = input;
+            if (input.is(Items.FIREWORK_STAR)) {
+                star = input;
             }
         }
 
-        return !paper.isEmpty() && !gold_block.isEmpty() && !sea_dream_ingo.isEmpty() && !manyullyn_ingot.isEmpty();
-    }
-
-    public static boolean hasMetaIn(ToolStack tool, String id) {
-        Iterator var2 = tool.getMaterials().getList().iterator();
-        if (var2.hasNext()) {
-            MaterialVariant material = (MaterialVariant)var2.next();
-            return material.get().getIdentifier().toString().equals(id);
-        } else {
-            return false;
-        }
+        return !star.isEmpty();
     }
 
     public boolean matches(ITinkerStationContainer inv, @NotNull Level level) {
         ToolStack tool = inv.getTinkerable();
         ItemStack stack = inv.getTinkerableStack();
-        if (!stack.isEmpty() && stack.is(slimeknights.tconstruct.common.TinkerTags.Items.MULTIPART_TOOL)) {
-            if (tool.getPersistentData().getBoolean(GLORIOUS_KEY)) {
+        if (!stack.isEmpty() && stack.is(ModItems.Tools.FIRECRACK.get())) {
+            if (tool.getPersistentData().getBoolean(STAR_KEY)) {
                 return false;
             } else {
-                if (hasMetaIn(tool, "tinkers_ingenuity:splendid")) {
-                    for(int i = 0; i < inv.getInputCount(); ++i) {
-                        ItemStack input = inv.getInput(i);
-                        if (input.getItem() instanceof IToolPart) {
-                            List<IToolPart> parts = ToolPartsHook.parts(tool.getDefinition());
-                            if (parts.isEmpty()) {
-                                return false;
-                            }
-
-                            return this.checkMeta(inv) && parts.stream().anyMatch((p) -> p.asItem() == input.getItem());
-                        }
-                    }
-                }
-
-                return false;
+                return this.checkMeta(inv);
             }
         } else {
             return false;
         }
     }
 
+    @Override
     public @NotNull RecipeResult<ItemStack> getValidatedResult(ITinkerStationContainer inv) {
         ToolStack tool = inv.getTinkerable();
 
         for(int i = 0; i < inv.getInputCount(); ++i) {
             ItemStack input = inv.getInput(i);
-            Item newToolItem = input.getItem();
-            if (newToolItem instanceof IToolPart part) {
+            if (input.is(Items.FIREWORK_STAR)) {
                 ToolStack newTool = tool.copy();
-
-                for(ModifierEntry trait : MaterialRegistry.getInstance().getTraits(part.getMaterial(input).getId(), part.getStatType())) {
-                    newTool.addModifier(trait.getId(), trait.getLevel());
+                if (input.getTag() != null) {
+                    System.out.print("STARMODIFIER:");
+                    System.out.println(input.getTag());
+                    newTool.getPersistentData().put(STAR_KEY, input.getTag());
                 }
-
-                newTool.getPersistentData().putBoolean(GLORIOUS_KEY, true);
-                newTool.getPersistentData().putString(GLORIOUS_META_KEY, part.getMaterial(input).getId().toLanguageKey());
                 return RecipeResult.success(newTool.createStack());
             }
         }
