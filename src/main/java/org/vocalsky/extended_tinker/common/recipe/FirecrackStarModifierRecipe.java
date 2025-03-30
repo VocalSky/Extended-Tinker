@@ -238,6 +238,8 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
     @Override
     public @NotNull RecipeResult<ItemStack> getValidatedResult(ITinkerStationContainer inv) {
         ToolStack tool = inv.getTinkerable();
+        System.out.print("WTF:");
+        System.out.println(inv.getTinkerableStack());
 
         for(int i = 0; i < inv.getInputCount(); ++i) {
             ItemStack input = inv.getInput(i);

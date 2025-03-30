@@ -26,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 import org.vocalsky.extended_tinker.common.ModEntity;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.entity.damageSources.firecrackDamageSource;
+import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.OptionalInt;
@@ -97,9 +98,14 @@ public class FirecrackEntity extends ItemProjectile {
     private void dealExplosionDamage() {
         float f = 0.0F;
         ItemStack itemstack = this.entityData.get(DATA_ITEM_STACK);
-        CompoundTag compoundtag = itemstack.isEmpty() ? null : itemstack.getTagElement("Fireworks");
-        ListTag listtag = compoundtag != null ? compoundtag.getList("Explosions", 10) : null;
-        if (listtag != null && !listtag.isEmpty()) {
+        ToolStack toolStack = ToolStack.from(this.entityData.get(DATA_ITEM_STACK));
+        CompoundTag compoundtag = toolStack.getPersistentData().getCompound(FirecrackStarModifierRecipe.STAR_KEY);
+//        CompoundTag compoundtag = itemstack.isEmpty() ? null : itemstack.getTagElement("star_modifier");
+        ListTag listtag = compoundtag.getList("Explosions", 10);
+        System.out.println("FELISTTAG");
+        System.out.println(compoundtag);
+        System.out.println(listtag);
+        if (!listtag.isEmpty()) {
             f = 5.0F + (float)(listtag.size() * 2);
         }
 
