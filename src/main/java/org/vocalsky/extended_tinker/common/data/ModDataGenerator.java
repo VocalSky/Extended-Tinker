@@ -22,6 +22,9 @@ public class ModDataGenerator {
         generator.addProvider(server, new ToolRecipeProvider(generator));
         generator.addProvider(server, new ToolDefinitionDataProvider(generator));
         generator.addProvider(server, new StationSlotLayoutProvider(generator));
+        generator.addProvider(server, new ModifierProvider(generator));
+        generator.addProvider(server, new ModifierRecipeProvider(generator));
+        generator.addProvider(server, new ModifierTagProvider(generator, existingFileHelper));
         generator.addProvider(client, new ModItemModelProvider(generator, existingFileHelper));
     }
 }

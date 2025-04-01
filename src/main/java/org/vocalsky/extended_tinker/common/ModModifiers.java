@@ -36,25 +36,8 @@ public class ModModifiers {
     public static StaticModifier<Modifier> PAINLESS = MODIFIERS.register("painless_horsearmor", HorseArmorPainlessModifier::new);
     public static StaticModifier<Modifier> ASONE = MODIFIERS.register("asone_horsearmor", HorseArmorAsoneModifier::new);
     public static StaticModifier<Modifier> FLIGHT = MODIFIERS.register("flight_firecrack", FirecrackFlightModifier::new);
+    public static StaticModifier<Modifier> STARABLE = MODIFIERS.register("starable_firecrack", Modifier::new);
     public static StaticModifier<FirecrackStarModifier> STAR = MODIFIERS.register("star_firecrack", FirecrackStarModifier::new);
 
     public static final RegistryObject<SimpleRecipeSerializer<FirecrackStarModifierRecipe>> STAR_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier", () -> new SimpleRecipeSerializer<>(FirecrackStarModifierRecipe::new));
-
-    @SubscribeEvent
-    public static void gatherData(final GatherDataEvent event) {
-        if (STAR_SERIALIZER.isPresent()) {
-        System.out.println("TTFTTFDATA");
-        }
-        else {
-            System.out.println("XYXYADASD");
-        }
-//        System.out.println("TTFTTFDATA");
-        DataGenerator generator = event.getGenerator();
-        boolean server = event.includeServer();
-        boolean client = event.includeClient();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        generator.addProvider(server, new ModifierProvider(generator));
-        generator.addProvider(server, new ModifierRecipeProvider(generator));
-        generator.addProvider(server, new ModifierTagProvider(generator, existingFileHelper));
-    }
 }

@@ -23,6 +23,10 @@
   "item.extended_tinker.firecrack.description": "烟火是一种模块化的工具。",
 
   "modifier.extended_tinker.flight_firecrack": "飞行",
-  "modifier.extended_tinker.flight_firecrack.flavor": "它能飞吗？",
-  "modifier.extended_tinker.flight_firecrack.description": "试试右键。"
+  "modifier.extended_tinker.flight_firecrack.flavor": "它能飞多久？",
+  "modifier.extended_tinker.flight_firecrack.description": "影响飞行时间。",
+
+  "modifier.extended_tinker.starable_firecrack": "烟火之星槽位",
+  "modifier.extended_tinker.starable_firecrack.flavor": "搭配烟火之星",
+  "modifier.extended_tinker.starable_firecrack.description": "可以搭配烟火之星使用。"
 }

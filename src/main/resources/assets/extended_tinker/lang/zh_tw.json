@@ -23,6 +23,10 @@
   "item.extended_tinker.firecrack.description": "煙火是一種模塊化的工具。",
 
   "modifier.extended_tinker.flight_firecrack": "飛行",
-  "modifier.extended_tinker.flight_firecrack.flavor": "它能飛嗎？",
-  "modifier.extended_tinker.flight_firecrack.description": "試試右鍵。"
+  "modifier.extended_tinker.flight_firecrack.flavor": "它能飛多久？",
+  "modifier.extended_tinker.flight_firecrack.description": "影響飛行時間。",
+
+  "modifier.extended_tinker.starable_firecrack": "煙火之星槽位",
+  "modifier.extended_tinker.starable_firecrack.flavor": "搭配煙火之星",
+  "modifier.extended_tinker.starable_firecrack.description": "可以搭配煙火之星使用。"
 }

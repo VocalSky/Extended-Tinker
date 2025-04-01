@@ -19,8 +19,6 @@ import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.OptionalInt;
-
 public abstract class ItemProjectile extends Projectile implements ItemSupplier {
     public @Nullable LivingEntity getLivingOwner() {
         return this.getOwner() instanceof LivingEntity living ? living : null;

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
@@ -16,6 +18,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
@@ -198,10 +201,9 @@ import java.util.stream.Collectors;
 //        }
 //    }
 //}
-
 public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
+    @Getter
     private final ResourceLocation id;
-    public static final ResourceLocation STAR_KEY = Extended_tinker.getResource("star_modifier");
 
     public FirecrackStarModifierRecipe(ResourceLocation id) {
         this.id = id;
@@ -215,17 +217,25 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
             ItemStack input = inv.getInput(i);
             if (input.is(Items.FIREWORK_STAR)) {
                 star = input;
+            } else if (!input.isEmpty()) {
+                return false;
             }
         }
 
         return !star.isEmpty();
     }
 
+    @Override
     public boolean matches(ITinkerStationContainer inv, @NotNull Level level) {
         ToolStack tool = inv.getTinkerable();
         ItemStack stack = inv.getTinkerableStack();
+        System.out.println("MATCHES");
+        System.out.println(tool.getPersistentData());
+        System.out.println(tool.getModifierLevel(ModModifiers.STAR.getId()));
         if (!stack.isEmpty() && stack.is(ModItems.Tools.FIRECRACK.get())) {
-            if (tool.getPersistentData().getBoolean(STAR_KEY)) {
+            if (tool.getFreeSlots(SlotType.ABILITY) == 0) {
+                return false;
+            } else if (tool.getModifierLevel(ModModifiers.STAR.getId()) != 0) {
                 return false;
             } else {
                 return this.checkMeta(inv);
@@ -238,18 +248,20 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
     @Override
     public @NotNull RecipeResult<ItemStack> getValidatedResult(ITinkerStationContainer inv) {
         ToolStack tool = inv.getTinkerable();
-        System.out.print("WTF:");
-        System.out.println(inv.getTinkerableStack());
 
         for(int i = 0; i < inv.getInputCount(); ++i) {
             ItemStack input = inv.getInput(i);
             if (input.is(Items.FIREWORK_STAR)) {
                 ToolStack newTool = tool.copy();
-                if (input.getTag() != null) {
-                    System.out.print("STARMODIFIER:");
-                    System.out.println(input.getTag());
-                    newTool.getPersistentData().put(STAR_KEY, input.getTag());
-                }
+                CompoundTag tag = input.getTagElement("Explosion");
+                ListTag listTag = new ListTag();
+                if (tag != null) listTag.add(tag);
+                if (newTool.getModifierLevel(ModModifiers.STAR.getId()) == 0) newTool.addModifier(ModModifiers.STAR.getId(), 1);
+                FirecrackStarModifier starModifier = ((FirecrackStarModifier)newTool.getModifier(ModModifiers.STAR.getId()).getModifier());
+                CompoundTag compoundTag = new CompoundTag();
+                compoundTag.put("Explosions", listTag);
+                starModifier.setTag(compoundTag);
+                newTool.getPersistentData().addSlots(SlotType.ABILITY, -1);
                 return RecipeResult.success(newTool.createStack());
             }
         }
@@ -257,18 +269,17 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
         return RecipeResult.pass();
     }
 
-    public @NotNull ResourceLocation getId() {
-        return this.id;
-    }
-
+    @Override
     public @NotNull ItemStack getResultItem() {
         return ItemStack.EMPTY;
     }
 
+    @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
         return ModModifiers.STAR_SERIALIZER.get();
     }
 
+    @Override
     public @NotNull RecipeType<?> getType() {
         return TinkerRecipeTypes.TINKER_STATION.get();
     }

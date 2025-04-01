@@ -29,7 +29,7 @@ public class ItemTagProvider extends ItemTagsProvider {
 
     private void addTools() {
         addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL);
-        addToolTags(ModItems.Tools.FIRECRACK, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, AOE, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS);
+        addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT);
 
         this.tag(TOOL_PARTS).replace(false).add(ModItems.Parts.BRIDLE.get());
     }

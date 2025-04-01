@@ -1,5 +1,6 @@
 package org.vocalsky.extended_tinker.common.tool;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -7,10 +8,12 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -19,6 +22,7 @@ import org.vocalsky.extended_tinker.common.entity.FirecrackEntity;
 import org.vocalsky.extended_tinker.network.PacketHandler;
 import org.vocalsky.extended_tinker.network.packet.FirecrackShotPacket;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
+import slimeknights.tconstruct.library.tools.helper.ToolHarvestLogic;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.tools.data.ModifierIds;
@@ -43,6 +47,11 @@ public class Firecrack extends ModifiableItem {
     public boolean onLeftClickEntity(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
         if (player instanceof ServerPlayer serverPlayer) fireworkRocketShot(serverPlayer);
         return super.onLeftClickEntity(stack, player, target);
+    }
+
+    @Override
+    public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level worldIn, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity entityLiving) {
+        return false;
     }
 
     public static void fireworkRocketShot(ServerPlayer player) {

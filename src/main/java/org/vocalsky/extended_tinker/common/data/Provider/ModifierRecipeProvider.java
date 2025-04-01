@@ -13,7 +13,9 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
+import slimeknights.mantle.recipe.data.AbstractRecipeBuilder;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
+import slimeknights.tconstruct.library.recipe.modifiers.ModifierSalvage;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.tools.TinkerTools;
@@ -73,7 +75,16 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setTools(Ingredient.of(ModItems.Tools.FIRECRACK))
             .saveSalvage(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeSalvage))
             .save(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeFolder));
+        ModifierRecipeBuilder.modifier(ModModifiers.STARABLE.getId())
+            .addInput(Tags.Items.GEMS_DIAMOND)
+            .addInput(Items.FIREWORK_STAR)
+            .addInput(Items.PAINTING)
+            .setSlots(SlotType.ABILITY, 1)
+            .setTools(Ingredient.of(ModItems.Tools.FIRECRACK))
+            .saveSalvage(consumer, prefix(ModModifiers.FLIGHT.getId(), abilitySalvage))
+            .save(consumer, prefix(ModModifiers.STARABLE.getId(), abilityFolder));
         consumer.accept(new FirecrackStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firecrack_star"), Ingredient.of(ModItems.Tools.FIRECRACK)));
+        consumer.accept(new FirecrackStarModifierRecipe.Finished(Extended_tinker.getResource(abilitySalvage + "firecrack_star"), Ingredient.of(ModItems.Tools.FIRECRACK)));
     }
 
     @Override

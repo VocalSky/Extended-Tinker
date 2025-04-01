@@ -1,13 +1,16 @@
 package org.vocalsky.extended_tinker.common.entity;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,13 +22,17 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.ForgeEventFactory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.vocalsky.extended_tinker.common.ModEntity;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.entity.damageSources.firecrackDamageSource;
+import org.vocalsky.extended_tinker.common.modifier.Firecrack.FirecrackStarModifier;
 import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
@@ -95,15 +102,19 @@ public class FirecrackEntity extends ItemProjectile {
         return super.shouldRender(x, y, z) && !this.isAttachedToEntity();
     }
 
+    private CompoundTag getStarTag(ToolStack tool) {
+        if (tool.getModifierLevel(ModModifiers.STAR.getId()) == 0) return new CompoundTag();
+        return ((FirecrackStarModifier)tool.getModifier(ModModifiers.STAR.getId()).getModifier()).getTag();
+    }
+
     private void dealExplosionDamage() {
         float f = 0.0F;
-        ItemStack itemstack = this.entityData.get(DATA_ITEM_STACK);
-        ToolStack toolStack = ToolStack.from(this.entityData.get(DATA_ITEM_STACK));
-        CompoundTag compoundtag = toolStack.getPersistentData().getCompound(FirecrackStarModifierRecipe.STAR_KEY);
-//        CompoundTag compoundtag = itemstack.isEmpty() ? null : itemstack.getTagElement("star_modifier");
-        ListTag listtag = compoundtag.getList("Explosions", 10);
-        System.out.println("FELISTTAG");
-        System.out.println(compoundtag);
+        ItemStack itemstack = this.getItem();
+        ToolStack tool = ToolStack.from(itemstack);
+        CompoundTag compoundTag = getStarTag(tool);
+        ListTag listtag = compoundTag.getList("Explosions", Tag.TAG_COMPOUND);
+        System.out.println("DEALEX");
+        System.out.println(compoundTag);
         System.out.println(listtag);
         if (!listtag.isEmpty()) {
             f = 5.0F + (float)(listtag.size() * 2);
@@ -116,12 +127,12 @@ public class FirecrackEntity extends ItemProjectile {
 
             Vec3 vec3 = this.position();
 
-            for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(5.0))) {
+            for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate((double)5.0F))) {
                 if (livingentity != this.attachedToEntity && !(this.distanceToSqr(livingentity) > 25.0)) {
                     boolean flag = false;
 
                     for(int i = 0; i < 2; ++i) {
-                        Vec3 vec31 = new Vec3(livingentity.getX(), livingentity.getY(5.0 * (double)i), livingentity.getZ());
+                        Vec3 vec31 = new Vec3(livingentity.getX(), livingentity.getY(0.5 * (double)i), livingentity.getZ());
                         HitResult hitresult = this.level.clip(new ClipContext(vec3, vec31, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
                         if (hitresult.getType() == HitResult.Type.MISS) {
                             flag = true;
@@ -136,7 +147,57 @@ public class FirecrackEntity extends ItemProjectile {
                 }
             }
         }
+    }
 
+    public void handleEntityEvent(byte p_37063_) {
+        if (p_37063_ == 17 && this.level.isClientSide) {
+            if (!this.hasExplosion()) {
+                for(int i = 0; i < this.random.nextInt(3) + 2; ++i) {
+                    this.level.addParticle(ParticleTypes.POOF, this.getX(), this.getY(), this.getZ(), this.random.nextGaussian() * 0.05, 0.005, this.random.nextGaussian() * 0.05);
+                }
+            } else {
+                ItemStack itemstack = this.getItem();
+                ToolStack tool = ToolStack.from(itemstack);
+                CompoundTag compoundTag = getStarTag(tool);
+                Vec3 vec3 = this.getDeltaMovement();
+                this.level.createFireworks(this.getX(), this.getY(), this.getZ(), vec3.x, vec3.y, vec3.z, compoundTag);
+            }
+        }
+
+        super.handleEntityEvent(p_37063_);
+    }
+
+    protected void onHit(HitResult result) {
+        if (result.getType() == HitResult.Type.MISS || !ForgeEventFactory.onProjectileImpact(this, result)) {
+            super.onHit(result);
+        }
+
+    }
+
+    protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
+        if (!this.level.isClientSide) {
+            this.explode();
+        }
+
+    }
+
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        BlockPos blockpos = new BlockPos(blockHitResult.getBlockPos());
+        this.level.getBlockState(blockpos).entityInside(this.level, blockpos, this);
+        if (!this.level.isClientSide() && this.hasExplosion()) {
+            this.explode();
+        }
+
+        super.onHitBlock(blockHitResult);
+    }
+
+    private boolean hasExplosion() {
+        ItemStack itemstack = this.getItem();
+        ToolStack tool = ToolStack.from(itemstack);
+        CompoundTag compoundTag = ((FirecrackStarModifier)tool.getModifier(ModModifiers.STAR.getId()).getModifier()).getTag();
+        ListTag listtag = compoundTag.getList("Explosions", 10);
+        return !listtag.isEmpty();
     }
 
     private void explode() {
