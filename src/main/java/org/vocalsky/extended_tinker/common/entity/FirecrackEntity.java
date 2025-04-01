@@ -10,7 +10,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,7 +32,6 @@ import org.vocalsky.extended_tinker.common.ModEntity;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.entity.damageSources.firecrackDamageSource;
 import org.vocalsky.extended_tinker.common.modifier.Firecrack.FirecrackStarModifier;
-import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.OptionalInt;
@@ -113,9 +111,6 @@ public class FirecrackEntity extends ItemProjectile {
         ToolStack tool = ToolStack.from(itemstack);
         CompoundTag compoundTag = getStarTag(tool);
         ListTag listtag = compoundTag.getList("Explosions", Tag.TAG_COMPOUND);
-        System.out.println("DEALEX");
-        System.out.println(compoundTag);
-        System.out.println(listtag);
         if (!listtag.isEmpty()) {
             f = 5.0F + (float)(listtag.size() * 2);
         }
@@ -195,7 +190,7 @@ public class FirecrackEntity extends ItemProjectile {
     private boolean hasExplosion() {
         ItemStack itemstack = this.getItem();
         ToolStack tool = ToolStack.from(itemstack);
-        CompoundTag compoundTag = ((FirecrackStarModifier)tool.getModifier(ModModifiers.STAR.getId()).getModifier()).getTag();
+        CompoundTag compoundTag = getStarTag(tool);
         ListTag listtag = compoundTag.getList("Explosions", 10);
         return !listtag.isEmpty();
     }

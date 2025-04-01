@@ -1,7 +1,13 @@
 package org.vocalsky.extended_tinker.common.tool;
 
+import com.google.common.collect.Lists;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -18,15 +24,18 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.NotNull;
+import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.entity.FirecrackEntity;
+import org.vocalsky.extended_tinker.common.modifier.Firecrack.FirecrackStarModifier;
 import org.vocalsky.extended_tinker.network.PacketHandler;
 import org.vocalsky.extended_tinker.network.packet.FirecrackShotPacket;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
-import slimeknights.tconstruct.library.tools.helper.ToolHarvestLogic;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Objects;
 
 public class Firecrack extends ModifiableItem {
@@ -110,6 +119,32 @@ public class Firecrack extends ModifiableItem {
             return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide());
         } else {
             return InteractionResultHolder.pass(player.getItemInHand(hand));
+        }
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> componentList, @NotNull TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, level, componentList, tooltipFlag);
+        ToolStack tool = ToolStack.from(itemStack);
+        if (tool.getModifierLevel(ModModifiers.FLIGHT.getId()) != 0)
+            componentList.add(Component.translatable("item.minecraft.firework_rocket.flight").append(" ").append(String.valueOf(tool.getModifierLevel(ModModifiers.FLIGHT.getId()))).withStyle(ChatFormatting.GRAY));
+
+        if (tool.getModifierLevel(ModModifiers.STAR.getId()) != 0) {
+            CompoundTag compoundTag = ((FirecrackStarModifier) tool.getModifier(ModModifiers.STAR.getId()).getModifier()).getTag();
+            ListTag listTag = compoundTag.getList("Explosions", Tag.TAG_COMPOUND);
+            if (!listTag.isEmpty()) {
+                for (int i = 0; i < listTag.size(); ++i) {
+                    CompoundTag tag = listTag.getCompound(i);
+                    List<Component> list = Lists.newArrayList();
+                    FireworkStarItem.appendHoverText(tag, list);
+                    if (!list.isEmpty()) {
+                        for (int j = 1; j < list.size(); ++j) {
+                            list.set(j, Component.literal("  ").append((Component) list.get(j)).withStyle(ChatFormatting.GRAY));
+                        }
+                        componentList.addAll(list);
+                    }
+                }
+            }
         }
     }
 }

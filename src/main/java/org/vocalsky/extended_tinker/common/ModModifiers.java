@@ -23,6 +23,7 @@ import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
+import slimeknights.tconstruct.library.recipe.modifiers.ModifierSalvage;
 
 @Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModModifiers {
@@ -36,8 +37,8 @@ public class ModModifiers {
     public static StaticModifier<Modifier> PAINLESS = MODIFIERS.register("painless_horsearmor", HorseArmorPainlessModifier::new);
     public static StaticModifier<Modifier> ASONE = MODIFIERS.register("asone_horsearmor", HorseArmorAsoneModifier::new);
     public static StaticModifier<Modifier> FLIGHT = MODIFIERS.register("flight_firecrack", FirecrackFlightModifier::new);
-    public static StaticModifier<Modifier> STARABLE = MODIFIERS.register("starable_firecrack", Modifier::new);
     public static StaticModifier<FirecrackStarModifier> STAR = MODIFIERS.register("star_firecrack", FirecrackStarModifier::new);
 
     public static final RegistryObject<SimpleRecipeSerializer<FirecrackStarModifierRecipe>> STAR_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier", () -> new SimpleRecipeSerializer<>(FirecrackStarModifierRecipe::new));
+    public static final RegistryObject<RecipeSerializer<ModifierSalvage>> STAR_SALVAGE_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier_salvage", () -> LoadableRecipeSerializer.of(ModifierSalvage.LOADER));
 }

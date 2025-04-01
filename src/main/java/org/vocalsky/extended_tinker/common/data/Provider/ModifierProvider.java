@@ -27,7 +27,6 @@ public class ModifierProvider extends AbstractModifierProvider {
         buildModifier(ModModifiers.PAINLESS.getId()).tooltipDisplay(TooltipDisplay.TINKER_STATION).levelDisplay(ModifierLevelDisplay.NO_LEVELS).addModule(ABILITY);
         buildModifier(ModModifiers.ASONE.getId()).tooltipDisplay(TooltipDisplay.TINKER_STATION).levelDisplay(ModifierLevelDisplay.NO_LEVELS).addModule(ABILITY);
         buildModifier(ModModifiers.FLIGHT.getId()).tooltipDisplay(TooltipDisplay.TINKER_STATION).levelDisplay(ModifierLevelDisplay.DEFAULT).addModule(UPGRADE);
-//        buildModifier(ModModifiers.STARABLE.getId()).tooltipDisplay(TooltipDisplay.TINKER_STATION).levelDisplay(ModifierLevelDisplay.NO_LEVELS).addModule(ABILITY);
         buildModifier(ModModifiers.STAR.getId()).tooltipDisplay(TooltipDisplay.TINKER_STATION).levelDisplay(ModifierLevelDisplay.NO_LEVELS).addModule(ABILITY);
     }
 
