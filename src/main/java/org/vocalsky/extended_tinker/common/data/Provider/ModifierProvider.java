@@ -5,7 +5,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierProvider;
-import slimeknights.tconstruct.library.modifiers.impl.BasicModifier;
 import slimeknights.tconstruct.library.modifiers.modules.build.ModifierSlotModule;
 import slimeknights.tconstruct.library.modifiers.util.ModifierLevelDisplay;
 import slimeknights.tconstruct.library.tools.SlotType;

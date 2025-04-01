@@ -139,7 +139,7 @@ public class Firecrack extends ModifiableItem {
                     FireworkStarItem.appendHoverText(tag, list);
                     if (!list.isEmpty()) {
                         for (int j = 1; j < list.size(); ++j) {
-                            list.set(j, Component.literal("  ").append((Component) list.get(j)).withStyle(ChatFormatting.GRAY));
+                            list.set(j, Component.literal("  ").append(list.get(j)).withStyle(ChatFormatting.GRAY));
                         }
                         componentList.addAll(list);
                     }

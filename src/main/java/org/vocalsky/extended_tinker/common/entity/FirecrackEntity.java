@@ -122,7 +122,7 @@ public class FirecrackEntity extends ItemProjectile {
 
             Vec3 vec3 = this.position();
 
-            for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate((double)5.0F))) {
+            for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(5.0))) {
                 if (livingentity != this.attachedToEntity && !(this.distanceToSqr(livingentity) > 25.0)) {
                     boolean flag = false;
 

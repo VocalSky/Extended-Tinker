@@ -28,8 +28,8 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import javax.annotation.Nullable;
 
+@Getter
 public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
-    @Getter
     private final ResourceLocation id;
 
     public FirecrackStarModifierRecipe(ResourceLocation id) {
