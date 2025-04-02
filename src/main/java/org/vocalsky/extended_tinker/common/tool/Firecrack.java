@@ -131,6 +131,7 @@ public class Firecrack extends ModifiableItem {
 
         if (tool.getModifierLevel(ModModifiers.STAR.getId()) != 0) {
             CompoundTag compoundTag = ((FirecrackStarModifier) tool.getModifier(ModModifiers.STAR.getId()).getModifier()).getTag();
+//            CompoundTag compoundTag = FirecrackStarModifier.getStar(tool);
             ListTag listTag = compoundTag.getList("Explosions", Tag.TAG_COMPOUND);
             if (!listTag.isEmpty()) {
                 for (int i = 0; i < listTag.size(); ++i) {

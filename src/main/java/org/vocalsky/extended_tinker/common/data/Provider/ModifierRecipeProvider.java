@@ -49,6 +49,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setSlots(SlotType.ABILITY, 1)
             .setTools(Ingredient.of(ModItems.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
+                .disallowCrystal()
             .saveSalvage(consumer, prefix(ModModifiers.ASONE.getId(), abilitySalvage))
             .save(consumer, prefix(ModModifiers.ASONE.getId(), abilityFolder));
         ModifierRecipeBuilder.modifier(ModModifiers.PAINLESS.getId())
@@ -60,6 +61,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setSlots(SlotType.ABILITY, 1)
             .setTools(Ingredient.of(ModItems.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
+            .disallowCrystal()
             .saveSalvage(consumer, prefix(ModModifiers.PAINLESS.getId(), abilitySalvage))
             .save(consumer, prefix(ModModifiers.PAINLESS.getId(), abilityFolder));
         ModifierRecipeBuilder.modifier(ModModifiers.FLIGHT.getId())
@@ -71,9 +73,10 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setMaxLevel(5)
             .setSlots(SlotType.UPGRADE, 1)
             .setTools(Ingredient.of(ModItems.Tools.FIRECRACK))
+            .disallowCrystal()
             .saveSalvage(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeSalvage))
             .save(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeFolder));
-        consumer.accept(new FirecrackStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firecrack_star"), Ingredient.of(ModItems.Tools.FIRECRACK)));
+        consumer.accept(new FirecrackStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firecrack_star"), Ingredient.of(ModItems.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
         consumer.accept(new FirecrackStarModifierRecipe.FinishedSalvage(Extended_tinker.getResource(abilitySalvage + "firecrack_star"), Ingredient.of(ModItems.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
     }
 

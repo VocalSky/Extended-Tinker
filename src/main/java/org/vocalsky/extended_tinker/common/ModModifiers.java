@@ -33,6 +33,6 @@ public class ModModifiers {
     public static StaticModifier<Modifier> FLIGHT = MODIFIERS.register("flight_firecrack", FirecrackFlightModifier::new);
     public static StaticModifier<FirecrackStarModifier> STAR = MODIFIERS.register("star_firecrack", FirecrackStarModifier::new);
 
-    public static final RegistryObject<SimpleRecipeSerializer<FirecrackStarModifierRecipe>> STAR_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier", () -> new SimpleRecipeSerializer<>(FirecrackStarModifierRecipe::new));
+    public static final RegistryObject<RecipeSerializer<FirecrackStarModifierRecipe>> STAR_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier", () -> LoadableRecipeSerializer.of(FirecrackStarModifierRecipe.LOADER));
     public static final RegistryObject<RecipeSerializer<ModifierSalvage>> STAR_SALVAGE_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier_salvage", () -> LoadableRecipeSerializer.of(ModifierSalvage.LOADER));
 }

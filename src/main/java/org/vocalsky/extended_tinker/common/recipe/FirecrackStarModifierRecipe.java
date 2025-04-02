@@ -3,6 +3,7 @@ package org.vocalsky.extended_tinker.common.recipe;
 import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -17,9 +18,15 @@ import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.modifier.Firecrack.FirecrackStarModifier;
+import slimeknights.mantle.data.loadable.field.ContextKey;
+import slimeknights.mantle.data.loadable.record.RecordLoadable;
+import slimeknights.mantle.util.RegistryHelper;
+import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.recipe.RecipeResult;
 import slimeknights.tconstruct.library.recipe.TinkerRecipeTypes;
 import slimeknights.tconstruct.library.recipe.modifiers.ModifierRecipeLookup;
+import slimeknights.tconstruct.library.recipe.modifiers.adding.IDisplayModifierRecipe;
 import slimeknights.tconstruct.library.recipe.tinkerstation.ITinkerStationContainer;
 import slimeknights.tconstruct.library.recipe.tinkerstation.ITinkerStationRecipe;
 import slimeknights.tconstruct.library.tools.SlotType;
@@ -27,9 +34,18 @@ import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import static slimeknights.tconstruct.library.recipe.modifiers.adding.IDisplayModifierRecipe.withModifiers;
 
 @Getter
-public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
+public class FirecrackStarModifierRecipe implements ITinkerStationRecipe, IDisplayModifierRecipe {
+    public static final RecordLoadable<FirecrackStarModifierRecipe> LOADER = RecordLoadable.create(
+        ContextKey.ID.requiredField(),
+        FirecrackStarModifierRecipe::new
+    );
     private final ResourceLocation id;
 
     public FirecrackStarModifierRecipe(ResourceLocation id) {
@@ -83,10 +99,10 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
                 ListTag listTag = new ListTag();
                 if (tag != null) listTag.add(tag);
                 if (newTool.getModifierLevel(ModModifiers.STAR.getId()) == 0) newTool.addModifier(ModModifiers.STAR.getId(), 1);
-                FirecrackStarModifier starModifier = ((FirecrackStarModifier)newTool.getModifier(ModModifiers.STAR.getId()).getModifier());
                 CompoundTag compoundTag = new CompoundTag();
                 compoundTag.put("Explosions", listTag);
-                starModifier.setTag(compoundTag);
+//                FirecrackStarModifier.setStar(tool, compoundTag);
+                ((FirecrackStarModifier) tool.getModifier(ModModifiers.STAR.getId()).getModifier()).setTag(compoundTag);
                 newTool.getPersistentData().addSlots(SlotType.ABILITY, -1);
                 return RecipeResult.success(newTool.createStack());
             }
@@ -115,10 +131,17 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
         @Getter
         private final ResourceLocation id;
         private final Ingredient toolRequirement;
+        private final SlotType.SlotCount slots;
 
         @Override
         public void serializeRecipeData(JsonObject json) {
             json.add("tools", toolRequirement.toJson());
+            json.addProperty("allow_crystal", false);
+            JsonObject slotJson = new JsonObject();
+            slotJson.addProperty(this.slots.type().getName(), this.slots.count());
+            json.add("slots", slotJson);
+            json.addProperty("result", ModModifiers.STAR.getId().toString());
+            json.addProperty("level", 1);
         }
 
         @Override
@@ -171,5 +194,49 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe {
         public ResourceLocation getAdvancementId() {
             return null;
         }
+    }
+
+    /* JEI display */
+    /** Cache of modifier result, same for all overslime */
+    private static final ModifierEntry RESULT = new ModifierEntry(ModModifiers.STAR, 1);
+    /** Cache of input and output tools for display */
+    private List<ItemStack> toolWithoutModifier, toolWithModifier = null;
+
+    @Override
+    public int getInputCount() {
+        return 1;
+    }
+
+    @Override
+    public @NotNull List<ItemStack> getDisplayItems(int slot) {
+        if (slot == 0) {
+            return Arrays.asList(Ingredient.of(Items.FIREWORK_STAR).getItems());
+        }
+        return Collections.emptyList();
+    }
+    @Override
+    public @NotNull List<ItemStack> getToolWithoutModifier() {
+        if (toolWithoutModifier == null) {
+            toolWithoutModifier = RegistryHelper.getTagValueStream(Registry.ITEM, TinkerTags.Items.DURABILITY).map(MAP_TOOL_FOR_RENDERING).toList();
+        }
+        return toolWithoutModifier;
+    }
+
+    @Override
+    public @NotNull List<ItemStack> getToolWithModifier() {
+        if (toolWithModifier == null) {
+            FirecrackStarModifier starModifier = ModModifiers.STAR.get();
+            List<ModifierEntry> result = List.of(RESULT);
+            toolWithModifier = RegistryHelper.getTagValueStream(Registry.ITEM, TinkerTags.Items.DURABILITY)
+                    .map(MAP_TOOL_FOR_RENDERING)
+                    .map(stack -> withModifiers(stack, result, data -> {}))
+                    .toList();
+        }
+        return toolWithModifier;
+    }
+
+    @Override
+    public @NotNull ModifierEntry getDisplayResult() {
+        return RESULT;
     }
 }

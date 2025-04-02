@@ -101,6 +101,7 @@ public class FirecrackEntity extends ItemProjectile {
     }
 
     private CompoundTag getStarTag(ToolStack tool) {
+//        return FirecrackStarModifier.getStar(tool);
         if (tool.getModifierLevel(ModModifiers.STAR.getId()) == 0) return new CompoundTag();
         return ((FirecrackStarModifier)tool.getModifier(ModModifiers.STAR.getId()).getModifier()).getTag();
     }

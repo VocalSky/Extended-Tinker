@@ -26,7 +26,7 @@
   "modifier.extended_tinker.flight_firecrack.flavor": "How long can it fly?",
   "modifier.extended_tinker.flight_firecrack.description": "Affects flight time.",
 
-  "modifier.extended_tinker.starable_firecrack": "Starable",
-  "modifier.extended_tinker.starable_firecrack.flavor": "With Firework Stars",
-  "modifier.extended_tinker.starable_firecrack.description": "Can be used with Firework Stars."
+  "modifier.extended_tinker.star_firecrack": "Firework Star",
+  "modifier.extended_tinker.star_firecrack.flavor": "Carrying Firework Stars",
+  "modifier.extended_tinker.star_firecrack.description": "Possessed the ability of the Firework Star."
 }

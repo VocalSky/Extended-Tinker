@@ -26,7 +26,7 @@
   "modifier.extended_tinker.flight_firecrack.flavor": "它能飞多久？",
   "modifier.extended_tinker.flight_firecrack.description": "影响飞行时间。",
 
-  "modifier.extended_tinker.starable_firecrack": "烟火之星槽位",
-  "modifier.extended_tinker.starable_firecrack.flavor": "搭配烟火之星",
-  "modifier.extended_tinker.starable_firecrack.description": "可以搭配烟火之星使用。"
+  "modifier.extended_tinker.star_firecrack": "烟火之星",
+  "modifier.extended_tinker.star_firecrack.flavor": "搭载烟火之星",
+  "modifier.extended_tinker.star_firecrack.description": "拥有了烟火之星的能力。"
 }
