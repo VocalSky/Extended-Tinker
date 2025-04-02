@@ -55,6 +55,12 @@ public class FirecrackEntity extends ItemProjectile {
 
     public FirecrackEntity(Level level, @Nullable Entity entity, double x, double y, double z, ItemStack itemStack) {
         this(level, entity, itemStack);
+        ToolStack tool = ToolStack.from(itemStack);
+        System.out.println("DASEWDASD!#@!");
+        System.out.println(itemStack.getTag());
+        System.out.println(tool.getPersistentData());
+        System.out.println(FirecrackStarModifier.getStar(tool));
+        System.out.println(FirecrackStarModifier.getStar(tool).getCompound(FirecrackStarModifier.fireworks.toString()));
         this.life = 0;
         this.setPos(x, y, z);
         this.setDeltaMovement(this.random.triangle(0.0, 0.002297), 0.05, this.random.triangle(0.0, 0.002297));
@@ -101,9 +107,8 @@ public class FirecrackEntity extends ItemProjectile {
     }
 
     private CompoundTag getStarTag(ToolStack tool) {
-//        return FirecrackStarModifier.getStar(tool);
         if (tool.getModifierLevel(ModModifiers.STAR.getId()) == 0) return new CompoundTag();
-        return ((FirecrackStarModifier)tool.getModifier(ModModifiers.STAR.getId()).getModifier()).getTag();
+        return FirecrackStarModifier.getStar(tool);
     }
 
     private void dealExplosionDamage() {
@@ -112,6 +117,9 @@ public class FirecrackEntity extends ItemProjectile {
         ToolStack tool = ToolStack.from(itemstack);
         CompoundTag compoundTag = getStarTag(tool);
         ListTag listtag = compoundTag.getList("Explosions", Tag.TAG_COMPOUND);
+        System.out.println("DEALSDA@!");
+        System.out.println(compoundTag);
+        System.out.println(listtag);
         if (!listtag.isEmpty()) {
             f = 5.0F + (float)(listtag.size() * 2);
         }

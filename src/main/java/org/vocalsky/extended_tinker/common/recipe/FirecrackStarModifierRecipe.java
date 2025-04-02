@@ -101,8 +101,8 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe, IDispl
                 if (newTool.getModifierLevel(ModModifiers.STAR.getId()) == 0) newTool.addModifier(ModModifiers.STAR.getId(), 1);
                 CompoundTag compoundTag = new CompoundTag();
                 compoundTag.put("Explosions", listTag);
-//                FirecrackStarModifier.setStar(tool, compoundTag);
-                ((FirecrackStarModifier) tool.getModifier(ModModifiers.STAR.getId()).getModifier()).setTag(compoundTag);
+                newTool.getPersistentData().put(FirecrackStarModifier.fireworks, compoundTag);
+                FirecrackStarModifier.setStar(newTool, compoundTag);
                 newTool.getPersistentData().addSlots(SlotType.ABILITY, -1);
                 return RecipeResult.success(newTool.createStack());
             }

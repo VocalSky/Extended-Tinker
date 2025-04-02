@@ -49,7 +49,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setSlots(SlotType.ABILITY, 1)
             .setTools(Ingredient.of(ModItems.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
-                .disallowCrystal()
+            .disallowCrystal()
             .saveSalvage(consumer, prefix(ModModifiers.ASONE.getId(), abilitySalvage))
             .save(consumer, prefix(ModModifiers.ASONE.getId(), abilityFolder));
         ModifierRecipeBuilder.modifier(ModModifiers.PAINLESS.getId())
