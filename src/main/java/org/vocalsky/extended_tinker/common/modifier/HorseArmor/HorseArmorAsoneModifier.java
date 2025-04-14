@@ -73,17 +73,17 @@ public class HorseArmorAsoneModifier extends NoLevelsModifier {
     private static void onHurtPassenger(LivingHurtEvent event) {
         LivingEntity living = event.getEntity();
         if (!living.isSpectator()) {
-            LivingEntity vehicle = (LivingEntity) living.getVehicle();
-            if (vehicle == null) return;
-            EquipmentContext context = new EquipmentContext(vehicle);
-            if (context.hasModifiableArmor()) {
-                if (!vehicle.level.isClientSide && vehicle.isAlive()) {
-                    vehicle.getCapability(TinkerDataCapability.CAPABILITY).ifPresent((holder) -> {
-                        if (holder.get(ASONE, 0) > 0) {
-                            event.setCanceled(true);
-                            vehicle.hurt(event.getSource(), event.getAmount());
-                        }
-                    });
+            if (living.getVehicle() instanceof  LivingEntity vehicle) {
+                EquipmentContext context = new EquipmentContext(vehicle);
+                if (context.hasModifiableArmor()) {
+                    if (!vehicle.level.isClientSide && vehicle.isAlive()) {
+                        vehicle.getCapability(TinkerDataCapability.CAPABILITY).ifPresent((holder) -> {
+                            if (holder.get(ASONE, 0) > 0) {
+                                event.setCanceled(true);
+                                vehicle.hurt(event.getSource(), event.getAmount());
+                            }
+                        });
+                    }
                 }
             }
         }
