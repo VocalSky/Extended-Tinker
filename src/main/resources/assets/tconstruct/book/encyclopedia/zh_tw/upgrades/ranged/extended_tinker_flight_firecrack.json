@@ -1,0 +1,15 @@
+{
+  "modifier_id": "extended_tinker:flight_firecrack",
+  "text": [
+    {
+      "text": "決定煙火的飛行時間。"
+    },
+    {
+      "text": "每級提升 10 tick。",
+      "paragraph": true
+    }
+  ],
+  "effects": [
+    "需要1個升級槽"
+  ]
+}

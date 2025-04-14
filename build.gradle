@@ -138,7 +138,7 @@ repositories {
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
     flatDir {
-        dir 'libs'
+        dirs 'libs'
     }
 
     mavenCentral()
@@ -179,6 +179,14 @@ dependencies {
     implementation fg.deobf("curse.maven:mantle-74924:${mantle_file}")
     implementation fg.deobf("curse.maven:tinkers-construct-74072:${tcon_file}")
 
+    // mg
+    implementation fg.deobf("curse.maven:modulargolems-690937:${mg_file}")
+    implementation fg.deobf("curse.maven:l2library-620203:${l2_file}")
+
+    // iaf
+    implementation fg.deobf("curse.maven:citadel-331936:${citadel_file}")
+    implementation fg.deobf("curse.maven:ice-and-fire-dragons-264231:${iaf_file}")
+
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
@@ -192,6 +200,7 @@ dependencies {
     runtimeOnly(fg.deobf("curse.maven:just-enough-characters-250702:${jech_file}"))
     runtimeOnly(fg.deobf("curse.maven:jade-324717:${jade_file}"))
     runtimeOnly(fg.deobf("curse.maven:jade-addons-583345:${jade_addons_file}"))
+    runtimeOnly(fg.deobf("curse.maven:patchouli-306770:${patchouli_file}"))
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

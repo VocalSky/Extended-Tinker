@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.mixin;
+package org.vocalsky.extended_tinker.mixin.common;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

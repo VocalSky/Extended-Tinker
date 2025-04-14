@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.mixin;
+package org.vocalsky.extended_tinker.mixin.common;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

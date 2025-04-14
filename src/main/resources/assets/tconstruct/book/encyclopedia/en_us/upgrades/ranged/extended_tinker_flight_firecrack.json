@@ -1,0 +1,15 @@
+{
+  "modifier_id": "extended_tinker:flight_firecrack",
+  "text": [
+    {
+      "text": "Determine the flight time of the Firecrack."
+    },
+    {
+      "text": "Increases by 10 ticks per level.",
+      "paragraph": true
+    }
+  ],
+  "effects": [
+    "Requires 1 upgrade slot"
+  ]
+}

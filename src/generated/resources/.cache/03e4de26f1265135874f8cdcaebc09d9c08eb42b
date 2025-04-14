@@ -1,4 +1,4 @@
-// 1.19.2	2025-03-31T23:13:59.808803	Tags for minecraft:item
+// 1.19.2	2025-04-08T13:17:47.7785138	Tags for minecraft:item
 36a44f005ac32fd1b22ffa85622de869d95c925d data/tconstruct/tags/items/casts/gold.json
 3bb3ad0dbb1871739adb31896d4ebb7e61e7a7fe data/tconstruct/tags/items/casts/multi_use.json
 36a44f005ac32fd1b22ffa85622de869d95c925d data/tconstruct/tags/items/casts/multi_use/bridle.json
@@ -9,10 +9,12 @@
 ac8a982315729ec9dac51a5a77f72674cabb2756 data/tconstruct/tags/items/modifiable/aoe.json
 3a1135dfcd566db5dcd123f686c51d6254964978 data/tconstruct/tags/items/modifiable/armor/chestplate.json
 452919f86a41eda931a25bf036b20dae04da77ee data/tconstruct/tags/items/modifiable/bonus_slots.json
+3a1135dfcd566db5dcd123f686c51d6254964978 data/tconstruct/tags/items/modifiable/book_armor.json
 452919f86a41eda931a25bf036b20dae04da77ee data/tconstruct/tags/items/modifiable/durability.json
 ac8a982315729ec9dac51a5a77f72674cabb2756 data/tconstruct/tags/items/modifiable/interactable/left.json
 ac8a982315729ec9dac51a5a77f72674cabb2756 data/tconstruct/tags/items/modifiable/interactable/right.json
 3a1135dfcd566db5dcd123f686c51d6254964978 data/tconstruct/tags/items/modifiable/loot_capable_tool.json
 452919f86a41eda931a25bf036b20dae04da77ee data/tconstruct/tags/items/modifiable/multipart.json
 ac8a982315729ec9dac51a5a77f72674cabb2756 data/tconstruct/tags/items/modifiable/small.json
+ac8a982315729ec9dac51a5a77f72674cabb2756 data/tconstruct/tags/items/modifiable/special.json
 3ad3c7c36fb9124c25ad9d05b9328f062f95dc25 data/tconstruct/tags/items/parts.json

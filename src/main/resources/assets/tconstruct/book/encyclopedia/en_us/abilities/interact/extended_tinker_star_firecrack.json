@@ -1,0 +1,15 @@
+{
+  "modifier_id": "extended_tinker:star_firecrack",
+  "text": [
+    {
+      "text": "Attach the Firework Star to the Firecrack to gain the abilities."
+    },
+    {
+      "text": "Makes the Firecrack explode and adds effects.",
+      "paragraph": true
+    }
+  ],
+  "effects": [
+    "Requires 1 ability slot"
+  ]
+}

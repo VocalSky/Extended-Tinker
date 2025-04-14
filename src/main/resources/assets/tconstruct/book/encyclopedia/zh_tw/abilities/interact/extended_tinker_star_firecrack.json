@@ -1,0 +1,15 @@
+{
+  "modifier_id": "extended_tinker:star_firecrack",
+  "text": [
+    {
+      "text": "將煙火之星搭載於煙火上，獲得煙火之星的能力。"
+    },
+    {
+      "text": "使煙火能夠爆炸，並附加煙花效果。",
+      "paragraph": true
+    }
+  ],
+  "effects": [
+    "需要1個能力槽"
+  ]
+}

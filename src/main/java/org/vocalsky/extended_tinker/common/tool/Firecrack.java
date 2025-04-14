@@ -59,8 +59,8 @@ public class Firecrack extends ModifiableItem {
     }
 
     @Override
-    public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level worldIn, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity entityLiving) {
-        return false;
+    public boolean canAttackBlock(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player) {
+        return !player.isCreative();
     }
 
     public static void fireworkRocketShot(ServerPlayer player) {

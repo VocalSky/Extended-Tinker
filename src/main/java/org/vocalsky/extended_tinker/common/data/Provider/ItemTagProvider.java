@@ -28,10 +28,12 @@ public class ItemTagProvider extends ItemTagsProvider {
     }
 
     private void addTools() {
-        addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL);
-        addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT);
+        addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
+        addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
 
         this.tag(TOOL_PARTS).replace(false).add(ModItems.Parts.BRIDLE.get());
+
+//        this.tag(BOOK_ARMOR).replace(false).add(ModItems.Tools.HORSE_ARMOR.get());
     }
 
     private void addSmeltry() {
@@ -59,7 +61,7 @@ public class ItemTagProvider extends ItemTagsProvider {
     private void addToolTags(ItemLike tool, TagKey<Item>... tags) {
         Item item = tool.asItem();
         for (TagKey<Item> tag : tags) {
-            this.tag(tag).add(item);
+            this.tag(tag).replace(false).add(item);
         }
     }
 }
