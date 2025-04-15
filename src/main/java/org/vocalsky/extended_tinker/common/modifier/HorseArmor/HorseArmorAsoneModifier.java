@@ -73,7 +73,7 @@ public class HorseArmorAsoneModifier extends NoLevelsModifier {
     private static void onHurtPassenger(LivingHurtEvent event) {
         LivingEntity living = event.getEntity();
         if (!living.isSpectator()) {
-            if (living.getVehicle() instanceof  LivingEntity vehicle) {
+            if (living.getVehicle() instanceof LivingEntity vehicle) {
                 EquipmentContext context = new EquipmentContext(vehicle);
                 if (context.hasModifiableArmor()) {
                     if (!vehicle.level.isClientSide && vehicle.isAlive()) {
