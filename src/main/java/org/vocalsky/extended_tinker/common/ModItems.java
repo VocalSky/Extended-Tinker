@@ -1,34 +1,50 @@
 package org.vocalsky.extended_tinker.common;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
 import org.vocalsky.extended_tinker.util.ModCastItemObject;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
+import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
+import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
+import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
+import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
-import slimeknights.tconstruct.tools.item.ArmorSlotType;
+import slimeknights.tconstruct.tables.TinkerTables;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ModItems {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
-    public static final CreativeModeTab TAB = new CreativeModeTab(Extended_tinker.MODID) {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return Tools.HORSE_ARMOR.get().getRenderTool();
-        }
-    };
-    private static final Item.Properties Stack1Item = new Item.Properties().stacksTo(1).tab(TAB);
-    private static final Item.Properties CommonItem = new Item.Properties().tab(TAB);
+    protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, TConstruct.MOD_ID);
+//    public static final CreativeModeTab TAB = new CreativeModeTab(Extended_tinker.MODID) {
+//        public @NotNull ItemStack makeIcon() {
+//            return Tools.HORSE_ARMOR.get().getRenderTool();
+//        }
+//    };
+  public static final RegistryObject<CreativeModeTab> Tab = CREATIVE_TABS.register(
+    "tools", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
+                                  .icon(() -> Tools.HORSE_ARMOR.get().getRenderTool())
+                                  .displayItems(Tools::addTabItems)
+                                  .withTabsBefore(TinkerTables.tabTables.getId())
+                                  .withSearchBar()
+                                  .build());
+    private static final Item.Properties Stack1Item = new Item.Properties().stacksTo(1);
+    private static final Item.Properties CommonItem = new Item.Properties();
     public static void registers(IEventBus eventBus)  {
         Parts.init();
         Casts.init();
@@ -39,7 +55,7 @@ public class ModItems {
     public static class Parts {
         public static void init() {}
 
-        private static final Item.Properties PART_PROP = new Item.Properties().tab(TAB);
+        private static final Item.Properties PART_PROP = new Item.Properties();
         public static final ItemObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(PART_PROP, PlatingMaterialStats.CHESTPLATE.getId()));
     }
 
@@ -61,7 +77,7 @@ public class ModItems {
             return registerCast(item.getId().getPath(), (Supplier)(() -> new PartCastItem(props, item)));
         }
 
-        private static final Item.Properties CAST_PROPS = new Item.Properties().tab(TAB);
+        private static final Item.Properties CAST_PROPS = new Item.Properties();
 
         public static final ModCastItemObject BRIDLE_CAST = registerCast(Parts.BRIDLE, CAST_PROPS);
     }
@@ -69,9 +85,24 @@ public class ModItems {
     public static class Tools {
         public static void init() {}
 
-        private static final Item.Properties TOOL_PROP = new Item.Properties().stacksTo(1).tab(TAB);
+        private static final Item.Properties TOOL_PROP = new Item.Properties().stacksTo(1);
+
+        private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
+            Consumer<ItemStack> output = tab::accept;
+            acceptTool(output, HORSE_ARMOR);
+            acceptTool(output, FIRECRACK);
+        }
 
         public static final ItemObject<Firecrack> FIRECRACK = ITEMS.register("firecrack", () -> new Firecrack(TOOL_PROP, ModToolDefinitions.FIRECRACK));
-        public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL, ArmorSlotType.CHESTPLATE, TOOL_PROP));
+        public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, TOOL_PROP));
+
+        private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {
+            ToolBuildHandler.addVariants(output, tool.get(), "");
+        }
+
+        /** Adds a tool to the tab */
+        private static void acceptTools(Consumer<ItemStack> output, EnumObject<?,? extends IModifiable> tools) {
+            tools.forEach(tool -> ToolBuildHandler.addVariants(output, tool, ""));
+        }
     }
 }

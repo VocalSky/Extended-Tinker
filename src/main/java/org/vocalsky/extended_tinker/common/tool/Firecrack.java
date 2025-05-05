@@ -64,7 +64,7 @@ public class Firecrack extends ModifiableItem {
     }
 
     public static void fireworkRocketShot(ServerPlayer player) {
-        Level level = player.getLevel();
+        Level level = player.level();
         if (!level.isClientSide) {
             ItemStack stack = player.getMainHandItem();
             InteractionHand hand;

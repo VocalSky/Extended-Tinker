@@ -2,17 +2,15 @@ package org.vocalsky.extended_tinker.common.tool;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import lombok.Getter;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -22,6 +20,8 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ClickAction;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
@@ -29,15 +29,17 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import org.jetbrains.annotations.NotNull;
-import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.armor.ElytraFlightModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.behavior.AttributesModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.DurabilityDisplayModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.SlotStackModifierHook;
 import slimeknights.tconstruct.library.tools.IndestructibleItemEntity;
 import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.capability.inventory.ToolInventoryCapability;
@@ -48,40 +50,35 @@ import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.helper.TooltipUtil;
 import slimeknights.tconstruct.library.tools.item.IModifiableDisplay;
+import slimeknights.tconstruct.library.tools.item.armor.ModifiableArmorItem;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
-import slimeknights.tconstruct.library.utils.Util;
-import slimeknights.tconstruct.tools.item.ArmorSlotType;
 
 import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableDisplay {
-    private static final UUID ARMOR_MODIFIER_UUID = UUID.fromString("556E1665-8B10-40C8-8F9D-CF9B1667F295");
+public class HorseArmor extends HorseArmorItem implements Equipable, IModifiableDisplay {
+    private static final EnumMap<ArmorItem.Type, UUID> ARMOR_MODIFIER_UUID_PER_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266744_) -> {
+        p_266744_.put(ArmorItem.Type.BOOTS, UUID.fromString("556E1665-8B10-40C8-8F9D-CF9B1667F295"));
+        p_266744_.put(ArmorItem.Type.LEGGINGS, UUID.fromString("556E1665-8B10-40C8-8F9D-CF9B1667F295"));
+        p_266744_.put(ArmorItem.Type.CHESTPLATE, UUID.fromString("556E1665-8B10-40C8-8F9D-CF9B1667F295"));
+        p_266744_.put(ArmorItem.Type.HELMET, UUID.fromString("556E1665-8B10-40C8-8F9D-CF9B1667F295"));
+    });
     public static final DispenseItemBehavior DISPENSE_ITEM_BEHAVIOR = new DefaultDispenseItemBehavior() {
-        protected @NotNull ItemStack execute(@NotNull BlockSource p_40408_, @NotNull ItemStack p_40409_) {
-            return dispenseArmor(p_40408_, p_40409_) ? p_40409_ : super.execute(p_40408_, p_40409_);
+        protected ItemStack execute(BlockSource p_40408_, ItemStack p_40409_) {
+            return ArmorItem.dispenseArmor(p_40408_, p_40409_) ? p_40409_ : super.execute(p_40408_, p_40409_);
         }
     };
-    @Getter
-    protected final EquipmentSlot slot;
-    @Getter
+    protected final ArmorItem.Type type;
     private final int defense;
-    @Getter
     private final float toughness;
-    @Getter
     protected final float knockbackResistance;
-    @Getter
     protected final ArmorMaterial material;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
-    private final ResourceLocation texture;
 
     public static boolean dispenseArmor(BlockSource p_40399_, ItemStack p_40400_) {
         BlockPos blockpos = p_40399_.getPos().relative(p_40399_.getBlockState().getValue(DispenserBlock.FACING));
@@ -102,74 +99,86 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         }
     }
 
-    public HorseArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builderIn, ToolDefinition toolDefinition) {
-        super(0, "tcon", builderIn.defaultDurability(materialIn.getDurabilityForSlot(slot)));
+    public HorseArmor(ArmorMaterial materialIn, ArmorItem.Type type, Item.Properties builderIn, ToolDefinition toolDefinition) {
+        super(0, "", builderIn.defaultDurability(materialIn.getDurabilityForType(type)));
         this.material = materialIn;
-        this.slot = slot;
-        this.defense = materialIn.getDefenseForSlot(slot);
+        this.type = type;
+        this.defense = materialIn.getDefenseForType(type);
         this.toughness = materialIn.getToughness();
         this.knockbackResistance = materialIn.getKnockbackResistance();
         DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        UUID uuid = ARMOR_MODIFIER_UUID;
-        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", this.defense, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness", this.toughness, AttributeModifier.Operation.ADDITION));
-        if (this.knockbackResistance > 0.0F) {
-            builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", this.knockbackResistance, AttributeModifier.Operation.ADDITION));
+        UUID uuid = ARMOR_MODIFIER_UUID_PER_TYPE.get(type);
+        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", (double)this.defense, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness", (double)this.toughness, AttributeModifier.Operation.ADDITION));
+        if (this.knockbackResistance > 0) {
+            builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", (double)this.knockbackResistance, AttributeModifier.Operation.ADDITION));
         }
+
         this.defaultModifiers = builder.build();
         this.toolForRendering = null;
         this.toolDefinition = toolDefinition;
-        texture = Extended_tinker.getResource("textures/entity/horse/armor/horse_armor_tcon");
     }
 
-    public HorseArmor(ModifiableArmorMaterial material, ArmorSlotType slotType, Item.Properties properties) {
-        this(material, slotType.getEquipmentSlot(), properties, Objects.requireNonNull(material.getArmorDefinition(slotType), "Missing tool definition for " + slotType));
+    public HorseArmor(ModifiableArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
+        this(material, type, properties, (ToolDefinition) Objects.requireNonNull(material.getArmorDefinition(type), "Missing tool definition for " + type.getName()));
     }
 
-    public int getProtection() {
-        return this.getDefense();
-    }
-
-    public @NotNull ResourceLocation getTexture() {
-        return this.texture;
+    public ArmorItem.Type getType() {
+        return this.type;
     }
 
     public int getEnchantmentValue() {
         return this.material.getEnchantmentValue();
     }
 
-    public InteractionResultHolder<ItemStack> super_use(Level p_40395_, Player p_40396_, InteractionHand p_40397_) {
-        ItemStack itemstack = p_40396_.getItemInHand(p_40397_);
-        EquipmentSlot equipmentslot = Mob.getEquipmentSlotForItem(itemstack);
-        ItemStack itemstack1 = p_40396_.getItemBySlot(equipmentslot);
-        if (itemstack1.isEmpty()) {
-            p_40396_.setItemSlot(equipmentslot, itemstack.copy());
-            if (!p_40395_.isClientSide()) {
-                p_40396_.awardStat(Stats.ITEM_USED.get(this));
-            }
-
-            itemstack.setCount(0);
-            return InteractionResultHolder.sidedSuccess(itemstack, p_40395_.isClientSide());
-        } else {
-            return InteractionResultHolder.fail(itemstack);
-        }
+    public ArmorMaterial getMaterial() {
+        return this.material;
     }
 
-    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level levelIn, Player playerIn, @NotNull InteractionHand handIn) {
-        ItemStack stack = playerIn.getItemInHand(handIn);
-        InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, this.getToolDefinition(), playerIn, Util.getSlotType(handIn));
-        return result.consumesAction() ? new InteractionResultHolder<>(result, stack) : super_use(levelIn, playerIn, handIn);
+    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot p_40390_) {
+        return p_40390_ == this.type.getSlot() ? this.defaultModifiers : super.getDefaultAttributeModifiers(p_40390_);
     }
 
-    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot p_40390_) {
-        return p_40390_ == this.slot ? this.defaultModifiers : super.getDefaultAttributeModifiers(p_40390_);
+    public int getDefense() {
+        return this.defense;
     }
 
-    @Nullable
+    public float getToughness() {
+        return this.toughness;
+    }
+
+    public EquipmentSlot getEquipmentSlot() {
+        return this.type.getSlot();
+    }
+
     public SoundEvent getEquipSound() {
         return this.getMaterial().getEquipSound();
     }
+
+    public static enum Type {
+        HELMET(EquipmentSlot.HEAD, "helmet"),
+        CHESTPLATE(EquipmentSlot.CHEST, "chestplate"),
+        LEGGINGS(EquipmentSlot.LEGS, "leggings"),
+        BOOTS(EquipmentSlot.FEET, "boots");
+
+        private final EquipmentSlot slot;
+        private final String name;
+
+        private Type(EquipmentSlot p_266754_, String p_266886_) {
+            this.slot = p_266754_;
+            this.name = p_266886_;
+        }
+
+        public EquipmentSlot getSlot() {
+            return this.slot;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+    }
+
     public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
     public static final ResourceLocation ELYTRA = TConstruct.getResource("elyta");
     public static final ResourceLocation SNOW_BOOTS = TConstruct.getResource("snow_boots");
@@ -185,7 +194,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
     }
 
     public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer) {
-        return this.slot == EquipmentSlot.FEET && ModifierUtil.checkVolatileFlag(stack, SNOW_BOOTS);
+        return this.type == ArmorItem.Type.BOOTS && ModifierUtil.checkVolatileFlag(stack, SNOW_BOOTS);
     }
 
     public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
@@ -196,7 +205,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         return true;
     }
 
-    public boolean isEnchantable(@NotNull ItemStack stack) {
+    public boolean isEnchantable(ItemStack stack) {
         return false;
     }
 
@@ -221,19 +230,25 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         return new ToolCapabilityProvider(stack);
     }
 
-    public void verifyTagAfterLoad(@NotNull CompoundTag nbt) {
+    public void verifyTagAfterLoad(CompoundTag nbt) {
         ToolStack.verifyTag(this, nbt, this.getToolDefinition());
     }
 
-    public void onCraftedBy(@NotNull ItemStack stack, @NotNull Level levelIn, @NotNull Player playerIn) {
+    public void onCraftedBy(ItemStack stack, Level levelIn, Player playerIn) {
         ToolStack.ensureInitialized(stack, this.getToolDefinition());
     }
 
-    public boolean isFoil(@NotNull ItemStack stack) {
+    public InteractionResultHolder<ItemStack> use(Level levelIn, Player playerIn, InteractionHand handIn) {
+        ItemStack stack = playerIn.getItemInHand(handIn);
+        InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, (IToolStackView)null, this.getToolDefinition(), playerIn, slimeknights.tconstruct.library.utils.Util.getSlotType(handIn));
+        return result.consumesAction() ? new InteractionResultHolder(result, stack) : super.use(levelIn, playerIn, handIn);
+    }
+
+    public boolean isFoil(ItemStack stack) {
         return ModifierUtil.checkVolatileFlag(stack, SHINY);
     }
 
-    public @NotNull Rarity getRarity(@NotNull ItemStack stack) {
+    public Rarity getRarity(ItemStack stack) {
         int rarity = ModifierUtil.getVolatileInt(stack, RARITY);
         return Rarity.values()[Mth.clamp(rarity, 0, 3)];
     }
@@ -252,7 +267,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         }
     }
 
-    public boolean isRepairable(@NotNull ItemStack stack) {
+    public boolean isRepairable(ItemStack stack) {
         return false;
     }
 
@@ -261,13 +276,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
     }
 
     public int getMaxDamage(ItemStack stack) {
-        if (!this.canBeDepleted()) {
-            return 0;
-        } else {
-            ToolStack tool = ToolStack.from(stack);
-            int durability = tool.getStats().getInt(ToolStats.DURABILITY);
-            return tool.isBroken() ? durability + 1 : durability;
-        }
+        return ToolDamageUtil.getFakeMaxDamage(stack);
     }
 
     public int getDamage(ItemStack stack) {
@@ -289,33 +298,33 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         return 0;
     }
 
-    public boolean isBarVisible(@NotNull ItemStack pStack) {
+    public boolean isBarVisible(ItemStack pStack) {
         return DurabilityDisplayModifierHook.showDurabilityBar(pStack);
     }
 
-    public int getBarColor(@NotNull ItemStack pStack) {
+    public int getBarColor(ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityRGB(pStack);
     }
 
-    public int getBarWidth(@NotNull ItemStack pStack) {
+    public int getBarWidth(ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityWidth(pStack);
     }
 
-    public boolean isValidRepairItem(@NotNull ItemStack toRepair, @NotNull ItemStack repair) {
+    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
         return false;
     }
 
-    public @NotNull Multimap<Attribute, AttributeModifier> getAttributeModifiers(@NotNull IToolStackView tool, @NotNull EquipmentSlot slot) {
-        if (slot != this.getSlot()) {
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(IToolStackView tool, EquipmentSlot slot) {
+        if (slot != this.getEquipmentSlot()) {
             return ImmutableMultimap.of();
         } else {
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
             if (!tool.isBroken()) {
                 StatsNBT statsNBT = tool.getStats();
-                UUID uuid = ARMOR_MODIFIER_UUID;
-                builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "tconstruct.armor.armor", (double) statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
-                builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "tconstruct.armor.toughness", (double) statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
-                double knockbackResistance = (double) statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
+                UUID uuid = (UUID)ARMOR_MODIFIER_UUID_PER_TYPE.get(this.type);
+                builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "tconstruct.armor.armor", (double)(Float)statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
+                builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "tconstruct.armor.toughness", (double)(Float)statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
+                double knockbackResistance = (double)(Float)statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
                 if (knockbackResistance != (double)0.0F) {
                     builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "tconstruct.armor.knockback_resistance", knockbackResistance, AttributeModifier.Operation.ADDITION));
                 }
@@ -324,7 +333,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
                 BiConsumer<Attribute, AttributeModifier> attributeConsumer = builder::put;
 
                 for(ModifierEntry entry : tool.getModifierList()) {
-                    entry.getHook(ModifierHooks.ATTRIBUTES).addAttributes(tool, entry, slot, attributeConsumer);
+                    ((AttributesModifierHook)entry.getHook(ModifierHooks.ATTRIBUTES)).addAttributes(tool, entry, slot, attributeConsumer);
                 }
             }
 
@@ -334,24 +343,24 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
 
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         CompoundTag nbt = stack.getTag();
-        return slot == this.getSlot() && nbt != null ? this.getAttributeModifiers(ToolStack.from(stack), slot) : ImmutableMultimap.of();
+        return (Multimap<Attribute, AttributeModifier>)(slot == this.getEquipmentSlot() && nbt != null ? this.getAttributeModifiers((IToolStackView)ToolStack.from(stack), (EquipmentSlot)slot) : ImmutableMultimap.of());
     }
 
     public boolean canElytraFly(ItemStack stack, LivingEntity entity) {
-        return this.slot == EquipmentSlot.CHEST && !ToolDamageUtil.isBroken(stack) && ModifierUtil.checkVolatileFlag(stack, ELYTRA);
+        return this.type == ArmorItem.Type.CHESTPLATE && !ToolDamageUtil.isBroken(stack) && ModifierUtil.checkVolatileFlag(stack, ELYTRA);
     }
 
     public boolean elytraFlightTick(ItemStack stack, LivingEntity entity, int flightTicks) {
-        if (this.slot == EquipmentSlot.CHEST) {
+        if (this.getEquipmentSlot() == EquipmentSlot.CHEST) {
             ToolStack tool = ToolStack.from(stack);
             if (!tool.isBroken()) {
                 for(ModifierEntry entry : tool.getModifierList()) {
-                    if (entry.getHook(ModifierHooks.ELYTRA_FLIGHT).elytraFlightTick(tool, entry, entity, flightTicks)) {
+                    if (((ElytraFlightModifierHook)entry.getHook(ModifierHooks.ELYTRA_FLIGHT)).elytraFlightTick(tool, entry, entity, flightTicks)) {
                         return false;
                     }
                 }
 
-                if (!entity.level.isClientSide && (flightTicks + 1) % 20 == 0) {
+                if (!entity.level().isClientSide && (flightTicks + 1) % 20 == 0) {
                     ToolDamageUtil.damageAnimated(tool, 1, entity, EquipmentSlot.CHEST);
                 }
 
@@ -362,7 +371,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         return false;
     }
 
-    public void inventoryTick(@NotNull ItemStack stack, @NotNull Level levelIn, @NotNull Entity entityIn, int itemSlot, boolean isSelected) {
+    public void inventoryTick(ItemStack stack, Level levelIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.inventoryTick(stack, levelIn, entityIn, itemSlot, isSelected);
         if (entityIn instanceof LivingEntity) {
             ToolStack tool = ToolStack.from(stack);
@@ -373,41 +382,43 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
             List<ModifierEntry> modifiers = tool.getModifierList();
             if (!modifiers.isEmpty()) {
                 LivingEntity living = (LivingEntity)entityIn;
-                boolean isCorrectSlot = living.getItemBySlot(this.slot) == stack;
+                boolean isCorrectSlot = living.getItemBySlot(this.getEquipmentSlot()) == stack;
 
                 for(ModifierEntry entry : modifiers) {
-                    entry.getHook(ModifierHooks.INVENTORY_TICK).onInventoryTick(tool, entry, levelIn, living, itemSlot, isSelected, isCorrectSlot, stack);
+                    ((InventoryTickModifierHook)entry.getHook(ModifierHooks.INVENTORY_TICK)).onInventoryTick(tool, entry, levelIn, living, itemSlot, isSelected, isCorrectSlot, stack);
                 }
             }
         }
+
     }
 
-    public @NotNull Component getName(@NotNull ItemStack stack) {
+    public boolean overrideStackedOnOther(ItemStack held, Slot slot, ClickAction action, Player player) {
+        return SlotStackModifierHook.overrideStackedOnOther(held, slot, action, player);
+    }
+
+    public boolean overrideOtherStackedOnMe(ItemStack slotStack, ItemStack held, Slot slot, ClickAction action, Player player, SlotAccess access) {
+        return SlotStackModifierHook.overrideOtherStackedOnMe(slotStack, held, slot, action, player, access);
+    }
+
+    public Component getName(ItemStack stack) {
         return TooltipUtil.getDisplayName(stack, this.getToolDefinition());
     }
 
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
     }
 
-    public @NotNull List<Component> getStatInformation(@NotNull IToolStackView tool, @Nullable Player player, @NotNull List<Component> tooltips, @NotNull TooltipKey key, @NotNull TooltipFlag tooltipFlag) {
+    public List<Component> getStatInformation(IToolStackView tool, @Nullable Player player, List<Component> tooltips, TooltipKey key, TooltipFlag tooltipFlag) {
         tooltips = TooltipUtil.getArmorStats(tool, player, tooltips, key, tooltipFlag);
-        TooltipUtil.addAttributes(this, tool, player, tooltips, TooltipUtil.SHOW_ARMOR_ATTRIBUTES, this.getSlot());
+        TooltipUtil.addAttributes(this, tool, player, tooltips, TooltipUtil.SHOW_ARMOR_ATTRIBUTES, new EquipmentSlot[]{this.getEquipmentSlot()});
         return tooltips;
     }
 
-    public int getDefaultTooltipHideFlags(@NotNull ItemStack stack) {
+    public int getDefaultTooltipHideFlags(ItemStack stack) {
         return TooltipUtil.getModifierHideFlags(this.getToolDefinition());
     }
 
-    public void fillItemCategory(@NotNull CreativeModeTab group, @NotNull NonNullList<ItemStack> items) {
-        if (this.allowedIn(group)) {
-            ToolBuildHandler.addDefaultSubItems(this, items);
-        }
-
-    }
-
-    public @NotNull ItemStack getRenderTool() {
+    public ItemStack getRenderTool() {
         if (this.toolForRendering == null) {
             this.toolForRendering = ToolBuildHandler.buildToolForRendering(this, this.getToolDefinition());
         }
@@ -415,7 +426,7 @@ public class HorseArmor extends HorseArmorItem implements Wearable, IModifiableD
         return this.toolForRendering;
     }
 
-    public @NotNull ToolDefinition getToolDefinition() {
+    public ToolDefinition getToolDefinition() {
         return this.toolDefinition;
     }
 }

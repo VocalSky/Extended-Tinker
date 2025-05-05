@@ -1,5 +1,7 @@
 package org.vocalsky.extended_tinker;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,6 +14,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.vocalsky.extended_tinker.common.*;
 import org.vocalsky.extended_tinker.network.PacketHandler;
+import slimeknights.tconstruct.library.utils.Util;
 
 @Mod(Extended_tinker.MODID)
 public class Extended_tinker {
@@ -48,5 +51,13 @@ public class Extended_tinker {
 
     public static ResourceLocation getResource(String id) {
         return new ResourceLocation(MODID, id);
+    }
+
+    public static String makeTranslationKey(String base, String name) {
+        return Util.makeTranslationKey(base, getResource(name));
+    }
+
+    public static MutableComponent makeTranslation(String base, String name) {
+        return Component.translatable(makeTranslationKey(base, name));
     }
 }

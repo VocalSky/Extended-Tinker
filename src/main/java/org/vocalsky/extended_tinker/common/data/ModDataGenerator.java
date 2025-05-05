@@ -16,9 +16,8 @@ public class ModDataGenerator {
         boolean server = event.includeServer();
         boolean client = event.includeClient();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        BlockTagProvider blockTags = new BlockTagProvider(generator, existingFileHelper);
-        generator.addProvider(server, blockTags);
-        generator.addProvider(server, new ItemTagProvider(generator, blockTags, existingFileHelper));
+//        generator.addProvider(server, blockTags);
+//        generator.addProvider(server, new ItemTagProvider(generator, blockTags, existingFileHelper));
         generator.addProvider(server, new ToolRecipeProvider(generator));
         generator.addProvider(server, new ToolDefinitionDataProvider(generator));
         generator.addProvider(server, new StationSlotLayoutProvider(generator));

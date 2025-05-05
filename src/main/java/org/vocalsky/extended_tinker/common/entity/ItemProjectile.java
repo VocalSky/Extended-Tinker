@@ -72,7 +72,7 @@ public abstract class ItemProjectile extends Projectile implements ItemSupplier 
     @Override
     public void tick() {
         super.tick();
-        HitResult hitresult = ProjectileUtil.getHitResult(this, this::canHitEntity);
+        HitResult hitresult = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
         if (hitresult.getType() == HitResult.Type.ENTITY){
             this.onHitEntity((EntityHitResult) hitresult);
         }

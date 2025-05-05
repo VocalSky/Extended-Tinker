@@ -1,28 +1,38 @@
 package org.vocalsky.extended_tinker.common.data.Provider;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 import static slimeknights.tconstruct.common.TinkerTags.Items.*;
 
 public class ItemTagProvider extends ItemTagsProvider {
-    public ItemTagProvider(DataGenerator generatorIn, BlockTagsProvider blockTagProvider, ExistingFileHelper existingFileHelper) {
-        super(generatorIn, blockTagProvider, Extended_tinker.MODID, existingFileHelper);
+
+    public ItemTagProvider(PackOutput p_275343_, CompletableFuture<HolderLookup.Provider> p_275729_, CompletableFuture<TagLookup<Block>> p_275322_, String modId, @Nullable ExistingFileHelper existingFileHelper) {
+        super(p_275343_, p_275729_, p_275322_, modId, existingFileHelper);
+    }
+
+    public ItemTagProvider(PackOutput p_275204_, CompletableFuture<HolderLookup.Provider> p_275194_, CompletableFuture<TagLookup<Item>> p_275207_, CompletableFuture<TagLookup<Block>> p_275634_, String modId, @Nullable ExistingFileHelper existingFileHelper) {
+        super(p_275204_, p_275194_, p_275207_, p_275634_, modId, existingFileHelper);
     }
 
     @Override
-    public void addTags() {
+    public void addTags(HolderLookup.@NotNull Provider provider) {
         this.addTools();
         this.addSmeltry();
     }
@@ -45,9 +55,9 @@ public class ItemTagProvider extends ItemTagsProvider {
         TagAppender<Item> multiUseCasts = this.tag(TinkerTags.Items.MULTI_USE_CASTS);
         Consumer<CastItemObject> addCast = cast -> {
             // tag based on material
-            goldCasts.add(cast.get());
-            sandCasts.add(cast.getSand());
-            redSandCasts.add(cast.getRedSand());
+//            goldCasts.add(cast.get());
+//            sandCasts.add(cast.getSand());
+//            redSandCasts.add(cast.getRedSand());
             // tag based on usage
             singleUseCasts.addTag(cast.getSingleUseTag());
             this.tag(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand());
