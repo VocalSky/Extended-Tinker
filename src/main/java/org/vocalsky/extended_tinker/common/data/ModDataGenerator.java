@@ -18,12 +18,12 @@ public class ModDataGenerator {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 //        generator.addProvider(server, blockTags);
 //        generator.addProvider(server, new ItemTagProvider(generator, blockTags, existingFileHelper));
-        generator.addProvider(server, new ToolRecipeProvider(generator));
-        generator.addProvider(server, new ToolDefinitionDataProvider(generator));
-        generator.addProvider(server, new StationSlotLayoutProvider(generator));
-        generator.addProvider(server, new ModifierProvider(generator));
-        generator.addProvider(server, new ModifierRecipeProvider(generator));
-        generator.addProvider(server, new ModifierTagProvider(generator, existingFileHelper));
-        generator.addProvider(client, new ModItemModelProvider(generator, existingFileHelper));
+//        generator.addProvider(server, new ToolRecipeProvider(generator));
+//        generator.addProvider(server, new ToolDefinitionDataProvider(generator));
+//        generator.addProvider(server, new StationSlotLayoutProvider(generator));
+//        generator.addProvider(server, new ModifierProvider(generator));
+//        generator.addProvider(server, new ModifierRecipeProvider(generator));
+//        generator.addProvider(server, new ModifierTagProvider(generator, existingFileHelper));
+//        generator.addProvider(client, new ModItemModelProvider(generator, existingFileHelper));
     }
 }

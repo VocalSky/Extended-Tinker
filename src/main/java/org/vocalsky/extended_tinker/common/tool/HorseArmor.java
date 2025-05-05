@@ -2,6 +2,7 @@ package org.vocalsky.extended_tinker.common.tool;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import lombok.Getter;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
@@ -29,6 +30,7 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import org.jetbrains.annotations.NotNull;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.TConstruct;
@@ -50,7 +52,6 @@ import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.helper.TooltipUtil;
 import slimeknights.tconstruct.library.tools.item.IModifiableDisplay;
-import slimeknights.tconstruct.library.tools.item.armor.ModifiableArmorItem;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
@@ -73,10 +74,15 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
             return ArmorItem.dispenseArmor(p_40408_, p_40409_) ? p_40409_ : super.execute(p_40408_, p_40409_);
         }
     };
+    @Getter
     protected final ArmorItem.Type type;
+    @Getter
     private final int defense;
+    @Getter
     private final float toughness;
+    @Getter
     protected final float knockbackResistance;
+    @Getter
     protected final ArmorMaterial material;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
@@ -124,28 +130,12 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         this(material, type, properties, (ToolDefinition) Objects.requireNonNull(material.getArmorDefinition(type), "Missing tool definition for " + type.getName()));
     }
 
-    public ArmorItem.Type getType() {
-        return this.type;
-    }
-
     public int getEnchantmentValue() {
         return this.material.getEnchantmentValue();
     }
 
-    public ArmorMaterial getMaterial() {
-        return this.material;
-    }
-
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot p_40390_) {
-        return p_40390_ == this.type.getSlot() ? this.defaultModifiers : super.getDefaultAttributeModifiers(p_40390_);
-    }
-
-    public int getDefense() {
-        return this.defense;
-    }
-
-    public float getToughness() {
-        return this.toughness;
+    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
+        return slot == this.type.getSlot() ? this.defaultModifiers : super.getDefaultAttributeModifiers(slot);
     }
 
     public EquipmentSlot getEquipmentSlot() {
@@ -156,32 +146,10 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         return this.getMaterial().getEquipSound();
     }
 
-    public static enum Type {
-        HELMET(EquipmentSlot.HEAD, "helmet"),
-        CHESTPLATE(EquipmentSlot.CHEST, "chestplate"),
-        LEGGINGS(EquipmentSlot.LEGS, "leggings"),
-        BOOTS(EquipmentSlot.FEET, "boots");
-
-        private final EquipmentSlot slot;
-        private final String name;
-
-        private Type(EquipmentSlot p_266754_, String p_266886_) {
-            this.slot = p_266754_;
-            this.name = p_266886_;
-        }
-
-        public EquipmentSlot getSlot() {
-            return this.slot;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-    }
-
     public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
     public static final ResourceLocation ELYTRA = TConstruct.getResource("elyta");
     public static final ResourceLocation SNOW_BOOTS = TConstruct.getResource("snow_boots");
+    @Getter
     private final ToolDefinition toolDefinition;
     private ItemStack toolForRendering;
 
@@ -205,7 +173,7 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         return true;
     }
 
-    public boolean isEnchantable(ItemStack stack) {
+    public boolean isEnchantable(@NotNull ItemStack stack) {
         return false;
     }
 
@@ -230,18 +198,18 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         return new ToolCapabilityProvider(stack);
     }
 
-    public void verifyTagAfterLoad(CompoundTag nbt) {
+    public void verifyTagAfterLoad(@NotNull CompoundTag nbt) {
         ToolStack.verifyTag(this, nbt, this.getToolDefinition());
     }
 
-    public void onCraftedBy(ItemStack stack, Level levelIn, Player playerIn) {
+    public void onCraftedBy(@NotNull ItemStack stack, @NotNull Level levelIn, @NotNull Player playerIn) {
         ToolStack.ensureInitialized(stack, this.getToolDefinition());
     }
 
-    public InteractionResultHolder<ItemStack> use(Level levelIn, Player playerIn, InteractionHand handIn) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level levelIn, Player playerIn, @NotNull InteractionHand handIn) {
         ItemStack stack = playerIn.getItemInHand(handIn);
-        InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, (IToolStackView)null, this.getToolDefinition(), playerIn, slimeknights.tconstruct.library.utils.Util.getSlotType(handIn));
-        return result.consumesAction() ? new InteractionResultHolder(result, stack) : super.use(levelIn, playerIn, handIn);
+        InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, this.getToolDefinition(), playerIn, slimeknights.tconstruct.library.utils.Util.getSlotType(handIn));
+        return result.consumesAction() ? new InteractionResultHolder<>(result, stack) : super.use(levelIn, playerIn, handIn);
     }
 
     public boolean isFoil(ItemStack stack) {
@@ -267,7 +235,7 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         }
     }
 
-    public boolean isRepairable(ItemStack stack) {
+    public boolean isRepairable(@NotNull ItemStack stack) {
         return false;
     }
 
@@ -298,33 +266,34 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         return 0;
     }
 
-    public boolean isBarVisible(ItemStack pStack) {
+    public boolean isBarVisible(@NotNull ItemStack pStack) {
         return DurabilityDisplayModifierHook.showDurabilityBar(pStack);
     }
 
-    public int getBarColor(ItemStack pStack) {
+    public int getBarColor(@NotNull ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityRGB(pStack);
     }
 
-    public int getBarWidth(ItemStack pStack) {
+    public int getBarWidth(@NotNull ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityWidth(pStack);
     }
 
-    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+    public boolean isValidRepairItem(@NotNull ItemStack toRepair, @NotNull ItemStack repair) {
         return false;
     }
 
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(IToolStackView tool, EquipmentSlot slot) {
+    @Override
+    public @NotNull Multimap<Attribute, AttributeModifier> getAttributeModifiers(@NotNull IToolStackView tool, @NotNull EquipmentSlot slot) {
         if (slot != this.getEquipmentSlot()) {
             return ImmutableMultimap.of();
         } else {
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
             if (!tool.isBroken()) {
                 StatsNBT statsNBT = tool.getStats();
-                UUID uuid = (UUID)ARMOR_MODIFIER_UUID_PER_TYPE.get(this.type);
-                builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "tconstruct.armor.armor", (double)(Float)statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
-                builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "tconstruct.armor.toughness", (double)(Float)statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
-                double knockbackResistance = (double)(Float)statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
+                UUID uuid = ARMOR_MODIFIER_UUID_PER_TYPE.get(this.type);
+                builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "tconstruct.armor.armor", (double) statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
+                builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "tconstruct.armor.toughness", (double) statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
+                double knockbackResistance = (double) statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
                 if (knockbackResistance != (double)0.0F) {
                     builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "tconstruct.armor.knockback_resistance", knockbackResistance, AttributeModifier.Operation.ADDITION));
                 }
@@ -333,7 +302,7 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
                 BiConsumer<Attribute, AttributeModifier> attributeConsumer = builder::put;
 
                 for(ModifierEntry entry : tool.getModifierList()) {
-                    ((AttributesModifierHook)entry.getHook(ModifierHooks.ATTRIBUTES)).addAttributes(tool, entry, slot, attributeConsumer);
+                    entry.getHook(ModifierHooks.ATTRIBUTES).addAttributes(tool, entry, slot, attributeConsumer);
                 }
             }
 
@@ -343,7 +312,7 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
 
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         CompoundTag nbt = stack.getTag();
-        return (Multimap<Attribute, AttributeModifier>)(slot == this.getEquipmentSlot() && nbt != null ? this.getAttributeModifiers((IToolStackView)ToolStack.from(stack), (EquipmentSlot)slot) : ImmutableMultimap.of());
+        return slot == this.getEquipmentSlot() && nbt != null ? this.getAttributeModifiers(ToolStack.from(stack), slot) : ImmutableMultimap.of();
     }
 
     public boolean canElytraFly(ItemStack stack, LivingEntity entity) {
@@ -371,9 +340,9 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         return false;
     }
 
-    public void inventoryTick(ItemStack stack, Level levelIn, Entity entityIn, int itemSlot, boolean isSelected) {
+    public void inventoryTick(@NotNull ItemStack stack, @NotNull Level levelIn, @NotNull Entity entityIn, int itemSlot, boolean isSelected) {
         super.inventoryTick(stack, levelIn, entityIn, itemSlot, isSelected);
-        if (entityIn instanceof LivingEntity) {
+        if (entityIn instanceof LivingEntity living) {
             ToolStack tool = ToolStack.from(stack);
             if (!levelIn.isClientSide) {
                 tool.ensureHasData();
@@ -381,26 +350,25 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
 
             List<ModifierEntry> modifiers = tool.getModifierList();
             if (!modifiers.isEmpty()) {
-                LivingEntity living = (LivingEntity)entityIn;
                 boolean isCorrectSlot = living.getItemBySlot(this.getEquipmentSlot()) == stack;
 
                 for(ModifierEntry entry : modifiers) {
-                    ((InventoryTickModifierHook)entry.getHook(ModifierHooks.INVENTORY_TICK)).onInventoryTick(tool, entry, levelIn, living, itemSlot, isSelected, isCorrectSlot, stack);
+                    entry.getHook(ModifierHooks.INVENTORY_TICK).onInventoryTick(tool, entry, levelIn, living, itemSlot, isSelected, isCorrectSlot, stack);
                 }
             }
         }
 
     }
 
-    public boolean overrideStackedOnOther(ItemStack held, Slot slot, ClickAction action, Player player) {
+    public boolean overrideStackedOnOther(@NotNull ItemStack held, @NotNull Slot slot, @NotNull ClickAction action, @NotNull Player player) {
         return SlotStackModifierHook.overrideStackedOnOther(held, slot, action, player);
     }
 
-    public boolean overrideOtherStackedOnMe(ItemStack slotStack, ItemStack held, Slot slot, ClickAction action, Player player, SlotAccess access) {
+    public boolean overrideOtherStackedOnMe(@NotNull ItemStack slotStack, @NotNull ItemStack held, @NotNull Slot slot, @NotNull ClickAction action, @NotNull Player player, @NotNull SlotAccess access) {
         return SlotStackModifierHook.overrideOtherStackedOnMe(slotStack, held, slot, action, player, access);
     }
 
-    public Component getName(ItemStack stack) {
+    public @NotNull Component getName(@NotNull ItemStack stack) {
         return TooltipUtil.getDisplayName(stack, this.getToolDefinition());
     }
 
@@ -408,17 +376,17 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
     }
 
-    public List<Component> getStatInformation(IToolStackView tool, @Nullable Player player, List<Component> tooltips, TooltipKey key, TooltipFlag tooltipFlag) {
+    public @NotNull List<Component> getStatInformation(@NotNull IToolStackView tool, @Nullable Player player, @NotNull List<Component> tooltips, @NotNull TooltipKey key, @NotNull TooltipFlag tooltipFlag) {
         tooltips = TooltipUtil.getArmorStats(tool, player, tooltips, key, tooltipFlag);
-        TooltipUtil.addAttributes(this, tool, player, tooltips, TooltipUtil.SHOW_ARMOR_ATTRIBUTES, new EquipmentSlot[]{this.getEquipmentSlot()});
+        TooltipUtil.addAttributes(this, tool, player, tooltips, TooltipUtil.SHOW_ARMOR_ATTRIBUTES, this.getEquipmentSlot());
         return tooltips;
     }
 
-    public int getDefaultTooltipHideFlags(ItemStack stack) {
+    public int getDefaultTooltipHideFlags(@NotNull ItemStack stack) {
         return TooltipUtil.getModifierHideFlags(this.getToolDefinition());
     }
 
-    public ItemStack getRenderTool() {
+    public @NotNull ItemStack getRenderTool() {
         if (this.toolForRendering == null) {
             this.toolForRendering = ToolBuildHandler.buildToolForRendering(this, this.getToolDefinition());
         }
@@ -426,7 +394,4 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         return this.toolForRendering;
     }
 
-    public ToolDefinition getToolDefinition() {
-        return this.toolDefinition;
-    }
 }

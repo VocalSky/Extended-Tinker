@@ -1,6 +1,6 @@
 package org.vocalsky.extended_tinker.util;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -29,7 +29,7 @@ public class ModCastItemObject extends CastItemObject {
 
     @Override
     protected @NotNull TagKey<Item> makeTag(@NotNull String type) {
-        return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(TConstruct.MOD_ID, "casts/" + type + "/" + getName().getPath()));
+        return TagKey.create(Registries.ITEM, new ResourceLocation(TConstruct.MOD_ID, "casts/" + type + "/" + getName().getPath()));
     }
 
     @Override

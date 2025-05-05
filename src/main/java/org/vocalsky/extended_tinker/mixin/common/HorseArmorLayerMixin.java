@@ -52,7 +52,7 @@ public abstract class HorseArmorLayerMixin extends RenderLayer<Horse, HorseModel
             Optional<MaterialRenderInfo> optional = MaterialRenderInfoLoader.INSTANCE.getRenderInfo(material.getVariant());
             if (optional.isPresent()) {
                 MaterialRenderInfo info = optional.get();
-                return new TextureInformation(extended_tinker$textureLocations[partIndex], info.getVertexColor());
+                return new TextureInformation(extended_tinker$textureLocations[partIndex], info.vertexColor());
             }
         }
         return new TextureInformation(this.getTextureLocation(horse), -1);

@@ -4,6 +4,8 @@ import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -31,6 +33,7 @@ import slimeknights.tconstruct.library.recipe.tinkerstation.ITinkerStationContai
 import slimeknights.tconstruct.library.recipe.tinkerstation.ITinkerStationRecipe;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
+import slimeknights.tconstruct.library.tools.nbt.LazyToolStack;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import javax.annotation.Nullable;
@@ -88,7 +91,7 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe, IDispl
     }
 
     @Override
-    public @NotNull RecipeResult<ItemStack> getValidatedResult(ITinkerStationContainer inv) {
+    public @NotNull RecipeResult<LazyToolStack> getValidatedResult(ITinkerStationContainer inv, @NotNull RegistryAccess registryAccess) {
         ToolStack tool = inv.getTinkerable();
 
         for(int i = 0; i < inv.getInputCount(); ++i) {
@@ -104,16 +107,11 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe, IDispl
                 newTool.getPersistentData().put(FirecrackStarModifier.fireworks, compoundTag);
                 FirecrackStarModifier.setStar(newTool, compoundTag);
                 newTool.getPersistentData().addSlots(SlotType.ABILITY, -1);
-                return RecipeResult.success(newTool.createStack());
+                return RecipeResult.success(LazyToolStack.from(newTool.createStack()));
             }
         }
 
         return RecipeResult.pass();
-    }
-
-    @Override
-    public @NotNull ItemStack getResultItem() {
-        return ItemStack.EMPTY;
     }
 
     @Override
@@ -214,10 +212,11 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe, IDispl
         }
         return Collections.emptyList();
     }
+
     @Override
     public @NotNull List<ItemStack> getToolWithoutModifier() {
         if (toolWithoutModifier == null) {
-            toolWithoutModifier = RegistryHelper.getTagValueStream(Registry.ITEM, TinkerTags.Items.DURABILITY).map(MAP_TOOL_FOR_RENDERING).toList();
+            toolWithoutModifier = RegistryHelper.getTagValueStream(BuiltInRegistries.ITEM, TinkerTags.Items.DURABILITY).map(MAP_TOOL_FOR_RENDERING).toList();
         }
         return toolWithoutModifier;
     }
@@ -227,7 +226,7 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe, IDispl
         if (toolWithModifier == null) {
             FirecrackStarModifier starModifier = ModModifiers.STAR.get();
             List<ModifierEntry> result = List.of(RESULT);
-            toolWithModifier = RegistryHelper.getTagValueStream(Registry.ITEM, TinkerTags.Items.DURABILITY)
+            toolWithModifier = RegistryHelper.getTagValueStream(BuiltInRegistries.ITEM, TinkerTags.Items.DURABILITY)
                     .map(MAP_TOOL_FOR_RENDERING)
                     .map(stack -> withModifiers(stack, result, data -> {}))
                     .toList();

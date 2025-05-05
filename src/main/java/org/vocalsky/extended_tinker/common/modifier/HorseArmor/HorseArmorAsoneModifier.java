@@ -35,7 +35,7 @@ public class HorseArmorAsoneModifier extends NoLevelsModifier {
         if (!living.isSpectator()) {
             EquipmentContext context = new EquipmentContext(living);
             if (context.hasModifiableArmor()) {
-                if (!living.level.isClientSide && living.isAlive()) {
+                if (!living.level().isClientSide && living.isAlive()) {
                     living.getCapability(TinkerDataCapability.CAPABILITY).ifPresent((holder) -> {
                         if (holder.get(ASONE, 0) > 0) {
                             if (living.isVehicle()) {
@@ -76,7 +76,7 @@ public class HorseArmorAsoneModifier extends NoLevelsModifier {
             if (living.getVehicle() instanceof LivingEntity vehicle) {
                 EquipmentContext context = new EquipmentContext(vehicle);
                 if (context.hasModifiableArmor()) {
-                    if (!vehicle.level.isClientSide && vehicle.isAlive()) {
+                    if (!vehicle.level().isClientSide && vehicle.isAlive()) {
                         vehicle.getCapability(TinkerDataCapability.CAPABILITY).ifPresent((holder) -> {
                             if (holder.get(ASONE, 0) > 0) {
                                 event.setCanceled(true);

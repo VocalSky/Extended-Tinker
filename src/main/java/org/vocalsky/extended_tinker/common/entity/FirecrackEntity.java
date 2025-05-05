@@ -1,5 +1,6 @@
 package org.vocalsky.extended_tinker.common.entity;
 
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
@@ -19,6 +20,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -40,12 +42,33 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.OptionalInt;
 
-public class FirecrackEntity extends ItemProjectile {
+public class FirecrackEntity extends FireworkRocketEntity {
     private int life;
     private int lifetime;
     private static final EntityDataAccessor<OptionalInt> DATA_ATTACHED_TO_TARGET;
     private static final EntityDataAccessor<Boolean> DATA_SHOT_AT_ANGLE;
     private LivingEntity attachedToEntity;
+
+    public @Nullable LivingEntity getLivingOwner() {
+        return this.getOwner() instanceof LivingEntity living ? living : null;
+    }
+    static final EntityDataAccessor<ItemStack> DATA_ITEM_STACK;
+
+    public void setItem(ItemStack itemStack) {
+        if (!itemStack.is(this.getDefaultItem()) || itemStack.hasTag()) {
+            this.getEntityData().set(DATA_ITEM_STACK, Util.make(itemStack.copy(), (stack) -> stack.setCount(1)));
+        }
+
+    }
+
+    protected ItemStack getItemRaw() {
+        return this.getEntityData().get(DATA_ITEM_STACK);
+    }
+
+    public @NotNull ItemStack getItem() {
+        ItemStack itemStack = this.getItemRaw();
+        return itemStack.isEmpty() ? new ItemStack(this.getDefaultItem()) : itemStack;
+    }
 
     public FirecrackEntity(EntityType<? extends FirecrackEntity> entityType, Level level, ItemStack itemStack) {
         super(entityType, level);
@@ -80,11 +103,11 @@ public class FirecrackEntity extends ItemProjectile {
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
+        this.getEntityData().define(DATA_ITEM_STACK, ItemStack.EMPTY);
         this.getEntityData().define(DATA_ATTACHED_TO_TARGET, OptionalInt.empty());
         this.getEntityData().define(DATA_SHOT_AT_ANGLE, false);
     }
 
-    @Override
     protected Item getDefaultItem() {
         return Items.AIR;
     }
@@ -121,11 +144,8 @@ public class FirecrackEntity extends ItemProjectile {
         }
 
         if (f > 0.0F) {
-            if (this.attachedToEntity != null) {
-                this.attachedToEntity.hurt(new firecrackDamageSource(this, this.getOwner()), 5.0F + (float)(listtag.size() * 2));
-                this.damageSources().source;
-//                new DamageSource((Holder<DamageType>) DamageTypes.FIREWORKS, this, this.getOwner());
-            }
+            if (this.attachedToEntity != null)
+                this.attachedToEntity.hurt(this.damageSources().fireworks(this, this.getOwner()), 5.0F + (float)(listtag.size() * 2));
 
             Vec3 vec3 = this.position();
 
@@ -144,7 +164,7 @@ public class FirecrackEntity extends ItemProjectile {
 
                     if (flag) {
                         float f1 = f * (float)Math.sqrt((5.0 - (double)this.distanceTo(livingentity)) / 5.0);
-                        livingentity.hurt(new firecrackDamageSource(this, this.getOwner()), f1);
+                        livingentity.hurt(this.damageSources().fireworks(this, this.getOwner()), f1);
                     }
                 }
             }
@@ -268,6 +288,7 @@ public class FirecrackEntity extends ItemProjectile {
     static {
         DATA_ATTACHED_TO_TARGET = SynchedEntityData.defineId(FirecrackEntity.class, EntityDataSerializers.OPTIONAL_UNSIGNED_INT);
         DATA_SHOT_AT_ANGLE = SynchedEntityData.defineId(FirecrackEntity.class, EntityDataSerializers.BOOLEAN);
+        DATA_ITEM_STACK = SynchedEntityData.defineId(FirecrackEntity.class, EntityDataSerializers.ITEM_STACK);
     }
 
     @Override
@@ -276,6 +297,8 @@ public class FirecrackEntity extends ItemProjectile {
         data.putInt("Life", this.life);
         data.putInt("LifeTime", this.lifetime);
         data.putBoolean("ShotAtAngle", this.entityData.get(DATA_SHOT_AT_ANGLE));
+        ItemStack itemStack = this.getItemRaw();
+        if (!itemStack.isEmpty()) data.put("Item", itemStack.save(new CompoundTag()));
     }
 
     public void readAdditionalSaveData(@NotNull CompoundTag data) {
@@ -283,5 +306,7 @@ public class FirecrackEntity extends ItemProjectile {
         this.life = data.getInt("Life");
         this.lifetime = data.getInt("LifeTime");
         if (data.contains("ShotAtAngle")) this.entityData.set(DATA_SHOT_AT_ANGLE, data.getBoolean("ShotAtAngle"));
+        ItemStack itemStack = ItemStack.of(data.getCompound("Item"));
+        this.setItem(itemStack);
     }
 }

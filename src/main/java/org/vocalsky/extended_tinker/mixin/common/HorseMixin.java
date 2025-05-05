@@ -1,14 +1,18 @@
 package org.vocalsky.extended_tinker.mixin.common;
 
+import com.google.common.collect.Multimap;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -17,10 +21,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.struct.InjectorGroupInfo;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -37,10 +44,16 @@ public abstract class HorseMixin extends AbstractHorse {
     @Inject(method = "setArmorEquipment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/horse/Horse;isArmor(Lnet/minecraft/world/item/ItemStack;)Z", shift = At.Shift.BY, by = 1))
     public void setArmorEquipmentMixin(@NotNull ItemStack itemStack, CallbackInfo ci) {
         if (itemStack.getItem() instanceof HorseArmor) {
-            float armor_toughness = ((HorseArmor)itemStack.getItem()).getToughness();
-            if (armor_toughness != 0) Objects.requireNonNull(getAttribute(Attributes.ARMOR_TOUGHNESS)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_toughness, AttributeModifier.Operation.ADDITION));
-            float knockback_resistance = ((HorseArmor)itemStack.getItem()).getKnockbackResistance();
-            if (knockback_resistance != 0) Objects.requireNonNull(getAttribute(Attributes.KNOCKBACK_RESISTANCE)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_toughness, AttributeModifier.Operation.ADDITION));
+            Multimap<Attribute, AttributeModifier> builder = ((HorseArmor)(itemStack.getItem())).getAttributeModifiers(ToolStack.from(itemStack), EquipmentSlot.CHEST);
+            builder.forEach(((attribute, attributeModifier) -> {
+                Objects.requireNonNull(getAttribute(attribute)).addTransientModifier(attributeModifier);
+            }));
+//            float armor_defense = ((HorseArmor)itemStack.getItem()).getDefense();
+//            if (armor_defense != 0) Objects.requireNonNull(getAttribute(Attributes.ARMOR)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_defense, AttributeModifier.Operation.ADDITION));
+//            float armor_toughness = ((HorseArmor)itemStack.getItem()).getToughness();
+//            if (armor_toughness != 0) Objects.requireNonNull(getAttribute(Attributes.ARMOR_TOUGHNESS)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_toughness, AttributeModifier.Operation.ADDITION));
+//            float knockback_resistance = ((HorseArmor)itemStack.getItem()).getKnockbackResistance();
+//            if (knockback_resistance != 0) Objects.requireNonNull(getAttribute(Attributes.KNOCKBACK_RESISTANCE)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_toughness, AttributeModifier.Operation.ADDITION));
         }
     }
 
@@ -53,7 +66,7 @@ public abstract class HorseMixin extends AbstractHorse {
             }
 
             ItemStack itemstack = this.getArmor();
-            if ((!damageSource.isFire() || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof HorseArmor) {
+            if ((!damageSource.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof HorseArmor) {
                 itemstack.hurtAndBreak((int)damage, (AbstractHorse)this, (abstractHorse) -> abstractHorse.broadcastBreakEvent(EquipmentSlot.CHEST));
             }
         }
