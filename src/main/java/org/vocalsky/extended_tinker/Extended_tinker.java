@@ -17,6 +17,7 @@ import org.vocalsky.extended_tinker.network.PacketHandler;
 import slimeknights.tconstruct.library.utils.Util;
 
 @Mod(Extended_tinker.MODID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Extended_tinker {
 
     public static final String MODID = "extended_tinker";
