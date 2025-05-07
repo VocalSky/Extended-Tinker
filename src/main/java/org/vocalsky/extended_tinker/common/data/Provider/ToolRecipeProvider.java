@@ -1,6 +1,5 @@
 package org.vocalsky.extended_tinker.common.data.Provider;
 
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -16,7 +15,7 @@ import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildin
 
 import java.util.function.Consumer;
 
-public class ToolRecipeProvider extends BaseRecipeProvider implements IMaterialRecipeHelper, IToolRecipeHelper {
+public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecipeHelper, IToolRecipeHelper {
     public ToolRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }

@@ -24,6 +24,6 @@ public class ModifierTagProvider extends AbstractModifierTagProvider {
 
     @Override
     public @NotNull String getName() {
-        return "Extended Tinker Modifier Provider";
+        return "Extended Tinker Modifier Tag Provider";
     }
 }

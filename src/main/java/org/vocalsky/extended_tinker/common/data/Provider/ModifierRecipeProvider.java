@@ -1,6 +1,5 @@
 package org.vocalsky.extended_tinker.common.data.Provider;
 
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -8,21 +7,19 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
-import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import java.util.function.Consumer;
 
-public class ModifierRecipeProvider extends BaseRecipeProvider {
+public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHelper{
     public ModifierRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }

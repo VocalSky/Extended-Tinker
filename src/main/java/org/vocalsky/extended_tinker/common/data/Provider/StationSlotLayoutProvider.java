@@ -2,6 +2,7 @@ package org.vocalsky.extended_tinker.common.data.Provider;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import slimeknights.tconstruct.library.data.tinkering.AbstractStationSlotLayoutProvider;
@@ -34,7 +35,7 @@ public class StationSlotLayoutProvider extends AbstractStationSlotLayoutProvider
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "Extended Tinker Station Slot Layout Data Provider";
     }
 }
