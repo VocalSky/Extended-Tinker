@@ -31,12 +31,7 @@ import java.util.function.Supplier;
 public class ModItems {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, TConstruct.MOD_ID);
-//    public static final CreativeModeTab TAB = new CreativeModeTab(Extended_tinker.MODID) {
-//        public @NotNull ItemStack makeIcon() {
-//            return Tools.HORSE_ARMOR.get().getRenderTool();
-//        }
-//    };
-  public static final RegistryObject<CreativeModeTab> Tab = CREATIVE_TABS.register(
+    public static final RegistryObject<CreativeModeTab> ComonTab = CREATIVE_TABS.register(
     "tools", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
                                   .icon(() -> Tools.HORSE_ARMOR.get().getRenderTool())
                                   .displayItems(Tools::addTabItems)
@@ -55,7 +50,17 @@ public class ModItems {
     public static class Parts {
         public static void init() {}
 
-        private static final Item.Properties PART_PROP = new Item.Properties();
+        private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
+            Consumer<ItemStack> output = tab::accept;
+            accept(output, BRIDLE);
+        }
+
+        private static void accept(Consumer<ItemStack> output, Supplier<? extends IMaterialItem> item) {
+            item.get().addVariants(output, "");
+        }
+
+        private static final Item.Properties PART_PROP = CommonItem;
+
         public static final ItemObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(PART_PROP, PlatingMaterialStats.CHESTPLATE.getId()));
     }
 
@@ -70,14 +75,14 @@ public class ModItems {
         }
 
         private static ModCastItemObject registerCast(String name, Item.Properties props) {
-            return registerCast(name, (Supplier)(() -> new Item(props)));
+            return registerCast(name, (() -> new Item(props)));
         }
 
         private static ModCastItemObject registerCast(ItemObject<? extends IMaterialItem> item, Item.Properties props) {
-            return registerCast(item.getId().getPath(), (Supplier)(() -> new PartCastItem(props, item)));
+            return registerCast(item.getId().getPath(), (() -> new PartCastItem(props, item)));
         }
 
-        private static final Item.Properties CAST_PROPS = new Item.Properties();
+        private static final Item.Properties CAST_PROPS = CommonItem;
 
         public static final ModCastItemObject BRIDLE_CAST = registerCast(Parts.BRIDLE, CAST_PROPS);
     }
@@ -85,7 +90,7 @@ public class ModItems {
     public static class Tools {
         public static void init() {}
 
-        private static final Item.Properties TOOL_PROP = new Item.Properties().stacksTo(1);
+        private static final Item.Properties TOOL_PROP = Stack1Item;
 
         private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
             Consumer<ItemStack> output = tab::accept;
