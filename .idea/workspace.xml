@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ET.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ET.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ET.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ET.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/03e4de26f1265135874f8cdcaebc09d9c08eb42b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/06fbe929787f6f801a89ed36c66e03434a7b1e69" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/06fbe929787f6f801a89ed36c66e03434a7b1e69" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/17ea628e7ef59390979770f77aebcb4ff99f6a4b" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/17ea628e7ef59390979770f77aebcb4ff99f6a4b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/39712fb123ed21171703a1eb67b1c1e746798849" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/39712fb123ed21171703a1eb67b1c1e746798849" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/6c0fe7d329d3e55ea58f9440e4c048e279aaf1f1" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/6c0fe7d329d3e55ea58f9440e4c048e279aaf1f1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/75bcd4dba6ca7d365462b0ec45e291d1056349c4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/91b5e0b40d1c2ac370218556c377bb55eb8745bb" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/91b5e0b40d1c2ac370218556c377bb55eb8745bb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/a4a8eb3cb24810616326c7af3719db0bba51b0ba" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/a4a8eb3cb24810616326c7af3719db0bba51b0ba" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/gold.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/gold.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use/bridle.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use/bridle.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/sand.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/sand.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use/bridle.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use/bridle.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/aoe.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/aoe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/left.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/left.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/right.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/right.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/small.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/small.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/special.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/special.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/armor/chestplate.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/armor/chestplate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ModifierRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ModifierRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ModifierTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ModifierTagProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/StationSlotLayoutProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/StationSlotLayoutProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/accesstransformer.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/accesstransformer.cfg" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="forgegradle prepare runs" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="forgegradle runs" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;VocalSky&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VocalSky/Extended-Tinker.git&quot;,
+    &quot;accountId&quot;: &quot;78f5a944-c7bf-4548-bd41-5d8c03604209&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2wgKusycNZnIr2y0DFan9R7yvUT" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [genIntellijRuns].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.下载源代码.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Live/Game/MC/ModProjects/Extended Tinker/src/main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;应用程序.runData.executor&quot;: &quot;Run&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.runClient">
+    <configuration name="Extended Tinker [genIntellijRuns]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="genIntellijRuns" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Extended Tinker [genIntellijRuns]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="" />
+      <created>1746458004705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746458004705</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

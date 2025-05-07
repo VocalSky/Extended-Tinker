@@ -1,0 +1,2094 @@
+Index: src/generated/resources/data/tconstruct/tags/items/casts/gold.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/casts/gold.json b/src/generated/resources/data/tconstruct/tags/items/casts/gold.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/casts/gold.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:bridle_cast"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,6 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:horse_armor_chestplate",
+-    "extended_tinker:firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/aoe.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/aoe.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/aoe.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/aoe.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:horse_armor_chestplate"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/asone_horsearmor.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/asone_horsearmor.json b/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/asone_horsearmor.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/asone_horsearmor.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,10 +0,0 @@
+-{
+-  "type": "tconstruct:modifier_salvage",
+-  "modifier": "extended_tinker:asone_horsearmor",
+-  "slots": {
+-    "abilities": 1
+-  },
+-  "tools": {
+-    "item": "extended_tinker:horse_armor_chestplate"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:horse_armor_chestplate"
+-  ]
+-}
+\ No newline at end of file
+Index: Tutorial/Modding.md
+===================================================================
+diff --git a/Tutorial/Modding.md b/Tutorial/Modding.md
+deleted file mode 100644
+--- a/Tutorial/Modding.md	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,143 +0,0 @@
+-本文是基于现有教程的一些扩展说明，或许可以称作导读。
+-
+-阅读之前建议有一定的代码基础，百科上也有关于 java 的一些教程。
+-
+-C++/python 选手应该也是能上手的。
+-
+-推荐阅读：
+-
+-- [dddddsj 的文章](https://www.mcmod.cn/post/3282.html)
+-- [耿悠博的文章](https://www.mcmod.cn/post/3993.html)
+-- [一篇旧版本的教程，但很多时候仍然适用](https://neutrino.v2mcdev.com/)
+-- [一篇旧版本的教程，但很多时候仍然适用](https://teamcovertdragon.github.io/Harbinger/63/)
+-
+-建议前两篇教程先读一遍，后两篇可以读一点，后面会标注对应部分建议阅读的内容。
+-
+-# 构建工作区
+-
+-可以自己下 forge mdk 折腾，不过我们比较懒，所以此处建议是直接安装 IDEA 插件：Minecraft Development。
+-
+-然后直接在 IDEA 中新建项目，选择 生成器 选项卡中的 Minecraft ：
+-
+-![](image-1.png)
+-
+-填写名称，会自动帮你生成其他信息，但也可以自行配置，每个字段的作用可见两位老师的博客。
+-
+-这里建议把 Mixin 勾选上，之后自己单独添加容易出问题。
+-
+-然后就可以创建工作区了，此时会自行进行构建，不过建议先停止构建，给 gradle 换个源。
+-
+-> 换源，就是更换 gradle 相关文件的下载源，因官方文件托管在国外，因此换为国内镜像可以提升构建速度。
+-
+-找到目录下 `gradle/wrapper/gradle-wrapper.properties`，做以下修改：
+-
+-```
+-distributionUrl=https\://services.gradle.org/distributions/gradle-8.8-bin.zip
+-```
+-
+-换为
+-
+-```
+-distributionUrl=https\://mirrors.aliyun.com/macports/distfiles/gradle/gradle-8.8-bin.zip
+-```
+-
+-请注意，此处原为 `gradle-8.8-bin.zip`，若版本号不同，请将 `8.8` 换为对应的版本号。
+-
+-![](image.png)
+-
+-现在构建工作区，速度和成功率将会有显著提升。
+-
+-# 有关 Minecraft & Forge 的一些介绍
+-
+-事实上笔者也不是很了解，但你需要形成一个大致的认知。
+-
+-mc 的代码由 java 编写，因而几乎不可能彻底闭源，因为总是能根据反编译得到一份像模像样的东西。
+-
+-而针对反编译出来的源码，我们需要反混淆使得其更可度，这就是 MCP Mapping，一套猜测反编译出的符号是什么用处的映射表。
+-
+-而在此基础上有了 Forge 这样的项目，其中 Forge Mod Loader（FML）用于加在 Mod，而 MinecraftForge 则是一个修改了 mc 源代码的项目，它使得 mc 的代码更加合理也更具扩展性。
+-
+-在 MinecraftForge 的工作中，一个重要的部分是事件系统，原版 mc 中没有事件，因此很多东西写死后，除非修改原类（事实上可以用 Mixin 做到），否则无法完成。
+-
+-## 事件系统
+-
+-事件系统的工作模式大概是：
+-
+-- 一开始，定义一些事件类型，不需要做其它的事。
+-- 定义一些方法，处理对应的一类事件，将它们注册到监听器的列表里，并指定优先级。
+-- 某件事情将要发生时，按照优先级调用监听器，然后根据调用后的结果决定是否发生，以及各个相关量的变化。
+-
+-
+-## 服务端 与 客户端
+-
+-一个值得注意的部分是 服务端 与 客户端。
+-
+-自从 mc 加入联机系统以来，所有的游戏都被拆分为 服务端 与 客户端 两部分，就连单人游戏也是如此。
+-
+-实体的移动、方块破坏 等都是 服务端 控制的，也就是整个游戏世界发生的。
+-
+-而玩家所看见的，以及一些不影响世界的行为，比如 按键、渲染 这些都是客户端的工作。
+-
+-之所以介绍这个，是因为我们有时需要在 服务端 和 客户端 间通信，来处理特殊的需求。
+-
+-比如添加 按下 v 键冲刺，左键空气产生爆炸 这样的功能，就会涉及到服务端和客户端间的通信。
+-
+-其中 左键空气产生爆炸 这个需求甚至需要我们手动完成通信这一步骤，因为原版并没有在左键空气时从客户端向服务端发包（发送信息）。
+-
+-## Mixin
+-
+-Mixin 用于往已有的代码中加东西，也就是我们上面提到的修改原类的代码。
+-
+-如果详细介绍篇幅就过长了，此处推荐阅读 [Fabric 官方给出的 Mixin 教程](https://wiki.fabricmc.net/zh_cn:tutorial:mixin_examples)，这和 forge 是基本通用的。
+-
+-如果你打不开 fabric wiki，可以读 [这篇知乎专栏](https://zhuanlan.zhihu.com/p/677090570)。
+-
+-事实上 Mixin 官方也是有教程的，但是 [英文](https://mixin-wiki.readthedocs.io/)。
+-
+-这里描述一个上述文章内没有提及（wiki 除外）但我遇到的问题的解决方案：
+-
+-```java
+-// 在外面定义一个接口
+-public interface IA {
+-	void setValue(int value);
+-	int gettValue();
+-}
+-
+-// Mixin 类。
+-@Mixin(A.class)
+-public class Amixin implements IA {
+-	@Unique
+-	private int value;
+-	public void setValue(int value) { this.value = value; }
+-	public int gettValue() { return value; }
+-}
+-
+-// 在其他地方使用 Mixin 类中添加的 value
+-public class B {
+-	public void work(A a) {
+-		return a.value; // 编译错误
+-		return ((Amixin)a).value; // 编译错误
+-		return a.getValue(); // 编译错误
+-		return ((Amixin)a).getValue(); // 编译错误
+-		return ((IA)a).getValue(); // 正确用法
+-	}
+-}
+-```
+-
+-# 添加匠魂工具
+-
+-如何添加一个新物品呢？
+-
+-首先你需要一个 `ItemDeferredRegister`，这个东西负责将物品注册。
+-
+-基本用法就是创建一个 `ItemDeferredRegister` 的实例，叫作 `ITEM` 吧。
+-
+-然后注册就是 `ITEM.register("tool", () -> new Tool())`，第一个参数是注册名，第二个参数是一个返回要注册物品实例的函数状物（Supplier），一般是一个 lambda 或者直接传构造函数。
+-
+-例子可以看我代码里 `ModCasts` 类；注册匠魂工具是一样的操作，可以看 `ModTools` 类。
+-
+-核心在于我们要添加的匠魂工具是个什么类，如果你只是加一个数值不同（耐久、伤害、速度 等）的工具，很多时候你能直接用匠魂本身的 `ModifiableItem` 一类的东西。
+-
+-如果你的物品有什么特殊功能，就可能需要自己写一个类似 `ModifiableItem` 的东西或者继承自 `ModifiableItem`，前者的例子是我的 `HorseArmor`，后者的例子则是 `Firecrack`。
+-
+-# 添加强化
+\ No newline at end of file
+Index: src/generated/resources/assets/extended_tinker/models/item/bridle.json
+===================================================================
+diff --git a/src/generated/resources/assets/extended_tinker/models/item/bridle.json b/src/generated/resources/assets/extended_tinker/models/item/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/assets/extended_tinker/models/item/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,7 +0,0 @@
+-{
+-  "parent": "forge:item/default",
+-  "loader": "tconstruct:material",
+-  "textures": {
+-    "texture": "extended_tinker:item/tool/parts/bridle"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/asone_horsearmor.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/asone_horsearmor.json b/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/asone_horsearmor.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/asone_horsearmor.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,23 +0,0 @@
+-{
+-  "type": "tconstruct:modifier",
+-  "allow_crystal": false,
+-  "inputs": [
+-    {
+-      "item": "minecraft:golden_apple"
+-    },
+-    {
+-      "item": "minecraft:armor_stand"
+-    },
+-    {
+-      "item": "minecraft:golden_apple"
+-    }
+-  ],
+-  "level": 1,
+-  "result": "extended_tinker:asone_horsearmor",
+-  "slots": {
+-    "abilities": 1
+-  },
+-  "tools": {
+-    "item": "extended_tinker:horse_armor_chestplate"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_boots.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_boots.json b/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_boots.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_boots.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,36 +0,0 @@
+-{
+-  "modules": [
+-    {
+-      "type": "tconstruct:part_stats",
+-      "parts": [
+-        "tconstruct:maille",
+-        "tconstruct:shield_core",
+-        "tconstruct:maille",
+-        "tconstruct:shield_core",
+-        "extended_tinker:bridle"
+-      ],
+-      "primary_part": 0
+-    },
+-    {
+-      "type": "tconstruct:default_materials",
+-      "materials": [
+-        {
+-          "type": "tconstruct:fixed",
+-          "material": "tconstruct:cobalt"
+-        },
+-        {
+-          "type": "tconstruct:fixed",
+-          "material": "tconstruct:ancient_hide"
+-        }
+-      ]
+-    },
+-    {
+-      "type": "tconstruct:modifier_slots",
+-      "slots": {
+-        "abilities": 1,
+-        "defense": 1,
+-        "upgrades": 3
+-      }
+-    }
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/firecrack_star.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/firecrack_star.json b/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/firecrack_star.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/firecrack_star.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,12 +0,0 @@
+-{
+-  "type": "extended_tinker:star_modifier",
+-  "allow_crystal": false,
+-  "level": 1,
+-  "result": "extended_tinker:star_firecrack",
+-  "slots": {
+-    "abilities": 1
+-  },
+-  "tools": {
+-    "item": "extended_tinker:firecrack"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/upgrade/flight_firecrack.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/upgrade/flight_firecrack.json b/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/upgrade/flight_firecrack.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/upgrade/flight_firecrack.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,10 +0,0 @@
+-{
+-  "type": "tconstruct:modifier_salvage",
+-  "modifier": "extended_tinker:flight_firecrack",
+-  "slots": {
+-    "upgrades": 1
+-  },
+-  "tools": {
+-    "item": "extended_tinker:firecrack"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/modifiers/upgrade/flight_firecrack.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/upgrade/flight_firecrack.json b/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/upgrade/flight_firecrack.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/upgrade/flight_firecrack.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,36 +0,0 @@
+-{
+-  "type": "tconstruct:modifier",
+-  "allow_crystal": false,
+-  "inputs": [
+-    {
+-      "amount_needed": 8,
+-      "tag": "forge:gunpowder"
+-    },
+-    {
+-      "amount_needed": 8,
+-      "tag": "forge:gunpowder"
+-    },
+-    {
+-      "amount_needed": 8,
+-      "tag": "forge:gunpowder"
+-    },
+-    {
+-      "amount_needed": 4,
+-      "item": "minecraft:paper"
+-    },
+-    {
+-      "amount_needed": 4,
+-      "item": "minecraft:paper"
+-    }
+-  ],
+-  "level": {
+-    "max": 5
+-  },
+-  "result": "extended_tinker:flight_firecrack",
+-  "slots": {
+-    "upgrades": 1
+-  },
+-  "tools": {
+-    "item": "extended_tinker:firecrack"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/small.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/small.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/small.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/small.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/tool_definitions/firecrack.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/firecrack.json b/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/firecrack.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/firecrack.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,47 +0,0 @@
+-{
+-  "modules": [
+-    {
+-      "type": "tconstruct:part_stats",
+-      "parts": [
+-        "tconstruct:tool_handle",
+-        "tconstruct:bow_limb"
+-      ],
+-      "primary_part": 0
+-    },
+-    {
+-      "type": "tconstruct:default_materials",
+-      "materials": [
+-        {
+-          "type": "tconstruct:random",
+-          "tier": 1
+-        },
+-        {
+-          "type": "tconstruct:random",
+-          "tier": 1
+-        }
+-      ]
+-    },
+-    {
+-      "type": "tconstruct:multiply_stats",
+-      "multipliers": {
+-        "tconstruct:durability": 2.0
+-      }
+-    },
+-    {
+-      "type": "tconstruct:traits",
+-      "traits": [
+-        {
+-          "level": 1,
+-          "name": "extended_tinker:flight_firecrack"
+-        }
+-      ]
+-    },
+-    {
+-      "type": "tconstruct:modifier_slots",
+-      "slots": {
+-        "abilities": 3,
+-        "upgrades": 3
+-      }
+-    }
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:horse_armor_chestplate"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json b/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,8 +0,0 @@
+-{
+-  "type": "tconstruct:item_part_builder",
+-  "pattern": "extended_tinker:bridle",
+-  "pattern_item": {
+-    "tag": "tconstruct:casts/sand"
+-  },
+-  "result": "extended_tinker:bridle_sand_cast"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_sand_cast.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_sand_cast.json b/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_sand_cast.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_sand_cast.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,9 +0,0 @@
+-{
+-  "type": "tconstruct:table_casting_material",
+-  "cast": {
+-    "tag": "tconstruct:casts/single_use/bridle"
+-  },
+-  "cast_consumed": true,
+-  "item_cost": 4,
+-  "result": "extended_tinker:bridle"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/painless_horsearmor.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/painless_horsearmor.json b/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/painless_horsearmor.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/painless_horsearmor.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,10 +0,0 @@
+-{
+-  "type": "tconstruct:modifier_salvage",
+-  "modifier": "extended_tinker:painless_horsearmor",
+-  "slots": {
+-    "abilities": 1
+-  },
+-  "tools": {
+-    "item": "extended_tinker:horse_armor_chestplate"
+-  }
+-}
+\ No newline at end of file
+Index: .idea/Extended-Tinker.iml
+===================================================================
+diff --git a/.idea/Extended-Tinker.iml b/.idea/Extended-Tinker.iml
+deleted file mode 100644
+--- a/.idea/Extended-Tinker.iml	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,9 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+deleted file mode 100644
+--- a/.idea/inspectionProfiles/Project_Default.xml	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,8 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <profile version="1.0">
+-    <option name="myName" value="Project Default" />
+-    <inspection_tool class="AutoCloseableResource" enabled="true" level="WARNING" enabled_by_default="true">
+-      <option name="METHOD_MATCHER_CONFIG" value="java.util.Formatter,format,java.io.Writer,append,com.google.common.base.Preconditions,checkNotNull,org.hibernate.Session,close,java.io.PrintWriter,printf,java.io.PrintStream,printf,java.lang.foreign.Arena,ofAuto,java.lang.foreign.Arena,global,net.minecraft.world.entity.Entity,level" />
+-    </inspection_tool>
+-  </profile>
+-</component>
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/casts/single_use/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/casts/single_use/bridle.json b/src/generated/resources/data/tconstruct/tags/items/casts/single_use/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/casts/single_use/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,6 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:bridle_sand_cast",
+-    "extended_tinker:bridle_red_sand_cast"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json b/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:star_firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_gold_cast.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_gold_cast.json b/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_gold_cast.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_gold_cast.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,8 +0,0 @@
+-{
+-  "type": "tconstruct:table_casting_material",
+-  "cast": {
+-    "tag": "tconstruct:casts/multi_use/bridle"
+-  },
+-  "item_cost": 4,
+-  "result": "extended_tinker:bridle"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/special.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/special.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/special.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/special.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/right.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/right.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/right.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/right.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/casts/multi_use/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/casts/multi_use/bridle.json b/src/generated/resources/data/tconstruct/tags/items/casts/multi_use/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/casts/multi_use/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:bridle_cast"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/assets/extended_tinker/models/item/bridle_sand_cast.json
+===================================================================
+diff --git a/src/generated/resources/assets/extended_tinker/models/item/bridle_sand_cast.json b/src/generated/resources/assets/extended_tinker/models/item/bridle_sand_cast.json
+deleted file mode 100644
+--- a/src/generated/resources/assets/extended_tinker/models/item/bridle_sand_cast.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,6 +0,0 @@
+-{
+-  "parent": "minecraft:item/generated",
+-  "textures": {
+-    "layer0": "extended_tinker:item/sand_cast/bridle"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json b/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,11 +0,0 @@
+-{
+-  "type": "tconstruct:item_part_builder",
+-  "pattern": "extended_tinker:bridle",
+-  "pattern_item": {
+-    "tag": "forge:sand/red"
+-  },
+-  "result": {
+-    "count": 4,
+-    "item": "extended_tinker:bridle_red_sand_cast"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json b/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,12 +0,0 @@
+-{
+-  "type": "tconstruct:composable",
+-  "level_display": "tconstruct:default",
+-  "modules": [
+-    {
+-      "type": "tconstruct:modifier_slot",
+-      "count": 1,
+-      "name": "upgrades"
+-    }
+-  ],
+-  "tooltip_display": "tinker_station"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/casts/sand.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/casts/sand.json b/src/generated/resources/data/tconstruct/tags/items/casts/sand.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/casts/sand.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:bridle_sand_cast"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,6 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:horse_armor_chestplate",
+-    "extended_tinker:firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json b/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,11 +0,0 @@
+-{
+-  "type": "tconstruct:item_part_builder",
+-  "pattern": "extended_tinker:bridle",
+-  "pattern_item": {
+-    "tag": "forge:sand/colorless"
+-  },
+-  "result": {
+-    "count": 4,
+-    "item": "extended_tinker:bridle_sand_cast"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/bridle.json b/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,15 +0,0 @@
+-{
+-  "type": "tconstruct:casting_table",
+-  "cast": {
+-    "type": "tconstruct:material",
+-    "item": "extended_tinker:bridle"
+-  },
+-  "cast_consumed": true,
+-  "cooling_time": 57,
+-  "fluid": {
+-    "amount": 90,
+-    "tag": "forge:molten_gold"
+-  },
+-  "result": "extended_tinker:bridle_cast",
+-  "switch_slots": true
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/armor/chestplate.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/armor/chestplate.json b/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/armor/chestplate.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/armor/chestplate.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,6 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:painless_horsearmor",
+-    "extended_tinker:asone_horsearmor"
+-  ]
+-}
+\ No newline at end of file
+Index: .gitignore
+===================================================================
+diff --git a/.gitignore b/.gitignore
+deleted file mode 100644
+--- a/.gitignore	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,206 +0,0 @@
+-# 项目排除路径
+-/.gradle/
+-/build/
+-/out/
+-/out/production/classes/
+-/.idea/.gitignore
+-/.idea/.name
+-/run/saves/Test/playerdata/380df991-f603-344c-a090-369bad2a924a.dat
+-/run/saves/Test/playerdata/380df991-f603-344c-a090-369bad2a924a.dat_old
+-/run/saves/Test/advancements/380df991-f603-344c-a090-369bad2a924a.json
+-/run/saves/Test/stats/380df991-f603-344c-a090-369bad2a924a.json
+-/run/logs/2025-02-08-2.log.gz
+-/run-data/logs/2025-02-08-2.log.gz
+-/run/logs/2025-02-08-3.log.gz
+-/run-data/logs/2025-02-08-3.log.gz
+-/run/logs/2025-02-08-4.log.gz
+-/run-data/logs/2025-02-08-4.log.gz
+-/run/logs/2025-02-08-5.log.gz
+-/run-data/logs/2025-02-08-5.log.gz
+-/run/logs/2025-02-08-6.log.gz
+-/run-data/logs/2025-02-08-6.log.gz
+-/run/logs/2025-02-08-7.log.gz
+-/run-data/logs/2025-02-08-7.log.gz
+-/run/logs/2025-02-08-8.log.gz
+-/run-data/logs/2025-02-08-8.log.gz
+-/run/logs/2025-02-08-9.log.gz
+-/run-data/logs/2025-02-08-9.log.gz
+-/run/logs/2025-02-08-10.log.gz
+-/run-data/logs/2025-02-08-10.log.gz
+-/run/logs/2025-02-08-11.log.gz
+-/run-data/logs/2025-02-08-11.log.gz
+-/run/logs/2025-02-08-12.log.gz
+-/run-data/logs/2025-02-08-12.log.gz
+-/run/logs/2025-02-08-13.log.gz
+-/run-data/logs/2025-02-08-13.log.gz
+-/run/logs/2025-02-08-14.log.gz
+-/run-data/logs/2025-02-08-14.log.gz
+-/run/logs/2025-02-08-15.log.gz
+-/run-data/logs/2025-02-08-15.log.gz
+-/run/logs/2025-02-08-16.log.gz
+-/run-data/logs/2025-02-08-16.log.gz
+-/run-data/logs/2025-02-08-17.log.gz
+-/run/logs/2025-02-09-2.log.gz
+-/run-data/logs/2025-02-09-2.log.gz
+-/run/logs/2025-02-09-3.log.gz
+-/run-data/logs/2025-02-09-3.log.gz
+-/run/logs/2025-02-09-4.log.gz
+-/run-data/logs/2025-02-09-4.log.gz
+-/run/logs/2025-02-09-5.log.gz
+-/run-data/logs/2025-02-09-5.log.gz
+-/run/logs/2025-02-09-6.log.gz
+-/run-data/logs/2025-02-09-6.log.gz
+-/run/logs/2025-02-09-7.log.gz
+-/run-data/logs/2025-02-09-7.log.gz
+-/run/logs/2025-02-09-8.log.gz
+-/run-data/logs/2025-02-09-8.log.gz
+-/run/logs/2025-02-09-9.log.gz
+-/run-data/logs/2025-02-09-9.log.gz
+-/run/logs/2025-02-09-10.log.gz
+-/run-data/logs/2025-02-09-10.log.gz
+-/run/logs/2025-02-09-11.log.gz
+-/run-data/logs/2025-02-09-11.log.gz
+-/run/logs/2025-02-09-12.log.gz
+-/run-data/logs/2025-02-09-12.log.gz
+-/run/logs/2025-02-09-13.log.gz
+-/run-data/logs/2025-02-09-13.log.gz
+-/run/logs/2025-02-09-14.log.gz
+-/run-data/logs/2025-02-09-14.log.gz
+-/run/logs/2025-02-09-15.log.gz
+-/run-data/logs/2025-02-09-15.log.gz
+-/run/logs/2025-02-09-16.log.gz
+-/run-data/logs/2025-02-09-16.log.gz
+-/run/logs/2025-02-09-17.log.gz
+-/run-data/logs/2025-02-09-17.log.gz
+-/run/logs/2025-02-09-18.log.gz
+-/run-data/logs/2025-02-09-18.log.gz
+-/run/logs/2025-02-09-19.log.gz
+-/run-data/logs/2025-02-09-19.log.gz
+-/run/logs/2025-02-09-20.log.gz
+-/run-data/logs/2025-02-09-20.log.gz
+-/run/logs/2025-02-09-21.log.gz
+-/run-data/logs/2025-02-09-21.log.gz
+-/run/logs/2025-02-09-22.log.gz
+-/run-data/logs/2025-02-09-22.log.gz
+-/run/logs/2025-02-09-23.log.gz
+-/run-data/logs/2025-02-09-23.log.gz
+-/run/logs/2025-02-09-24.log.gz
+-/run-data/logs/2025-02-09-24.log.gz
+-/run-data/logs/2025-02-09-25.log.gz
+-/run-data/logs/2025-02-09-26.log.gz
+-/run/screenshots/2025-02-09_23.40.18.png
+-/run/screenshots/2025-02-09_23.40.33.png
+-/run/screenshots/2025-02-09_23.40.35.png
+-/run/screenshots/2025-02-09_23.42.11.png
+-/run/screenshots/2025-02-09_23.42.14.png
+-/run/screenshots/2025-02-09_23.42.57.png
+-/run/screenshots/2025-02-09_23.43.55.png
+-/run/screenshots/2025-02-09_23.43.57.png
+-/run-data/logs/2025-02-10-1.log.gz
+-/run/config/jei/world/local/Test/bookmarks.ini
+-/run/saves/Test/data/capabilities.dat
+-/run/saves/Test/DIM1/data/capabilities.dat
+-/run/saves/Test/DIM-1/data/capabilities.dat
+-/run-data/logs/kubejs/client.log
+-/run-data/kubejs/config/common.properties
+-/.idea/compiler.xml
+-/run/crash-reports/crash-2025-02-08_14.06.44-client.txt
+-/run/logs/debug.log
+-/run-data/logs/debug.log
+-/run/logs/debug-1.log.gz
+-/run-data/logs/debug-1.log.gz
+-/run/logs/debug-2.log.gz
+-/run-data/logs/debug-2.log.gz
+-/run/logs/debug-3.log.gz
+-/run-data/logs/debug-3.log.gz
+-/run/logs/debug-4.log.gz
+-/run-data/logs/debug-4.log.gz
+-/run/logs/debug-5.log.gz
+-/run-data/logs/debug-5.log.gz
+-/run-data/local/kubejs/dev.properties
+-/run-data/kubejs/startup_scripts/example.js
+-/.idea/modules/extended-tinker.main.iml
+-/.idea/modules/extended-tinker.test.iml
+-/run/config/fml.toml
+-/run-data/config/fml.toml
+-/run/config/forge-client.toml
+-/run/config/forge-common.toml
+-/run/config/forge-resource-caching.toml
+-/run-data/config/forge-resource-caching.toml
+-/run/saves/Test/serverconfig/forge-server.toml
+-/.idea/gradle.xml
+-/run/config/jade/hide-blocks-1902.json
+-/run/config/jade/hide-entities-1902.json
+-/run/hs_err_pid3532.log
+-/run/hs_err_pid15168.log
+-/run/hs_err_pid15640.log
+-/run/hs_err_pid15880.log
+-/run/hs_err_pid16908.log
+-/run/saves/Test/icon.png
+-/run/config/jei/ingredient-list-mod-sort-order.ini
+-/run/config/jei/ingredient-list-type-sort-order.ini
+-/run/config/jade/jade.json
+-/run/config/jei/jei-client.ini
+-/run/config/jei/jei-colors.ini
+-/run/config/jei/jei-debug.ini
+-/run/config/jei/jei-mod-id-format.ini
+-/run/saves/Test/serverconfig/jei-server.toml
+-/run/logs/latest.log
+-/run-data/logs/latest.log
+-/run/saves/Test/level.dat
+-/run/saves/Test/level.dat_old
+-/run/config/mantle-client.toml
+-/run/saves/Test/serverconfig/mantle-server.toml
+-/.idea/misc.xml
+-/.idea/modules.xml
+-/run/options.txt
+-/run/config/jade/plugins.json
+-/run/saves/Test/entities/r.0.0.mca
+-/run/saves/Test/poi/r.0.0.mca
+-/run/saves/Test/region/r.0.0.mca
+-/run/saves/Test/poi/r.0.1.mca
+-/run/saves/Test/region/r.0.1.mca
+-/run/saves/Test/entities/r.0.-1.mca
+-/run/saves/Test/poi/r.0.-1.mca
+-/run/saves/Test/region/r.0.-1.mca
+-/run/saves/Test/entities/r.-1.0.mca
+-/run/saves/Test/poi/r.-1.0.mca
+-/run/saves/Test/region/r.-1.0.mca
+-/run/saves/Test/poi/r.-1.1.mca
+-/run/saves/Test/region/r.-1.1.mca
+-/run/saves/Test/entities/r.-1.-1.mca
+-/run/saves/Test/poi/r.-1.-1.mca
+-/run/saves/Test/region/r.-1.-1.mca
+-/run/saves/Test/data/raids.dat
+-/run/saves/Test/DIM-1/data/raids.dat
+-/run/saves/Test/DIM1/data/raids_end.dat
+-/run-data/kubejs/README.txt
+-/run/config/jei/recipe-category-sort-order.ini
+-/run-data/rhino.local.properties
+-/.idea/runConfigurations/runClient.xml
+-/.idea/runConfigurations/runData.xml
+-/.idea/runConfigurations/runGameTestServer.xml
+-/.idea/runConfigurations/runServer.xml
+-/run-data/logs/kubejs/server.log
+-/run/saves/Test/session.lock
+-/run/config/jade/sort-order.json
+-/run-data/logs/kubejs/startup.log
+-/run/config/tconstruct-client.toml
+-/run/config/tconstruct-common.toml
+-/run/usercache.json
+-/run/usernamecache.json
+-/.idea/vcs.xml
+-/run/logs/2025-02-13-5.log.gz
+-/run/logs/2025-02-13-1.log.gz
+-/run-data/logs/2025-02-13-1.log.gz
+-/run/logs/2025-02-13-2.log.gz
+-/run-data/logs/2025-02-13-2.log.gz
+-/run/logs/2025-02-13-3.log.gz
+-/run-data/logs/2025-02-13-3.log.gz
+-/run/logs/2025-02-13-4.log.gz
+-/run-data/logs/2025-02-13-4.log.gz
+-/run-data/logs/2025-02-13-5.log.gz
+-/run-data/logs/2025-02-13-6.log.gz
+-/run-data/logs/2025-02-13-7.log.gz
+-/run/
+-/src/generated/resources/.cache/
+Index: src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json b/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,12 +0,0 @@
+-{
+-  "type": "tconstruct:composable",
+-  "level_display": "tconstruct:no_levels",
+-  "modules": [
+-    {
+-      "type": "tconstruct:modifier_slot",
+-      "count": 1,
+-      "name": "abilities"
+-    }
+-  ],
+-  "tooltip_display": "tinker_station"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/painless_horsearmor.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/painless_horsearmor.json b/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/painless_horsearmor.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/ability/painless_horsearmor.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,29 +0,0 @@
+-{
+-  "type": "tconstruct:modifier",
+-  "allow_crystal": false,
+-  "inputs": [
+-    {
+-      "item": "tconstruct:travelers_shield"
+-    },
+-    {
+-      "item": "minecraft:hay_block"
+-    },
+-    {
+-      "item": "tconstruct:plate_shield"
+-    },
+-    {
+-      "item": "minecraft:lead"
+-    },
+-    {
+-      "tag": "minecraft:music_discs"
+-    }
+-  ],
+-  "level": 1,
+-  "result": "extended_tinker:painless_horsearmor",
+-  "slots": {
+-    "abilities": 1
+-  },
+-  "tools": {
+-    "item": "extended_tinker:horse_armor_chestplate"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/bridle.json b/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,16 +0,0 @@
+-{
+-  "type": "tconstruct:part_builder",
+-  "cost": 4,
+-  "pattern": "extended_tinker:bridle",
+-  "pattern_item": [
+-    {
+-      "tag": "tconstruct:patterns/default"
+-    },
+-    {
+-      "item": "extended_tinker:bridle_cast"
+-    }
+-  ],
+-  "result": {
+-    "item": "extended_tinker:bridle"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/station_layouts/horse_armor_chestplate.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/station_layouts/horse_armor_chestplate.json b/src/generated/resources/data/extended_tinker/tinkering/station_layouts/horse_armor_chestplate.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/station_layouts/horse_armor_chestplate.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,55 +0,0 @@
+-{
+-  "icon": {
+-    "item": "extended_tinker:horse_armor_chestplate",
+-    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+-  },
+-  "input_slots": [
+-    {
+-      "filter": {
+-        "item": "tconstruct:maille"
+-      },
+-      "icon": "tconstruct:maille",
+-      "translation_key": "item.tconstruct.maille",
+-      "x": 3,
+-      "y": 50
+-    },
+-    {
+-      "filter": {
+-        "item": "tconstruct:shield_core"
+-      },
+-      "icon": "tconstruct:shield_core",
+-      "translation_key": "item.tconstruct.shield_core",
+-      "x": 23,
+-      "y": 50
+-    },
+-    {
+-      "filter": {
+-        "item": "tconstruct:maille"
+-      },
+-      "icon": "tconstruct:maille",
+-      "translation_key": "item.tconstruct.maille",
+-      "x": 43,
+-      "y": 50
+-    },
+-    {
+-      "filter": {
+-        "item": "tconstruct:shield_core"
+-      },
+-      "icon": "tconstruct:shield_core",
+-      "translation_key": "item.tconstruct.shield_core",
+-      "x": 63,
+-      "y": 50
+-    },
+-    {
+-      "filter": {
+-        "item": "extended_tinker:bridle"
+-      },
+-      "icon": "extended_tinker:bridle",
+-      "translation_key": "item.extended_tinker.bridle",
+-      "x": 78,
+-      "y": 30
+-    }
+-  ],
+-  "sortIndex": 514,
+-  "translation_key": "item.extended_tinker.horse_armor_chestplate"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_composite.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_composite.json b/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_composite.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/bridle_composite.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "type": "tconstruct:table_casting_composite",
+-  "item_cost": 4,
+-  "result": "extended_tinker:bridle"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json b/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,8 +0,0 @@
+-{
+-  "type": "tconstruct:item_part_builder",
+-  "pattern": "extended_tinker:bridle",
+-  "pattern_item": {
+-    "tag": "tconstruct:casts/red_sand"
+-  },
+-  "result": "extended_tinker:bridle_red_sand_cast"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/bridle.json b/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,11 +0,0 @@
+-{
+-  "type": "tconstruct:molding_table",
+-  "material": {
+-    "tag": "tconstruct:casts/sand"
+-  },
+-  "pattern": {
+-    "type": "tconstruct:material",
+-    "item": "extended_tinker:bridle"
+-  },
+-  "result": "extended_tinker:bridle_sand_cast"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json b/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:bridle_red_sand_cast"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/assets/extended_tinker/models/item/bridle_cast.json
+===================================================================
+diff --git a/src/generated/resources/assets/extended_tinker/models/item/bridle_cast.json b/src/generated/resources/assets/extended_tinker/models/item/bridle_cast.json
+deleted file mode 100644
+--- a/src/generated/resources/assets/extended_tinker/models/item/bridle_cast.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,6 +0,0 @@
+-{
+-  "parent": "minecraft:item/generated",
+-  "textures": {
+-    "layer0": "extended_tinker:item/cast/bridle"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_leggings.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_leggings.json b/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_leggings.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_leggings.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,36 +0,0 @@
+-{
+-  "modules": [
+-    {
+-      "type": "tconstruct:part_stats",
+-      "parts": [
+-        "tconstruct:maille",
+-        "tconstruct:shield_core",
+-        "tconstruct:maille",
+-        "tconstruct:shield_core",
+-        "extended_tinker:bridle"
+-      ],
+-      "primary_part": 0
+-    },
+-    {
+-      "type": "tconstruct:default_materials",
+-      "materials": [
+-        {
+-          "type": "tconstruct:fixed",
+-          "material": "tconstruct:cobalt"
+-        },
+-        {
+-          "type": "tconstruct:fixed",
+-          "material": "tconstruct:ancient_hide"
+-        }
+-      ]
+-    },
+-    {
+-      "type": "tconstruct:modifier_slots",
+-      "slots": {
+-        "abilities": 1,
+-        "defense": 1,
+-        "upgrades": 3
+-      }
+-    }
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_helmet.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_helmet.json b/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_helmet.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_helmet.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,36 +0,0 @@
+-{
+-  "modules": [
+-    {
+-      "type": "tconstruct:part_stats",
+-      "parts": [
+-        "tconstruct:maille",
+-        "tconstruct:shield_core",
+-        "tconstruct:maille",
+-        "tconstruct:shield_core",
+-        "extended_tinker:bridle"
+-      ],
+-      "primary_part": 0
+-    },
+-    {
+-      "type": "tconstruct:default_materials",
+-      "materials": [
+-        {
+-          "type": "tconstruct:fixed",
+-          "material": "tconstruct:cobalt"
+-        },
+-        {
+-          "type": "tconstruct:fixed",
+-          "material": "tconstruct:ancient_hide"
+-        }
+-      ]
+-    },
+-    {
+-      "type": "tconstruct:modifier_slots",
+-      "slots": {
+-        "abilities": 1,
+-        "defense": 1,
+-        "upgrades": 3
+-      }
+-    }
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/station_layouts/firecrack.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/station_layouts/firecrack.json b/src/generated/resources/data/extended_tinker/tinkering/station_layouts/firecrack.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/station_layouts/firecrack.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,46 +0,0 @@
+-{
+-  "icon": {
+-    "item": "extended_tinker:firecrack",
+-    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+-  },
+-  "input_slots": [
+-    {
+-      "filter": {
+-        "item": "tconstruct:tool_handle"
+-      },
+-      "icon": "tconstruct:tool_handle",
+-      "translation_key": "item.tconstruct.tool_handle",
+-      "x": 30,
+-      "y": 50
+-    },
+-    {
+-      "filter": {
+-        "item": "tconstruct:bow_limb"
+-      },
+-      "icon": "tconstruct:bow_limb",
+-      "translation_key": "item.tconstruct.bow_limb",
+-      "x": 10,
+-      "y": 50
+-    },
+-    {
+-      "filter": {
+-        "item": "minecraft:gunpowder"
+-      },
+-      "icon": "extended_tinker:gunpowder",
+-      "translation_key": "item.minecraft.gunpowder",
+-      "x": 30,
+-      "y": 30
+-    },
+-    {
+-      "filter": {
+-        "item": "minecraft:paper"
+-      },
+-      "icon": "extended_tinker:paper",
+-      "translation_key": "item.minecraft.paper",
+-      "x": 50,
+-      "y": 50
+-    }
+-  ],
+-  "sortIndex": 1145,
+-  "translation_key": "item.extended_tinker.firecrack"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/left.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/left.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/left.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/left.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json b/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "#tconstruct:casts/multi_use/bridle"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/assets/extended_tinker/models/item/bridle_red_sand_cast.json
+===================================================================
+diff --git a/src/generated/resources/assets/extended_tinker/models/item/bridle_red_sand_cast.json b/src/generated/resources/assets/extended_tinker/models/item/bridle_red_sand_cast.json
+deleted file mode 100644
+--- a/src/generated/resources/assets/extended_tinker/models/item/bridle_red_sand_cast.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,6 +0,0 @@
+-{
+-  "parent": "minecraft:item/generated",
+-  "textures": {
+-    "layer0": "extended_tinker:item/red_sand_cast/bridle"
+-  }
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/building/firecrack.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/building/firecrack.json b/src/generated/resources/data/extended_tinker/recipes/tools/building/firecrack.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/building/firecrack.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,13 +0,0 @@
+-{
+-  "type": "tconstruct:tool_building",
+-  "extra_requirements": [
+-    {
+-      "item": "minecraft:gunpowder"
+-    },
+-    {
+-      "item": "minecraft:paper"
+-    }
+-  ],
+-  "result": "extended_tinker:firecrack",
+-  "result_count": 1
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_chestplate.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_chestplate.json b/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_chestplate.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/horse_armor_chestplate.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,45 +0,0 @@
+-{
+-  "modules": [
+-    {
+-      "type": "tconstruct:part_stats",
+-      "parts": [
+-        "tconstruct:maille",
+-        "tconstruct:shield_core",
+-        "tconstruct:maille",
+-        "tconstruct:shield_core",
+-        "extended_tinker:bridle"
+-      ],
+-      "primary_part": 0
+-    },
+-    {
+-      "type": "tconstruct:default_materials",
+-      "materials": [
+-        {
+-          "type": "tconstruct:fixed",
+-          "material": "tconstruct:cobalt"
+-        },
+-        {
+-          "type": "tconstruct:fixed",
+-          "material": "tconstruct:ancient_hide"
+-        }
+-      ]
+-    },
+-    {
+-      "type": "tconstruct:multiply_stats",
+-      "multipliers": {
+-        "tconstruct:armor": 2.0,
+-        "tconstruct:armor_toughness": 1.5,
+-        "tconstruct:durability": 2.0,
+-        "tconstruct:knockback_resistance": 1.25
+-      }
+-    },
+-    {
+-      "type": "tconstruct:modifier_slots",
+-      "slots": {
+-        "abilities": 1,
+-        "defense": 1,
+-        "upgrades": 3
+-      }
+-    }
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json b/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:flight_firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/bridle.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/bridle.json b/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/bridle.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/bridle.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,11 +0,0 @@
+-{
+-  "type": "tconstruct:molding_table",
+-  "material": {
+-    "tag": "tconstruct:casts/red_sand"
+-  },
+-  "pattern": {
+-    "type": "tconstruct:material",
+-    "item": "extended_tinker:bridle"
+-  },
+-  "result": "extended_tinker:bridle_red_sand_cast"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json b/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,12 +0,0 @@
+-{
+-  "type": "tconstruct:composable",
+-  "level_display": "tconstruct:no_levels",
+-  "modules": [
+-    {
+-      "type": "tconstruct:modifier_slot",
+-      "count": 1,
+-      "name": "abilities"
+-    }
+-  ],
+-  "tooltip_display": "tinker_station"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/armor/horse_armor_chestplate.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/armor/horse_armor_chestplate.json b/src/generated/resources/data/extended_tinker/recipes/tools/armor/horse_armor_chestplate.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/armor/horse_armor_chestplate.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "type": "tconstruct:tool_building",
+-  "result": "extended_tinker:horse_armor_chestplate",
+-  "result_count": 1
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json b/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,12 +0,0 @@
+-{
+-  "type": "tconstruct:composable",
+-  "level_display": "tconstruct:no_levels",
+-  "modules": [
+-    {
+-      "type": "tconstruct:modifier_slot",
+-      "count": 1,
+-      "name": "abilities"
+-    }
+-  ],
+-  "tooltip_display": "tinker_station"
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/casts/single_use.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json b/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "#tconstruct:casts/single_use/bridle"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json b/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,6 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:horse_armor_chestplate",
+-    "extended_tinker:firecrack"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/tconstruct/tags/items/parts.json
+===================================================================
+diff --git a/src/generated/resources/data/tconstruct/tags/items/parts.json b/src/generated/resources/data/tconstruct/tags/items/parts.json
+deleted file mode 100644
+--- a/src/generated/resources/data/tconstruct/tags/items/parts.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,5 +0,0 @@
+-{
+-  "values": [
+-    "extended_tinker:bridle"
+-  ]
+-}
+\ No newline at end of file
+Index: src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/firecrack_star.json
+===================================================================
+diff --git a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/firecrack_star.json b/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/firecrack_star.json
+deleted file mode 100644
+--- a/src/generated/resources/data/extended_tinker/recipes/tools/modifiers/salvage/ability/firecrack_star.json	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ /dev/null	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
+@@ -1,10 +0,0 @@
+-{
+-  "type": "extended_tinker:star_modifier_salvage",
+-  "modifier": "extended_tinker:star_firecrack",
+-  "slots": {
+-    "abilities": 1
+-  },
+-  "tools": {
+-    "item": "extended_tinker:firecrack"
+-  }
+-}
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>buildscript {\r\n    repositories {\r\n        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below\r\n        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }\r\n        mavenCentral()\r\n    }\r\n    dependencies {\r\n        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'\r\n    }\r\n}\r\n\r\nplugins {\r\n    id 'eclipse'\r\n    id 'idea'\r\n    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'\r\n    id 'io.freefair.lombok' version '8.6'\r\n}\r\n\r\napply plugin: 'org.spongepowered.mixin'\r\n\r\ngroup = mod_group_id\r\nversion = mod_version\r\n\r\nbase {\r\n    archivesName = mod_id\r\n}\r\n\r\njava {\r\n    toolchain.languageVersion = JavaLanguageVersion.of(17)\r\n}\r\n\r\nminecraft {\r\n    // The mappings can be changed at any time and must be in the following format.\r\n    // Channel:   Version:\r\n    // official   MCVersion             Official field/method names from Mojang mapping files\r\n    // parchment  YYYY.MM.DD-MCVersion  Open community-sourced parameter names and javadocs layered on top of official\r\n    //\r\n    // You must be aware of the Mojang license when using the 'official' or 'parchment' mappings.\r\n    // See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md\r\n    //\r\n    // Parchment is an unofficial project maintained by ParchmentMC, separate from MinecraftForge\r\n    // Additional setup is needed to use their mappings: https://parchmentmc.org/docs/getting-started\r\n    //\r\n    // Use non-default mappings at your own risk. They may not always work.\r\n    // Simply re-run your setup task after changing the mappings to update your workspace.\r\n    mappings channel: mapping_channel, version: mapping_version\r\n\r\n    // When true, this property will have all Eclipse/IntelliJ IDEA run configurations run the \"prepareX\" task for the given run configuration before launching the game.\r\n    // In most cases, it is not necessary to enable.\r\n    // enableEclipsePrepareRuns = true\r\n    // enableIdeaPrepareRuns = true\r\n\r\n    // This property allows configuring Gradle's ProcessResources task(s) to run on IDE output locations before launching the game.\r\n    // It is REQUIRED to be set to true for this template to function.\r\n    // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html\r\n    copyIdeResources = true\r\n\r\n    // When true, this property will add the folder name of all declared run configurations to generated IDE run configurations.\r\n    // The folder name can be set on a run configuration using the \"folderName\" property.\r\n    // By default, the folder name of a run configuration is the name of the Gradle project containing it.\r\n    // generateRunFolders = true\r\n\r\n    // This property enables access transformers for use in development.\r\n    // They will be applied to the Minecraft artifact.\r\n    // The access transformer file can be anywhere in the project.\r\n    // However, it must be at \"META-INF/accesstransformer.cfg\" in the final mod jar to be loaded by Forge.\r\n    // This default location is a best practice to automatically put the file in the right place in the final jar.\r\n    // See https://docs.minecraftforge.net/en/latest/advanced/accesstransformers/ for more information.\r\n    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')\r\n\r\n    // Default run configurations.\r\n    // These can be tweaked, removed, or duplicated as needed.\r\n\r\n    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')\r\n\r\n    runs {\r\n        // applies to all the run configs below\r\n        configureEach {\r\n            workingDirectory project.file('run')\r\n\r\n            // Recommended logging data for a userdev environment\r\n            // The markers can be added/remove as needed separated by commas.\r\n            // \"SCAN\": For mods scan.\r\n            // \"REGISTRIES\": For firing of registry events.\r\n            // \"REGISTRYDUMP\": For getting the contents of all registries.\r\n            property 'forge.logging.markers', 'REGISTRIES'\r\n\r\n\r\n            // Recommended logging level for the console\r\n            // You can set various levels here.\r\n            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels\r\n            property 'forge.logging.console.level', 'debug'\r\n\r\n            mods {\r\n                \"${mod_id}\" {\r\n                    source sourceSets.main\r\n                }\r\n            }\r\n        }\r\n\r\n        client {\r\n            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.\r\n            property 'forge.enabledGameTestNamespaces', mod_id\r\n        }\r\n\r\n        server {\r\n            property 'forge.enabledGameTestNamespaces', mod_id\r\n            args '--nogui'\r\n        }\r\n\r\n        // This run config launches GameTestServer and runs all registered gametests, then exits.\r\n        // By default, the server will crash when no gametests are provided.\r\n        // The gametest system is also enabled by default for other run configs under the /test command.\r\n        gameTestServer {\r\n            property 'forge.enabledGameTestNamespaces', mod_id\r\n        }\r\n\r\n        data {\r\n            // example of overriding the workingDirectory set in configureEach above\r\n            workingDirectory project.file('run-data')\r\n\r\n            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.\r\n            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing-mod', 'tconstruct'\r\n        }\r\n    }\r\n}\r\n\r\nmixin {\r\n    add sourceSets.main, \"${mod_id}.refmap.json\"\r\n\r\n    config \"${mod_id}.mixins.json\"\r\n}\r\n\r\n// Include resources generated by data generators.\r\nsourceSets.main.resources { srcDir 'src/generated/resources' }\r\n\r\nrepositories {\r\n    // Put repositories for dependencies here\r\n    // ForgeGradle automatically adds the Forge maven and Maven Central for you\r\n\r\n    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.\r\n    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver\r\n    flatDir {\r\n        dirs 'libs'\r\n    }\r\n\r\n    mavenCentral()\r\n    maven {\r\n        url \"https://cursemaven.com\"\r\n        content {\r\n            includeGroup \"curse.maven\"\r\n        }\r\n    }\r\n    maven {\r\n        // location of the maven that hosts JEI files before January 2023\r\n        name = \"Progwml6's maven\"\r\n        url = \"https://dvs1.progwml6.com/files/maven/\"\r\n    }\r\n    maven {\r\n        // location of the maven that hosts JEI files since January 2023\r\n        name = \"Jared's maven\"\r\n        url = \"https://maven.blamejared.com/\"\r\n    }\r\n    maven {\r\n        // location of a maven mirror for JEI files, as a fallback\r\n        name = \"ModMaven\"\r\n        url = \"https://modmaven.dev\"\r\n    }\r\n\r\n    // mixin\r\n    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }\r\n}\r\n\r\ndependencies {\r\n    // minecraft\r\n    minecraft \"net.minecraftforge:forge:${minecraft_version}-${forge_version}\"\r\n\r\n    // mixin\r\n    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'\r\n\r\n    // tcon\r\n    implementation fg.deobf(\"curse.maven:mantle-74924:${mantle_file}\")\r\n    implementation fg.deobf(\"curse.maven:tinkers-construct-74072:${tcon_file}\")\r\n\r\n    // mg\r\n    implementation fg.deobf(\"curse.maven:modulargolems-690937:${mg_file}\")\r\n    implementation fg.deobf(\"curse.maven:l2library-620203:${l2_file}\")\r\n\r\n    // iaf\r\n    implementation fg.deobf(\"curse.maven:citadel-331936:${citadel_file}\")\r\n    implementation fg.deobf(\"curse.maven:ice-and-fire-dragons-264231:${iaf_file}\")\r\n\r\n    // For more info:\r\n    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html\r\n    // http://www.gradle.org/docs/current/userguide/dependency_management.html\r\n    // compile against the JEI API but do not include it at runtime\r\n    compileOnly(fg.deobf(\"mezz.jei:jei-${mc_version}-common-api:${jei_version}\"))\r\n    compileOnly(fg.deobf(\"mezz.jei:jei-${mc_version}-forge-api:${jei_version}\"))\r\n    // at runtime, use the full JEI jar for Forge\r\n    runtimeOnly(fg.deobf(\"mezz.jei:jei-${mc_version}-forge:${jei_version}\"))\r\n\r\n    // help\r\n//    runtimeOnly(fg.deobf(\"curse.maven:just-enough-characters-250702:${jech_file}\"))\r\n    runtimeOnly(fg.deobf(\"curse.maven:jade-324717:${jade_file}\"))\r\n    runtimeOnly(fg.deobf(\"curse.maven:jade-addons-583345:${jade_addons_file}\"))\r\n    runtimeOnly(fg.deobf(\"curse.maven:patchouli-306770:${patchouli_file}\"))\r\n}\r\n\r\n// This block of code expands all declared replace properties in the specified resource targets.\r\n// A missing property will result in an error. Properties are expanded using ${} Groovy notation.\r\n// When \"copyIdeResources\" is enabled, this will also run before the game launches in IDE environments.\r\n// See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html\r\ntasks.named('processResources', ProcessResources).configure {\r\n    var replaceProperties = [minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,\r\n                             forge_version       : forge_version, forge_version_range: forge_version_range,\r\n                             loader_version_range: loader_version_range,\r\n                             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,\r\n                             mod_authors         : mod_authors, mod_description: mod_description,]\r\n\r\n    inputs.properties replaceProperties\r\n\r\n    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {\r\n        expand replaceProperties + [project: project]\r\n    }\r\n}\r\n\r\n// Example for how to get properties into the manifest for reading at runtime.\r\ntasks.named('jar', Jar).configure {\r\n    manifest {\r\n        attributes([\"Specification-Title\"     : mod_id,\r\n                    \"Specification-Vendor\"    : mod_authors,\r\n                    \"Specification-Version\"   : \"1\", // We are version 1 of ourselves\r\n                    \"Implementation-Title\"    : project.name,\r\n                    \"Implementation-Version\"  : project.jar.archiveVersion,\r\n                    \"Implementation-Vendor\"   : mod_authors,\r\n                    \"Implementation-Timestamp\": new Date().format(\"yyyy-MM-dd'T'HH:mm:ssZ\")])\r\n    }\r\n\r\n    // This is the preferred method to reobfuscate your jar file\r\n    finalizedBy 'reobfJar'\r\n}\r\n\r\ntasks.withType(JavaCompile).configureEach {\r\n    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ b/build.gradle	(date 1746507731717)
+@@ -71,8 +71,6 @@
+     // Default run configurations.
+     // These can be tweaked, removed, or duplicated as needed.
+ 
+-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+-
+     runs {
+         // applies to all the run configs below
+         configureEach {
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1746507768413)
++++ b/.idea/modules.xml	(date 1746507768413)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ET.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ET.main.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ET.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ET.test.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/extended-tinker.iml" filepath="$PROJECT_DIR$/.idea/modules/extended-tinker.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/extended-tinker.main.iml" filepath="$PROJECT_DIR$/.idea/modules/extended-tinker.main.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/extended-tinker.test.iml" filepath="$PROJECT_DIR$/.idea/modules/extended-tinker.test.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>org.gradle.jvmargs=-Xmx3G\r\norg.gradle.daemon=false\r\n# The Minecraft version must agree with the Forge version to get a valid artifact\r\nminecraft_version=1.20.1\r\n# The Minecraft version range can use any release version of Minecraft as bounds.\r\n# Snapshots, pre-releases, and release candidates are not guaranteed to sort properly\r\n# as they do not follow standard versioning conventions.\r\nminecraft_version_range=[1.20.1,1.21)\r\n# The Forge version must agree with the Minecraft version to get a valid artifact\r\nforge_version=47.2.6\r\n# The Forge version range can use any version of Forge as bounds or match the loader version range\r\nforge_version_range=[47,)\r\n# The loader version range can only use the major version of Forge/FML as bounds\r\nloader_version_range=[47,)\r\n# The mapping channel to use for mappings.\r\n# The default set of supported mapping channels are [\"official\", \"snapshot\", \"snapshot_nodoc\", \"stable\", \"stable_nodoc\"].\r\n# Additional mapping channels can be registered through the \"channelProviders\" extension in a Gradle plugin.\r\n#\r\n# | Channel   | Version              |                                                                                |\r\n# |-----------|----------------------|--------------------------------------------------------------------------------|\r\n# | official  | MCVersion            | Official field/method names from Mojang mapping files                          |\r\n# | parchment | YYYY.MM.DD-MCVersion | Open community-sourced parameter names and javadocs layered on top of official |\r\n#\r\n# You must be aware of the Mojang license when using the 'official' or 'parchment' mappings.\r\n# See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md\r\n#\r\n# Parchment is an unofficial project maintained by ParchmentMC, separate from Minecraft Forge.\r\n# Additional setup is needed to use their mappings, see https://parchmentmc.org/docs/getting-started\r\nmapping_channel=official\r\n# The mapping version to query from the mapping channel.\r\n# This must match the format required by the mapping channel.\r\nmapping_version=1.20.1\r\n# The unique mod identifier for the mod. Must be lowercase in English locale. Must fit the regex [a-z][a-z0-9_]{1,63}\r\n# Must match the String constant located in the main mod class annotated with @Mod.\r\nmod_id=extended_tinker\r\n# The human-readable display name for the mod.\r\nmod_name=Extended Tinker\r\n# The license of the mod. Review your options at https://choosealicense.com/. All Rights Reserved is the default.\r\nmod_license=MIT\r\n# The mod version. See https://semver.org/\r\nmod_version=2.0.0\r\n# The group ID for the mod. It is only important when publishing as an artifact to a Maven repository.\r\n# This should match the base package used for the mod sources.\r\n# See https://maven.apache.org/guides/mini/guide-naming-conventions.html\r\nmod_group_id=org.vocalsky\r\n# The authors of the mod. This is a simple text string that is used for display purposes in the mod list.\r\nmod_authors=vocalsky\r\n# The description of the mod. This is a simple multiline text string that is used for display purposes in the mod list.\r\nmod_description=\r\n\r\nmc_version=1.20.1\r\njei_version=15.20.+\r\nmantle_file=6258424\r\ntcon_file=6266282\r\nl2_file=6338339\r\nmg_file=6458090\r\niaf_file=5633453\r\ncitadel_file=6002521\r\njech_file=5543190\r\njade_file=6271651\r\njade_addons_file=6274674\r\npatchouli_file=6164575
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle.properties b/gradle.properties
+--- a/gradle.properties	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ b/gradle.properties	(date 1746508617535)
+@@ -1,5 +1,7 @@
+ org.gradle.jvmargs=-Xmx3G
+ org.gradle.daemon=false
++
++
+ # The Minecraft version must agree with the Forge version to get a valid artifact
+ minecraft_version=1.20.1
+ # The Minecraft version range can use any release version of Minecraft as bounds.
+@@ -7,7 +9,7 @@
+ # as they do not follow standard versioning conventions.
+ minecraft_version_range=[1.20.1,1.21)
+ # The Forge version must agree with the Minecraft version to get a valid artifact
+-forge_version=47.2.6
++forge_version=47.4.0
+ # The Forge version range can use any version of Forge as bounds or match the loader version range
+ forge_version_range=[47,)
+ # The loader version range can only use the major version of Forge/FML as bounds
+@@ -30,6 +32,8 @@
+ # The mapping version to query from the mapping channel.
+ # This must match the format required by the mapping channel.
+ mapping_version=1.20.1
++
++
+ # The unique mod identifier for the mod. Must be lowercase in English locale. Must fit the regex [a-z][a-z0-9_]{1,63}
+ # Must match the String constant located in the main mod class annotated with @Mod.
+ mod_id=extended_tinker
+@@ -44,7 +48,7 @@
+ # See https://maven.apache.org/guides/mini/guide-naming-conventions.html
+ mod_group_id=org.vocalsky
+ # The authors of the mod. This is a simple text string that is used for display purposes in the mod list.
+-mod_authors=vocalsky
++mod_authors=
+ # The description of the mod. This is a simple multiline text string that is used for display purposes in the mod list.
+ mod_description=
+ 
+Index: settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>pluginManagement {\r\n    repositories {\r\n        gradlePluginPortal()\r\n        maven {\r\n            name = 'MinecraftForge'\r\n            url = 'https://maven.minecraftforge.net/'\r\n        }\r\n    }\r\n}\r\n\r\nplugins {\r\n    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'\r\n}\r\n\r\nrootProject.name = 'extended-tinker'\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/settings.gradle b/settings.gradle
+--- a/settings.gradle	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ b/settings.gradle	(date 1746458003503)
+@@ -12,4 +12,4 @@
+     id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
+ }
+ 
+-rootProject.name = 'extended-tinker'
++rootProject.name = 'ET'
+Index: .idea/modules/ET.test.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules/ET.test.iml b/.idea/modules/ET.test.iml
+new file mode 100644
+--- /dev/null	(date 1746507768405)
++++ b/.idea/modules/ET.test.iml	(date 1746507768405)
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module version="4">
++  <component name="FacetManager">
++    <facet type="minecraft" name="Minecraft">
++      <configuration>
++        <autoDetectTypes>
++          <platformType>FORGE</platformType>
++          <platformType>MIXIN</platformType>
++          <platformType>MCP</platformType>
++        </autoDetectTypes>
++        <projectReimportVersion>1</projectReimportVersion>
++      </configuration>
++    </facet>
++  </component>
++  <component name="McpModuleSettings">
++    <option name="mappingFile" value="D:\Live\Game\MC\ModProjects\Extended Tinker\build\createMcpToSrg\output.tsrg" />
++    <option name="mcpVersion" value="official_1.20.1" />
++    <option name="minecraftVersion" value="1.20.1" />
++    <option name="platformVersion" value="47.4.0" />
++    <option name="srgType" value="TSRG" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1746459112173)
++++ b/.idea/vcs.xml	(date 1746459112173)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules/ET.main.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules/ET.main.iml b/.idea/modules/ET.main.iml
+new file mode 100644
+--- /dev/null	(date 1746509541825)
++++ b/.idea/modules/ET.main.iml	(date 1746509541825)
+@@ -0,0 +1,27 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module version="4">
++  <component name="AdditionalModuleElements">
++    <content url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main">
++      <sourceFolder url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
++    </content>
++  </component>
++  <component name="FacetManager">
++    <facet type="minecraft" name="Minecraft">
++      <configuration>
++        <autoDetectTypes>
++          <platformType>FORGE</platformType>
++          <platformType>MIXIN</platformType>
++          <platformType>MCP</platformType>
++        </autoDetectTypes>
++        <projectReimportVersion>1</projectReimportVersion>
++      </configuration>
++    </facet>
++  </component>
++  <component name="McpModuleSettings">
++    <option name="mappingFile" value="D:\Live\Game\MC\ModProjects\Extended Tinker\build\createMcpToSrg\output.tsrg" />
++    <option name="mcpVersion" value="official_1.20.1" />
++    <option name="minecraftVersion" value="1.20.1" />
++    <option name="platformVersion" value="47.4.0" />
++    <option name="srgType" value="TSRG" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1746509340327)
++++ b/.idea/misc.xml	(date 1746509340327)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	(date 1746507768431)
++++ b/.idea/gradle.xml	(date 1746507768431)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++          </set>
++        </option>
++        <option name="resolveExternalAnnotations" value="true" />
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/runConfigurations/runClient.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/runConfigurations/runClient.xml b/.idea/runConfigurations/runClient.xml
+new file mode 100644
+--- /dev/null	(date 1746509534093)
++++ b/.idea/runConfigurations/runClient.xml	(date 1746509534093)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<component>
++  <configuration default="false" factoryName="Application" name="runClient" singleton="false" type="Application">
++    <option name="MAIN_CLASS_NAME" value="cpw.mods.bootstraplauncher.BootstrapLauncher"/>
++    <option name="VM_PARAMETERS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=REGISTRIES &quot;-DlegacyClassPath.file=D:\Live\Game\MC\ModProjects\Extended Tinker\build\classpath\runClient_minecraftClasspath.txt&quot; &quot;-Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp=D:\Live\Game\MC\ModProjects\Extended Tinker\build\createSrgToMcp\output.srg&quot; -Dmixin.env.remapRefMap=true &quot;-Dmixin.env.refMapRemappingFile=D:\Live\Game\MC\ModProjects\Extended Tinker\build\createSrgToMcp\output.srg&quot; -DignoreList=bootstraplauncher,securejarhandler,asm-commons,asm-util,asm-analysis,asm-tree,asm,JarJarFileSystems,client-extra,fmlcore,javafmllanguage,lowcodelanguage,mclanguage,forge- -DmergeModules=jna-5.10.0.jar,jna-platform-5.10.0.jar -Dforge.enabledGameTestNamespaces=extended_tinker -Dforge.enableGameTest=true -Djava.net.preferIPv6Addresses=system -p C:\Users\LQ\.gradle\caches\modules-2\files-2.1\cpw.mods\bootstraplauncher\1.1.2\c546e00443d8432cda6baa1c860346980742628\bootstraplauncher-1.1.2.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\cpw.mods\securejarhandler\2.1.10\51e6a22c6c716beb11e244bf5b8be480f51dd6b5\securejarhandler-2.1.10.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-commons\9.7.1\406c6a2225cfe1819f102a161e54cc16a5c24f75\asm-commons-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-util\9.7.1\9e23359b598ec6b74b23e53110dd5c577adf2243\asm-util-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-analysis\9.7.1\f97a3b319f0ed6a8cd944dc79060d3912a28985f\asm-analysis-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-tree\9.7.1\3a53139787663b139de76b627fca0084ab60d32c\asm-tree-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm\9.7.1\f0ed132a49244b042cd0e15702ab9f2ce3cc8436\asm-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\net.minecraftforge\JarJarFileSystems\0.3.19\2464eb7d6b9ddb9db36a82cf8a95193e5c6fe020\JarJarFileSystems-0.3.19.jar --add-modules ALL-MODULE-PATH --add-opens java.base/java.util.jar=cpw.mods.securejarhandler --add-opens java.base/java.lang.invoke=cpw.mods.securejarhandler --add-exports java.base/sun.security.util=cpw.mods.securejarhandler --add-exports jdk.naming.dns/com.sun.jndi.dns=java.naming -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump"/>
++    <option name="PROGRAM_PARAMETERS" value="--launchTarget forgeclientuserdev --version MOD_DEV --assetIndex 5 --assetsDir C:\Users\LQ\.gradle\caches\forge_gradle\assets --gameDir . --fml.forgeVersion 47.4.0 --fml.mcVersion 1.20.1 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20230612.114412 --mixin.config extended_tinker.mixins.json"/>
++    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$\run"/>
++    <module name="ET.main"/>
++    <envs>
++      <env name="MOD_CLASSES" value="extended_tinker%%$PROJECT_DIR$\build\resources\main;extended_tinker%%$PROJECT_DIR$\build\classes\java\main"/>
++      <env name="MCP_MAPPINGS" value="official_1.20.1"/>
++    </envs>
++    <method v="2">
++      <option enabled="true" name="Make"/>
++      <option enabled="true" externalProjectPath="$PROJECT_DIR$" name="Gradle.BeforeRunTask" tasks=":prepareRunClientCompile"/>
++    </method>
++  </configuration>
++</component>
+Index: .idea/runConfigurations/runData.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/runConfigurations/runData.xml b/.idea/runConfigurations/runData.xml
+new file mode 100644
+--- /dev/null	(date 1746509534102)
++++ b/.idea/runConfigurations/runData.xml	(date 1746509534102)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<component>
++  <configuration default="false" factoryName="Application" name="runData" singleton="false" type="Application">
++    <option name="MAIN_CLASS_NAME" value="cpw.mods.bootstraplauncher.BootstrapLauncher"/>
++    <option name="VM_PARAMETERS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=REGISTRIES &quot;-DlegacyClassPath.file=D:\Live\Game\MC\ModProjects\Extended Tinker\build\classpath\runData_minecraftClasspath.txt&quot; &quot;-Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp=D:\Live\Game\MC\ModProjects\Extended Tinker\build\createSrgToMcp\output.srg&quot; -Dmixin.env.remapRefMap=true &quot;-Dmixin.env.refMapRemappingFile=D:\Live\Game\MC\ModProjects\Extended Tinker\build\createSrgToMcp\output.srg&quot; -DignoreList=bootstraplauncher,securejarhandler,asm-commons,asm-util,asm-analysis,asm-tree,asm,JarJarFileSystems,client-extra,fmlcore,javafmllanguage,lowcodelanguage,mclanguage,forge- -DmergeModules=jna-5.10.0.jar,jna-platform-5.10.0.jar -Djava.net.preferIPv6Addresses=system -p C:\Users\LQ\.gradle\caches\modules-2\files-2.1\cpw.mods\bootstraplauncher\1.1.2\c546e00443d8432cda6baa1c860346980742628\bootstraplauncher-1.1.2.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\cpw.mods\securejarhandler\2.1.10\51e6a22c6c716beb11e244bf5b8be480f51dd6b5\securejarhandler-2.1.10.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-commons\9.7.1\406c6a2225cfe1819f102a161e54cc16a5c24f75\asm-commons-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-util\9.7.1\9e23359b598ec6b74b23e53110dd5c577adf2243\asm-util-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-analysis\9.7.1\f97a3b319f0ed6a8cd944dc79060d3912a28985f\asm-analysis-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-tree\9.7.1\3a53139787663b139de76b627fca0084ab60d32c\asm-tree-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm\9.7.1\f0ed132a49244b042cd0e15702ab9f2ce3cc8436\asm-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\net.minecraftforge\JarJarFileSystems\0.3.19\2464eb7d6b9ddb9db36a82cf8a95193e5c6fe020\JarJarFileSystems-0.3.19.jar --add-modules ALL-MODULE-PATH --add-opens java.base/java.util.jar=cpw.mods.securejarhandler --add-opens java.base/java.lang.invoke=cpw.mods.securejarhandler --add-exports java.base/sun.security.util=cpw.mods.securejarhandler --add-exports jdk.naming.dns/com.sun.jndi.dns=java.naming"/>
++    <option name="PROGRAM_PARAMETERS" value="--launchTarget forgedatauserdev --assetIndex 5 --assetsDir C:\Users\LQ\.gradle\caches\forge_gradle\assets --gameDir . --fml.forgeVersion 47.4.0 --fml.mcVersion 1.20.1 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20230612.114412 --mod extended_tinker --all --output &quot;D:\Live\Game\MC\ModProjects\Extended Tinker\src\generated\resources&quot; --existing &quot;D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources&quot; --existing-mod tconstruct --mixin.config extended_tinker.mixins.json"/>
++    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$\run-data"/>
++    <module name="ET.main"/>
++    <envs>
++      <env name="MOD_CLASSES" value="extended_tinker%%$PROJECT_DIR$\build\resources\main;extended_tinker%%$PROJECT_DIR$\build\classes\java\main"/>
++      <env name="MCP_MAPPINGS" value="official_1.20.1"/>
++    </envs>
++    <method v="2">
++      <option enabled="true" name="Make"/>
++      <option enabled="true" externalProjectPath="$PROJECT_DIR$" name="Gradle.BeforeRunTask" tasks=":prepareRunDataCompile"/>
++    </method>
++  </configuration>
++</component>
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1746507741522)
++++ b/.idea/compiler.xml	(date 1746507741522)
+@@ -0,0 +1,29 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Gradle Imported" enabled="true">
++        <outputRelativeToContentRoot value="true" />
++        <processorPath useClasspath="false">
++          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/6d1c8bf4c28e697f472a83bd6add76ec4951734/mixin-0.8.5-processor.jar" />
++          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.30/f195ee86e6c896ea47a1d39defbe20eb59cd149d/lombok-1.18.30.jar" />
++        </processorPath>
++        <module name="ET.main" />
++      </profile>
++      <profile name="Gradle Imported" enabled="true">
++        <outputRelativeToContentRoot value="true" />
++        <processorPath useClasspath="false">
++          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.30/f195ee86e6c896ea47a1d39defbe20eb59cd149d/lombok-1.18.30.jar" />
++        </processorPath>
++        <module name="ET.test" />
++      </profile>
++    </annotationProcessing>
++  </component>
++  <component name="JavacSettings">
++    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
++      <module name="ET" options="-Xlint:-processing" />
++      <module name="ET.main" options="-Xlint:-processing" />
++      <module name="ET.test" options="-Xlint:-processing" />
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/org/vocalsky/extended_tinker/common/data/ModDataGenerator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.vocalsky.extended_tinker.common.data;\r\n\r\nimport net.minecraft.data.DataGenerator;\r\nimport net.minecraftforge.common.data.ExistingFileHelper;\r\nimport net.minecraftforge.data.event.GatherDataEvent;\r\nimport net.minecraftforge.eventbus.api.SubscribeEvent;\r\nimport net.minecraftforge.fml.common.Mod;\r\nimport org.vocalsky.extended_tinker.Extended_tinker;\r\nimport org.vocalsky.extended_tinker.common.data.Provider.*;\r\n\r\n@Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)\r\npublic class ModDataGenerator {\r\n    @SubscribeEvent\r\n    public static void gatherData(final GatherDataEvent event){\r\n        DataGenerator generator = event.getGenerator();\r\n        boolean server = event.includeServer();\r\n        boolean client = event.includeClient();\r\n        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();\r\n//        generator.addProvider(server, blockTags);\r\n//        generator.addProvider(server, new ItemTagProvider(generator, blockTags, existingFileHelper));\r\n//        generator.addProvider(server, new ToolRecipeProvider(generator));\r\n//        generator.addProvider(server, new ToolDefinitionDataProvider(generator));\r\n//        generator.addProvider(server, new StationSlotLayoutProvider(generator));\r\n//        generator.addProvider(server, new ModifierProvider(generator));\r\n//        generator.addProvider(server, new ModifierRecipeProvider(generator));\r\n//        generator.addProvider(server, new ModifierTagProvider(generator, existingFileHelper));\r\n//        generator.addProvider(client, new ModItemModelProvider(generator, existingFileHelper));\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/vocalsky/extended_tinker/common/data/ModDataGenerator.java b/src/main/java/org/vocalsky/extended_tinker/common/data/ModDataGenerator.java
+--- a/src/main/java/org/vocalsky/extended_tinker/common/data/ModDataGenerator.java	(revision d54961b7dbb9f6facc80f3ebfef40bc2562914de)
++++ b/src/main/java/org/vocalsky/extended_tinker/common/data/ModDataGenerator.java	(date 1746457209452)
+@@ -1,29 +1,29 @@
+ package org.vocalsky.extended_tinker.common.data;
+ 
+-import net.minecraft.data.DataGenerator;
+-import net.minecraftforge.common.data.ExistingFileHelper;
+-import net.minecraftforge.data.event.GatherDataEvent;
+-import net.minecraftforge.eventbus.api.SubscribeEvent;
+-import net.minecraftforge.fml.common.Mod;
+-import org.vocalsky.extended_tinker.Extended_tinker;
+-import org.vocalsky.extended_tinker.common.data.Provider.*;
+-
+-@Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+-public class ModDataGenerator {
+-    @SubscribeEvent
+-    public static void gatherData(final GatherDataEvent event){
+-        DataGenerator generator = event.getGenerator();
+-        boolean server = event.includeServer();
+-        boolean client = event.includeClient();
+-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+-//        generator.addProvider(server, blockTags);
+-//        generator.addProvider(server, new ItemTagProvider(generator, blockTags, existingFileHelper));
+-//        generator.addProvider(server, new ToolRecipeProvider(generator));
+-//        generator.addProvider(server, new ToolDefinitionDataProvider(generator));
+-//        generator.addProvider(server, new StationSlotLayoutProvider(generator));
+-//        generator.addProvider(server, new ModifierProvider(generator));
+-//        generator.addProvider(server, new ModifierRecipeProvider(generator));
+-//        generator.addProvider(server, new ModifierTagProvider(generator, existingFileHelper));
+-//        generator.addProvider(client, new ModItemModelProvider(generator, existingFileHelper));
+-    }
+-}
+\ No newline at end of file
++//import net.minecraft.data.DataGenerator;
++//import net.minecraftforge.common.data.ExistingFileHelper;
++//import net.minecraftforge.data.event.GatherDataEvent;
++//import net.minecraftforge.eventbus.api.SubscribeEvent;
++//import net.minecraftforge.fml.common.Mod;
++//import org.vocalsky.extended_tinker.Extended_tinker;
++//import org.vocalsky.extended_tinker.common.data.Provider.*;
++//
++//@Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
++//public class ModDataGenerator {
++//    @SubscribeEvent
++//    public static void gatherData(final GatherDataEvent event){
++//        DataGenerator generator = event.getGenerator();
++//        boolean server = event.includeServer();
++//        boolean client = event.includeClient();
++//        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
++////        generator.addProvider(server, blockTags);
++////        generator.addProvider(server, new ItemTagProvider(generator, blockTags, existingFileHelper));
++////        generator.addProvider(server, new ToolRecipeProvider(generator));
++////        generator.addProvider(server, new ToolDefinitionDataProvider(generator));
++////        generator.addProvider(server, new StationSlotLayoutProvider(generator));
++////        generator.addProvider(server, new ModifierProvider(generator));
++////        generator.addProvider(server, new ModifierRecipeProvider(generator));
++////        generator.addProvider(server, new ModifierTagProvider(generator, existingFileHelper));
++////        generator.addProvider(client, new ModItemModelProvider(generator, existingFileHelper));
++//    }
++//}
+\ No newline at end of file
+Index: .idea/runConfigurations/runGameTestServer.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/runConfigurations/runGameTestServer.xml b/.idea/runConfigurations/runGameTestServer.xml
+new file mode 100644
+--- /dev/null	(date 1746509534111)
++++ b/.idea/runConfigurations/runGameTestServer.xml	(date 1746509534111)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<component>
++  <configuration default="false" factoryName="Application" name="runGameTestServer" singleton="false" type="Application">
++    <option name="MAIN_CLASS_NAME" value="cpw.mods.bootstraplauncher.BootstrapLauncher"/>
++    <option name="VM_PARAMETERS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=REGISTRIES &quot;-DlegacyClassPath.file=D:\Live\Game\MC\ModProjects\Extended Tinker\build\classpath\runGameTestServer_minecraftClasspath.txt&quot; &quot;-Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp=D:\Live\Game\MC\ModProjects\Extended Tinker\build\createSrgToMcp\output.srg&quot; -Dmixin.env.remapRefMap=true &quot;-Dmixin.env.refMapRemappingFile=D:\Live\Game\MC\ModProjects\Extended Tinker\build\createSrgToMcp\output.srg&quot; -DignoreList=bootstraplauncher,securejarhandler,asm-commons,asm-util,asm-analysis,asm-tree,asm,JarJarFileSystems,client-extra,fmlcore,javafmllanguage,lowcodelanguage,mclanguage,forge- -DmergeModules=jna-5.10.0.jar,jna-platform-5.10.0.jar -Dforge.enabledGameTestNamespaces=extended_tinker -Djava.net.preferIPv6Addresses=system -p C:\Users\LQ\.gradle\caches\modules-2\files-2.1\cpw.mods\bootstraplauncher\1.1.2\c546e00443d8432cda6baa1c860346980742628\bootstraplauncher-1.1.2.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\cpw.mods\securejarhandler\2.1.10\51e6a22c6c716beb11e244bf5b8be480f51dd6b5\securejarhandler-2.1.10.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-commons\9.7.1\406c6a2225cfe1819f102a161e54cc16a5c24f75\asm-commons-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-util\9.7.1\9e23359b598ec6b74b23e53110dd5c577adf2243\asm-util-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-analysis\9.7.1\f97a3b319f0ed6a8cd944dc79060d3912a28985f\asm-analysis-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-tree\9.7.1\3a53139787663b139de76b627fca0084ab60d32c\asm-tree-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm\9.7.1\f0ed132a49244b042cd0e15702ab9f2ce3cc8436\asm-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\net.minecraftforge\JarJarFileSystems\0.3.19\2464eb7d6b9ddb9db36a82cf8a95193e5c6fe020\JarJarFileSystems-0.3.19.jar --add-modules ALL-MODULE-PATH --add-opens java.base/java.util.jar=cpw.mods.securejarhandler --add-opens java.base/java.lang.invoke=cpw.mods.securejarhandler --add-exports java.base/sun.security.util=cpw.mods.securejarhandler --add-exports jdk.naming.dns/com.sun.jndi.dns=java.naming"/>
++    <option name="PROGRAM_PARAMETERS" value="--launchTarget forgegametestserveruserdev --gameDir . --fml.forgeVersion 47.4.0 --fml.mcVersion 1.20.1 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20230612.114412 --mixin.config extended_tinker.mixins.json"/>
++    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$\run"/>
++    <module name="ET.main"/>
++    <envs>
++      <env name="MOD_CLASSES" value="extended_tinker%%$PROJECT_DIR$\build\resources\main;extended_tinker%%$PROJECT_DIR$\build\classes\java\main"/>
++      <env name="MCP_MAPPINGS" value="official_1.20.1"/>
++    </envs>
++    <method v="2">
++      <option enabled="true" name="Make"/>
++      <option enabled="true" externalProjectPath="$PROJECT_DIR$" name="Gradle.BeforeRunTask" tasks=":prepareRunGameTestServerCompile"/>
++    </method>
++  </configuration>
++</component>
+Index: .idea/runConfigurations/runServer.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/runConfigurations/runServer.xml b/.idea/runConfigurations/runServer.xml
+new file mode 100644
+--- /dev/null	(date 1746509534120)
++++ b/.idea/runConfigurations/runServer.xml	(date 1746509534120)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<component>
++  <configuration default="false" factoryName="Application" name="runServer" singleton="false" type="Application">
++    <option name="MAIN_CLASS_NAME" value="cpw.mods.bootstraplauncher.BootstrapLauncher"/>
++    <option name="VM_PARAMETERS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=REGISTRIES &quot;-DlegacyClassPath.file=D:\Live\Game\MC\ModProjects\Extended Tinker\build\classpath\runServer_minecraftClasspath.txt&quot; &quot;-Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp=D:\Live\Game\MC\ModProjects\Extended Tinker\build\createSrgToMcp\output.srg&quot; -Dmixin.env.remapRefMap=true &quot;-Dmixin.env.refMapRemappingFile=D:\Live\Game\MC\ModProjects\Extended Tinker\build\createSrgToMcp\output.srg&quot; -DignoreList=bootstraplauncher,securejarhandler,asm-commons,asm-util,asm-analysis,asm-tree,asm,JarJarFileSystems,client-extra,fmlcore,javafmllanguage,lowcodelanguage,mclanguage,forge- -DmergeModules=jna-5.10.0.jar,jna-platform-5.10.0.jar -Dforge.enabledGameTestNamespaces=extended_tinker -Dforge.enableGameTest=true -Djava.net.preferIPv6Addresses=system -p C:\Users\LQ\.gradle\caches\modules-2\files-2.1\cpw.mods\bootstraplauncher\1.1.2\c546e00443d8432cda6baa1c860346980742628\bootstraplauncher-1.1.2.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\cpw.mods\securejarhandler\2.1.10\51e6a22c6c716beb11e244bf5b8be480f51dd6b5\securejarhandler-2.1.10.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-commons\9.7.1\406c6a2225cfe1819f102a161e54cc16a5c24f75\asm-commons-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-util\9.7.1\9e23359b598ec6b74b23e53110dd5c577adf2243\asm-util-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-analysis\9.7.1\f97a3b319f0ed6a8cd944dc79060d3912a28985f\asm-analysis-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-tree\9.7.1\3a53139787663b139de76b627fca0084ab60d32c\asm-tree-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm\9.7.1\f0ed132a49244b042cd0e15702ab9f2ce3cc8436\asm-9.7.1.jar;C:\Users\LQ\.gradle\caches\modules-2\files-2.1\net.minecraftforge\JarJarFileSystems\0.3.19\2464eb7d6b9ddb9db36a82cf8a95193e5c6fe020\JarJarFileSystems-0.3.19.jar --add-modules ALL-MODULE-PATH --add-opens java.base/java.util.jar=cpw.mods.securejarhandler --add-opens java.base/java.lang.invoke=cpw.mods.securejarhandler --add-exports java.base/sun.security.util=cpw.mods.securejarhandler --add-exports jdk.naming.dns/com.sun.jndi.dns=java.naming"/>
++    <option name="PROGRAM_PARAMETERS" value="--launchTarget forgeserveruserdev --gameDir . --fml.forgeVersion 47.4.0 --fml.mcVersion 1.20.1 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20230612.114412 --nogui --mixin.config extended_tinker.mixins.json"/>
++    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$\run"/>
++    <module name="ET.main"/>
++    <envs>
++      <env name="MOD_CLASSES" value="extended_tinker%%$PROJECT_DIR$\build\resources\main;extended_tinker%%$PROJECT_DIR$\build\classes\java\main"/>
++      <env name="MCP_MAPPINGS" value="official_1.20.1"/>
++    </envs>
++    <method v="2">
++      <option enabled="true" name="Make"/>
++      <option enabled="true" externalProjectPath="$PROJECT_DIR$" name="Gradle.BeforeRunTask" tasks=":prepareRunServerCompile"/>
++    </method>
++  </configuration>
++</component>
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1746458204779)
++++ b/.idea/.gitignore	(date 1746458204779)
+@@ -0,0 +1,5 @@
++# 默认忽略的文件
++/shelf/
++/workspace.xml
++# 依赖于环境的 Maven 主目录路径
++/mavenHomeManager.xml
