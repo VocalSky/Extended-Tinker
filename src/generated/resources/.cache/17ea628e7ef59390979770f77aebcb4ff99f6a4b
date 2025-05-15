@@ -1,10 +1,10 @@
-// 1.20.1	2025-05-07T13:30:49.7462802	Extended Tinker Tool Recipe Provider
+// 1.20.1	2025-05-11T11:32:54.6836934	Extended Tinker Tool Recipe Provider
 86b7f03d47ec1dfefd2f7921eb18283593485792 data/extended_tinker/recipes/smeltery/casts/gold/bridle.json
-51315cf3a586c6a19c451494b04ae3a1208f99ac data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json
-93fe1cbaf986fa4a60aa2787f5670d128117a126 data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json
+74d8f2ef8d4a3224d47438c10f8c32cb55a7a7b9 data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json
+389c37ad5023d13a37f06265b1b1496c8cd5d6bc data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json
 f787396d04201f9f8b6229aa499dc06762d95bce data/extended_tinker/recipes/smeltery/casts/red_sand/molding/bridle.json
-492dbb369d1fa330aea5aa2eea6b18e14e4faa8f data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json
-fa5204cf4fd1b4520ab28faecc258bee7714dfc7 data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json
+a5597a6ef751c9db1c7d323f64bc8dcd2036c0de data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json
+61623e4106a9cf66641c14697b30f27a94dd6029 data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json
 41b5e2211c36d5811b17d8a4d6891234cc8b7b57 data/extended_tinker/recipes/smeltery/casts/sand/molding/bridle.json
 213a2aa10fc04a074ac98b39d2ca727bfebdb5c0 data/extended_tinker/recipes/tools/armor/horse_armor_chestplate.json
 b46eba5d1e3c7e4af56cbdb919a6c15b1b006e1a data/extended_tinker/recipes/tools/building/firecrack.json

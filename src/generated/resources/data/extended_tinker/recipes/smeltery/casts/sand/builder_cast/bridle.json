@@ -1,6 +1,6 @@
 {
   "type": "tconstruct:item_part_builder",
-  "pattern": "extended_tinker:bridle",
+  "pattern": "tconstruct:bridle",
   "pattern_item": {
     "tag": "tconstruct:casts/sand"
   },
