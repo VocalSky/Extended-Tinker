@@ -5,18 +5,18 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
+import org.vocalsky.extended_tinker.util.ModCastItemObject;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.TConstruct;
-import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
@@ -26,17 +26,14 @@ import slimeknights.tconstruct.tables.TinkerTables;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ModItems {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, TConstruct.MOD_ID);
-    public static final RegistryObject<CreativeModeTab> Tab = CREATIVE_TABS.register(
+    public static final RegistryObject<CreativeModeTab> ComonTab = CREATIVE_TABS.register(
     "tools", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
                                   .icon(() -> Tools.HORSE_ARMOR.get().getRenderTool())
-                                  .displayItems(Parts::addTabItems)
-                                  .displayItems(Casts::addTabItems)
                                   .displayItems(Tools::addTabItems)
                                   .withTabsBefore(TinkerTables.tabTables.getId())
                                   .withSearchBar()
@@ -48,7 +45,6 @@ public class ModItems {
         Casts.init();
         Tools.init();
         ITEMS.register(eventBus);
-        CREATIVE_TABS.register(eventBus);
     }
 
     public static class Parts {
@@ -63,51 +59,38 @@ public class ModItems {
             item.get().addVariants(output, "");
         }
 
-        private static final Item.Properties PART_PROP = new Item.Properties();
+        private static final Item.Properties PART_PROP = CommonItem;
+
         public static final ItemObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(PART_PROP, PlatingMaterialStats.CHESTPLATE.getId()));
     }
 
     public static class Casts {
         public static void init() {}
 
-        private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
-            addCasts(tab, CastItemObject::get);
-            addCasts(tab, CastItemObject::getSand);
-            addCasts(tab, CastItemObject::getRedSand);
-        }
-
-        private static void addCasts(CreativeModeTab.Output output, Function<CastItemObject,ItemLike> getter) {
-            accept(output, getter, BRIDLE_CAST);
-        }
-
-        private static void accept(CreativeModeTab.Output output, Function<CastItemObject, ItemLike> getter, CastItemObject cast) {
-            output.accept(getter.apply(cast));
-        }
-
-        private static CastItemObject registerCast(String name, Supplier<? extends Item> constructor) {
+        private static ModCastItemObject registerCast(String name, Supplier<? extends Item> constructor) {
             ItemObject<Item> cast = ITEMS.register(name + "_cast", constructor);
             ItemObject<Item> sandCast = ITEMS.register(name + "_sand_cast", constructor);
             ItemObject<Item> redSandCast = ITEMS.register(name + "_red_sand_cast", constructor);
-            return new CastItemObject(TConstruct.getResource(name), cast, sandCast, redSandCast);
+            return new ModCastItemObject(Extended_tinker.getResource(name), cast, sandCast, redSandCast);
         }
 
-        private static CastItemObject registerCast(String name, Item.Properties props) {
-            return registerCast(name, (Supplier)(() -> new Item(props)));
+        private static ModCastItemObject registerCast(String name, Item.Properties props) {
+            return registerCast(name, (() -> new Item(props)));
         }
 
-        private static CastItemObject registerCast(ItemObject<? extends IMaterialItem> item, Item.Properties props) {
-            return registerCast(item.getId().getPath(), (Supplier)(() -> new PartCastItem(props, item)));
+        private static ModCastItemObject registerCast(ItemObject<? extends IMaterialItem> item, Item.Properties props) {
+            return registerCast(item.getId().getPath(), (() -> new PartCastItem(props, item)));
         }
 
-        private static final Item.Properties CAST_PROPS = new Item.Properties();
+        private static final Item.Properties CAST_PROPS = CommonItem;
 
-        public static final CastItemObject BRIDLE_CAST = registerCast(Parts.BRIDLE, CAST_PROPS);
+        public static final ModCastItemObject BRIDLE_CAST = registerCast(Parts.BRIDLE, CAST_PROPS);
     }
 
     public static class Tools {
         public static void init() {}
 
-        private static final Item.Properties TOOL_PROP = new Item.Properties().stacksTo(1);
+        private static final Item.Properties TOOL_PROP = Stack1Item;
 
         private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
             Consumer<ItemStack> output = tab::accept;
