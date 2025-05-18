@@ -11,6 +11,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModToolDefinitions;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
@@ -40,11 +41,9 @@ public class GolemItems {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, TConstruct.MOD_ID);
     public static final RegistryObject<CreativeModeTab> CommonTab = CREATIVE_TABS.register(
-    "items", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
+    "golem", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
                                         .icon(() -> Tools.GOLEM_ARMOR.get(ArmorItem.Type.CHESTPLATE).getRenderTool())
-                                        .displayItems(Parts::addTabItems)
-                                        .displayItems(Casts::addTabItems)
-                                        .displayItems(Tools::addTabItems)
+                                        .displayItems(GolemItems::addTabItems)
                                         .withTabsBefore(TinkerTables.tabTables.getId())
                                         .withSearchBar()
                                         .build());
@@ -58,6 +57,12 @@ public class GolemItems {
         Tools.init();
         ITEMS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
+    }
+
+    private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
+        Parts.addTabItems(itemDisplayParameters, tab);
+        Casts.addTabItems(itemDisplayParameters, tab);
+        Tools.addTabItems(itemDisplayParameters, tab);
     }
 
     public static class Parts {
