@@ -185,6 +185,7 @@ dependencies {
     // mg
     implementation fg.deobf("curse.maven:modulargolems-690937:${mg_file}")
     implementation fg.deobf("curse.maven:l2library-620203:${l2_file}")
+    compileOnly fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 
     // iaf
     implementation fg.deobf("curse.maven:citadel-331936:${citadel_file}")

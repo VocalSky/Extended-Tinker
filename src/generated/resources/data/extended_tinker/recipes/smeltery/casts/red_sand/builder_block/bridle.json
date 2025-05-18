@@ -1,6 +1,6 @@
 {
   "type": "tconstruct:item_part_builder",
-  "pattern": "tconstruct:bridle",
+  "pattern": "extended_tinker:bridle",
   "pattern_item": {
     "tag": "forge:sand/red"
   },

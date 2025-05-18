@@ -1,9 +1,11 @@
-package org.vocalsky.extended_tinker.common.tool;
+package org.vocalsky.extended_tinker.golems.tool;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import dev.xkmc.modulargolems.content.item.equipments.GolemEquipmentItem;
+import dev.xkmc.modulargolems.content.item.equipments.MetalGolemArmorItem;
+import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import lombok.Getter;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
@@ -53,14 +55,34 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.library.utils.Util;
 
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
-public class HorseArmor extends HorseArmorItem implements Equipable, IModifiableDisplay {
-    public static UUID HorseArmorUUID = UUID.fromString("556E1665-8B10-40C8-8F9D-CF9B1667F295");
+public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay {
+    /** Volatile modifier tag to make piglins neutal when worn */
+    public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
+    /** Volatile modifier tag to make this item an elytra */
+    public static final ResourceLocation ELYTRA = TConstruct.getResource("elyta");
+    /** Volatile flag for a boot item to walk on powdered snow. Cold immunity is handled through a tag */
+    public static final ResourceLocation SNOW_BOOTS = TConstruct.getResource("snow_boots");
+
+    @Getter
+    private final ToolDefinition toolDefinition;
+    /** Cache of the tool built for rendering */
+    private ItemStack toolForRendering = null;
+
+
+    private static final EnumMap<ArmorItem.Type, UUID> ARMOR_MODIFIER_UUID_PER_TYPE = net.minecraft.Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266744_) -> {
+        p_266744_.put(ArmorItem.Type.BOOTS, java.util.UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"));
+        p_266744_.put(ArmorItem.Type.LEGGINGS, java.util.UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"));
+        p_266744_.put(ArmorItem.Type.CHESTPLATE, java.util.UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"));
+        p_266744_.put(ArmorItem.Type.HELMET, java.util.UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150"));
+    });
     public static final DispenseItemBehavior DISPENSE_ITEM_BEHAVIOR = new DefaultDispenseItemBehavior() {
         protected @NotNull ItemStack execute(@NotNull BlockSource p_40408_, @NotNull ItemStack p_40409_) {
             return ArmorItem.dispenseArmor(p_40408_, p_40409_) ? p_40409_ : super.execute(p_40408_, p_40409_);
@@ -72,7 +94,6 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
     private final int defense;
     @Getter
     private final float toughness;
-    @Getter
     protected final float knockbackResistance;
     @Getter
     protected final ArmorMaterial material;
@@ -97,31 +118,6 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         }
     }
 
-    public HorseArmor(ArmorMaterial materialIn, ArmorItem.Type type, Item.Properties builderIn, ToolDefinition toolDefinition) {
-        super(0, "", builderIn.defaultDurability(materialIn.getDurabilityForType(type)));
-        this.material = materialIn;
-        this.type = type;
-        this.defense = materialIn.getDefenseForType(type);
-        this.toughness = materialIn.getToughness();
-        this.knockbackResistance = materialIn.getKnockbackResistance();
-        DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
-        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        UUID uuid = HorseArmorUUID;
-        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", this.defense, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness", this.toughness, AttributeModifier.Operation.ADDITION));
-        if (this.knockbackResistance > 0) {
-            builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", this.knockbackResistance, AttributeModifier.Operation.ADDITION));
-        }
-
-        this.defaultModifiers = builder.build();
-        this.toolForRendering = null;
-        this.toolDefinition = toolDefinition;
-    }
-
-    public HorseArmor(ModifiableArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
-        this(material, type, properties, Objects.requireNonNull(material.getArmorDefinition(type), "Missing tool definition for " + type.getName()));
-    }
-
     public int getEnchantmentValue() {
         return this.material.getEnchantmentValue();
     }
@@ -130,266 +126,355 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         return slot == this.type.getSlot() ? this.defaultModifiers : super.getDefaultAttributeModifiers(slot);
     }
 
-    public @NotNull EquipmentSlot getEquipmentSlot() {
+    public EquipmentSlot getEquipmentSlot() {
         return this.type.getSlot();
     }
 
-    public @NotNull SoundEvent getEquipSound() {
+    public SoundEvent getEquipSound() {
         return this.getMaterial().getEquipSound();
     }
 
-    public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
-    public static final ResourceLocation ELYTRA = TConstruct.getResource("elyta");
-    public static final ResourceLocation SNOW_BOOTS = TConstruct.getResource("snow_boots");
-    @Getter
-    private final ToolDefinition toolDefinition;
-    private ItemStack toolForRendering;
+    public GolemArmor(ArmorMaterial materialIn, ArmorItem.Type type, Properties builderIn, ToolDefinition toolDefinition) {
+        super(builderIn.defaultDurability(materialIn.getDurabilityForType(type)), type.getSlot(), GolemTypes.ENTITY_GOLEM::get, builder -> {});
+        this.material = materialIn;
+        this.type = type;
+        this.defense = materialIn.getDefenseForType(type);
+        this.toughness = materialIn.getToughness();
+        this.knockbackResistance = materialIn.getKnockbackResistance();
+        DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        UUID uuid = ARMOR_MODIFIER_UUID_PER_TYPE.get(type);
+        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", (double)this.defense, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness", (double)this.toughness, AttributeModifier.Operation.ADDITION));
+        if (this.knockbackResistance > 0) {
+            builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", (double)this.knockbackResistance, AttributeModifier.Operation.ADDITION));
+        }
 
+        this.defaultModifiers = builder.build();
+        this.toolDefinition = toolDefinition;
+    }
+
+    public GolemArmor(ModifiableArmorMaterial material, ArmorItem.Type type, Properties properties) {
+        this(material, type, properties, Objects.requireNonNull(material.getArmorDefinition(type), "Missing tool definition for " + type.getName()));
+    }
+
+    /* Basic properties */
+
+    @Override
     public int getMaxStackSize(ItemStack stack) {
         return 1;
     }
 
+    @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
         return ModifierUtil.checkVolatileFlag(stack, PIGLIN_NEUTRAL);
     }
 
+    @Override
     public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer) {
-        return this.type == ArmorItem.Type.BOOTS && ModifierUtil.checkVolatileFlag(stack, SNOW_BOOTS);
+        return type == ArmorItem.Type.BOOTS && ModifierUtil.checkVolatileFlag(stack, SNOW_BOOTS);
     }
 
+    @Override
     public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
         return ModifierUtil.canPerformAction(ToolStack.from(stack), toolAction);
     }
 
+    @Override
     public boolean isNotReplaceableByPickAction(ItemStack stack, Player player, int inventorySlot) {
         return true;
     }
 
-    public boolean isEnchantable(@NotNull ItemStack stack) {
+
+    /* Enchantments */
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
         return false;
     }
 
+    @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return false;
     }
 
+    @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
         return enchantment.isCurse() && super.canApplyAtEnchantingTable(stack, enchantment);
     }
 
+    @Override
     public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {
         return EnchantmentModifierHook.getEnchantmentLevel(stack, enchantment);
     }
 
-    public Map<Enchantment, Integer> getAllEnchantments(ItemStack stack) {
+    @Override
+    public Map<Enchantment,Integer> getAllEnchantments(ItemStack stack) {
         return EnchantmentModifierHook.getAllEnchantments(stack);
     }
 
+
+    /* Loading */
+
     @Nullable
+    @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
         return new ToolCapabilityProvider(stack);
     }
 
-    public void verifyTagAfterLoad(@NotNull CompoundTag nbt) {
-        ToolStack.verifyTag(this, nbt, this.getToolDefinition());
+    @Override
+    public void verifyTagAfterLoad(CompoundTag nbt) {
+        ToolStack.verifyTag(this, nbt, getToolDefinition());
     }
 
-    public void onCraftedBy(@NotNull ItemStack stack, @NotNull Level levelIn, @NotNull Player playerIn) {
-        ToolStack.ensureInitialized(stack, this.getToolDefinition());
+    @Override
+    public void onCraftedBy(ItemStack stack, Level levelIn, Player playerIn) {
+        ToolStack.ensureInitialized(stack, getToolDefinition());
     }
 
-    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level levelIn, Player playerIn, @NotNull InteractionHand handIn) {
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level levelIn, Player playerIn, InteractionHand handIn) {
         ItemStack stack = playerIn.getItemInHand(handIn);
-        InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, this.getToolDefinition(), playerIn, slimeknights.tconstruct.library.utils.Util.getSlotType(handIn));
-        return result.consumesAction() ? new InteractionResultHolder<>(result, stack) : super.use(levelIn, playerIn, handIn);
+        InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, getToolDefinition(), playerIn, Util.getSlotType(handIn));
+        if (result.consumesAction()) {
+            return new InteractionResultHolder<>(result, stack);
+        }
+        return super.use(levelIn, playerIn, handIn);
     }
 
-    public boolean isFoil(@NotNull ItemStack stack) {
+
+    /* Display */
+
+    @Override
+    public boolean isFoil(ItemStack stack) {
+        // we use enchantments to handle some modifiers, so don't glow from them
+        // however, if a modifier wants to glow let them
         return ModifierUtil.checkVolatileFlag(stack, SHINY);
     }
 
-    public @NotNull Rarity getRarity(@NotNull ItemStack stack) {
+    @Override
+    public Rarity getRarity(ItemStack stack) {
         int rarity = ModifierUtil.getVolatileInt(stack, RARITY);
         return Rarity.values()[Mth.clamp(rarity, 0, 3)];
     }
 
+
+    /* Indestructible items */
+
+    @Override
     public boolean hasCustomEntity(ItemStack stack) {
         return ModifierUtil.checkVolatileFlag(stack, INDESTRUCTIBLE_ENTITY);
     }
 
+    @Override
     public Entity createEntity(Level level, Entity original, ItemStack stack) {
         if (ModifierUtil.checkVolatileFlag(stack, INDESTRUCTIBLE_ENTITY)) {
             IndestructibleItemEntity entity = new IndestructibleItemEntity(level, original.getX(), original.getY(), original.getZ(), stack);
             entity.setPickupDelayFrom(original);
             return entity;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public boolean isRepairable(@NotNull ItemStack stack) {
+
+    /* Damage/Durability */
+
+    @Override
+    public boolean isRepairable(ItemStack stack) {
+        // handle in the tinker station
         return false;
     }
 
+    @Override
     public boolean canBeDepleted() {
         return true;
     }
 
+    @Override
     public int getMaxDamage(ItemStack stack) {
         return ToolDamageUtil.getFakeMaxDamage(stack);
     }
 
+    @Override
     public int getDamage(ItemStack stack) {
-        return !this.canBeDepleted() ? 0 : ToolStack.from(stack).getDamage();
+        if (!canBeDepleted()) {
+            return 0;
+        }
+        return ToolStack.from(stack).getDamage();
     }
 
+    @Override
     public void setDamage(ItemStack stack, int damage) {
-        if (this.canBeDepleted()) {
+        if (canBeDepleted()) {
             ToolStack.from(stack).setDamage(damage);
         }
-
     }
 
+    @Override
     public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T damager, Consumer<T> onBroken) {
-        if (this.canBeDepleted() && ToolDamageUtil.damage(ToolStack.from(stack), amount, damager, stack)) {
+        // We basically emulate Itemstack.damageItem here. We always return 0 to skip the handling in ItemStack.
+        // If we don't tools ignore our damage logic
+        if (canBeDepleted() && ToolDamageUtil.damage(ToolStack.from(stack), amount, damager, stack)) {
             onBroken.accept(damager);
         }
 
         return 0;
     }
 
-    public boolean isBarVisible(@NotNull ItemStack pStack) {
+
+    /* Durability display */
+
+    @Override
+    public boolean isBarVisible(ItemStack pStack) {
         return DurabilityDisplayModifierHook.showDurabilityBar(pStack);
     }
 
-    public int getBarColor(@NotNull ItemStack pStack) {
+    @Override
+    public int getBarColor(ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityRGB(pStack);
     }
 
-    public int getBarWidth(@NotNull ItemStack pStack) {
+    @Override
+    public int getBarWidth(ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityWidth(pStack);
     }
 
-    public boolean isValidRepairItem(@NotNull ItemStack toRepair, @NotNull ItemStack repair) {
+
+    /* Armor properties */
+
+    @Override
+    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
         return false;
     }
 
+
     @Override
-    public @NotNull Multimap<Attribute, AttributeModifier> getAttributeModifiers(@NotNull IToolStackView tool, @NotNull EquipmentSlot slot) {
-        if (slot != this.getEquipmentSlot()) {
+    public Multimap<Attribute,AttributeModifier> getAttributeModifiers(IToolStackView tool, EquipmentSlot slot) {
+        if (slot != getEquipmentSlot()) {
             return ImmutableMultimap.of();
-        } else {
-            ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-            if (!tool.isBroken()) {
-                StatsNBT statsNBT = tool.getStats();
-                UUID uuid = HorseArmorUUID;
-//                builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Horse armor bonus", (double) statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
-//                builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Horse armor bonus", (double) statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
-//                double knockbackResistance = (double) statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
-//                if (knockbackResistance != (double)0.0F) {
-//                    builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Horse armor bonus", knockbackResistance, AttributeModifier.Operation.ADDITION));
-//                }
-                builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "tconstruct.armor.armor", (double) statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
-                builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "tconstruct.armor.toughness", (double) statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
-                double knockbackResistance = (double) statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
-                if (knockbackResistance != (double)0.0F) {
-                    builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "tconstruct.armor.knockback_resistance", knockbackResistance, AttributeModifier.Operation.ADDITION));
-                }
-
-                Objects.requireNonNull(builder);
-                BiConsumer<Attribute, AttributeModifier> attributeConsumer = builder::put;
-
-                for(ModifierEntry entry : tool.getModifierList()) {
-                    entry.getHook(ModifierHooks.ATTRIBUTES).addAttributes(tool, entry, slot, attributeConsumer);
-                }
-            }
-
-            return builder.build();
         }
+
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        if (!tool.isBroken()) {
+            // base stats
+            StatsNBT statsNBT = tool.getStats();
+            UUID uuid = ARMOR_MODIFIER_UUID_PER_TYPE.get(type);
+            builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "tconstruct.armor.armor", statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
+            builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "tconstruct.armor.toughness", statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
+            double knockbackResistance = statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
+            if (knockbackResistance != 0) {
+                builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "tconstruct.armor.knockback_resistance", knockbackResistance, AttributeModifier.Operation.ADDITION));
+            }
+            // grab attributes from modifiers
+            BiConsumer<Attribute,AttributeModifier> attributeConsumer = builder::put;
+            for (ModifierEntry entry : tool.getModifierList()) {
+                entry.getHook(ModifierHooks.ATTRIBUTES).addAttributes(tool, entry, slot, attributeConsumer);
+            }
+        }
+
+        return builder.build();
     }
 
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
+    @Override
+    public Multimap<Attribute,AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         CompoundTag nbt = stack.getTag();
-        return slot == this.getEquipmentSlot() && nbt != null ? this.getAttributeModifiers(ToolStack.from(stack), slot) : ImmutableMultimap.of();
+        if (slot != getEquipmentSlot() || nbt == null) {
+            return ImmutableMultimap.of();
+        }
+        return getAttributeModifiers(ToolStack.from(stack), slot);
     }
 
+
+    /* Elytra */
+
+    @Override
     public boolean canElytraFly(ItemStack stack, LivingEntity entity) {
-        return this.type == ArmorItem.Type.CHESTPLATE && !ToolDamageUtil.isBroken(stack) && ModifierUtil.checkVolatileFlag(stack, ELYTRA);
+        return type == ArmorItem.Type.CHESTPLATE && !ToolDamageUtil.isBroken(stack) && ModifierUtil.checkVolatileFlag(stack, ELYTRA);
     }
 
+    @Override
     public boolean elytraFlightTick(ItemStack stack, LivingEntity entity, int flightTicks) {
-        if (this.getEquipmentSlot() == EquipmentSlot.CHEST) {
+        if (getEquipmentSlot() == EquipmentSlot.CHEST) {
             ToolStack tool = ToolStack.from(stack);
             if (!tool.isBroken()) {
-                for(ModifierEntry entry : tool.getModifierList()) {
+                // if any modifier says stop flying, stop flying
+                for (ModifierEntry entry : tool.getModifierList()) {
                     if (entry.getHook(ModifierHooks.ELYTRA_FLIGHT).elytraFlightTick(tool, entry, entity, flightTicks)) {
                         return false;
                     }
                 }
-
+                // damage the tool and keep flying
                 if (!entity.level().isClientSide && (flightTicks + 1) % 20 == 0) {
                     ToolDamageUtil.damageAnimated(tool, 1, entity, EquipmentSlot.CHEST);
                 }
-
                 return true;
             }
         }
-
         return false;
     }
 
-    public void inventoryTick(@NotNull ItemStack stack, @NotNull Level levelIn, @NotNull Entity entityIn, int itemSlot, boolean isSelected) {
+
+    /* Ticking */
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level levelIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.inventoryTick(stack, levelIn, entityIn, itemSlot, isSelected);
-        if (entityIn instanceof LivingEntity living) {
+
+        // don't care about non-living, they skip most tool context
+        if (entityIn instanceof LivingEntity) {
             ToolStack tool = ToolStack.from(stack);
             if (!levelIn.isClientSide) {
                 tool.ensureHasData();
             }
-
             List<ModifierEntry> modifiers = tool.getModifierList();
             if (!modifiers.isEmpty()) {
-                boolean isCorrectSlot = living.getItemBySlot(this.getEquipmentSlot()) == stack;
-
-                for(ModifierEntry entry : modifiers) {
+                LivingEntity living = (LivingEntity) entityIn;
+                boolean isCorrectSlot = living.getItemBySlot(getEquipmentSlot()) == stack;
+                // we pass in the stack for most custom context, but for the sake of armor its easier to tell them that this is the correct slot for effects
+                for (ModifierEntry entry : modifiers) {
                     entry.getHook(ModifierHooks.INVENTORY_TICK).onInventoryTick(tool, entry, levelIn, living, itemSlot, isSelected, isCorrectSlot, stack);
                 }
             }
         }
-
     }
 
+    @Override
     public boolean overrideStackedOnOther(@NotNull ItemStack held, @NotNull Slot slot, @NotNull ClickAction action, @NotNull Player player) {
         return SlotStackModifierHook.overrideStackedOnOther(held, slot, action, player);
     }
 
+    @Override
     public boolean overrideOtherStackedOnMe(@NotNull ItemStack slotStack, @NotNull ItemStack held, @NotNull Slot slot, @NotNull ClickAction action, @NotNull Player player, @NotNull SlotAccess access) {
         return SlotStackModifierHook.overrideOtherStackedOnMe(slotStack, held, slot, action, player, access);
     }
 
+    @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
-        return TooltipUtil.getDisplayName(stack, this.getToolDefinition());
+        return TooltipUtil.getDisplayName(stack, getToolDefinition());
     }
 
+    @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
     }
 
+    @Override
     public @NotNull List<Component> getStatInformation(@NotNull IToolStackView tool, @Nullable Player player, @NotNull List<Component> tooltips, @NotNull TooltipKey key, @NotNull TooltipFlag tooltipFlag) {
         tooltips = TooltipUtil.getArmorStats(tool, player, tooltips, key, tooltipFlag);
-        TooltipUtil.addAttributes(this, tool, player, tooltips, TooltipUtil.SHOW_ARMOR_ATTRIBUTES, this.getEquipmentSlot());
+        TooltipUtil.addAttributes(this, tool, player, tooltips, TooltipUtil.SHOW_ARMOR_ATTRIBUTES, getEquipmentSlot());
         return tooltips;
     }
 
+    @Override
     public int getDefaultTooltipHideFlags(@NotNull ItemStack stack) {
-        return TooltipUtil.getModifierHideFlags(this.getToolDefinition());
+        return TooltipUtil.getModifierHideFlags(getToolDefinition());
     }
 
+    @Override
     public @NotNull ItemStack getRenderTool() {
-        if (this.toolForRendering == null) {
-            this.toolForRendering = ToolBuildHandler.buildToolForRendering(this, this.getToolDefinition());
+        if (toolForRendering == null) {
+            toolForRendering = ToolBuildHandler.buildToolForRendering(this, this.getToolDefinition());
         }
-
-        return this.toolForRendering;
+        return toolForRendering;
     }
-
 }

@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.common.data;
+package org.vocalsky.extended_tinker.data;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -8,7 +8,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.data.Provider.*;
+import org.vocalsky.extended_tinker.data.Provider.*;
 
 import java.util.concurrent.CompletableFuture;
 

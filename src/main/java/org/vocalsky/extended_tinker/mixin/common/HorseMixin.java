@@ -31,6 +31,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
+import static org.vocalsky.extended_tinker.common.tool.HorseArmor.HorseArmorUUID;
+
 @Mixin(Horse.class)
 public abstract class HorseMixin extends AbstractHorse {
     @Shadow @Final private static UUID ARMOR_MODIFIER_UUID;
@@ -44,16 +46,11 @@ public abstract class HorseMixin extends AbstractHorse {
     @Inject(method = "setArmorEquipment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/horse/Horse;isArmor(Lnet/minecraft/world/item/ItemStack;)Z", shift = At.Shift.BY, by = 1))
     public void setArmorEquipmentMixin(@NotNull ItemStack itemStack, CallbackInfo ci) {
         if (itemStack.getItem() instanceof HorseArmor) {
-            Multimap<Attribute, AttributeModifier> builder = ((HorseArmor)(itemStack.getItem())).getAttributeModifiers(ToolStack.from(itemStack), EquipmentSlot.CHEST);
+            Multimap<Attribute, AttributeModifier> builder = itemStack.getItem().getAttributeModifiers(EquipmentSlot.CHEST, itemStack);
             builder.forEach(((attribute, attributeModifier) -> {
+                Objects.requireNonNull(getAttribute(attribute)).removeModifier(HorseArmorUUID);
                 Objects.requireNonNull(getAttribute(attribute)).addTransientModifier(attributeModifier);
             }));
-//            float armor_defense = ((HorseArmor)itemStack.getItem()).getDefense();
-//            if (armor_defense != 0) Objects.requireNonNull(getAttribute(Attributes.ARMOR)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_defense, AttributeModifier.Operation.ADDITION));
-//            float armor_toughness = ((HorseArmor)itemStack.getItem()).getToughness();
-//            if (armor_toughness != 0) Objects.requireNonNull(getAttribute(Attributes.ARMOR_TOUGHNESS)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_toughness, AttributeModifier.Operation.ADDITION));
-//            float knockback_resistance = ((HorseArmor)itemStack.getItem()).getKnockbackResistance();
-//            if (knockback_resistance != 0) Objects.requireNonNull(getAttribute(Attributes.KNOCKBACK_RESISTANCE)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Horse armor bonus", armor_toughness, AttributeModifier.Operation.ADDITION));
         }
     }
 

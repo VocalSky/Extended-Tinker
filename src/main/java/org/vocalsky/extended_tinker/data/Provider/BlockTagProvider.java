@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.common.data.Provider;
+package org.vocalsky.extended_tinker.data.Provider;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.common.data.Provider;
+package org.vocalsky.extended_tinker.data.Provider;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
