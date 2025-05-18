@@ -1,0 +1,147 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"06340050-012b-4363-8496-ee6922877359\" name=\"更改\" comment=\"大体更新至1.20.1\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/tool/GolemArmor.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/assets/tconstruct/textures/item/bridle_pattern.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/assets/tconstruct/textures/item/cast/bridle.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/assets/tconstruct/textures/item/red_sand_cast/bridle.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/assets/tconstruct/textures/item/sand_cast/bridle.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/_2025_5_6_22_59____.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_5_6_22_59_取消提交了更改_[更改]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/generated/resources/.cache/17ea628e7ef59390979770f77aebcb4ff99f6a4b\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/generated/resources/.cache/17ea628e7ef59390979770f77aebcb4ff99f6a4b\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolDefinitionDataProvider.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolDefinitionDataProvider.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolRecipeProvider.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolRecipeProvider.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/util/ModCastItemObject.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"forgegradle prepare runs\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"forgegradle runs\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Dependencies\" type=\"6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"HARD\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;VocalSky&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/VocalSky/Extended-Tinker.git&quot;,\r\n    &quot;accountId&quot;: &quot;78f5a944-c7bf-4548-bd41-5d8c03604209&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2wgKusycNZnIr2y0DFan9R7yvUT\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.Extended Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.Extended Tinker [genIntellijRuns].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.下载源代码.executor&quot;: &quot;Run&quot;,\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Live/Game/MC/ModProjects/Extended Tinker/src/main/resources/assets/tconstruct&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;应用程序.runData.executor&quot;: &quot;Run&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\\resources\\assets\\tconstruct\" />\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Gradle.Extended Tinker [build]\">\r\n    <configuration name=\"Extended Tinker [build]\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\"build\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>false</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Extended Tinker [genIntellijRuns]\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\"genIntellijRuns\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>false</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Gradle.Extended Tinker [build]\" />\r\n        <item itemvalue=\"Gradle.Extended Tinker [genIntellijRuns]\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\r\n      <changelist id=\"06340050-012b-4363-8496-ee6922877359\" name=\"更改\" comment=\"\" />\r\n      <created>1746458004705</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1746458004705</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"大体更新至1.20.1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746596788642</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746596788642</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"大体更新至1.20.1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746597723431</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746597723431</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"大体更新至1.20.1\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"大体更新至1.20.1\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d9799d02bf3b8c8373c0b8362017f24c767e5bd9)
++++ b/.idea/workspace.xml	(date 1747322684288)
+@@ -4,28 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="大体更新至1.20.1">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/tool/GolemArmor.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/tconstruct/textures/item/bridle_pattern.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/tconstruct/textures/item/cast/bridle.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/tconstruct/textures/item/red_sand_cast/bridle.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/tconstruct/textures/item/sand_cast/bridle.png" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_5_6_22_59____.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_5_6_22_59_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/17ea628e7ef59390979770f77aebcb4ff99f6a4b" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/17ea628e7ef59390979770f77aebcb4ff99f6a4b" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/bridle.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/bridle.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/bridle.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/bridle.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolDefinitionDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolDefinitionDataProvider.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/data/Provider/ToolRecipeProvider.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/util/ModCastItemObject.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json" afterDir="false" />
+-    </list>
++    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更新至1.20.1" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -58,6 +37,12 @@
+                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                 <item name="ET" type="f1a62948:ProjectNode" />
+                 <item name="Tasks" type="e4a08cd1:TasksNode" />
++                <item name="build" type="c8890929:TasksNode$1" />
++              </path>
++              <path>
++                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
++                <item name="ET" type="f1a62948:ProjectNode" />
++                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                 <item name="forgegradle prepare runs" type="c8890929:TasksNode$1" />
+               </path>
+               <path>
+@@ -77,6 +62,13 @@
+         </projects_view>
+       </state>
+     </system>
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -101,29 +93,30 @@
+   <component name="ProjectViewState">
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.Extended Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.Extended Tinker [genIntellijRuns].executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.下载源代码.executor&quot;: &quot;Run&quot;,
+-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/Live/Game/MC/ModProjects/Extended Tinker/src/main/resources/assets/tconstruct&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;应用程序.runData.executor&quot;: &quot;Run&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor": "Run",
++    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor": "Run",
++    "Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
++    "Gradle.Extended Tinker [:prepareRunClientCompile].executor": "Run",
++    "Gradle.Extended Tinker [:prepareRunDataCompile].executor": "Run",
++    "Gradle.Extended Tinker [build].executor": "Run",
++    "Gradle.Extended Tinker [createMcpToSrg].executor": "Run",
++    "Gradle.Extended Tinker [genIntellijRuns].executor": "Run",
++    "Gradle.下载源代码.executor": "Run",
++    "ModuleVcsDetector.initialDetectionPerformed": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "git-widget-placeholder": "main",
++    "last_opened_file_path": "D:/Live/Game/MC/ModProjects/Extended Tinker/src/main/resources/assets/tconstruct",
++    "project.structure.last.edited": "项目",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0",
++    "应用程序.runData.executor": "Run"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\tconstruct" />
+@@ -206,7 +199,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1746597723431</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="更新至1.20.1">
++      <option name="closed" value="true" />
++      <created>1747322680751</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1747322680751</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -222,6 +223,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="大体更新至1.20.1" />
+-    <option name="LAST_COMMIT_MESSAGE" value="大体更新至1.20.1" />
++    <MESSAGE value="更新至1.20.1" />
++    <option name="LAST_COMMIT_MESSAGE" value="更新至1.20.1" />
+   </component>
+ </project>
+\ No newline at end of file
