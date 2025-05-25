@@ -169,6 +169,23 @@ repositories {
 
     // mixin
     maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+
+    maven { url 'https://jitpack.io' }
+    maven {
+        // Location of the maven for mixed mappings, Registrate, and Flywheel
+        name 'tterrag maven'
+        url 'https://maven.tterrag.com/'
+    }
+    maven {
+        url = "https://maven.theillusivec4.top/"
+    }
+
+    maven {
+        url 'https://maven.iafenvoy.com/releases/'
+        content {
+            includeGroup "com.iafenvoy"
+        }
+    }
 }
 
 dependencies {
@@ -177,6 +194,8 @@ dependencies {
 
     // mixin
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixin_extras_version}"))
+    implementation("com.github.llamalad7.mixinextras:mixinextras-forge:${mixin_extras_version}")
 
     // tcon
     implementation fg.deobf("curse.maven:mantle-74924:${mantle_file}")

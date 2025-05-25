@@ -39,8 +39,8 @@ import java.util.function.Supplier;
 
 public class GolemItems {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
-    protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, TConstruct.MOD_ID);
-    public static final RegistryObject<CreativeModeTab> CommonTab = CREATIVE_TABS.register(
+    protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
+    public static final RegistryObject<CreativeModeTab> GolemTab = CREATIVE_TABS.register(
     "golem", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
                                         .icon(() -> Tools.GOLEM_ARMOR.get(ArmorItem.Type.CHESTPLATE).getRenderTool())
                                         .displayItems(GolemItems::addTabItems)
@@ -124,7 +124,7 @@ public class GolemItems {
             acceptTools(output, GOLEM_ARMOR);
         }
 
-        public static final EnumObject<ArmorItem.Type, GolemArmor> GOLEM_ARMOR = ITEMS.registerEnum("golem", ArmorItem.Type.values(), type -> new GolemArmor(ArmorDefinitions.PLATE, type, TOOL_PROP));
+        public static final EnumObject<ArmorItem.Type, GolemArmor> GOLEM_ARMOR = ITEMS.registerEnum("golem", ArmorItem.Type.values(), type -> new GolemArmor(GolemToolDefinitions.GOLEM_ARMOR_MATERIAL, type, TOOL_PROP));
 
         private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {
             ToolBuildHandler.addVariants(output, tool.get(), "");

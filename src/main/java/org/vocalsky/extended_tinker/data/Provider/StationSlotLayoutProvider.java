@@ -42,8 +42,11 @@ public class StationSlotLayoutProvider extends AbstractStationSlotLayoutProvider
                 .sortIndex(SORT_ARMOR)
                 .translationKey(Extended_tinker.makeTranslationKey("gui", "golem_armor"))
                 .icon(Patterns.PLATE_ARMOR)
-                .addInputPattern(Patterns.PLATING,   33, 29, Ingredient.of(TinkerToolParts.plating.values().toArray(new Item[0])))
-                .addInputItem(TinkerToolParts.maille, 33, 53)
+                .addInputPattern(Patterns.PLATING,   33, 43, Ingredient.of(TinkerToolParts.plating.values().toArray(new Item[0])))
+                .addInputItem(TinkerToolParts.maille, 33, 23)
+                .addInputItem(TinkerToolParts.maille, 33, 63)
+                .addInputItem(TinkerToolParts.shieldCore, 13, 43)
+                .addInputItem(TinkerToolParts.shieldCore, 53, 43)
                 .build();
     }
 

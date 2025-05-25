@@ -33,7 +33,7 @@ import java.util.function.Supplier;
 
 public class ModItems {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
-    protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, TConstruct.MOD_ID);
+    protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
     public static final RegistryObject<CreativeModeTab> CommonTab = CREATIVE_TABS.register(
     "common", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
                                         .icon(() -> Tools.HORSE_ARMOR.get().getRenderTool())

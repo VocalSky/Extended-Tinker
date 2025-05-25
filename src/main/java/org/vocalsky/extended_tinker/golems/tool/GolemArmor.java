@@ -3,7 +3,7 @@ package org.vocalsky.extended_tinker.golems.tool;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.modulargolems.content.item.equipments.GolemEquipmentItem;
-import dev.xkmc.modulargolems.content.item.equipments.MetalGolemArmorItem;
+import dev.xkmc.modulargolems.content.item.equipments.GolemModelItem;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import lombok.Getter;
 import net.minecraft.core.BlockPos;
@@ -61,7 +61,6 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay {
     /** Volatile modifier tag to make piglins neutal when worn */
@@ -76,13 +75,6 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     /** Cache of the tool built for rendering */
     private ItemStack toolForRendering = null;
 
-
-    private static final EnumMap<ArmorItem.Type, UUID> ARMOR_MODIFIER_UUID_PER_TYPE = net.minecraft.Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266744_) -> {
-        p_266744_.put(ArmorItem.Type.BOOTS, java.util.UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"));
-        p_266744_.put(ArmorItem.Type.LEGGINGS, java.util.UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"));
-        p_266744_.put(ArmorItem.Type.CHESTPLATE, java.util.UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"));
-        p_266744_.put(ArmorItem.Type.HELMET, java.util.UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150"));
-    });
     public static final DispenseItemBehavior DISPENSE_ITEM_BEHAVIOR = new DefaultDispenseItemBehavior() {
         protected @NotNull ItemStack execute(@NotNull BlockSource p_40408_, @NotNull ItemStack p_40409_) {
             return ArmorItem.dispenseArmor(p_40408_, p_40409_) ? p_40409_ : super.execute(p_40408_, p_40409_);
@@ -143,11 +135,11 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
         this.knockbackResistance = materialIn.getKnockbackResistance();
         DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        UUID uuid = ARMOR_MODIFIER_UUID_PER_TYPE.get(type);
-        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", (double)this.defense, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness", (double)this.toughness, AttributeModifier.Operation.ADDITION));
+        UUID uuid = UUID.get(type.getSlot());
+        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", this.defense, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness", this.toughness, AttributeModifier.Operation.ADDITION));
         if (this.knockbackResistance > 0) {
-            builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", (double)this.knockbackResistance, AttributeModifier.Operation.ADDITION));
+            builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", this.knockbackResistance, AttributeModifier.Operation.ADDITION));
         }
 
         this.defaultModifiers = builder.build();
@@ -189,7 +181,7 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     /* Enchantments */
 
     @Override
-    public boolean isEnchantable(ItemStack stack) {
+    public boolean isEnchantable(@NotNull ItemStack stack) {
         return false;
     }
 
@@ -223,17 +215,17 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     }
 
     @Override
-    public void verifyTagAfterLoad(CompoundTag nbt) {
+    public void verifyTagAfterLoad(@NotNull CompoundTag nbt) {
         ToolStack.verifyTag(this, nbt, getToolDefinition());
     }
 
     @Override
-    public void onCraftedBy(ItemStack stack, Level levelIn, Player playerIn) {
+    public void onCraftedBy(@NotNull ItemStack stack, @NotNull Level levelIn, @NotNull Player playerIn) {
         ToolStack.ensureInitialized(stack, getToolDefinition());
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level levelIn, Player playerIn, InteractionHand handIn) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level levelIn, Player playerIn, @NotNull InteractionHand handIn) {
         ItemStack stack = playerIn.getItemInHand(handIn);
         InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, getToolDefinition(), playerIn, Util.getSlotType(handIn));
         if (result.consumesAction()) {
@@ -246,14 +238,14 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     /* Display */
 
     @Override
-    public boolean isFoil(ItemStack stack) {
+    public boolean isFoil(@NotNull ItemStack stack) {
         // we use enchantments to handle some modifiers, so don't glow from them
         // however, if a modifier wants to glow let them
         return ModifierUtil.checkVolatileFlag(stack, SHINY);
     }
 
     @Override
-    public Rarity getRarity(ItemStack stack) {
+    public @NotNull Rarity getRarity(@NotNull ItemStack stack) {
         int rarity = ModifierUtil.getVolatileInt(stack, RARITY);
         return Rarity.values()[Mth.clamp(rarity, 0, 3)];
     }
@@ -280,7 +272,7 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     /* Damage/Durability */
 
     @Override
-    public boolean isRepairable(ItemStack stack) {
+    public boolean isRepairable(@NotNull ItemStack stack) {
         // handle in the tinker station
         return false;
     }
@@ -325,31 +317,40 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     /* Durability display */
 
     @Override
-    public boolean isBarVisible(ItemStack pStack) {
+    public boolean isBarVisible(@NotNull ItemStack pStack) {
         return DurabilityDisplayModifierHook.showDurabilityBar(pStack);
     }
 
     @Override
-    public int getBarColor(ItemStack pStack) {
+    public int getBarColor(@NotNull ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityRGB(pStack);
     }
 
     @Override
-    public int getBarWidth(ItemStack pStack) {
+    public int getBarWidth(@NotNull ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityWidth(pStack);
     }
 
+    @Override
+    protected @NotNull Multimap<Attribute, AttributeModifier> getDefaultGolemModifiers(@NotNull ItemStack stack, @NotNull EquipmentSlot slot) {
+        return getAttributeModifiers(slot, stack);
+    }
+
+    @Override
+    public @NotNull Multimap<Attribute, AttributeModifier> getGolemModifiers(@NotNull ItemStack stack, @org.jetbrains.annotations.Nullable Entity entity, @NotNull EquipmentSlot slot) {
+        return getSlot() != slot || entity == null || !isFor(entity.getType()) ? ImmutableMultimap.of() : this.getDefaultGolemModifiers(stack, slot);
+    }
 
     /* Armor properties */
 
     @Override
-    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+    public boolean isValidRepairItem(@NotNull ItemStack toRepair, @NotNull ItemStack repair) {
         return false;
     }
 
 
     @Override
-    public Multimap<Attribute,AttributeModifier> getAttributeModifiers(IToolStackView tool, EquipmentSlot slot) {
+    public @NotNull Multimap<Attribute,AttributeModifier> getAttributeModifiers(@NotNull IToolStackView tool, @NotNull EquipmentSlot slot) {
         if (slot != getEquipmentSlot()) {
             return ImmutableMultimap.of();
         }
@@ -358,7 +359,7 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
         if (!tool.isBroken()) {
             // base stats
             StatsNBT statsNBT = tool.getStats();
-            UUID uuid = ARMOR_MODIFIER_UUID_PER_TYPE.get(type);
+            UUID uuid = UUID.get(type.getSlot());
             builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "tconstruct.armor.armor", statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
             builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "tconstruct.armor.toughness", statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
             double knockbackResistance = statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
@@ -417,18 +418,17 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     /* Ticking */
 
     @Override
-    public void inventoryTick(ItemStack stack, Level levelIn, Entity entityIn, int itemSlot, boolean isSelected) {
+    public void inventoryTick(@NotNull ItemStack stack, @NotNull Level levelIn, @NotNull Entity entityIn, int itemSlot, boolean isSelected) {
         super.inventoryTick(stack, levelIn, entityIn, itemSlot, isSelected);
 
         // don't care about non-living, they skip most tool context
-        if (entityIn instanceof LivingEntity) {
+        if (entityIn instanceof LivingEntity living) {
             ToolStack tool = ToolStack.from(stack);
             if (!levelIn.isClientSide) {
                 tool.ensureHasData();
             }
             List<ModifierEntry> modifiers = tool.getModifierList();
             if (!modifiers.isEmpty()) {
-                LivingEntity living = (LivingEntity) entityIn;
                 boolean isCorrectSlot = living.getItemBySlot(getEquipmentSlot()) == stack;
                 // we pass in the stack for most custom context, but for the sake of armor its easier to tell them that this is the correct slot for effects
                 for (ModifierEntry entry : modifiers) {
