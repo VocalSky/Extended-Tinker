@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更新至1.20.1&#10;尝试联动傀儡装配">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/GolemToolDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_5_15_23_25____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_5_15_23_25_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/06fbe929787f6f801a89ed36c66e03434a7b1e69" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/06fbe929787f6f801a89ed36c66e03434a7b1e69" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/station_layouts/golem_armor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/station_layouts/golem_armor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/StationSlotLayoutProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/StationSlotLayoutProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolDefinitionDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolDefinitionDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/GolemItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/GolemItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/tool/GolemArmor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/tool/GolemArmor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/head.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/head.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/maille1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/maille1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/maille2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/maille2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/shield1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/shield1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/shield2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/horse_armor/chestplate/shield2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/horse_armor/head_armor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/horse_armor/head_armor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/horse_armor/maille1_armor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/horse_armor/maille1_armor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/horse_armor/maille2_armor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/horse_armor/maille2_armor.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747561986567</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="更新至1.20.1&#10;尝试联动傀儡装配">
+      <option name="closed" value="true" />
+      <created>1748164916440</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1748164916440</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
