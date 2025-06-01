@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更新至1.20.1&#10;尝试联动傀儡装配">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golem/client/GolemArmorRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/golem/MetalGolemRenderMixin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/ET.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/ET.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/Extended_tinker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/Extended_tinker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolDefinitionDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolDefinitionDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolRecipeProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/GolemItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golem/GolemItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/GolemToolDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golem/GolemToolDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golems/tool/GolemArmor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/golem/tool/GolemArmor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/common/HorseArmorLayerMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/common/HorseArmorLayerMixin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/extended_tinker.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/extended_tinker.mixins.json" afterDir="false" />
-    </list>
+    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="尝试进行渲染" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -325,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747561986567</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="尝试进行渲染">
+      <option name="closed" value="true" />
+      <created>1748784274101</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1748784274101</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -342,6 +331,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="大体更新至1.20.1" />
     <MESSAGE value="更新至1.20.1&#10;尝试联动傀儡装配" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新至1.20.1&#10;尝试联动傀儡装配" />
+    <MESSAGE value="尝试进行渲染" />
+    <option name="LAST_COMMIT_MESSAGE" value="尝试进行渲染" />
   </component>
 </project>
