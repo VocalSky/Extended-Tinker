@@ -58,7 +58,6 @@ public abstract class HorseArmorLayerMixin extends RenderLayer<Horse, HorseModel
         return new TextureInformation(this.getTextureLocation(horse), -1);
     }
 
-
     @Unique
     private void extended_tinker$performRendering(VertexConsumer vertexConsumer, PoseStack poseStack, int packedLightIn, int color) {
         this.model.renderToBuffer(poseStack, vertexConsumer, packedLightIn, OverlayTexture.NO_OVERLAY, (float) ((color >>> 16 & 255) / 255.0), (float) ((color >>> 8 & 255) / 255.0), (float) ((color & 255) / 255.0), (float) ((color >>> 24 & 255) / 255.0));

@@ -1,9 +1,8 @@
-package org.vocalsky.extended_tinker.golems.tool;
+package org.vocalsky.extended_tinker.golem.tool;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.modulargolems.content.item.equipments.GolemEquipmentItem;
-import dev.xkmc.modulargolems.content.item.equipments.GolemModelItem;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import lombok.Getter;
 import net.minecraft.core.BlockPos;
@@ -32,6 +31,7 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;

@@ -1,10 +1,8 @@
-package org.vocalsky.extended_tinker.golems;
+package org.vocalsky.extended_tinker.golem;
 
 import net.minecraft.sounds.SoundEvents;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModItems;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
-import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
 public class GolemToolDefinitions {
     public static final ModifiableArmorMaterial GOLEM_ARMOR_MATERIAL;

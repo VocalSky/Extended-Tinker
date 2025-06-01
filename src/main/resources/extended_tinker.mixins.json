@@ -8,7 +8,8 @@
     "common.HorseMixin"
   ],
   "client": [
-    "common.HorseArmorLayerMixin"
+    "common.HorseArmorLayerMixin",
+    "golem.MetalGolemRenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

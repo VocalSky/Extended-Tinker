@@ -1,7 +1,8 @@
-package org.vocalsky.extended_tinker.golems;
+package org.vocalsky.extended_tinker.golem;
 
+import dev.xkmc.modulargolems.init.ModularGolems;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -11,27 +12,17 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModItems;
-import org.vocalsky.extended_tinker.common.ModToolDefinitions;
-import org.vocalsky.extended_tinker.common.tool.Firecrack;
-import org.vocalsky.extended_tinker.common.tool.HorseArmor;
-import org.vocalsky.extended_tinker.golems.tool.GolemArmor;
+import org.vocalsky.extended_tinker.golem.tool.GolemArmor;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
-import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
-import slimeknights.tconstruct.library.tools.item.armor.ModifiableArmorItem;
-import slimeknights.tconstruct.library.tools.item.armor.MultilayerArmorItem;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
-import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tables.TinkerTables;
-import slimeknights.tconstruct.tools.ArmorDefinitions;
-import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -55,6 +46,7 @@ public class GolemItems {
         Parts.init();
         Casts.init();
         Tools.init();
+//        dev.xkmc.modulargolems.init.registrate.GolemItems
         ITEMS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
     }
