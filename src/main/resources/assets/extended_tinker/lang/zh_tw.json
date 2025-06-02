@@ -38,5 +38,18 @@
   "item.extended_tinker.golem_chestplate": "傀儡裝甲胸甲",
   "item.extended_tinker.golem_chestplate.description": "為大型金屬傀儡定制。",
   "item.extended_tinker.golem_leggings": "傀儡裝甲護腿",
-  "item.extended_tinker.golem_leggings.description": "為大型金屬傀儡定制。"
+  "item.extended_tinker.golem_leggings.description": "為大型金屬傀儡定制。",
+
+  "item.extended_tinker.helmet_golem_plating": "傀儡頭盔鑲板",
+  "item.extended_tinker.helmet_golem_plating_sand_cast": "傀儡頭盔鑲板沙子鑄模",
+  "item.extended_tinker.helmet_golem_plating_red_sand_cast": "傀儡頭盔鑲板紅沙鑄模",
+  "item.extended_tinker.helmet_golem_plating_cast": "傀儡頭盔鑲板金製鑄模",
+  "item.extended_tinker.chestplate_golem_plating": "傀儡胸甲鑲板",
+  "item.extended_tinker.chestplate_golem_plating_sand_cast": "傀儡胸甲鑲板沙子鑄模",
+  "item.extended_tinker.chestplate_golem_plating_red_sand_cast": "傀儡胸甲鑲板紅沙鑄模",
+  "item.extended_tinker.chestplate_golem_plating_cast": "傀儡胸甲鑲板金製鑄模",
+  "item.extended_tinker.leggings_golem_plating": "傀儡護腿鑲板",
+  "item.extended_tinker.leggings_golem_plating_sand_cast": "傀儡護腿鑲板沙子鑄模",
+  "item.extended_tinker.leggings_golem_plating_red_sand_cast": "傀儡護腿鑲板紅沙鑄模",
+  "item.extended_tinker.leggings_golem_plating_cast": "傀儡護腿鑲板金製鑄模"
 }

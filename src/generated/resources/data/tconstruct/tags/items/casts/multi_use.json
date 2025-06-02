@@ -1,5 +1,8 @@
 {
   "values": [
-    "#extended_tinker:casts/multi_use/bridle"
+    "#extended_tinker:casts/multi_use/bridle",
+    "#extended_tinker:casts/multi_use/helmet_golem_plating",
+    "#extended_tinker:casts/multi_use/chestplate_golem_plating",
+    "#extended_tinker:casts/multi_use/leggings_golem_plating"
   ]
 }

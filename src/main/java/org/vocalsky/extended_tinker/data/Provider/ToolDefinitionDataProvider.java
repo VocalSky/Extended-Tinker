@@ -2,10 +2,12 @@ package org.vocalsky.extended_tinker.data.Provider;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ArmorItem;
+import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.ModToolDefinitions;
+import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import org.vocalsky.extended_tinker.compat.golem.GolemToolDefinitions;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
 import slimeknights.tconstruct.library.materials.RandomMaterial;
@@ -49,7 +51,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
 
         defineArmor(GolemToolDefinitions.GOLEM_ARMOR_MATERIAL)
             .modules(slots -> PartStatsModule.armor(slots)
-                    .part(TinkerToolParts.plating, 1)
+                    .part(GolemItems.Parts.GOLEM_PLATING, 1)
                     .part(TinkerToolParts.maille, 1)
                     .part(TinkerToolParts.maille, 1)
                     .part(TinkerToolParts.shieldCore, 1)
@@ -64,7 +66,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "Extended Tinker Tool Definition Data Provider";
     }
 }

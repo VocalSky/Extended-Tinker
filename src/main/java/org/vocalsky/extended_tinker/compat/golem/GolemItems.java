@@ -1,15 +1,13 @@
 package org.vocalsky.extended_tinker.compat.golem;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmor;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
@@ -18,9 +16,15 @@ import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
+import slimeknights.tconstruct.library.tools.item.armor.ModifiableArmorItem;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
+import slimeknights.tconstruct.library.tools.part.ToolPartItem;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tables.TinkerTables;
+import slimeknights.tconstruct.tools.ArmorDefinitions;
+import slimeknights.tconstruct.tools.TinkerToolParts;
+import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -59,6 +63,10 @@ public class GolemItems {
 
         private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
             Consumer<ItemStack> output = tab::accept;
+            for (ArmorItem.Type type : ArmorItem.Type.values()) {
+                tab.accept(TinkerSmeltery.dummyPlating.get(type));
+                GOLEM_PLATING.get(type).addVariants(output, "");
+            }
         }
 
         private static void accept(Consumer<ItemStack> output, Supplier<? extends IMaterialItem> item) {
@@ -66,6 +74,11 @@ public class GolemItems {
         }
 
         private static final Item.Properties PART_PROP = CommonItem;
+
+        public static final EnumObject<ArmorItem.Type, ToolPartItem> GOLEM_PLATING = ITEMS.registerEnum(
+                ArmorItem.Type.values(),
+//                new ArmorItem.Type[]{ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS},
+                "golem_plating", type -> new ToolPartItem(PART_PROP, PlatingMaterialStats.TYPES.get(type.ordinal()).getId()));
     }
 
     public static class Casts {
@@ -101,6 +114,19 @@ public class GolemItems {
         }
 
         private static final Item.Properties CAST_PROPS = CommonItem;
+
+        public static final EnumObject<ArmorItem.Type, CastItemObject> GOLEM_PLATING_CAST = new EnumObject.Builder<ArmorItem.Type, CastItemObject>(ArmorItem.Type.class)
+                .put(ArmorItem.Type.HELMET, registerCast("helmet_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.HELMET))))
+                .put(ArmorItem.Type.CHESTPLATE, registerCast("chestplate_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE))))
+                .put(ArmorItem.Type.LEGGINGS, registerCast("leggings_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.LEGGINGS))))
+                .build();
+//        public static final CastItemObject HELMET_GOLEM_PLATING_CAST = registerCast("helmet_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.HELMET)));
+//        public static final CastItemObject CHESTPLATE_GOLEM_PLATING_CAST = registerCast("chestplate_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE)));
+//        public static final CastItemObject LEGGINGS_GOLEM_PLATING_CAST = registerCast("leggings_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.LEGGINGS)));
+//        new EnumObject.Builder<ArmorItem.Type, ModifiableArmorItem>(ArmorItem.Type.class)
+//                .putAll(ITEMS.registerEnum("slime", new ArmorItem.Type[] {ArmorItem.Type.BOOTS, ArmorItem.Type.LEGGINGS, ArmorItem.Type.CHESTPLATE}, type -> new MultilayerArmorItem(ArmorDefinitions.SLIMESUIT, type, UNSTACKABLE_PROPS)))
+//                .put(ArmorItem.Type.HELMET, ITEMS.register("slime_helmet", () -> new SlimeskullItem(ArmorDefinitions.SLIMESUIT, UNSTACKABLE_PROPS)))
+//                .build()
     }
 
     public static class Tools {

@@ -3,7 +3,7 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        "tconstruct:boots_plating",
+        "extended_tinker:boots_golem_plating",
         "tconstruct:maille",
         "tconstruct:maille",
         "tconstruct:shield_core",

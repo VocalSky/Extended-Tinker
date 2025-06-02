@@ -6,16 +6,16 @@
     {
       "filter": [
         {
-          "item": "tconstruct:helmet_plating"
+          "item": "extended_tinker:helmet_golem_plating"
         },
         {
-          "item": "tconstruct:chestplate_plating"
+          "item": "extended_tinker:chestplate_golem_plating"
         },
         {
-          "item": "tconstruct:leggings_plating"
+          "item": "extended_tinker:leggings_golem_plating"
         },
         {
-          "item": "tconstruct:boots_plating"
+          "item": "extended_tinker:boots_golem_plating"
         }
       ],
       "icon": "tconstruct:plating",

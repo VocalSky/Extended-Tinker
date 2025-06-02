@@ -3,6 +3,7 @@ package org.vocalsky.extended_tinker.data.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
@@ -48,6 +49,13 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
         String castFolder = "smeltery/casts/";
 
         partRecipes(consumer, ModItems.Parts.BRIDLE, ModItems.Casts.BRIDLE_CAST, 4, partFolder, castFolder);
+        GolemItems.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
+            if (slot == ArmorItem.Type.BOOTS) return;
+            partRecipes(consumer, GolemItems.Parts.GOLEM_PLATING.get(slot), GolemItems.Casts.GOLEM_PLATING_CAST.get(slot), 27, partFolder, castFolder);
+        });
+//        partRecipes(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.HELMET), GolemItems.Casts.HELMET_GOLEM_PLATING_CAST, 27, partFolder, castFolder);
+//        partRecipes(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE), GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST, 27, partFolder, castFolder);
+//        partRecipes(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.LEGGINGS), GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST, 27, partFolder, castFolder);
     }
 
     @Override

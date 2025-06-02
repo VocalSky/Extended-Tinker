@@ -6,6 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -14,10 +15,14 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
+import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.data.model.MaterialModelBuilder;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.part.MaterialItem;
+import slimeknights.tconstruct.tools.TinkerToolParts;
+
+import static slimeknights.tconstruct.common.TinkerTags.Items.TOOL_PARTS;
 
 public class ModItemModelProvider extends ItemModelProvider {
     private final ModelFile.UncheckedModelFile GENERATED = new ModelFile.UncheckedModelFile("item/generated");
@@ -28,8 +33,24 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         part(ModItems.Parts.BRIDLE);
+        GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
+//            MaterialModelBuilder<ItemModelBuilder> b = this.part(item, "armor/golem_armor/" + slot.getName() + "/golem_plating");
+            if (slot == ArmorItem.Type.BOOTS) return;
+            MaterialModelBuilder<ItemModelBuilder> b = this.part(item, "golem_armor/" + slot.getName() + "/" + slot.getName());
+            if (slot == ArmorItem.Type.HELMET) {
+                b.offset(0, 2);
+            } else if (slot == ArmorItem.Type.LEGGINGS) {
+                b.offset(0, 1);
+            }
+        });
 
         cast(ModItems.Casts.BRIDLE_CAST);
+        GolemItems.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
+            cast(item);
+        });
+//        cast(GolemItems.Casts.HELMET_GOLEM_PLATING_CAST);
+//        cast(GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
+//        cast(GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST);
     }
 
     private ResourceLocation id(ItemLike item) {

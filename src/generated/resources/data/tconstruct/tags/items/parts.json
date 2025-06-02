@@ -1,5 +1,9 @@
 {
   "values": [
-    "extended_tinker:bridle"
+    "extended_tinker:bridle",
+    "extended_tinker:helmet_golem_plating",
+    "extended_tinker:chestplate_golem_plating",
+    "extended_tinker:leggings_golem_plating",
+    "extended_tinker:boots_golem_plating"
   ]
 }

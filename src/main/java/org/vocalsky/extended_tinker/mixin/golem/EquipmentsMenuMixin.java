@@ -27,7 +27,7 @@ import java.util.function.Function;
 
 @Mixin(EquipmentsMenu.class)
 public class EquipmentsMenuMixin extends BaseContainerMenu<EquipmentsMenu>  {
-    @Shadow @Final public AbstractGolemEntity<?, ?> golem;
+    @Shadow(remap = false) @Final public AbstractGolemEntity<?, ?> golem;
 
     protected EquipmentsMenuMixin(MenuType<?> type, int wid, Inventory plInv, SpriteManager manager, Function<EquipmentsMenu, SimpleContainer> factory, boolean isVirtual) {
         super(type, wid, plInv, manager, factory, isVirtual);

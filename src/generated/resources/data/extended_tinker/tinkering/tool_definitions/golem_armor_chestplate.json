@@ -3,7 +3,7 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        "tconstruct:chestplate_plating",
+        "extended_tinker:chestplate_golem_plating",
         "tconstruct:maille",
         "tconstruct:maille",
         "tconstruct:shield_core",

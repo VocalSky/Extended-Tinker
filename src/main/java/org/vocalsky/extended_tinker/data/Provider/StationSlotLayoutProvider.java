@@ -7,6 +7,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
+import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import slimeknights.tconstruct.library.data.tinkering.AbstractStationSlotLayoutProvider;
 import slimeknights.tconstruct.library.recipe.partbuilder.Pattern;
 import slimeknights.tconstruct.library.tools.layout.Patterns;
@@ -39,15 +40,16 @@ public class StationSlotLayoutProvider extends AbstractStationSlotLayoutProvider
 
         // golems
         define(Extended_tinker.getResource("golem_armor"))
-                .sortIndex(SORT_ARMOR)
-                .translationKey(Extended_tinker.makeTranslationKey("gui", "golem_armor"))
-                .icon(Patterns.PLATE_ARMOR)
-                .addInputPattern(Patterns.PLATING,   33, 43, Ingredient.of(TinkerToolParts.plating.values().toArray(new Item[0])))
-                .addInputItem(TinkerToolParts.maille, 33, 23)
-                .addInputItem(TinkerToolParts.maille, 33, 63)
-                .addInputItem(TinkerToolParts.shieldCore, 13, 43)
-                .addInputItem(TinkerToolParts.shieldCore, 53, 43)
-                .build();
+            .sortIndex(SORT_ARMOR)
+            .translationKey(Extended_tinker.makeTranslationKey("gui", "golem_armor"))
+            .icon(Patterns.PLATE_ARMOR)
+//                .addInputPattern(Patterns.PLATING,   33, 43, Ingredient.of(TinkerToolParts.plating.values().toArray(new Item[0])))
+            .addInputPattern(Patterns.PLATING,   33, 43, Ingredient.of(GolemItems.Parts.GOLEM_PLATING.values().toArray(new Item[0])))
+            .addInputItem(TinkerToolParts.maille, 33, 23)
+            .addInputItem(TinkerToolParts.maille, 33, 63)
+            .addInputItem(TinkerToolParts.shieldCore, 13, 43)
+            .addInputItem(TinkerToolParts.shieldCore, 53, 43)
+            .build();
     }
 
     @Override

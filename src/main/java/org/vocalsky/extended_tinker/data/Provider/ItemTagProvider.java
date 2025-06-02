@@ -40,6 +40,9 @@ public class ItemTagProvider extends ItemTagsProvider {
         addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
         addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
         this.tag(TOOL_PARTS).replace(false).add(ModItems.Parts.BRIDLE.get());
+        GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
+            this.tag(TOOL_PARTS).replace(false).add(item);
+        });
 
         // golems
         addArmorTags(GolemItems.Tools.GOLEM_ARMOR, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
@@ -64,6 +67,13 @@ public class ItemTagProvider extends ItemTagsProvider {
             this.tag(cast.getMultiUseTag()).add(cast.get());
         };
         addCast.accept(ModItems.Casts.BRIDLE_CAST);
+        GolemItems.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
+            if (slot == ArmorItem.Type.BOOTS) return;
+            addCast.accept(item);
+        });
+//        addCast.accept(GolemItems.Casts.HELMET_GOLEM_PLATING_CAST);
+//        addCast.accept(GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
+//        addCast.accept(GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST);
     }
 
     @SafeVarargs
