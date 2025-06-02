@@ -3,7 +3,6 @@
     "extended_tinker:horse_armor_chestplate",
     "extended_tinker:golem_helmet",
     "extended_tinker:golem_chestplate",
-    "extended_tinker:golem_leggings",
-    "extended_tinker:golem_boots"
+    "extended_tinker:golem_leggings"
   ]
 }

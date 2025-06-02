@@ -6,7 +6,7 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.ModToolDefinitions;
-import org.vocalsky.extended_tinker.golem.GolemToolDefinitions;
+import org.vocalsky.extended_tinker.compat.golem.GolemToolDefinitions;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
 import slimeknights.tconstruct.library.materials.RandomMaterial;
 import slimeknights.tconstruct.library.tools.SlotType;

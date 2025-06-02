@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.golem.tool;
+package org.vocalsky.extended_tinker.compat.golem.tool;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -33,8 +33,11 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
+import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.common.tool.IArmorModel;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
+import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -62,7 +65,10 @@ import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay {
+import static slimeknights.tconstruct.common.TinkerTags.Items.*;
+import static slimeknights.tconstruct.common.TinkerTags.Items.HELMETS;
+
+public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay, IArmorModel {
     /** Volatile modifier tag to make piglins neutal when worn */
     public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
     /** Volatile modifier tag to make this item an elytra */
@@ -74,6 +80,17 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     private final ToolDefinition toolDefinition;
     /** Cache of the tool built for rendering */
     private ItemStack toolForRendering = null;
+
+    private static final EnumObject<ArmorItem.Type, ResourceLocation> textures = new EnumObject.Builder<ArmorItem.Type, ResourceLocation>(ArmorItem.Type.class)
+            .put(ArmorItem.Type.HELMET, Extended_tinker.getResource("textures/tinker_armor/golem_armor/helmet.png"))
+            .put(ArmorItem.Type.CHESTPLATE, Extended_tinker.getResource("textures/tinker_armor/golem_armor/chestplate.png"))
+            .put(ArmorItem.Type.LEGGINGS, Extended_tinker.getResource("textures/tinker_armor/golem_armor/leggings.png"))
+            .build();
+
+    @Override
+    public ResourceLocation getModelTexture(int partIndex) {
+        return textures.get(type);
+    }
 
     public static final DispenseItemBehavior DISPENSE_ITEM_BEHAVIOR = new DefaultDispenseItemBehavior() {
         protected @NotNull ItemStack execute(@NotNull BlockSource p_40408_, @NotNull ItemStack p_40409_) {

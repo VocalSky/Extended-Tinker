@@ -5,13 +5,12 @@ import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemModel;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemPartType;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemRenderer;
-import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.vocalsky.extended_tinker.golem.client.GolemArmorRender;
+import org.vocalsky.extended_tinker.compat.golem.client.GolemArmorRender;
 
 import java.util.function.Supplier;
 

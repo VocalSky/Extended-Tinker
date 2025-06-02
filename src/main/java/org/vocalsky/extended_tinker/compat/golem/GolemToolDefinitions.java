@@ -1,4 +1,4 @@
-package org.vocalsky.extended_tinker.golem;
+package org.vocalsky.extended_tinker.compat.golem;
 
 import net.minecraft.sounds.SoundEvents;
 import org.vocalsky.extended_tinker.Extended_tinker;
