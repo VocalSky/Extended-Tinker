@@ -32,5 +32,6 @@ public class ModDataGenerator {
         generator.addProvider(server, new ModifierRecipeProvider(packOutput));
         generator.addProvider(server, new ModifierTagProvider(packOutput, existingFileHelper));
         generator.addProvider(client, new ModItemModelProvider(packOutput, existingFileHelper));
+//        generator.addProvider(client, new ToolItemModelProvider(packOutput, existingFileHelper));
     }
 }

@@ -28,5 +28,14 @@
 
   "modifier.extended_tinker.star_firecrack": "烟火之星",
   "modifier.extended_tinker.star_firecrack.flavor": "搭载烟火之星",
-  "modifier.extended_tinker.star_firecrack.description": "拥有了烟火之星的能力。"
+  "modifier.extended_tinker.star_firecrack.description": "拥有了烟火之星的能力。",
+
+  "gui.extended_tinker.golem_armor": "傀儡装甲",
+  "gui.extended_tinker.golem_armor.description": "傀儡装甲是一种防具，为大型金属傀儡定制。",
+  "item.extended_tinker.golem_helmet": "傀儡装甲头盔",
+  "item.extended_tinker.golem_helmet.description": "为大型金属傀儡定制。",
+  "item.extended_tinker.golem_chestplate": "傀儡装甲胸甲",
+  "item.extended_tinker.golem_chestplate.description": "为大型金属傀儡定制。",
+  "item.extended_tinker.golem_leggings": "傀儡装甲护腿",
+  "item.extended_tinker.golem_leggings.description": "为大型金属傀儡定制。"
 }

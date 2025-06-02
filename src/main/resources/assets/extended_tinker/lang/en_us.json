@@ -28,5 +28,14 @@
 
   "modifier.extended_tinker.star_firecrack": "Firework Star",
   "modifier.extended_tinker.star_firecrack.flavor": "Carrying Firework Stars",
-  "modifier.extended_tinker.star_firecrack.description": "Possessed the ability of the Firework Star."
+  "modifier.extended_tinker.star_firecrack.description": "Possessed the ability of the Firework Star.",
+
+  "gui.extended_tinker.golem_armor": "Golem Armor",
+  "gui.extended_tinker.golem_armor.description": "Golem Armor is a kind of armor customized for the metal golem.",
+  "item.extended_tinker.golem_helmet": "Golem Armor Helmet",
+  "item.extended_tinker.golem_helmet.description": "Customized for the metal golem.",
+  "item.extended_tinker.golem_chestplate": "Golem Armor Chestplate",
+  "item.extended_tinker.golem_chestplate.description": "Customized for the metal golem.",
+  "item.extended_tinker.golem_leggings": "Golem Armor Leggings",
+  "item.extended_tinker.golem_leggings.description": "Customized for the metal golem."
 }

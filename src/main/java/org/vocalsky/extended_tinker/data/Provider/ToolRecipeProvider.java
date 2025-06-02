@@ -8,8 +8,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
-import org.vocalsky.extended_tinker.golems.GolemItems;
-import slimeknights.tconstruct.common.data.BaseRecipeProvider;
+import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
 import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildingRecipeBuilder;
@@ -23,7 +22,7 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
 
     @Override
     public @NotNull String getName() {
-        return "Extended Tinker tool Recipe Provider";
+        return "Extended Tinker Tool Recipe Provider";
     }
 
     @Override
