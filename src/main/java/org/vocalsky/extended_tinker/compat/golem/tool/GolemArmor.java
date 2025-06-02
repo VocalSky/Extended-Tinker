@@ -81,15 +81,15 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     /** Cache of the tool built for rendering */
     private ItemStack toolForRendering = null;
 
-    private static final EnumObject<ArmorItem.Type, ResourceLocation> textures = new EnumObject.Builder<ArmorItem.Type, ResourceLocation>(ArmorItem.Type.class)
-            .put(ArmorItem.Type.HELMET, Extended_tinker.getResource("textures/tinker_armor/golem_armor/helmet.png"))
-            .put(ArmorItem.Type.CHESTPLATE, Extended_tinker.getResource("textures/tinker_armor/golem_armor/chestplate.png"))
-            .put(ArmorItem.Type.LEGGINGS, Extended_tinker.getResource("textures/tinker_armor/golem_armor/leggings.png"))
+    private static final EnumObject<ArmorItem.Type, ResourceLocation[]> textures = new EnumObject.Builder<ArmorItem.Type, ResourceLocation[]>(ArmorItem.Type.class)
+            .put(ArmorItem.Type.HELMET, new ResourceLocation[]{Extended_tinker.getResource("textures/tinker_armor/golem_armor/helmet0.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/helmet1.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/helmet2.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/helmet3.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/helmet4.png")})
+            .put(ArmorItem.Type.CHESTPLATE, new ResourceLocation[]{Extended_tinker.getResource("textures/tinker_armor/golem_armor/chestplate0.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/chestplate1.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/chestplate2.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/chestplate3.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/chestplate4.png")})
+            .put(ArmorItem.Type.LEGGINGS, new ResourceLocation[]{Extended_tinker.getResource("textures/tinker_armor/golem_armor/leggings0.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/leggings1.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/leggings2.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/leggings3.png"), Extended_tinker.getResource("textures/tinker_armor/golem_armor/leggings4.png")})
             .build();
 
     @Override
     public ResourceLocation getModelTexture(int partIndex) {
-        return textures.get(type);
+        return textures.get(type)[partIndex];
     }
 
     public static final DispenseItemBehavior DISPENSE_ITEM_BEHAVIOR = new DefaultDispenseItemBehavior() {

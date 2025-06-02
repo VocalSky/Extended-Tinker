@@ -66,8 +66,8 @@ public abstract class HorseArmorLayerMixin extends RenderLayer<Horse, HorseModel
     @Unique
     private void extended_tinker$renderPart(PoseStack poseStack, MultiBufferSource multiBufferSource, int packedLightIn, Horse horse, int partIndex) {
         TextureInformation information = this.extended_tinker$getTextureLocation(horse, partIndex);
-        VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(information.resourceLocation));
-        extended_tinker$performRendering(vertexConsumer, poseStack, packedLightIn, information.color);
+        VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(information.resourceLocation()));
+        extended_tinker$performRendering(vertexConsumer, poseStack, packedLightIn, information.color());
     }
 
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/animal/horse/Horse;FFFFFF)V", at = @At("HEAD"), cancellable = true)

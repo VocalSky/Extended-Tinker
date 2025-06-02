@@ -22,7 +22,7 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
 
     @Override
     public @NotNull String getName() {
-        return "Extended Tinker tool Recipe Provider";
+        return "Extended Tinker Tool Recipe Provider";
     }
 
     @Override

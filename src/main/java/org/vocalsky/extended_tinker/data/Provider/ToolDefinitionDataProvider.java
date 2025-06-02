@@ -65,6 +65,6 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
 
     @Override
     public String getName() {
-        return "Extended Tinker tool Definition Data Provider";
+        return "Extended Tinker Tool Definition Data Provider";
     }
 }

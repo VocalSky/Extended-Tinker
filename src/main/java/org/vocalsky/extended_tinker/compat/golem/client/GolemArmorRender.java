@@ -59,20 +59,23 @@ public class GolemArmorRender extends RenderLayer<MetalGolemEntity, MetalGolemMo
                     modelType = GolemModelPaths.LEGGINGS;
                 if (modelType == null) continue;
                 GolemModelPath path = GolemModelPath.get(modelType);
-                for (List<String> ls : path.paths()) {
-                    MetalGolemModel model = map.get(path.models());
-                    model.copyFrom(getParentModel());
-                    ModelPart part = model.root();
-                    pose.pushPose();
-                    for (String s : ls) {
-                        part.translateAndRotate(pose);
-                        part = part.getChild(s);
+                ToolStack tool = ToolStack.from(stack);
+                for (int partIndex = 0; partIndex < tool.getMaterials().size(); ++partIndex) {
+                    for (List<String> ls : path.paths()) {
+                        MetalGolemModel model = map.get(path.models());
+                        model.copyFrom(getParentModel());
+                        ModelPart part = model.root();
+                        pose.pushPose();
+                        for (String s : ls) {
+                            part.translateAndRotate(pose);
+                            part = part.getChild(s);
+                        }
+                        TextureInformation information = TextureInformation.getTexture(ToolStack.from(stack), partIndex);
+                        int color = information.color();
+                        part.render(pose, source.getBuffer(RenderType.armorCutoutNoCull(information.resourceLocation())),
+                                i, OverlayTexture.NO_OVERLAY, (float) ((color >>> 16 & 255) / 255.0), (float) ((color >>> 8 & 255) / 255.0), (float) ((color & 255) / 255.0), (float) ((color >>> 24 & 255) / 255.0));
+                        pose.popPose();
                     }
-                    TextureInformation information = TextureInformation.getTexture(ToolStack.from(stack), 0);
-                    int color = information.color;
-                    part.render(pose, source.getBuffer(RenderType.armorCutoutNoCull(information.resourceLocation)),
-                            i, OverlayTexture.NO_OVERLAY, (float) ((color >>> 16 & 255) / 255.0), (float) ((color >>> 8 & 255) / 255.0), (float) ((color & 255) / 255.0), (float) ((color >>> 24 & 255) / 255.0));
-                    pose.popPose();
                 }
             }
         }

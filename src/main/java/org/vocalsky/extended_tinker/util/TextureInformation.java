@@ -9,15 +9,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.Optional;
 
-public class TextureInformation {
-    public ResourceLocation resourceLocation;
-    public int color;
-
-    public TextureInformation(ResourceLocation resourceLocation, int color) {
-        this.resourceLocation = resourceLocation;
-        this.color = color;
-    }
-
+public record TextureInformation(ResourceLocation resourceLocation, int color) {
     public static TextureInformation getTexture(ToolStack tool, int partIndex) {
         MaterialVariant material = tool.getMaterial(partIndex);
         Optional<MaterialRenderInfo> optional = MaterialRenderInfoLoader.INSTANCE.getRenderInfo(material.getVariant());
