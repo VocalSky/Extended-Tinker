@@ -1,0 +1,11 @@
+{
+  "parent": "forge:item/default",
+  "loader": "tconstruct:material",
+  "offset": [
+    0,
+    1
+  ],
+  "textures": {
+    "texture": "extended_tinker:item/tool/golem_armor/leggings/leggings"
+  }
+}
