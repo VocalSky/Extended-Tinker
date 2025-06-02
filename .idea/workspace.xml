@@ -4,44 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="同步代码">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/cast/boots_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/cast/chestplate_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/cast/helmet_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/cast/leggings_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/red_sand_cast/boots_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/red_sand_cast/chestplate_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/red_sand_cast/helmet_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/red_sand_cast/leggings_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/sand_cast/boots_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/sand_cast/chestplate_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/sand_cast/helmet_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/sand_cast/leggings_golem_plating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/golem_armor/boots/boots.png" afterDir="false" />
+    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更改了傀儡装甲的配方">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/06fbe929787f6f801a89ed36c66e03434a7b1e69" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/06fbe929787f6f801a89ed36c66e03434a7b1e69" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/39712fb123ed21171703a1eb67b1c1e746798849" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/39712fb123ed21171703a1eb67b1c1e746798849" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/station_layouts/golem_armor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/station_layouts/golem_armor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_boots.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_boots.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_chestplate.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_chestplate.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_helmet.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_helmet.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_leggings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_leggings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/gold.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/gold.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/sand.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/sand.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ModItemModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ModItemModelProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/StationSlotLayoutProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/StationSlotLayoutProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolDefinitionDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolDefinitionDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolRecipeProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/golem/EquipmentsMenuMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/golem/EquipmentsMenuMixin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +34,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ET" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -137,38 +107,39 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [genIntellijRuns].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended-Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended-Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended-Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended-Tinker [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended-Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended-Tinker [genVSCodeRuns].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended-Tinker.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.下载源代码.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed&quot;: &quot;源下载失败&quot;,
-    &quot;Notification.DoNotAsk-gradle.notifications.sources.download.failed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/celesky/IdeaProjects/Extended-Tinker/src/main/resources/assets/extended_tinker/textures/item/sand_cast&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;应用程序.runData.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor": "Run",
+    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor": "Run",
+    "Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
+    "Gradle.Extended Tinker [:prepareRunClientCompile].executor": "Run",
+    "Gradle.Extended Tinker [:prepareRunDataCompile].executor": "Run",
+    "Gradle.Extended Tinker [build].executor": "Run",
+    "Gradle.Extended Tinker [createMcpToSrg].executor": "Run",
+    "Gradle.Extended Tinker [genIntellijRuns].executor": "Run",
+    "Gradle.Extended-Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
+    "Gradle.Extended-Tinker [:prepareRunClientCompile].executor": "Run",
+    "Gradle.Extended-Tinker [:prepareRunDataCompile].executor": "Run",
+    "Gradle.Extended-Tinker [clean].executor": "Run",
+    "Gradle.Extended-Tinker [createMcpToSrg].executor": "Run",
+    "Gradle.Extended-Tinker [genVSCodeRuns].executor": "Run",
+    "Gradle.Extended-Tinker.executor": "Run",
+    "Gradle.下载源代码.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed": "源下载失败",
+    "Notification.DoNotAsk-gradle.notifications.sources.download.failed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/celesky/IdeaProjects/Extended-Tinker/src/main/resources/assets/extended_tinker/textures/item/sand_cast",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "应用程序.runData.executor": "Run"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/sand_cast" />
@@ -388,7 +359,31 @@
       <option name="project" value="LOCAL" />
       <updated>1748847170955</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="更改了傀儡装甲的配方">
+      <option name="closed" value="true" />
+      <created>1748867875104</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1748867875104</updated>
+    </task>
+    <task id="LOCAL-00012" summary="更改了傀儡装甲的配方">
+      <option name="closed" value="true" />
+      <created>1748867878698</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748867878698</updated>
+    </task>
+    <task id="LOCAL-00013" summary="更改了傀儡装甲的配方">
+      <option name="closed" value="true" />
+      <created>1748867993325</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1748867993325</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,6 +402,7 @@
     <MESSAGE value="更新至1.20.1&#10;尝试联动傀儡装配" />
     <MESSAGE value="尝试进行渲染" />
     <MESSAGE value="同步代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="同步代码" />
+    <MESSAGE value="更改了傀儡装甲的配方" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改了傀儡装甲的配方" />
   </component>
 </project>
