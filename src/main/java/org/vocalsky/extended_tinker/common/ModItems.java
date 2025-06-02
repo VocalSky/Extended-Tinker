@@ -35,7 +35,7 @@ public class ModItems {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
     public static final RegistryObject<CreativeModeTab> CommonTab = CREATIVE_TABS.register(
-    "common", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
+    "common", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "common_items"))
                                         .icon(() -> Tools.HORSE_ARMOR.get().getRenderTool())
                                         .displayItems(ModItems::addTabItems)
                                         .withTabsBefore(TinkerTables.tabTables.getId())

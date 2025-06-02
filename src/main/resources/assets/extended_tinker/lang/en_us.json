@@ -1,5 +1,6 @@
 {
-  "itemGroup.extended_tinker.items": "Extended Tinker",
+  "itemGroup.extended_tinker.common_items": "Extended Tinker | Common Items",
+  "itemGroup.extended_tinker.golem_items": "Extended Tinker | Golem Items",
 
   "pattern.extended_tinker.bridle": "Bridle",
   "item.extended_tinker.bridle": "Bridle",

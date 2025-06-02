@@ -1,0 +1,11 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "0":      "extended_tinker:item/tool/golem_armor/chestplate/chestplate"
+  },
+  "modifier_roots": [ "extended_tinker:item/tool/golem_armor/chestplate/modifiers/" ],
+  "parts": [
+    { "name": "0", "index": 0 }
+  ]
+}

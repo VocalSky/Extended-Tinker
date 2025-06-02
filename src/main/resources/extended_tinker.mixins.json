@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "extended_tinker.refmap.json",
   "mixins": [
-    "common.HorseMixin"
+    "common.HorseMixin",
+    "golem.EquipmentsMenuMixin"
   ],
   "client": [
     "common.HorseArmorLayerMixin",

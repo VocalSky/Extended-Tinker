@@ -1,5 +1,6 @@
 {
-  "itemGroup.extended_tinker.items": "匠魂擴張",
+  "itemGroup.extended_tinker.common_items": "匠魂擴張 | 常規物品",
+  "itemGroup.extended_tinker.golem_items": "匠魂擴張 | 傀儡物品",
 
   "pattern.extended_tinker.bridle": "馬籠頭",
   "item.extended_tinker.bridle": "馬籠頭",
@@ -28,5 +29,14 @@
 
   "modifier.extended_tinker.star_firecrack": "煙火之星",
   "modifier.extended_tinker.star_firecrack.flavor": "搭載煙火之星",
-  "modifier.extended_tinker.star_firecrack.description": "擁有了煙火之星的能力。"
+  "modifier.extended_tinker.star_firecrack.description": "擁有了煙火之星的能力。",
+
+  "gui.extended_tinker.golem_armor": "傀儡裝甲",
+  "gui.extended_tinker.golem_armor.description": "傀儡裝甲是一種防具，為大型金屬傀儡定制。",
+  "item.extended_tinker.golem_helmet": "傀儡裝甲頭盔",
+  "item.extended_tinker.golem_helmet.description": "為大型金屬傀儡定制。",
+  "item.extended_tinker.golem_chestplate": "傀儡裝甲胸甲",
+  "item.extended_tinker.golem_chestplate.description": "為大型金屬傀儡定制。",
+  "item.extended_tinker.golem_leggings": "傀儡裝甲護腿",
+  "item.extended_tinker.golem_leggings.description": "為大型金屬傀儡定制。"
 }

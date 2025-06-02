@@ -30,8 +30,8 @@ public class GolemItems {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
     public static final RegistryObject<CreativeModeTab> GolemTab = CREATIVE_TABS.register(
-    "golem", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "items"))
-                                        .icon(() -> Tools.GOLEM_ARMOR.get(ArmorItem.Type.CHESTPLATE).getRenderTool())
+    "golem", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "golem_items"))
+                                        .icon(() -> Tools.GOLEM_ARMOR.get(ArmorItem.Type.HELMET).getRenderTool())
                                         .displayItems(GolemItems::addTabItems)
                                         .withTabsBefore(TinkerTables.tabTables.getId())
                                         .withSearchBar()
@@ -44,7 +44,6 @@ public class GolemItems {
         Parts.init();
         Casts.init();
         Tools.init();
-//        dev.xkmc.modulargolems.init.registrate.GolemItems
         ITEMS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
     }

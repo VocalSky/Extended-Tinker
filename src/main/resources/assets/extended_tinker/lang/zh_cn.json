@@ -1,5 +1,6 @@
 {
-  "itemGroup.extended_tinker.items": "匠魂扩张",
+  "itemGroup.extended_tinker.common_items": "匠魂扩张 | 常规物品",
+  "itemGroup.extended_tinker.golem_items": "匠魂扩张 | 傀儡物品",
 
   "pattern.extended_tinker.bridle": "马笼头",
   "item.extended_tinker.bridle": "马笼头",
