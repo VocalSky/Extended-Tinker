@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="修改傀儡装甲配方" />
+    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更改了傀儡装甲的配方">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,18 +45,23 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ET" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="forgegradle prepare runs" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ET" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="forgegradle runs" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ET" type="f1a62948:ProjectNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+                <item name="运行配置" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -66,6 +73,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -83,9 +91,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/VocalSky/Extended-Tinker.git&quot;,
-    &quot;accountId&quot;: &quot;78f5a944-c7bf-4548-bd41-5d8c03604209&quot;
+    &quot;accountId&quot;: &quot;e3b5e461-519f-485a-b391-3a33510b0fee&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -99,42 +110,43 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunClientCompile].executor": "Run",
     "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor": "Run",
     "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor": "Run",
     "Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
     "Gradle.Extended Tinker [:prepareRunClientCompile].executor": "Run",
     "Gradle.Extended Tinker [:prepareRunDataCompile].executor": "Run",
+    "Gradle.Extended Tinker [build].executor": "Run",
     "Gradle.Extended Tinker [createMcpToSrg].executor": "Run",
     "Gradle.Extended Tinker [genIntellijRuns].executor": "Run",
+    "Gradle.Extended-Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
+    "Gradle.Extended-Tinker [:prepareRunClientCompile].executor": "Run",
+    "Gradle.Extended-Tinker [:prepareRunDataCompile].executor": "Run",
+    "Gradle.Extended-Tinker [clean].executor": "Run",
+    "Gradle.Extended-Tinker [createMcpToSrg].executor": "Run",
+    "Gradle.Extended-Tinker [genVSCodeRuns].executor": "Run",
+    "Gradle.Extended-Tinker.executor": "Run",
     "Gradle.下载源代码.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed": "源下载失败",
     "Notification.DoNotAsk-gradle.notifications.sources.download.failed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Live/Game/MC/ModProjects/Extended Tinker/src/main/resources/assets/extended_tinker/textures/gui/tinker_pattern",
+    "last_opened_file_path": "/home/celesky/IdeaProjects/Extended-Tinker/src/main/resources/assets/extended_tinker/textures/item/sand_cast",
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "应用程序.runClient.executor": "Run",
     "应用程序.runData.executor": "Run"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\gui\tinker_pattern" />
-      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\parts" />
-      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\models\item" />
-      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\golem_armor" />
-      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\java\org\vocalsky\extended_tinker\golems" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\golem_armor\leggings" />
-      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\golem_armor\helmet" />
-      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\golem_armor\chestplate" />
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/sand_cast" />
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/red_sand_cast" />
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/cast" />
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/golem_armor" />
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/golem_armor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.vocalsky.extended_tinker.golems" />
@@ -185,10 +197,77 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="Extended-Tinker [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Extended-Tinker [genVSCodeRuns]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="genVSCodeRuns" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Extended-Tinker" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Extended Tinker [build]" />
         <item itemvalue="Gradle.Extended Tinker [genIntellijRuns]" />
+        <item itemvalue="Gradle.Extended-Tinker [genVSCodeRuns]" />
+        <item itemvalue="Gradle.Extended-Tinker" />
+        <item itemvalue="Gradle.Extended-Tinker [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -240,31 +319,71 @@
       <option name="project" value="LOCAL" />
       <updated>1747561986567</updated>
     </task>
-    <task id="LOCAL-00006" summary="更新至1.20.1&#10;尝试联动傀儡装配">
+    <task id="LOCAL-00006" summary="尝试进行渲染">
       <option name="closed" value="true" />
-      <created>1748164916440</created>
+      <created>1748784274101</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1748164916440</updated>
+      <updated>1748784274101</updated>
     </task>
-    <task id="LOCAL-00007" summary="更新马铠材质">
+    <task id="LOCAL-00007" summary="尝试进行渲染">
       <option name="closed" value="true" />
-      <created>1748409012519</created>
+      <created>1748784292660</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1748409012519</updated>
+      <updated>1748784292660</updated>
     </task>
-    <task id="LOCAL-00008" summary="修改傀儡装甲配方">
+    <task id="LOCAL-00008" summary="尝试进行渲染">
       <option name="closed" value="true" />
-      <created>1748930386708</created>
+      <created>1748827993095</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1748930386708</updated>
+      <updated>1748827993095</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="尝试进行渲染">
+      <option name="closed" value="true" />
+      <created>1748836994736</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748836994736</updated>
+    </task>
+    <task id="LOCAL-00010" summary="同步代码">
+      <option name="closed" value="true" />
+      <created>1748847170955</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748847170955</updated>
+    </task>
+    <task id="LOCAL-00011" summary="更改了傀儡装甲的配方">
+      <option name="closed" value="true" />
+      <created>1748867875104</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1748867875104</updated>
+    </task>
+    <task id="LOCAL-00012" summary="更改了傀儡装甲的配方">
+      <option name="closed" value="true" />
+      <created>1748867878698</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748867878698</updated>
+    </task>
+    <task id="LOCAL-00013" summary="更改了傀儡装甲的配方">
+      <option name="closed" value="true" />
+      <created>1748867993325</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1748867993325</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -281,8 +400,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="大体更新至1.20.1" />
     <MESSAGE value="更新至1.20.1&#10;尝试联动傀儡装配" />
-    <MESSAGE value="更新马铠材质" />
-    <MESSAGE value="修改傀儡装甲配方" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改傀儡装甲配方" />
+    <MESSAGE value="尝试进行渲染" />
+    <MESSAGE value="同步代码" />
+    <MESSAGE value="更改了傀儡装甲的配方" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改了傀儡装甲的配方" />
   </component>
 </project>
