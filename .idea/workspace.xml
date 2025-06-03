@@ -140,7 +140,7 @@
       <recent name="org.vocalsky.extended_tinker.golems" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.runClient">
+  <component name="RunManager" selected="Gradle.Extended Tinker [build]">
     <configuration name="Extended Tinker [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -187,8 +187,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Extended Tinker [genIntellijRuns]" />
         <item itemvalue="Gradle.Extended Tinker [build]" />
+        <item itemvalue="Gradle.Extended Tinker [genIntellijRuns]" />
       </list>
     </recent_temporary>
   </component>
