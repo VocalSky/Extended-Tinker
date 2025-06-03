@@ -1,6 +1,7 @@
 {
-  "type": "tconstruct:part_builder",
-  "cost": 27,
+  "type": "tconstruct:item_part_builder",
+  "cost": 48,
+  "material": "tconstruct:rock",
   "pattern": "extended_tinker:chestplate_golem_plating",
   "pattern_item": [
     {
@@ -10,7 +11,5 @@
       "item": "extended_tinker:chestplate_golem_plating_cast"
     }
   ],
-  "result": {
-    "item": "extended_tinker:chestplate_golem_plating"
-  }
+  "result": "extended_tinker:chestplate_golem_plating_dummy"
 }

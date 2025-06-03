@@ -3,9 +3,14 @@
   "material": {
     "tag": "tconstruct:casts/red_sand"
   },
-  "pattern": {
-    "type": "tconstruct:material",
-    "item": "extended_tinker:leggings_golem_plating"
-  },
+  "pattern": [
+    {
+      "type": "tconstruct:material",
+      "item": "extended_tinker:leggings_golem_plating"
+    },
+    {
+      "item": "extended_tinker:leggings_golem_plating_dummy"
+    }
+  ],
   "result": "extended_tinker:leggings_golem_plating_red_sand_cast"
 }

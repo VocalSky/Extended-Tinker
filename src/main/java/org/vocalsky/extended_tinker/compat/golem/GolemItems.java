@@ -21,6 +21,7 @@ import slimeknights.tconstruct.library.tools.part.IMaterialItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+import slimeknights.tconstruct.smeltery.item.DummyMaterialItem;
 import slimeknights.tconstruct.tables.TinkerTables;
 import slimeknights.tconstruct.tools.ArmorDefinitions;
 import slimeknights.tconstruct.tools.TinkerToolParts;
@@ -64,7 +65,7 @@ public class GolemItems {
         private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
             Consumer<ItemStack> output = tab::accept;
             for (ArmorItem.Type type : ArmorItem.Type.values()) {
-                tab.accept(TinkerSmeltery.dummyPlating.get(type));
+                tab.accept(DUMMY_GOLEM_PLATING.get(type));
                 GOLEM_PLATING.get(type).addVariants(output, "");
             }
         }
@@ -75,10 +76,8 @@ public class GolemItems {
 
         private static final Item.Properties PART_PROP = CommonItem;
 
-        public static final EnumObject<ArmorItem.Type, ToolPartItem> GOLEM_PLATING = ITEMS.registerEnum(
-                ArmorItem.Type.values(),
-//                new ArmorItem.Type[]{ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS},
-                "golem_plating", type -> new ToolPartItem(PART_PROP, PlatingMaterialStats.TYPES.get(type.ordinal()).getId()));
+        public static final EnumObject<ArmorItem.Type, ToolPartItem> GOLEM_PLATING = ITEMS.registerEnum(ArmorItem.Type.values(), "golem_plating", type -> new ToolPartItem(PART_PROP, PlatingMaterialStats.TYPES.get(type.ordinal()).getId()));
+        public static final EnumObject<ArmorItem.Type, DummyMaterialItem> DUMMY_GOLEM_PLATING = ITEMS.registerEnum(ArmorItem.Type.values(), "golem_plating_dummy", type -> new DummyMaterialItem(PART_PROP));
     }
 
     public static class Casts {

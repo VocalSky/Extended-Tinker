@@ -1,0 +1,144 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"06340050-012b-4363-8496-ee6922877359\" name=\"更改\" comment=\"更新马铠材质\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/golem/EquipmentsMenuMixin.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/golem_chestplate.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/golem_helmet.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/golem_leggings.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/client/GolemArmorRender.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/client/GolemArmorRender.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/golem_armor/helmet0.png\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/golem_armor/helmet0.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/extended_tinker.mixins.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/extended_tinker.mixins.json\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"build\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"forgegradle prepare runs\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"forgegradle runs\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"ET\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Dependencies\" type=\"6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"HARD\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;VocalSky&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/VocalSky/Extended-Tinker.git&quot;,\r\n    &quot;accountId&quot;: &quot;78f5a944-c7bf-4548-bd41-5d8c03604209&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2wgKusycNZnIr2y0DFan9R7yvUT\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor\": \"Run\",\r\n    \"Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor\": \"Run\",\r\n    \"Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor\": \"Run\",\r\n    \"Gradle.Extended Tinker [:prepareRunClientCompile].executor\": \"Run\",\r\n    \"Gradle.Extended Tinker [:prepareRunDataCompile].executor\": \"Run\",\r\n    \"Gradle.Extended Tinker [createMcpToSrg].executor\": \"Run\",\r\n    \"Gradle.Extended Tinker [genIntellijRuns].executor\": \"Run\",\r\n    \"Gradle.下载源代码.executor\": \"Run\",\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed\": \"源下载失败\",\r\n    \"Notification.DoNotAsk-gradle.notifications.sources.download.failed\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"last_opened_file_path\": \"D:/Live/Game/MC/ModProjects/Extended Tinker/src/main/resources/assets/extended_tinker/models/item\",\r\n    \"project.structure.last.edited\": \"项目\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"应用程序.runData.executor\": \"Run\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\\resources\\assets\\extended_tinker\\models\\item\" />\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\\resources\\assets\\extended_tinker\\textures\\item\\tool\\golem_armor\" />\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\\java\\org\\vocalsky\\extended_tinker\\golems\" />\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\\resources\\assets\\tconstruct\" />\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\\resources\\assets\\extended_tinker\\textures\\item\\tool\\golem_armor\\leggings\" />\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\\resources\\assets\\extended_tinker\\textures\\item\\tool\\golem_armor\\helmet\" />\r\n      <recent name=\"D:\\Live\\Game\\MC\\ModProjects\\Extended Tinker\\src\\main\\resources\\assets\\extended_tinker\\textures\\item\\tool\\golem_armor\\chestplate\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"org.vocalsky.extended_tinker.golems\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"应用程序.runClient\">\r\n    <configuration name=\"Extended Tinker [build]\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\"build\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>false</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Extended Tinker [genIntellijRuns]\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\"genIntellijRuns\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>false</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Gradle.Extended Tinker [genIntellijRuns]\" />\r\n        <item itemvalue=\"Gradle.Extended Tinker [build]\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\r\n      <changelist id=\"06340050-012b-4363-8496-ee6922877359\" name=\"更改\" comment=\"\" />\r\n      <created>1746458004705</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1746458004705</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"大体更新至1.20.1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746596788642</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746596788642</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"大体更新至1.20.1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746597723431</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746597723431</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"更新至1.20.1&#10;尝试联动傀儡装配\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1747560750473</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1747560750473</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"更新至1.20.1&#10;尝试联动傀儡装配\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1747561566041</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1747561566041</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"更新至1.20.1&#10;尝试联动傀儡装配\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1747561986567</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1747561986567</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"更新至1.20.1&#10;尝试联动傀儡装配\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748164916440</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748164916440</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"更新马铠材质\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748409012519</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748409012519</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"大体更新至1.20.1\" />\r\n    <MESSAGE value=\"更新至1.20.1&#10;尝试联动傀儡装配\" />\r\n    <MESSAGE value=\"更新马铠材质\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"更新马铠材质\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cd75095bc0a67654bc60f0ea24cde03c0a2a078b)
++++ b/.idea/workspace.xml	(date 1748875324719)
+@@ -4,21 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更新马铠材质">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/golem/EquipmentsMenuMixin.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/golem_chestplate.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/golem_helmet.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/golem_leggings.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/ModItems.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/client/GolemArmorRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/client/GolemArmorRender.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_tw.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/golem_armor/helmet0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/golem_armor/helmet0.png" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/extended_tinker.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/extended_tinker.mixins.json" afterDir="false" />
+-    </list>
++    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="完成到 1.20.1 的更新以及傀儡装甲" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -110,31 +96,32 @@
+   <component name="ProjectViewState">
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor": "Run",
+-    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor": "Run",
+-    "Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
+-    "Gradle.Extended Tinker [:prepareRunClientCompile].executor": "Run",
+-    "Gradle.Extended Tinker [:prepareRunDataCompile].executor": "Run",
+-    "Gradle.Extended Tinker [createMcpToSrg].executor": "Run",
+-    "Gradle.Extended Tinker [genIntellijRuns].executor": "Run",
+-    "Gradle.下载源代码.executor": "Run",
+-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+-    "Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed": "源下载失败",
+-    "Notification.DoNotAsk-gradle.notifications.sources.download.failed": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "main",
+-    "last_opened_file_path": "D:/Live/Game/MC/ModProjects/Extended Tinker/src/main/resources/assets/extended_tinker/models/item",
+-    "project.structure.last.edited": "项目",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0",
+-    "应用程序.runData.executor": "Run"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Extended Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Extended Tinker [build].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Extended Tinker [genIntellijRuns].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.下载源代码.executor&quot;: &quot;Run&quot;,
++    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
++    &quot;Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed&quot;: &quot;源下载失败&quot;,
++    &quot;Notification.DoNotAsk-gradle.notifications.sources.download.failed&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/Live/Game/MC/ModProjects/Extended Tinker/src/main/resources/assets/extended_tinker/models/item&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;应用程序.runData.executor&quot;: &quot;Run&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\models\item" />
+@@ -152,7 +139,7 @@
+       <recent name="org.vocalsky.extended_tinker.golems" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="应用程序.runClient">
++  <component name="RunManager" selected="Gradle.Extended Tinker [build]">
+     <configuration name="Extended Tinker [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+@@ -199,8 +186,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Gradle.Extended Tinker [build]" />
+         <item itemvalue="Gradle.Extended Tinker [genIntellijRuns]" />
+-        <item itemvalue="Gradle.Extended Tinker [build]" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -268,7 +255,23 @@
+       <option name="project" value="LOCAL" />
+       <updated>1748409012519</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="完成到 1.20.1 的更新以及傀儡装甲">
++      <option name="closed" value="true" />
++      <created>1748844133908</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1748844133908</updated>
++    </task>
++    <task id="LOCAL-00009" summary="完成到 1.20.1 的更新以及傀儡装甲">
++      <option name="closed" value="true" />
++      <created>1748844138400</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1748844138400</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -286,6 +289,7 @@
+     <MESSAGE value="大体更新至1.20.1" />
+     <MESSAGE value="更新至1.20.1&#10;尝试联动傀儡装配" />
+     <MESSAGE value="更新马铠材质" />
+-    <option name="LAST_COMMIT_MESSAGE" value="更新马铠材质" />
++    <MESSAGE value="完成到 1.20.1 的更新以及傀儡装甲" />
++    <option name="LAST_COMMIT_MESSAGE" value="完成到 1.20.1 的更新以及傀儡装甲" />
+   </component>
+ </project>
+\ No newline at end of file

@@ -4,8 +4,80 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更改了傀儡装甲的配方">
+    <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更新马铠材质">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/boots_golem_plating_dummy.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/chestplate_golem_plating_dummy.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/helmet_golem_plating_dummy.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/models/item/leggings_golem_plating_dummy.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/gui/tinker_pattern/boots_golem_plating.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/gui/tinker_pattern/chestplate_golem_plating.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/gui/tinker_pattern/helmet_golem_plating.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/gui/tinker_pattern/leggings_golem_plating.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/parts/golem_plating_boots.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/parts/golem_plating_chestplate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/parts/golem_plating_helmet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/parts/golem_plating_leggings.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/gold/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_block/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/builder_cast/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/red_sand/molding/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_block/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/builder_cast/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/smeltery/casts/sand/molding/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/builder/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/chestplate_golem_plating_composite.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/chestplate_golem_plating_composite.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/chestplate_golem_plating_gold_cast.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/chestplate_golem_plating_gold_cast.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/chestplate_golem_plating_sand_cast.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/chestplate_golem_plating_sand_cast.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/helmet_golem_plating_composite.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/helmet_golem_plating_composite.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/helmet_golem_plating_gold_cast.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/helmet_golem_plating_gold_cast.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/helmet_golem_plating_sand_cast.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/helmet_golem_plating_sand_cast.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/leggings_golem_plating_composite.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/leggings_golem_plating_composite.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/leggings_golem_plating_gold_cast.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/leggings_golem_plating_gold_cast.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/leggings_golem_plating_sand_cast.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/recipes/tools/parts/casting/leggings_golem_plating_sand_cast.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/chestplate_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/helmet_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/leggings_golem_plating.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_boots.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_boots.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_chestplate.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_chestplate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_helmet.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_helmet.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_leggings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_leggings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/gold.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/gold.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/sand.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/sand.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolItemModelProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/lang/zh_cn.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,23 +117,18 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ET" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="forgegradle prepare runs" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ET" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="forgegradle runs" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ET" type="f1a62948:ProjectNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ET" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ET" type="f1a62948:ProjectNode" />
-                <item name="运行配置" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -73,7 +140,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -91,12 +157,9 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/VocalSky/Extended-Tinker.git&quot;,
-    &quot;accountId&quot;: &quot;e3b5e461-519f-485a-b391-3a33510b0fee&quot;
+    &quot;accountId&quot;: &quot;78f5a944-c7bf-4548-bd41-5d8c03604209&quot;
   }
 }</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -110,49 +173,48 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunClientCompile].executor": "Run",
     "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor": "Run",
     "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor": "Run",
     "Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
     "Gradle.Extended Tinker [:prepareRunClientCompile].executor": "Run",
     "Gradle.Extended Tinker [:prepareRunDataCompile].executor": "Run",
-    "Gradle.Extended Tinker [build].executor": "Run",
     "Gradle.Extended Tinker [createMcpToSrg].executor": "Run",
     "Gradle.Extended Tinker [genIntellijRuns].executor": "Run",
-    "Gradle.Extended-Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
-    "Gradle.Extended-Tinker [:prepareRunClientCompile].executor": "Run",
-    "Gradle.Extended-Tinker [:prepareRunDataCompile].executor": "Run",
-    "Gradle.Extended-Tinker [clean].executor": "Run",
-    "Gradle.Extended-Tinker [createMcpToSrg].executor": "Run",
-    "Gradle.Extended-Tinker [genVSCodeRuns].executor": "Run",
-    "Gradle.Extended-Tinker.executor": "Run",
     "Gradle.下载源代码.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed": "源下载失败",
     "Notification.DoNotAsk-gradle.notifications.sources.download.failed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/celesky/IdeaProjects/Extended-Tinker/src/main/resources/assets/extended_tinker/textures/item/sand_cast",
+    "last_opened_file_path": "D:/Live/Game/MC/ModProjects/Extended Tinker/src/main/resources/assets/extended_tinker/textures/gui/tinker_pattern",
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "应用程序.runClient.executor": "Run",
     "应用程序.runData.executor": "Run"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/sand_cast" />
-      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/red_sand_cast" />
-      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/cast" />
-      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/tool/golem_armor" />
-      <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/tinker_armor/golem_armor" />
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\gui\tinker_pattern" />
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\parts" />
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\models\item" />
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\golem_armor" />
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\java\org\vocalsky\extended_tinker\golems" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\golem_armor\leggings" />
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\golem_armor\helmet" />
+      <recent name="D:\Live\Game\MC\ModProjects\Extended Tinker\src\main\resources\assets\extended_tinker\textures\item\tool\golem_armor\chestplate" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.vocalsky.extended_tinker.golems" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Extended Tinker [build]">
+  <component name="RunManager" selected="应用程序.runClient">
     <configuration name="Extended Tinker [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -197,77 +259,10 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="Extended-Tinker [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Extended-Tinker [genVSCodeRuns]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="genVSCodeRuns" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Extended-Tinker" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Extended Tinker [build]" />
         <item itemvalue="Gradle.Extended Tinker [genIntellijRuns]" />
-        <item itemvalue="Gradle.Extended-Tinker [genVSCodeRuns]" />
-        <item itemvalue="Gradle.Extended-Tinker" />
-        <item itemvalue="Gradle.Extended-Tinker [clean]" />
+        <item itemvalue="Gradle.Extended Tinker [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -319,71 +314,23 @@
       <option name="project" value="LOCAL" />
       <updated>1747561986567</updated>
     </task>
-    <task id="LOCAL-00006" summary="尝试进行渲染">
+    <task id="LOCAL-00006" summary="更新至1.20.1&#10;尝试联动傀儡装配">
       <option name="closed" value="true" />
-      <created>1748784274101</created>
+      <created>1748164916440</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1748784274101</updated>
+      <updated>1748164916440</updated>
     </task>
-    <task id="LOCAL-00007" summary="尝试进行渲染">
+    <task id="LOCAL-00007" summary="更新马铠材质">
       <option name="closed" value="true" />
-      <created>1748784292660</created>
+      <created>1748409012519</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1748784292660</updated>
+      <updated>1748409012519</updated>
     </task>
-    <task id="LOCAL-00008" summary="尝试进行渲染">
-      <option name="closed" value="true" />
-      <created>1748827993095</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1748827993095</updated>
-    </task>
-    <task id="LOCAL-00009" summary="尝试进行渲染">
-      <option name="closed" value="true" />
-      <created>1748836994736</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1748836994736</updated>
-    </task>
-    <task id="LOCAL-00010" summary="同步代码">
-      <option name="closed" value="true" />
-      <created>1748847170955</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1748847170955</updated>
-    </task>
-    <task id="LOCAL-00011" summary="更改了傀儡装甲的配方">
-      <option name="closed" value="true" />
-      <created>1748867875104</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1748867875104</updated>
-    </task>
-    <task id="LOCAL-00012" summary="更改了傀儡装甲的配方">
-      <option name="closed" value="true" />
-      <created>1748867878698</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1748867878698</updated>
-    </task>
-    <task id="LOCAL-00013" summary="更改了傀儡装甲的配方">
-      <option name="closed" value="true" />
-      <created>1748867993325</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1748867993325</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,9 +347,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="大体更新至1.20.1" />
     <MESSAGE value="更新至1.20.1&#10;尝试联动傀儡装配" />
-    <MESSAGE value="尝试进行渲染" />
-    <MESSAGE value="同步代码" />
-    <MESSAGE value="更改了傀儡装甲的配方" />
-    <option name="LAST_COMMIT_MESSAGE" value="更改了傀儡装甲的配方" />
+    <MESSAGE value="更新马铠材质" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新马铠材质" />
   </component>
 </project>

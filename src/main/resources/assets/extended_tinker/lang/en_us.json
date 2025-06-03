@@ -40,14 +40,22 @@
   "item.extended_tinker.golem_leggings": "Golem Armor Leggings",
   "item.extended_tinker.golem_leggings.description": "Customized for the metal golem.",
 
+  "pattern.extended_tinker.helmet_golem_plating": "Golem Helmet Plating",
+  "item.extended_tinker.helmet_golem_plating_dummy": "Stone Golem Helmet Plating",
   "item.extended_tinker.helmet_golem_plating": "Golem Helmet Plating",
   "item.extended_tinker.helmet_golem_plating_sand_cast": "Golem Helmet Plating Sand Cast",
   "item.extended_tinker.helmet_golem_plating_red_sand_cast": "Golem Helmet Plating Red Sand Cast",
   "item.extended_tinker.helmet_golem_plating_cast": "Golem Helmet Plating Gold Cast",
+
+  "pattern.extended_tinker.chestplate_golem_plating": "Golem Chestplate Plating",
+  "item.extended_tinker.chestplate_golem_plating_dummy": "Stone Golem Chestplate Plating",
   "item.extended_tinker.chestplate_golem_plating": "Golem Chestplate Plating",
   "item.extended_tinker.chestplate_golem_plating_sand_cast": "Golem Chestplate Plating Sand Cast",
   "item.extended_tinker.chestplate_golem_plating_red_sand_cast": "Golem Chestplate Plating Red Sand Cast",
   "item.extended_tinker.chestplate_golem_plating_cast": "Golem Chestplate Plating Gold Cast",
+
+  "pattern.extended_tinker.leggings_golem_plating": "Golem Leggings Plating",
+  "item.extended_tinker.leggings_golem_plating_dummy": "Stone Golem Leggings Plating",
   "item.extended_tinker.leggings_golem_plating": "Golem Leggings Plating",
   "item.extended_tinker.leggings_golem_plating_sand_cast": "Golem Leggings Plating Sand Cast",
   "item.extended_tinker.leggings_golem_plating_red_sand_cast": "Golem Leggings Plating Red Sand Cast",

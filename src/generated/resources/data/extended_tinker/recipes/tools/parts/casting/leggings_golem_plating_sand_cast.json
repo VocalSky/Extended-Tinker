@@ -4,6 +4,6 @@
     "tag": "extended_tinker:casts/single_use/leggings_golem_plating"
   },
   "cast_consumed": true,
-  "item_cost": 27,
+  "item_cost": 40,
   "result": "extended_tinker:leggings_golem_plating"
 }

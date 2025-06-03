@@ -17,6 +17,7 @@ import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.registration.CastItemObject;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -67,10 +68,12 @@ public class ItemTagProvider extends ItemTagsProvider {
             this.tag(cast.getMultiUseTag()).add(cast.get());
         };
         addCast.accept(ModItems.Casts.BRIDLE_CAST);
+
         GolemItems.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
             if (slot == ArmorItem.Type.BOOTS) return;
             addCast.accept(item);
         });
+        this.tag(TinkerTags.Items.CHEST_PARTS).addTag(TinkerTags.Items.TOOL_PARTS).add(GolemItems.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]));
 //        addCast.accept(GolemItems.Casts.HELMET_GOLEM_PLATING_CAST);
 //        addCast.accept(GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
 //        addCast.accept(GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST);

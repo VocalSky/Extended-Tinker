@@ -4,6 +4,6 @@
     "tag": "extended_tinker:casts/single_use/helmet_golem_plating"
   },
   "cast_consumed": true,
-  "item_cost": 27,
+  "item_cost": 24,
   "result": "extended_tinker:helmet_golem_plating"
 }
