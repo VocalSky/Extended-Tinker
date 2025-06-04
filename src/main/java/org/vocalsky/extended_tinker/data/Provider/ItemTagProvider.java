@@ -1,8 +1,10 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -10,6 +12,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
@@ -36,13 +39,17 @@ public class ItemTagProvider extends ItemTagsProvider {
         this.addSmeltry();
     }
 
+    private static ResourceLocation id(ItemLike item) {
+        return BuiltInRegistries.ITEM.getKey(item.asItem());
+    }
+
     private void addTools() {
         // common
         addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
         addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
         this.tag(TOOL_PARTS).replace(false).add(ModItems.Parts.BRIDLE.get());
         GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
-            this.tag(TOOL_PARTS).replace(false).add(item);
+            this.tag(TOOL_PARTS).replace(false).add(item).addOptional(id(item));
         });
 
         // golems
@@ -58,14 +65,14 @@ public class ItemTagProvider extends ItemTagsProvider {
         IntrinsicTagAppender<Item> multiUseCasts = this.tag(TinkerTags.Items.MULTI_USE_CASTS);
         Consumer<CastItemObject> addCast = cast -> {
             // tag based on material
-            goldCasts.add(cast.get());
-            sandCasts.add(cast.getSand());
-            redSandCasts.add(cast.getRedSand());
+            goldCasts.add(cast.get()).addOptional(cast.getId());
+            sandCasts.add(cast.getSand()).addOptional(cast.getId());
+            redSandCasts.add(cast.getRedSand()).addOptional(cast.getId());
             // tag based on usage
-            singleUseCasts.addTag(cast.getSingleUseTag());
-            this.tag(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand());
-            multiUseCasts.addTag(cast.getMultiUseTag());
-            this.tag(cast.getMultiUseTag()).add(cast.get());
+            singleUseCasts.addTag(cast.getSingleUseTag()).addOptional(cast.getId());
+            this.tag(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand()).addOptional(cast.getId());
+            multiUseCasts.addTag(cast.getMultiUseTag()).addOptional(cast.getId());
+            this.tag(cast.getMultiUseTag()).add(cast.get()).addOptional(cast.getId());
         };
         addCast.accept(ModItems.Casts.BRIDLE_CAST);
 
@@ -74,16 +81,13 @@ public class ItemTagProvider extends ItemTagsProvider {
             addCast.accept(item);
         });
         this.tag(TinkerTags.Items.CHEST_PARTS).addTag(TinkerTags.Items.TOOL_PARTS).add(GolemItems.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]));
-//        addCast.accept(GolemItems.Casts.HELMET_GOLEM_PLATING_CAST);
-//        addCast.accept(GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
-//        addCast.accept(GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST);
     }
 
     @SafeVarargs
     private void addToolTags(ItemLike tool, TagKey<Item>... tags) {
         Item item = tool.asItem();
         for (TagKey<Item> tag : tags) {
-            this.tag(tag).replace(false).add(item);
+            this.tag(tag).replace(false).add(item).addOptional(id(item));
         }
     }
 
@@ -109,7 +113,7 @@ public class ItemTagProvider extends ItemTagsProvider {
     private void addArmorTags(EnumObject<ArmorItem.Type,? extends Item> armor, TagKey<Item>... tags) {
         armor.forEach((type, item) -> {
             for (TagKey<Item> tag : tags) {
-                this.tag(tag).add(item);
+                this.tag(tag).add(item).addOptional(id(item));
             }
             this.tag(getArmorTag(type)).add(item);
             this.tag(getForgeArmorTag(type)).add(item);

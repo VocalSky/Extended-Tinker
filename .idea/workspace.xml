@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="06340050-012b-4363-8496-ee6922877359" name="更改" comment="更改了傀儡装甲的配方">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/6c0fe7d329d3e55ea58f9440e4c048e279aaf1f1" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/6c0fe7d329d3e55ea58f9440e4c048e279aaf1f1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,39 +114,39 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor": "Run",
-    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor": "Run",
-    "Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
-    "Gradle.Extended Tinker [:prepareRunClientCompile].executor": "Run",
-    "Gradle.Extended Tinker [:prepareRunDataCompile].executor": "Run",
-    "Gradle.Extended Tinker [build].executor": "Run",
-    "Gradle.Extended Tinker [createMcpToSrg].executor": "Run",
-    "Gradle.Extended Tinker [genIntellijRuns].executor": "Run",
-    "Gradle.Extended-Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
-    "Gradle.Extended-Tinker [:prepareRunClientCompile].executor": "Run",
-    "Gradle.Extended-Tinker [:prepareRunDataCompile].executor": "Run",
-    "Gradle.Extended-Tinker [clean].executor": "Run",
-    "Gradle.Extended-Tinker [createMcpToSrg].executor": "Run",
-    "Gradle.Extended-Tinker [genVSCodeRuns].executor": "Run",
-    "Gradle.Extended-Tinker.executor": "Run",
-    "Gradle.下载源代码.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed": "源下载失败",
-    "Notification.DoNotAsk-gradle.notifications.sources.download.failed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/celesky/IdeaProjects/Extended-Tinker/src/main/resources/assets/extended_tinker/textures/item/sand_cast",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "应用程序.runData.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [genIntellijRuns].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended-Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended-Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended-Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended-Tinker [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended-Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended-Tinker [genVSCodeRuns].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended-Tinker.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.下载源代码.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-gradle.notifications.sources.download.failed&quot;: &quot;源下载失败&quot;,
+    &quot;Notification.DoNotAsk-gradle.notifications.sources.download.failed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/celesky/IdeaProjects/Extended-Tinker/src/main/resources/assets/extended_tinker/textures/item/sand_cast&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;应用程序.runData.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/sand_cast" />
@@ -152,7 +159,7 @@
       <recent name="org.vocalsky.extended_tinker.golems" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Extended Tinker [build]">
+  <component name="RunManager" selected="应用程序.runClient">
     <configuration name="Extended Tinker [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -263,8 +270,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Extended Tinker [build]" />
         <item itemvalue="Gradle.Extended Tinker [genIntellijRuns]" />
+        <item itemvalue="Gradle.Extended Tinker [build]" />
         <item itemvalue="Gradle.Extended-Tinker [genVSCodeRuns]" />
         <item itemvalue="Gradle.Extended-Tinker" />
         <item itemvalue="Gradle.Extended-Tinker [clean]" />
@@ -383,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748867993325</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="更改了傀儡装甲的配方">
+      <option name="closed" value="true" />
+      <created>1748944648188</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1748944648188</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
