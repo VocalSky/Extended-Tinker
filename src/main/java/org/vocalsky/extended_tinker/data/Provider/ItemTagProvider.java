@@ -47,9 +47,9 @@ public class ItemTagProvider extends ItemTagsProvider {
         // common
         addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
         addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
-        this.tag(TOOL_PARTS).replace(false).add(ModItems.Parts.BRIDLE.get());
+        this.tag(TOOL_PARTS).replace(false).addOptionalTag(ModItems.Parts.BRIDLE.getId());
         GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
-            this.tag(TOOL_PARTS).replace(false).add(item).addOptional(id(item));
+            this.tag(TOOL_PARTS).replace(false).addOptionalTag(id(item));
         });
 
         // golems
@@ -65,14 +65,14 @@ public class ItemTagProvider extends ItemTagsProvider {
         IntrinsicTagAppender<Item> multiUseCasts = this.tag(TinkerTags.Items.MULTI_USE_CASTS);
         Consumer<CastItemObject> addCast = cast -> {
             // tag based on material
-            goldCasts.add(cast.get()).addOptional(cast.getId());
-            sandCasts.add(cast.getSand()).addOptional(cast.getId());
-            redSandCasts.add(cast.getRedSand()).addOptional(cast.getId());
+            goldCasts.addOptionalTag(cast.getId());
+            sandCasts.addOptionalTag(id(cast.getSand()));
+            redSandCasts.addOptionalTag(id(cast.getRedSand()));
             // tag based on usage
-            singleUseCasts.addTag(cast.getSingleUseTag()).addOptional(cast.getId());
-            this.tag(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand()).addOptional(cast.getId());
-            multiUseCasts.addTag(cast.getMultiUseTag()).addOptional(cast.getId());
-            this.tag(cast.getMultiUseTag()).add(cast.get()).addOptional(cast.getId());
+            singleUseCasts.addOptionalTag(cast.getSingleUseTag().location());
+            this.tag(cast.getSingleUseTag()).addOptionalTag(id(cast.getSand())).addOptionalTag(id(cast.getRedSand()));
+            multiUseCasts.addOptionalTag(cast.getMultiUseTag().location());
+            this.tag(cast.getMultiUseTag()).addOptionalTag(id(cast.get()));
         };
         addCast.accept(ModItems.Casts.BRIDLE_CAST);
 
@@ -80,14 +80,15 @@ public class ItemTagProvider extends ItemTagsProvider {
             if (slot == ArmorItem.Type.BOOTS) return;
             addCast.accept(item);
         });
-        this.tag(TinkerTags.Items.CHEST_PARTS).addTag(TinkerTags.Items.TOOL_PARTS).add(GolemItems.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]));
+        for (Item item : GolemItems.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]))
+            this.tag(TinkerTags.Items.CHEST_PARTS).addOptionalTag(id(item));
     }
 
     @SafeVarargs
     private void addToolTags(ItemLike tool, TagKey<Item>... tags) {
         Item item = tool.asItem();
         for (TagKey<Item> tag : tags) {
-            this.tag(tag).replace(false).add(item).addOptional(id(item));
+            this.tag(tag).replace(false).addOptionalTag(id(item));
         }
     }
 
@@ -113,10 +114,10 @@ public class ItemTagProvider extends ItemTagsProvider {
     private void addArmorTags(EnumObject<ArmorItem.Type,? extends Item> armor, TagKey<Item>... tags) {
         armor.forEach((type, item) -> {
             for (TagKey<Item> tag : tags) {
-                this.tag(tag).add(item).addOptional(id(item));
+                this.tag(tag).addOptionalTag(id(item));
             }
-            this.tag(getArmorTag(type)).add(item);
-            this.tag(getForgeArmorTag(type)).add(item);
+            this.tag(getArmorTag(type)).addOptionalTag(id(item));
+            this.tag(getForgeArmorTag(type)).addOptionalTag(id(item));
         });
     }
 }

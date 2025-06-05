@@ -1,8 +1,20 @@
 {
   "values": [
-    "#extended_tinker:casts/single_use/bridle",
-    "#extended_tinker:casts/single_use/helmet_golem_plating",
-    "#extended_tinker:casts/single_use/chestplate_golem_plating",
-    "#extended_tinker:casts/single_use/leggings_golem_plating"
+    {
+      "id": "#extended_tinker:casts/single_use/bridle",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:casts/single_use/helmet_golem_plating",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:casts/single_use/chestplate_golem_plating",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:casts/single_use/leggings_golem_plating",
+      "required": false
+    }
   ]
 }

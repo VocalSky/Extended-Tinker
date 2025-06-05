@@ -1,6 +1,12 @@
 {
   "values": [
-    "extended_tinker:horse_armor_chestplate",
-    "extended_tinker:golem_chestplate"
+    {
+      "id": "#extended_tinker:horse_armor_chestplate",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:golem_chestplate",
+      "required": false
+    }
   ]
 }

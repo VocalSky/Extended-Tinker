@@ -1,5 +1,8 @@
 {
   "values": [
-    "extended_tinker:bridle_cast"
+    {
+      "id": "#extended_tinker:bridle_cast",
+      "required": false
+    }
   ]
 }

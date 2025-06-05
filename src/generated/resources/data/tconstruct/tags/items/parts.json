@@ -1,9 +1,24 @@
 {
   "values": [
-    "extended_tinker:bridle",
-    "extended_tinker:helmet_golem_plating",
-    "extended_tinker:chestplate_golem_plating",
-    "extended_tinker:leggings_golem_plating",
-    "extended_tinker:boots_golem_plating"
+    {
+      "id": "#extended_tinker:bridle",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:helmet_golem_plating",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:chestplate_golem_plating",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:leggings_golem_plating",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:boots_golem_plating",
+      "required": false
+    }
   ]
 }

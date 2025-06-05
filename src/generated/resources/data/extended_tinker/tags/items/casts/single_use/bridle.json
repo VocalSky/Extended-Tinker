@@ -1,6 +1,12 @@
 {
   "values": [
-    "extended_tinker:bridle_sand_cast",
-    "extended_tinker:bridle_red_sand_cast"
+    {
+      "id": "#extended_tinker:bridle_sand_cast",
+      "required": false
+    },
+    {
+      "id": "#extended_tinker:bridle_red_sand_cast",
+      "required": false
+    }
   ]
 }

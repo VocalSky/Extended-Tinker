@@ -55,7 +55,6 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
         int golem_plating_cost[] = new int[]{3, 6, 5};
         GolemItems.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
             if (slot == ArmorItem.Type.BOOTS) return;
-//            partRecipes(consumer, GolemItems.Parts.GOLEM_PLATING.get(slot), GolemItems.Casts.GOLEM_PLATING_CAST.get(slot), golem_plating_cost[slot.ordinal()] * 8, partFolder, castFolder);
             partWithDummy(consumer, GolemItems.Parts.GOLEM_PLATING.get(slot), GolemItems.Parts.DUMMY_GOLEM_PLATING.get(slot), GolemItems.Casts.GOLEM_PLATING_CAST.get(slot), golem_plating_cost[slot.ordinal()] * 8, partFolder, castFolder);
         });
 //        partWithDummy(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE), GolemItems.Parts.DUMMY_GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE), GolemItems.Casts.GOLEM_PLATING_CAST.get(ArmorItem.Type.CHESTPLATE), 6, partFolder, castFolder);
