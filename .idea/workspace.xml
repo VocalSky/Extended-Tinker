@@ -117,41 +117,41 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "VocalSky"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;VocalSky&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/VocalSky/Extended-Tinker.git",
-    "accountId": "78f5a944-c7bf-4548-bd41-5d8c03604209"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VocalSky/Extended-Tinker.git&quot;,
+    &quot;accountId&quot;: &quot;78f5a944-c7bf-4548-bd41-5d8c03604209&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="30ntQdnrIMBxO5hiEHHgNbfEzSf" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor": "Run",
-    "Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
-    "Gradle.Extended Tinker [:prepareRunClientCompile].executor": "Run",
-    "Gradle.Extended Tinker [:prepareRunDataCompile].executor": "Run",
-    "Gradle.Extended Tinker [build].executor": "Run",
-    "Gradle.Extended Tinker [createMcpToSrg].executor": "Run",
-    "Gradle.Extended Tinker [genIntellijRuns].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Extended Tinker [genIntellijRuns].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Gradle.Extended Tinker [build]">
     <configuration name="Extended Tinker [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
