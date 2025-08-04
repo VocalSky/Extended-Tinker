@@ -4,64 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4877320-aee1-4a71-81e6-9eb672065c7a" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/ET.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ET.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/ET.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ET.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_6_2_12_50____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_6_2_14_48____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_6_2_22_42____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_6_2_12_50_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_6_2_14_48_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_6_2_22_42_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/6c0fe7d329d3e55ea58f9440e4c048e279aaf1f1" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/6c0fe7d329d3e55ea58f9440e4c048e279aaf1f1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/bridle.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/bridle.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/chestplate_golem_plating.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/helmet_golem_plating.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/multi_use/leggings_golem_plating.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/bridle.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/bridle.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/chestplate_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/chestplate_golem_plating.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/helmet_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/helmet_golem_plating.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/leggings_golem_plating.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tags/items/casts/single_use/leggings_golem_plating.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/asone_horsearmor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/flight_firecrack.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/painless_horsearmor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/modifiers/star_firecrack.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/chestplates.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/chestplates.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/helmets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/helmets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/leggings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/leggings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/gold.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/gold.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/multi_use.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/red_sand.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/sand.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/sand.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/casts/single_use.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/chest_parts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/chest_parts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/aoe.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/aoe.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/helmets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/helmets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/leggings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/leggings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/left.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/left.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/right.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/interactable/right.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/small.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/small.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/special.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/special.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/armor/chestplate.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/armor/chestplate.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/tool/HorseArmor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/tool/HorseArmor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/tool/IArmorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/common/tool/IArmorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/tool/GolemArmor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/tool/GolemArmor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ModifierProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ModifierProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ModifierTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ModifierTagProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/common/HorseArmorLayerMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/mixin/common/HorseArmorLayerMixin.java" afterDir="false" />
-    </list>
+    <list default="true" id="d4877320-aee1-4a71-81e6-9eb672065c7a" name="更改" comment="修复 tag 的问题，更换到匠魂的最新版本" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,6 +155,38 @@
       <option name="presentableId" value="Default" />
       <updated>1754275150346</updated>
     </task>
+    <task id="LOCAL-00001" summary="修复 tag 的问题，更换到匠魂的最新版本">
+      <option name="closed" value="true" />
+      <created>1754276782656</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754276782656</updated>
+    </task>
+    <task id="LOCAL-00002" summary="修复 tag 的问题，更换到匠魂的最新版本">
+      <option name="closed" value="true" />
+      <created>1754276865729</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1754276865729</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修复 tag 的问题，更换到匠魂的最新版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复 tag 的问题，更换到匠魂的最新版本" />
   </component>
 </project>
