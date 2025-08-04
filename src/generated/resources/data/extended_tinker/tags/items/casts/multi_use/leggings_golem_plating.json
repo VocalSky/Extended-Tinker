@@ -1,5 +1,8 @@
 {
   "values": [
-    "extended_tinker:leggings_golem_plating_cast"
+    {
+      "id": "extended_tinker:leggings_golem_plating_cast",
+      "required": false
+    }
   ]
 }

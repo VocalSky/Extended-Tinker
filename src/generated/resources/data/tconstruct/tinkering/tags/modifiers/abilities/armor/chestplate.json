@@ -1,6 +1,12 @@
 {
   "values": [
-    "extended_tinker:painless_horsearmor",
-    "extended_tinker:asone_horsearmor"
+    {
+      "id": "extended_tinker:painless_horsearmor",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:asone_horsearmor",
+      "required": false
+    }
   ]
 }

@@ -1,8 +1,20 @@
 {
   "values": [
-    "extended_tinker:bridle_red_sand_cast",
-    "extended_tinker:helmet_golem_plating_red_sand_cast",
-    "extended_tinker:chestplate_golem_plating_red_sand_cast",
-    "extended_tinker:leggings_golem_plating_red_sand_cast"
+    {
+      "id": "extended_tinker:bridle_red_sand_cast",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:helmet_golem_plating_red_sand_cast",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:chestplate_golem_plating_red_sand_cast",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:leggings_golem_plating_red_sand_cast",
+      "required": false
+    }
   ]
 }

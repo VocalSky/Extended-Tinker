@@ -17,9 +17,9 @@ public class ModifierTagProvider extends AbstractModifierTagProvider {
 
     @Override
     protected void addTags() {
-        this.tag(RANGED_UPGRADES).replace(false).add(ModModifiers.FLIGHT.getId());
-        this.tag(INTERACTION_ABILITIES).replace(false).add(ModModifiers.STAR.getId());
-        this.tag(CHESTPLATE_ABILITIES).replace(false).add(ModModifiers.PAINLESS.getId(), ModModifiers.ASONE.getId());
+        this.tag(RANGED_UPGRADES).replace(false).addOptional(ModModifiers.FLIGHT.getId());
+        this.tag(INTERACTION_ABILITIES).replace(false).addOptional(ModModifiers.STAR.getId());
+        this.tag(CHESTPLATE_ABILITIES).replace(false).addOptional(ModModifiers.PAINLESS.getId(), ModModifiers.ASONE.getId());
     }
 
     @Override

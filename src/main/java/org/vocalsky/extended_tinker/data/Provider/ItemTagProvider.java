@@ -3,6 +3,8 @@ package org.vocalsky.extended_tinker.data.Provider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -21,10 +23,14 @@ import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import static slimeknights.tconstruct.common.TinkerTags.Items.*;
 
 public class ItemTagProvider extends ItemTagsProvider {
+    private final Function<Item, ResourceLocation> LocExtractor = (item) -> {
+        return item.builtInRegistryHolder().key().location();
+    };
 
     public ItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTagProvider, ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, blockTagProvider, Extended_tinker.MODID, existingFileHelper);
@@ -40,9 +46,9 @@ public class ItemTagProvider extends ItemTagsProvider {
         // common
         addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
         addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
-        this.tag(TOOL_PARTS).replace(false).add(ModItems.Parts.BRIDLE.get());
+        this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(ModItems.Parts.BRIDLE.get()));
         GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
-            this.tag(TOOL_PARTS).replace(false).add(item);
+            this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));
         });
 
         // golems
@@ -58,14 +64,22 @@ public class ItemTagProvider extends ItemTagsProvider {
         IntrinsicTagAppender<Item> multiUseCasts = this.tag(TinkerTags.Items.MULTI_USE_CASTS);
         Consumer<CastItemObject> addCast = cast -> {
             // tag based on material
-            goldCasts.add(cast.get());
-            sandCasts.add(cast.getSand());
-            redSandCasts.add(cast.getRedSand());
+            goldCasts.addOptional(LocExtractor.apply(cast.get()));
+//            goldCasts.add(cast.get());
+            sandCasts.addOptional(LocExtractor.apply(cast.getSand()));
+//            sandCasts.add(cast.getSand());
+            redSandCasts.addOptional(LocExtractor.apply(cast.getRedSand()));
+//            redSandCasts.add(cast.getRedSand());
             // tag based on usage
-            singleUseCasts.addTag(cast.getSingleUseTag());
-            this.tag(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand());
-            multiUseCasts.addTag(cast.getMultiUseTag());
-            this.tag(cast.getMultiUseTag()).add(cast.get());
+            singleUseCasts.addOptionalTag(cast.getSingleUseTag().location());
+//            singleUseCasts.addTag(cast.getSingleUseTag());
+            this.tag(cast.getSingleUseTag()).addOptional(LocExtractor.apply(cast.getSand()));
+            this.tag(cast.getSingleUseTag()).addOptional(LocExtractor.apply(cast.getRedSand()));
+//            this.tag(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand());
+            multiUseCasts.addOptionalTag(cast.getMultiUseTag().location());
+//            multiUseCasts.addTag(cast.getMultiUseTag());
+            this.tag(cast.getMultiUseTag()).addOptional(LocExtractor.apply(cast.get()));
+//            this.tag(cast.getMultiUseTag()).add(cast.get());
         };
         addCast.accept(ModItems.Casts.BRIDLE_CAST);
 
@@ -73,7 +87,9 @@ public class ItemTagProvider extends ItemTagsProvider {
             if (slot == ArmorItem.Type.BOOTS) return;
             addCast.accept(item);
         });
-        this.tag(TinkerTags.Items.CHEST_PARTS).addTag(TinkerTags.Items.TOOL_PARTS).add(GolemItems.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]));
+        this.tag(TinkerTags.Items.CHEST_PARTS).addOptionalTag(TinkerTags.Items.TOOL_PARTS.location());
+        for (Item item : GolemItems.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]))
+            this.tag(TinkerTags.Items.CHEST_PARTS).addOptional(LocExtractor.apply(item));
 //        addCast.accept(GolemItems.Casts.HELMET_GOLEM_PLATING_CAST);
 //        addCast.accept(GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
 //        addCast.accept(GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST);
@@ -83,7 +99,7 @@ public class ItemTagProvider extends ItemTagsProvider {
     private void addToolTags(ItemLike tool, TagKey<Item>... tags) {
         Item item = tool.asItem();
         for (TagKey<Item> tag : tags) {
-            this.tag(tag).replace(false).add(item);
+            this.tag(tag).replace(false).addOptional(LocExtractor.apply(item));
         }
     }
 
@@ -109,10 +125,10 @@ public class ItemTagProvider extends ItemTagsProvider {
     private void addArmorTags(EnumObject<ArmorItem.Type,? extends Item> armor, TagKey<Item>... tags) {
         armor.forEach((type, item) -> {
             for (TagKey<Item> tag : tags) {
-                this.tag(tag).add(item);
+                this.tag(tag).addOptional(LocExtractor.apply(item));
             }
-            this.tag(getArmorTag(type)).add(item);
-            this.tag(getForgeArmorTag(type)).add(item);
+            this.tag(getArmorTag(type)).addOptional(LocExtractor.apply(item));
+            this.tag(getForgeArmorTag(type)).addOptional(LocExtractor.apply(item));
         });
     }
 }

@@ -1,5 +1,8 @@
 {
   "values": [
-    "extended_tinker:star_firecrack"
+    {
+      "id": "extended_tinker:star_firecrack",
+      "required": false
+    }
   ]
 }

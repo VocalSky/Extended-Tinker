@@ -1,8 +1,20 @@
 {
   "values": [
-    "extended_tinker:horse_armor_chestplate",
-    "extended_tinker:golem_helmet",
-    "extended_tinker:golem_chestplate",
-    "extended_tinker:golem_leggings"
+    {
+      "id": "extended_tinker:horse_armor_chestplate",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:golem_helmet",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:golem_chestplate",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:golem_leggings",
+      "required": false
+    }
   ]
 }

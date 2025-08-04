@@ -44,6 +44,7 @@ import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.DurabilityDisplayModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.SlotStackModifierHook;
+import slimeknights.tconstruct.library.modifiers.modules.build.RarityModule;
 import slimeknights.tconstruct.library.tools.IndestructibleItemEntity;
 import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.capability.inventory.ToolInventoryCapability;
@@ -88,6 +89,11 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
             .build();
 
     @Override
+    public int textureSize() {
+        return textures.get(type).length;
+    }
+
+    @Override
     public ResourceLocation getModelTexture(int partIndex) {
         return textures.get(type)[partIndex];
     }
@@ -103,6 +109,7 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
     private final int defense;
     @Getter
     private final float toughness;
+    @Getter
     protected final float knockbackResistance;
     @Getter
     protected final ArmorMaterial material;
@@ -139,9 +146,9 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
         return this.type.getSlot();
     }
 
-    public SoundEvent getEquipSound() {
-        return this.getMaterial().getEquipSound();
-    }
+//    public SoundEvent getEquipSound() {
+//        return this.getMaterial().getEquipSound();
+//    }
 
     public GolemArmor(ArmorMaterial materialIn, ArmorItem.Type type, Properties builderIn, ToolDefinition toolDefinition) {
         super(builderIn.defaultDurability(materialIn.getDurabilityForType(type)), type.getSlot(), GolemTypes.ENTITY_GOLEM::get, builder -> {});
@@ -261,30 +268,17 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
         return ModifierUtil.checkVolatileFlag(stack, SHINY);
     }
 
-    @Override
     public @NotNull Rarity getRarity(@NotNull ItemStack stack) {
-        int rarity = ModifierUtil.getVolatileInt(stack, RARITY);
-        return Rarity.values()[Mth.clamp(rarity, 0, 3)];
+        return RarityModule.getRarity(stack);
     }
 
-
-    /* Indestructible items */
-
-    @Override
     public boolean hasCustomEntity(ItemStack stack) {
-        return ModifierUtil.checkVolatileFlag(stack, INDESTRUCTIBLE_ENTITY);
+        return IndestructibleItemEntity.hasCustomEntity(stack);
     }
 
-    @Override
     public Entity createEntity(Level level, Entity original, ItemStack stack) {
-        if (ModifierUtil.checkVolatileFlag(stack, INDESTRUCTIBLE_ENTITY)) {
-            IndestructibleItemEntity entity = new IndestructibleItemEntity(level, original.getX(), original.getY(), original.getZ(), stack);
-            entity.setPickupDelayFrom(original);
-            return entity;
-        }
-        return null;
+        return IndestructibleItemEntity.createFrom(level, original, stack);
     }
-
 
     /* Damage/Durability */
 

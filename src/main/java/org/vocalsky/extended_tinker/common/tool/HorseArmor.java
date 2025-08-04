@@ -3,7 +3,6 @@ package org.vocalsky.extended_tinker.common.tool;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import lombok.Getter;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
@@ -31,14 +30,20 @@ import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.jetbrains.annotations.NotNull;
+import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
+import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.armor.ElytraFlightModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.behavior.AttributesModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.DurabilityDisplayModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.SlotStackModifierHook;
+import slimeknights.tconstruct.library.modifiers.modules.build.RarityModule;
 import slimeknights.tconstruct.library.tools.IndestructibleItemEntity;
 import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.capability.inventory.ToolInventoryCapability;
@@ -53,19 +58,33 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.library.utils.Util;
 
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class HorseArmor extends HorseArmorItem implements Equipable, IModifiableDisplay {
+public class HorseArmor extends HorseArmorItem implements Equipable, IModifiableDisplay, IArmorModel {
     public static UUID HorseArmorUUID = UUID.fromString("556E1665-8B10-40C8-8F9D-CF9B1667F295");
     public static final DispenseItemBehavior DISPENSE_ITEM_BEHAVIOR = new DefaultDispenseItemBehavior() {
         protected @NotNull ItemStack execute(@NotNull BlockSource p_40408_, @NotNull ItemStack p_40409_) {
             return ArmorItem.dispenseArmor(p_40408_, p_40409_) ? p_40409_ : super.execute(p_40408_, p_40409_);
         }
     };
+
+    private static final ResourceLocation[] textures = new ResourceLocation[]{Extended_tinker.getResource("textures/tinker_armor/horse_armor/maille1_armor.png"), Extended_tinker.getResource("textures/tinker_armor/horse_armor/shield1_armor.png"), Extended_tinker.getResource("textures/tinker_armor/horse_armor/maille2_armor.png"), Extended_tinker.getResource("textures/tinker_armor/horse_armor/shield2_armor.png"), Extended_tinker.getResource("textures/tinker_armor/horse_armor/head_armor.png")};
+
+    @Override
+    public int textureSize() {
+        return textures.length;
+    }
+
+    @Override
+    public ResourceLocation getModelTexture(int partIndex) {
+        return textures[partIndex];
+    }
+
     @Getter
     protected final ArmorItem.Type type;
     @Getter
@@ -134,9 +153,9 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         return this.type.getSlot();
     }
 
-    public @NotNull SoundEvent getEquipSound() {
-        return this.getMaterial().getEquipSound();
-    }
+//    public @NotNull SoundEvent getEquipSound() {
+//        return this.getMaterial().getEquipSound();
+//    }
 
     public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
     public static final ResourceLocation ELYTRA = TConstruct.getResource("elyta");
@@ -199,9 +218,15 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
     }
 
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level levelIn, Player playerIn, @NotNull InteractionHand handIn) {
-        ItemStack stack = playerIn.getItemInHand(handIn);
-        InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, this.getToolDefinition(), playerIn, slimeknights.tconstruct.library.utils.Util.getSlotType(handIn));
-        return result.consumesAction() ? new InteractionResultHolder<>(result, stack) : super.use(levelIn, playerIn, handIn);
+        if (playerIn.isCrouching()) {
+            ItemStack stack = playerIn.getItemInHand(handIn);
+            InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, this.getToolDefinition(), playerIn, Util.getSlotType(handIn));
+            if (result.consumesAction()) {
+                return new InteractionResultHolder<>(result, stack);
+            }
+        }
+
+        return super.use(levelIn, playerIn, handIn);
     }
 
     public boolean isFoil(@NotNull ItemStack stack) {
@@ -209,22 +234,15 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
     }
 
     public @NotNull Rarity getRarity(@NotNull ItemStack stack) {
-        int rarity = ModifierUtil.getVolatileInt(stack, RARITY);
-        return Rarity.values()[Mth.clamp(rarity, 0, 3)];
+        return RarityModule.getRarity(stack);
     }
 
     public boolean hasCustomEntity(ItemStack stack) {
-        return ModifierUtil.checkVolatileFlag(stack, INDESTRUCTIBLE_ENTITY);
+        return IndestructibleItemEntity.hasCustomEntity(stack);
     }
 
     public Entity createEntity(Level level, Entity original, ItemStack stack) {
-        if (ModifierUtil.checkVolatileFlag(stack, INDESTRUCTIBLE_ENTITY)) {
-            IndestructibleItemEntity entity = new IndestructibleItemEntity(level, original.getX(), original.getY(), original.getZ(), stack);
-            entity.setPickupDelayFrom(original);
-            return entity;
-        } else {
-            return null;
-        }
+        return IndestructibleItemEntity.createFrom(level, original, stack);
     }
 
     public boolean isRepairable(@NotNull ItemStack stack) {
@@ -391,5 +409,4 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
 
         return this.toolForRendering;
     }
-
 }

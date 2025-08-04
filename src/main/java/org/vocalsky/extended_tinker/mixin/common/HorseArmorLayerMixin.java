@@ -20,11 +20,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.common.tool.IArmorModel;
 import org.vocalsky.extended_tinker.util.TextureInformation;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
+import slimeknights.mantle.data.loadable.IAmLoadable;
 import slimeknights.tconstruct.library.client.materials.MaterialRenderInfo;
 import slimeknights.tconstruct.library.client.materials.MaterialRenderInfoLoader;
 import slimeknights.tconstruct.library.materials.definition.MaterialVariant;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.Optional;
@@ -32,9 +35,6 @@ import java.util.Optional;
 @Mixin(HorseArmorLayer.class)
 public abstract class HorseArmorLayerMixin extends RenderLayer<Horse, HorseModel<Horse>>  {
     @Shadow @Final private HorseModel<Horse> model;
-
-    @Unique
-    private static final ResourceLocation[] extended_tinker$textureLocations = new ResourceLocation[]{Extended_tinker.getResource("textures/tinker_armor/horse_armor/maille1_armor.png"), Extended_tinker.getResource("textures/tinker_armor/horse_armor/shield1_armor.png"), Extended_tinker.getResource("textures/tinker_armor/horse_armor/maille2_armor.png"), Extended_tinker.getResource("textures/tinker_armor/horse_armor/shield2_armor.png"), Extended_tinker.getResource("textures/tinker_armor/horse_armor/head_armor.png")};
 
     public HorseArmorLayerMixin(RenderLayerParent<Horse, HorseModel<Horse>> p_117346_) {
         super(p_117346_);
@@ -46,26 +46,13 @@ public abstract class HorseArmorLayerMixin extends RenderLayer<Horse, HorseModel
     }
 
     @Unique
-    public TextureInformation extended_tinker$getTextureLocation(Horse horse, int partIndex) {
-        if (partIndex >= 0 && partIndex < extended_tinker$textureLocations.length) {
-            MaterialVariant material = extended_tinker$getTool(horse).getMaterial(partIndex);
-            Optional<MaterialRenderInfo> optional = MaterialRenderInfoLoader.INSTANCE.getRenderInfo(material.getVariant());
-            if (optional.isPresent()) {
-                MaterialRenderInfo info = optional.get();
-                return new TextureInformation(extended_tinker$textureLocations[partIndex], info.vertexColor());
-            }
-        }
-        return new TextureInformation(this.getTextureLocation(horse), -1);
-    }
-
-    @Unique
     private void extended_tinker$performRendering(VertexConsumer vertexConsumer, PoseStack poseStack, int packedLightIn, int color) {
         this.model.renderToBuffer(poseStack, vertexConsumer, packedLightIn, OverlayTexture.NO_OVERLAY, (float) ((color >>> 16 & 255) / 255.0), (float) ((color >>> 8 & 255) / 255.0), (float) ((color & 255) / 255.0), (float) ((color >>> 24 & 255) / 255.0));
     }
 
     @Unique
-    private void extended_tinker$renderPart(PoseStack poseStack, MultiBufferSource multiBufferSource, int packedLightIn, Horse horse, int partIndex) {
-        TextureInformation information = this.extended_tinker$getTextureLocation(horse, partIndex);
+    private void extended_tinker$renderPart(ToolStack tool, PoseStack poseStack, MultiBufferSource multiBufferSource, int packedLightIn, Horse horse, int partIndex) {
+        TextureInformation information = TextureInformation.getTexture(tool, partIndex);
         VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(information.resourceLocation()));
         extended_tinker$performRendering(vertexConsumer, poseStack, packedLightIn, information.color());
     }
@@ -79,7 +66,7 @@ public abstract class HorseArmorLayerMixin extends RenderLayer<Horse, HorseModel
             this.model.setupAnim(horse, p_117036_, p_117037_, p_117039_, p_117040_, p_117041_);
             ToolStack toolStack = extended_tinker$getTool(horse);
             for (int partIndex = 0; partIndex < toolStack.getMaterials().size(); ++partIndex)
-                extended_tinker$renderPart(poseStack, multiBufferSource, packedLightIn, horse, partIndex);
+                extended_tinker$renderPart(toolStack, poseStack, multiBufferSource, packedLightIn, horse, partIndex);
             ci.cancel();
         }
     }

@@ -24,8 +24,8 @@ public class ModifierProvider extends AbstractModifierProvider {
         EquipmentSlot[] handSlots = {EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND};
         EquipmentSlot[] armorSlots = ARMOR_SLOTS;
         EquipmentSlot[] armorMainHand = {EquipmentSlot.MAINHAND, EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD};
-        ModifierSlotModule UPGRADE = new ModifierSlotModule(SlotType.UPGRADE);
-        ModifierSlotModule ABILITY = new ModifierSlotModule(SlotType.ABILITY);
+        ModifierSlotModule UPGRADE = ModifierSlotModule.slot(SlotType.UPGRADE).eachLevel(1);
+        ModifierSlotModule ABILITY = ModifierSlotModule.slot(SlotType.ABILITY).eachLevel(1);
         buildModifier(ModModifiers.PAINLESS.getId()).tooltipDisplay(TooltipDisplay.TINKER_STATION).levelDisplay(ModifierLevelDisplay.NO_LEVELS).addModule(ABILITY);
         buildModifier(ModModifiers.ASONE.getId()).tooltipDisplay(TooltipDisplay.TINKER_STATION).levelDisplay(ModifierLevelDisplay.NO_LEVELS).addModule(ABILITY);
         buildModifier(ModModifiers.FLIGHT.getId()).tooltipDisplay(TooltipDisplay.TINKER_STATION).levelDisplay(ModifierLevelDisplay.DEFAULT).addModule(UPGRADE);
