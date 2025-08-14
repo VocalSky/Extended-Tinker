@@ -16,6 +16,7 @@ import org.vocalsky.extended_tinker.common.*;
 import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import org.vocalsky.extended_tinker.compat.iaf.IafItems;
 import org.vocalsky.extended_tinker.network.PacketHandler;
+import slimeknights.tconstruct.library.materials.MaterialRegistryImpl;
 import slimeknights.tconstruct.library.utils.Util;
 
 @Mod(Extended_tinker.MODID)
@@ -25,6 +26,8 @@ public class Extended_tinker {
     public static final String MODID = "extended_tinker";
 
     public Extended_tinker() {
+//        MaterialRegistryImpl impl = new MaterialRegistryImpl();
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModModifiers.registers(modEventBus);
