@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:table_tool_casting",
+  "cast": {
+    "type": "tconstruct:material",
+    "item": "iceandfire:dragonarmor_dragonsteel_fire_body"
+  },
+  "item_cost": 9,
+  "result": "extended_tinker:dragonarmor_dragonsteel_fire_body"
+}
