@@ -64,14 +64,9 @@ public final class IafMaterialRegistry {
 
     public static void init() {
         INSTANCE = new IafMaterialRegistry();
-        IEventBus var10000 = MinecraftForge.EVENT_BUS;
-        IafMaterialRegistry var10001 = INSTANCE;
-        Objects.requireNonNull(var10001);
-        var10000.addListener(var10001::addDataPackListeners);
-        var10000 = MinecraftForge.EVENT_BUS;
-        var10001 = INSTANCE;
-        Objects.requireNonNull(var10001);
-        var10000.addListener(var10001::onDatapackSync);
+        IEventBus bus = MinecraftForge.EVENT_BUS;
+        bus.addListener(INSTANCE::addDataPackListeners);
+        bus.addListener(INSTANCE::onDatapackSync);
     }
 
     public static boolean isFullyLoaded() {

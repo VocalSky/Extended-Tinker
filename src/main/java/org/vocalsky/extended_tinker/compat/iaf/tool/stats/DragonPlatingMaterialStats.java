@@ -61,11 +61,11 @@ public record DragonPlatingMaterialStats(MaterialStatType<?> getType, int durabi
         LOADABLE = RecordLoadable.create(MaterialStatType.CONTEXT_KEY.requiredField(), IRepairableMaterialStats.DURABILITY_FIELD, FloatLoadable.FROM_ZERO.defaultField("armor", 0.0F, true, DragonPlatingMaterialStats::armor), TOUGHNESS, KNOCKBACK_RESISTANCE, DragonPlatingMaterialStats::new);
         DESCRIPTION = List.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR.getDescription(), ToolStats.ARMOR_TOUGHNESS.getDescription(), ToolStats.KNOCKBACK_RESISTANCE.getDescription());
         SHIELD_DESCRIPTION = List.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR_TOUGHNESS.getDescription(), ToolStats.KNOCKBACK_RESISTANCE.getDescription());
-        HEAD = makeType("plating_helmet");
-        BODY = makeType("plating_chestplate");
-        NECK = makeType("plating_leggings");
-        TAIL = makeType("plating_boots");
-        BANNER = new MaterialStatType(new MaterialStatsId(Extended_tinker.MODID, "plating_shield"), (type) -> new DragonPlatingMaterialStats((MaterialStatType<?>) type, 1, 0.0F, 0.0F, 0.0F), RecordLoadable.create(MaterialStatType.CONTEXT_KEY.requiredField(), IRepairableMaterialStats.DURABILITY_FIELD, TOUGHNESS, KNOCKBACK_RESISTANCE, (type, durability, toughness, knockbackResistance) -> new DragonPlatingMaterialStats(type, durability, 0.0F, toughness, knockbackResistance)));
+        HEAD = makeType("dragonplating_head");
+        BODY = makeType("dragonplating_body");
+        NECK = makeType("dragonplating_neck");
+        TAIL = makeType("dragonplating_tail");
+        BANNER = new MaterialStatType(new MaterialStatsId(Extended_tinker.MODID, "dragonplating_banner"), (type) -> new DragonPlatingMaterialStats((MaterialStatType<?>) type, 1, 0.0F, 0.0F, 0.0F), RecordLoadable.create(MaterialStatType.CONTEXT_KEY.requiredField(), IRepairableMaterialStats.DURABILITY_FIELD, TOUGHNESS, KNOCKBACK_RESISTANCE, (type, durability, toughness, knockbackResistance) -> new DragonPlatingMaterialStats(type, durability, 0.0F, toughness, knockbackResistance)));
         TYPES = List.of(HEAD, BODY, NECK, TAIL, BANNER);
     }
 
