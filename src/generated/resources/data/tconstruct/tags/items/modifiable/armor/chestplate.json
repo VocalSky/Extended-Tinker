@@ -7,6 +7,38 @@
     {
       "id": "extended_tinker:golem_chestplate",
       "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_iron_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_gold_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_diamond_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_silver_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_dragonsteel_fire_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_dragonsteel_ice_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_copper_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_dragonsteel_lightning_body",
+      "required": false
     }
   ]
 }

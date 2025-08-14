@@ -119,13 +119,6 @@ public class GolemItems {
                 .put(ArmorItem.Type.CHESTPLATE, registerCast("chestplate_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE))))
                 .put(ArmorItem.Type.LEGGINGS, registerCast("leggings_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.LEGGINGS))))
                 .build();
-//        public static final CastItemObject HELMET_GOLEM_PLATING_CAST = registerCast("helmet_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.HELMET)));
-//        public static final CastItemObject CHESTPLATE_GOLEM_PLATING_CAST = registerCast("chestplate_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE)));
-//        public static final CastItemObject LEGGINGS_GOLEM_PLATING_CAST = registerCast("leggings_golem_plating", () -> new PartCastItem(CAST_PROPS, () -> Parts.GOLEM_PLATING.get(ArmorItem.Type.LEGGINGS)));
-//        new EnumObject.Builder<ArmorItem.Type, ModifiableArmorItem>(ArmorItem.Type.class)
-//                .putAll(ITEMS.registerEnum("slime", new ArmorItem.Type[] {ArmorItem.Type.BOOTS, ArmorItem.Type.LEGGINGS, ArmorItem.Type.CHESTPLATE}, type -> new MultilayerArmorItem(ArmorDefinitions.SLIMESUIT, type, UNSTACKABLE_PROPS)))
-//                .put(ArmorItem.Type.HELMET, ITEMS.register("slime_helmet", () -> new SlimeskullItem(ArmorDefinitions.SLIMESUIT, UNSTACKABLE_PROPS)))
-//                .build()
     }
 
     public static class Tools {

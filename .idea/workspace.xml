@@ -4,7 +4,76 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4877320-aee1-4a71-81e6-9eb672065c7a" name="更改" comment="修复 tag 的问题，更换到匠魂的最新版本" />
+    <list default="true" id="059a7227-4ebe-4c02-94f6-943e4f1db9ff" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/iaf/IafItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/iaf/IafToolDefinitions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/iaf/materials/IafMaterialRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/iaf/tool/DragonArmor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/iaf/tool/stats/DragonPlatingMaterialStats.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/util/MaterialRegistryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_copper_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_copper_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_copper_neck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_copper_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_diamond_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_diamond_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_diamond_neck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_diamond_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_fire_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_fire_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_fire_neck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_fire_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_ice_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_ice_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_ice_neck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_ice_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_lightning_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_lightning_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_lightning_neck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_dragonsteel_lightning_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_gold_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_gold_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_gold_neck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_gold_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_iron_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_iron_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_iron_neck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_iron_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_silver_body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_silver_head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_silver_neck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/extended_tinker/textures/item/dragonarmor_silver_tail.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ET.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ET.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ET.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ET.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_6_3_17_56____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_6_3_17_56_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/39712fb123ed21171703a1eb67b1c1e746798849" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/39712fb123ed21171703a1eb67b1c1e746798849" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_boots.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_boots.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_chestplate.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_chestplate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_helmet.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_helmet.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_leggings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/extended_tinker/tinkering/tool_definitions/golem_armor_leggings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/chestplates.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/chestplates.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/helmets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/helmets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/leggings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/forge/tags/items/armors/leggings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/chestplate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/helmets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/helmets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/leggings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/armor/leggings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/bonus_slots.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/book_armor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/durability.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/loot_capable_tool.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/modifiable/multipart.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/tconstruct/tags/items/parts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/Extended_tinker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/Extended_tinker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/compat/golem/GolemItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ItemTagProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ModItemModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ModItemModelProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolDefinitionDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolDefinitionDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/vocalsky/extended_tinker/data/Provider/ToolRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/accesstransformer.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/accesstransformer.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/mods.toml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +106,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ET" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="forgegradle prepare runs" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -45,17 +114,19 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="forgegradle runs" type="c8890929:TasksNode$1" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ET" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
             </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,48 +147,29 @@
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="30ntQdnrIMBxO5hiEHHgNbfEzSf" />
+  <component name="ProjectId" id="31El3CBIpuLSpNT2EPnozYKzJ8T" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [:prepareRunClientCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [createMcpToSrg].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Extended Tinker [genIntellijRuns].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.D:/Live/Game/MC/ModProjects/Extended Tinker [createMcpToSrg].executor": "Run",
+    "Gradle.Extended Tinker [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
+    "Gradle.Extended Tinker [:prepareRunClientCompile].executor": "Run",
+    "Gradle.Extended Tinker [:prepareRunDataCompile].executor": "Run",
+    "Gradle.Extended Tinker [createMcpToSrg].executor": "Run",
+    "Gradle.Extended Tinker [genIntellijRuns].executor": "Run",
+    "Gradle.Extended Tinker [prepareRunServerCompile].executor": "Run",
+    "Gradle.Extended Tinker.executor": "Run",
+    "Gradle.下载源代码.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
-  <component name="RunManager" selected="Gradle.Extended Tinker [build]">
-    <configuration name="Extended Tinker [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
+}]]></component>
+  <component name="RunManager" selected="应用程序.runData">
     <configuration name="Extended Tinker [genIntellijRuns]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -140,53 +192,64 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="Extended Tinker [prepareRunServerCompile]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="prepareRunServerCompile" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Extended Tinker" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Extended Tinker [build]" />
         <item itemvalue="Gradle.Extended Tinker [genIntellijRuns]" />
+        <item itemvalue="Gradle.Extended Tinker [prepareRunServerCompile]" />
+        <item itemvalue="Gradle.Extended Tinker" />
       </list>
     </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="d4877320-aee1-4a71-81e6-9eb672065c7a" name="更改" comment="" />
-      <created>1754275150346</created>
+      <changelist id="059a7227-4ebe-4c02-94f6-943e4f1db9ff" name="更改" comment="" />
+      <created>1755096912164</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1754275150346</updated>
+      <updated>1755096912164</updated>
     </task>
-    <task id="LOCAL-00001" summary="修复 tag 的问题，更换到匠魂的最新版本">
-      <option name="closed" value="true" />
-      <created>1754276782656</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1754276782656</updated>
-    </task>
-    <task id="LOCAL-00002" summary="修复 tag 的问题，更换到匠魂的最新版本">
-      <option name="closed" value="true" />
-      <created>1754276865729</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1754276865729</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="修复 tag 的问题，更换到匠魂的最新版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复 tag 的问题，更换到匠魂的最新版本" />
   </component>
 </project>

@@ -1,6 +1,9 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
 
+import com.github.alexthe666.iceandfire.IceAndFire;
+import com.github.alexthe666.iceandfire.item.IafItemRegistry;
+import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
@@ -16,6 +19,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.compat.golem.GolemItems;
+import org.vocalsky.extended_tinker.compat.iaf.IafItems;
+import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.data.model.MaterialModelBuilder;
 import slimeknights.tconstruct.common.registration.CastItemObject;
@@ -34,7 +39,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         part(ModItems.Parts.BRIDLE);
         GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
-//            MaterialModelBuilder<ItemModelBuilder> b = this.part(item, "armor/golem_armor/" + slot.getName() + "/golem_plating");
             if (slot == ArmorItem.Type.BOOTS) return;
             MaterialModelBuilder<ItemModelBuilder> b = this.part(item, "golem_armor/" + slot.getName() + "/" + slot.getName());
             if (slot == ArmorItem.Type.HELMET) {
@@ -48,9 +52,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         GolemItems.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
             cast(item);
         });
-//        cast(GolemItems.Casts.HELMET_GOLEM_PLATING_CAST);
-//        cast(GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
-//        cast(GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST);
+
+        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
+            for (DragonArmor.Type type : DragonArmor.Type.values()) {
+                String texture = "dragonarmor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase() + "_" + type.getName();
+                basicItem(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type).asItem(), texture);
+//                generated(id(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type).asItem()), new ResourceLocation(IceAndFire.MODID, "item/" + texture));
+            }
     }
 
     private ResourceLocation id(ItemLike item) {

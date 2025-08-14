@@ -1,5 +1,6 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
+import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -16,11 +17,15 @@ import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.compat.golem.GolemItems;
+import org.vocalsky.extended_tinker.compat.iaf.IafItems;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -28,9 +33,7 @@ import java.util.function.Function;
 import static slimeknights.tconstruct.common.TinkerTags.Items.*;
 
 public class ItemTagProvider extends ItemTagsProvider {
-    private final Function<Item, ResourceLocation> LocExtractor = (item) -> {
-        return item.builtInRegistryHolder().key().location();
-    };
+    private final Function<Item, ResourceLocation> LocExtractor = (item) -> item.builtInRegistryHolder().key().location();
 
     public ItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTagProvider, ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, blockTagProvider, Extended_tinker.MODID, existingFileHelper);
@@ -43,16 +46,28 @@ public class ItemTagProvider extends ItemTagsProvider {
     }
 
     private void addTools() {
+        TagKey<Item>[] armorTags = new TagKey[]{BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR};
+
         // common
         addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
         addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
         this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(ModItems.Parts.BRIDLE.get()));
+
+        // golems
+        addArmorTags(GolemItems.Tools.GOLEM_ARMOR, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
         GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
             this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));
         });
 
-        // golems
-        addArmorTags(GolemItems.Tools.GOLEM_ARMOR, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
+        // iaf
+        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
+            IafItems.Tools.DRAGON_ARMOR.get(armorType).forEach((type, item) -> {
+                for (TagKey<Item> tag : armorTags) {
+                    this.tag(tag).addOptional(LocExtractor.apply(item));
+                }
+                this.tag(getArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
+                this.tag(getForgeArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
+            });
     }
 
     private void addSmeltry() {

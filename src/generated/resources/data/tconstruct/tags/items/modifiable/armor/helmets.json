@@ -3,6 +3,38 @@
     {
       "id": "extended_tinker:golem_helmet",
       "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_iron_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_gold_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_diamond_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_silver_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_dragonsteel_fire_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_dragonsteel_ice_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_copper_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragonarmor_dragonsteel_lightning_head",
+      "required": false
     }
   ]
 }

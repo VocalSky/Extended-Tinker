@@ -30,7 +30,7 @@
         "tconstruct:armor": 2.0,
         "tconstruct:armor_toughness": 1.5,
         "tconstruct:durability": 2.0,
-        "tconstruct:knockback_resistance": 1.25
+        "tconstruct:knockback_resistance": 1.5
       }
     },
     {
