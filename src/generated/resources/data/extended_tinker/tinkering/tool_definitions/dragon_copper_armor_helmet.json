@@ -4,7 +4,7 @@
       "type": "tconstruct:material_stats",
       "primary_part": 0,
       "stat_types": [
-        "extended_tinker:dragonplating_head"
+        "tconstruct:plating_helmet"
       ]
     },
     {

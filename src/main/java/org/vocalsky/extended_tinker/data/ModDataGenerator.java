@@ -9,6 +9,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.data.Provider.*;
+import slimeknights.tconstruct.tools.data.material.MaterialDataProvider;
+import slimeknights.tconstruct.tools.data.material.MaterialStatsDataProvider;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -32,6 +34,8 @@ public class ModDataGenerator {
         generator.addProvider(server, new ModifierRecipeProvider(packOutput));
         generator.addProvider(server, new ModifierTagProvider(packOutput, existingFileHelper));
         generator.addProvider(client, new ModItemModelProvider(packOutput, existingFileHelper));
-//        generator.addProvider(client, new ToolItemModelProvider(packOutput, existingFileHelper));
+        MaterialDataProvider materials = new MaterialDataProvider(packOutput);
+        generator.addProvider(server, materials);
+        generator.addProvider(server, new MaterialStatsDataProvider(packOutput, materials));
     }
 }

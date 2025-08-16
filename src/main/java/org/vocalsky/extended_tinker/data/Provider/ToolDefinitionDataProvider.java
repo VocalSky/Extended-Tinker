@@ -11,7 +11,8 @@ import org.vocalsky.extended_tinker.common.ModToolDefinitions;
 import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import org.vocalsky.extended_tinker.compat.golem.GolemToolDefinitions;
 import org.vocalsky.extended_tinker.compat.iaf.IafToolDefinitions;
-import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonPlatingMaterialStats;
+//import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonPlatingMaterialStats;
+import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import slimeknights.mantle.data.predicate.IJsonPredicate;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
@@ -84,7 +85,9 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
 
         for (ItemDragonArmor.DragonArmorType type : ItemDragonArmor.DragonArmorType.values())
             defineArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL.get(type))
-            .module(slots -> MaterialStatsModule.stats().stat(DragonPlatingMaterialStats.TYPES.get(slots.ordinal())).build())
+            .module(slots -> MaterialStatsModule.stats().stat(DragonArmorMaterialStats.ID).build())
+//            .module(slots -> MaterialStatsModule.stats().stat(PlatingMaterialStats.TYPES.get(slots.ordinal())).build())
+//            .module(slots -> MaterialStatsModule.stats().stat(DragonPlatingMaterialStats.TYPES.get(slots.ordinal())).build())
             .module(DefaultMaterialsModule.builder().material(MaterialIds.cobalt).material(MaterialIds.ancientHide).build())
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 5.0f).set(ToolStats.ARMOR, 2.5f).set(ToolStats.ARMOR_TOUGHNESS, 1.75f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.5f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());

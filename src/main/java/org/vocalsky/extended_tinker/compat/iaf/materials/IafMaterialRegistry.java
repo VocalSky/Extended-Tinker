@@ -7,7 +7,8 @@ import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.OnDatapackSyncEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.network.PacketDistributor;
-import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonPlatingMaterialStats;
+//import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonPlatingMaterialStats;
+import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import org.vocalsky.extended_tinker.util.MaterialRegistryImpl;
 import slimeknights.mantle.network.packet.ISimplePacket;
 import slimeknights.tconstruct.TConstruct;
@@ -88,11 +89,11 @@ public final class IafMaterialRegistry {
         });
         this.registry = new MaterialRegistryImpl(this.materialManager, this.materialStatsManager, this.materialTraitsManager);
 
-        for(MaterialStatType<?> type : DragonPlatingMaterialStats.TYPES) {
-            this.registry.registerStatType(type, ARMOR);
-        }
+//        for(MaterialStatType<?> type : DragonPlatingMaterialStats.TYPES) {
+//            this.registry.registerStatType(type, ARMOR);
+//        }
 
-//        this.registry.registerStatType(SkullStats.TYPE);
+        this.registry.registerStatType(DragonArmorMaterialStats.TYPE);
     }
 
     @VisibleForTesting
