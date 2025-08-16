@@ -9,8 +9,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.data.Provider.*;
-import slimeknights.tconstruct.tools.data.material.MaterialDataProvider;
-import slimeknights.tconstruct.tools.data.material.MaterialStatsDataProvider;
 
 import java.util.concurrent.CompletableFuture;
 

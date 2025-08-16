@@ -4,7 +4,7 @@
       "type": "tconstruct:material_stats",
       "primary_part": 0,
       "stat_types": [
-        "tconstruct:plating_leggings"
+        "extended_tinker:dragonarmor"
       ]
     },
     {

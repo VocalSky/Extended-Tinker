@@ -2,6 +2,7 @@ package org.vocalsky.extended_tinker.compat.iaf.tool.stats;
 
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
+import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.mantle.data.loadable.primitive.IntLoadable;
 import slimeknights.mantle.data.loadable.record.RecordLoadable;
 import slimeknights.tconstruct.TConstruct;
@@ -14,7 +15,7 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import java.util.List;
 
 public record DragonArmorMaterialStats(int durability, int armor) implements IRepairableMaterialStats {
-    public static final MaterialStatsId ID = new MaterialStatsId(TConstruct.getResource("skull"));
+    public static final MaterialStatsId ID = new MaterialStatsId(Extended_tinker.getResource("dragonarmor"));
     public static final MaterialStatType<DragonArmorMaterialStats> TYPE = new MaterialStatType<>(ID, new DragonArmorMaterialStats(1, 0), RecordLoadable.create(
             IRepairableMaterialStats.DURABILITY_FIELD,
             IntLoadable.FROM_ZERO.defaultField("armor", 0, true, DragonArmorMaterialStats::armor),
