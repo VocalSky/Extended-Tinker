@@ -4,6 +4,7 @@ package org.vocalsky.extended_tinker.data.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.FluidTags;
 import net.minecraftforge.common.crafting.conditions.OrCondition;
+import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.mantle.recipe.condition.TagFilledCondition;
 import slimeknights.tconstruct.TConstruct;
@@ -20,7 +21,7 @@ public class MaterialDataProvider extends AbstractMaterialDataProvider {
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "Extended Tinker Materials";
     }
 

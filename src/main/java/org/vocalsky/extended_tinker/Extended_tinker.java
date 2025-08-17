@@ -15,7 +15,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.vocalsky.extended_tinker.common.*;
 import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import org.vocalsky.extended_tinker.compat.iaf.IafItems;
+import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import org.vocalsky.extended_tinker.network.PacketHandler;
+import slimeknights.tconstruct.library.materials.IMaterialRegistry;
+import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.MaterialRegistryImpl;
 import slimeknights.tconstruct.library.utils.Util;
 
@@ -42,8 +45,14 @@ public class Extended_tinker {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    private void temp() {
+        IMaterialRegistry registry = MaterialRegistry.getInstance();
+        registry.registerStatType(DragonArmorMaterialStats.IRON.getType());
+    }
+
     private void commonSetup(final FMLCommonSetupEvent event) {
         PacketHandler.Init();
+        event.enqueueWork(this::temp);
     }
 
     @SubscribeEvent

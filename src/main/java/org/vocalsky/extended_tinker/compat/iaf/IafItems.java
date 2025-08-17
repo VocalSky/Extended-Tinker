@@ -11,13 +11,17 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.compat.golem.GolemToolDefinitions;
 import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmor;
-import org.vocalsky.extended_tinker.compat.iaf.materials.IafMaterialRegistry;
+//import org.vocalsky.extended_tinker.compat.iaf.materials.IafMaterialRegistry;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
+import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
+import slimeknights.tconstruct.library.materials.IMaterialRegistry;
+import slimeknights.tconstruct.library.materials.MaterialRegistry;
+import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
@@ -47,7 +51,8 @@ public class IafItems {
     public static boolean Loadable() { return ModList.get().isLoaded("iceandfire"); }
     public static void registers(IEventBus eventBus)  {
         if (!Loadable()) return;
-        IafMaterialRegistry.init();
+//        MaterialRegistry.getInstance().registerStatType(DragonArmorMaterialStats.TYPE, DragonArmorMaterialStats.ID);
+//        IafMaterialRegistry.init();
         Parts.init();
         Casts.init();
         Tools.init();

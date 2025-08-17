@@ -11,21 +11,36 @@ import slimeknights.tconstruct.library.materials.stats.MaterialStatType;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.tools.data.material.MaterialIds;
 
 import java.util.List;
 
-public record DragonArmorMaterialStats(int durability, int armor) implements IRepairableMaterialStats {
-    public static final MaterialStatsId ID = new MaterialStatsId(Extended_tinker.getResource("dragonarmor"));
-    public static final MaterialStatType<DragonArmorMaterialStats> TYPE = new MaterialStatType<>(ID, new DragonArmorMaterialStats(1, 0), RecordLoadable.create(
-            IRepairableMaterialStats.DURABILITY_FIELD,
-            IntLoadable.FROM_ZERO.defaultField("armor", 0, true, DragonArmorMaterialStats::armor),
-            DragonArmorMaterialStats::new));
+public enum DragonArmorMaterialStats implements IRepairableMaterialStats {
+    IRON("dragonarmoriron", 165, 2);
+//    IRON("iron", 165, 2),
+//    COPPER("copper", 145, 2),
+//    GOLD("GOLD", 125, 0);
+    //    public static final MaterialStatsId ID = new MaterialStatsId(Extended_tinker.getResource("dragonarmor"));
+//    public static final MaterialStatType<DragonArmorMaterialStats> TYPE = new MaterialStatType<>(ID, new DragonArmorMaterialStats(1, 0), RecordLoadable.create(
+//            IRepairableMaterialStats.DURABILITY_FIELD,
+//            IntLoadable.FROM_ZERO.defaultField("armor", 0, true, DragonArmorMaterialStats::armor),
+//            DragonArmorMaterialStats::new));
     // tooltip descriptions
     private static final List<Component> DESCRIPTION = List.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR.getDescription());
 
+    public final MaterialStatType<DragonArmorMaterialStats> type;
+    public final int durability;
+    public final int armor;
+
+    private DragonArmorMaterialStats(String name, int durability, int armor) {
+        this.type = MaterialStatType.singleton(new MaterialStatsId(Extended_tinker.getResource(name)), this);
+        this.durability = durability;
+        this.armor = armor;
+    }
+
     @Override
     public @NotNull MaterialStatType<?> getType() {
-        return TYPE;
+        return type;
     }
 
     @Override
@@ -45,5 +60,10 @@ public record DragonArmorMaterialStats(int durability, int armor) implements IRe
     public void apply(@NotNull ModifierStatsBuilder builder, float scale) {
         ToolStats.DURABILITY.update(builder, durability * scale);
         ToolStats.ARMOR.update(builder, armor * scale);
+    }
+
+    @Override
+    public int durability() {
+        return durability;
     }
 }

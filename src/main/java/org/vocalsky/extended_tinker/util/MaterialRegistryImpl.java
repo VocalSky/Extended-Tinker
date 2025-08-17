@@ -36,7 +36,7 @@ public class MaterialRegistryImpl implements IMaterialRegistry {
     }
 
     public @NotNull IMaterial getMaterial(@NotNull MaterialId id) {
-        return (IMaterial)this.materialManager.getMaterial(id).orElse(IMaterial.UNKNOWN);
+        return this.materialManager.getMaterial(id).orElse(IMaterial.UNKNOWN);
     }
 
     public @NotNull Collection<IMaterial> getVisibleMaterials() {
