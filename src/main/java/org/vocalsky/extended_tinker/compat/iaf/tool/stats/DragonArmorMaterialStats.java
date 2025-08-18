@@ -18,9 +18,14 @@ import java.util.EnumMap;
 import java.util.List;
 
 public enum DragonArmorMaterialStats implements IRepairableMaterialStats {
-    IRON("dragonarmor_iron", 165, 2),
-    COPPER("dragonarmor_copper", 145, 2),
-    GOLD("dragonarmor_gold", 125, 0);
+    IRON("dragonarmor_iron", 1650, 2),
+    COPPER("dragonarmor_copper", 1450, 2),
+    GOLD("dragonarmor_gold", 1250, 0),
+    SILVER("dragonarmor_silver", 1650, 2),
+    DIAMOND("dragonarmor_diamond", 2150, 4),
+    FIRE("dragonarmor_fire", 2150, 4),
+    ICE("dragonarmor_ice", 2150, 4),
+    LIGHTNING("dragonarmor_lightning", 2150, 4);
 
     public static final EnumMap<ItemDragonArmor.DragonArmorType, DragonArmorMaterialStats> stats = new EnumMap<>(ItemDragonArmor.DragonArmorType.class);
 
@@ -28,11 +33,11 @@ public enum DragonArmorMaterialStats implements IRepairableMaterialStats {
         stats.put(ItemDragonArmor.DragonArmorType.IRON, IRON);
         stats.put(ItemDragonArmor.DragonArmorType.COPPER, COPPER);
         stats.put(ItemDragonArmor.DragonArmorType.GOLD, GOLD);
-        stats.put(ItemDragonArmor.DragonArmorType.SILVER, IRON);
-        stats.put(ItemDragonArmor.DragonArmorType.DIAMOND, IRON);
-        stats.put(ItemDragonArmor.DragonArmorType.FIRE, IRON);
-        stats.put(ItemDragonArmor.DragonArmorType.ICE, IRON);
-        stats.put(ItemDragonArmor.DragonArmorType.LIGHTNING, IRON);
+        stats.put(ItemDragonArmor.DragonArmorType.SILVER, SILVER);
+        stats.put(ItemDragonArmor.DragonArmorType.DIAMOND, DIAMOND);
+        stats.put(ItemDragonArmor.DragonArmorType.FIRE, FIRE);
+        stats.put(ItemDragonArmor.DragonArmorType.ICE, ICE);
+        stats.put(ItemDragonArmor.DragonArmorType.LIGHTNING, LIGHTNING);
     }
 
     // tooltip descriptions
@@ -51,6 +56,10 @@ public enum DragonArmorMaterialStats implements IRepairableMaterialStats {
     @Override
     public @NotNull MaterialStatType<?> getType() {
         return type;
+    }
+
+    public @NotNull MaterialStatsId getId() {
+        return type.getId();
     }
 
     @Override

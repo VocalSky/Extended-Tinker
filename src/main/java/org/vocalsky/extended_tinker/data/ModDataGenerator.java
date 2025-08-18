@@ -35,5 +35,6 @@ public class ModDataGenerator {
         MaterialDataProvider materials = new MaterialDataProvider(packOutput);
         generator.addProvider(server, materials);
         generator.addProvider(server, new MaterialStatsDataProvider(packOutput, materials));
+        generator.addProvider(server, new MaterialTraitsDataProvider(packOutput, materials));
     }
 }
