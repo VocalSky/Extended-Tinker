@@ -1,5 +1,6 @@
 package org.vocalsky.extended_tinker.compat.iaf.tool.stats;
 
+import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
@@ -13,26 +14,35 @@ import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
 
+import java.util.EnumMap;
 import java.util.List;
 
 public enum DragonArmorMaterialStats implements IRepairableMaterialStats {
-    IRON("dragonarmoriron", 165, 2);
-//    IRON("iron", 165, 2),
-//    COPPER("copper", 145, 2),
-//    GOLD("GOLD", 125, 0);
-    //    public static final MaterialStatsId ID = new MaterialStatsId(Extended_tinker.getResource("dragonarmor"));
-//    public static final MaterialStatType<DragonArmorMaterialStats> TYPE = new MaterialStatType<>(ID, new DragonArmorMaterialStats(1, 0), RecordLoadable.create(
-//            IRepairableMaterialStats.DURABILITY_FIELD,
-//            IntLoadable.FROM_ZERO.defaultField("armor", 0, true, DragonArmorMaterialStats::armor),
-//            DragonArmorMaterialStats::new));
+    IRON("dragonarmor_iron", 165, 2),
+    COPPER("dragonarmor_copper", 145, 2),
+    GOLD("dragonarmor_gold", 125, 0);
+
+    public static final EnumMap<ItemDragonArmor.DragonArmorType, DragonArmorMaterialStats> stats = new EnumMap<>(ItemDragonArmor.DragonArmorType.class);
+
+    static {
+        stats.put(ItemDragonArmor.DragonArmorType.IRON, IRON);
+        stats.put(ItemDragonArmor.DragonArmorType.COPPER, COPPER);
+        stats.put(ItemDragonArmor.DragonArmorType.GOLD, GOLD);
+        stats.put(ItemDragonArmor.DragonArmorType.SILVER, IRON);
+        stats.put(ItemDragonArmor.DragonArmorType.DIAMOND, IRON);
+        stats.put(ItemDragonArmor.DragonArmorType.FIRE, IRON);
+        stats.put(ItemDragonArmor.DragonArmorType.ICE, IRON);
+        stats.put(ItemDragonArmor.DragonArmorType.LIGHTNING, IRON);
+    }
+
     // tooltip descriptions
     private static final List<Component> DESCRIPTION = List.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR.getDescription());
 
-    public final MaterialStatType<DragonArmorMaterialStats> type;
-    public final int durability;
-    public final int armor;
+    private final MaterialStatType<DragonArmorMaterialStats> type;
+    private final int durability;
+    private final int armor;
 
-    private DragonArmorMaterialStats(String name, int durability, int armor) {
+    DragonArmorMaterialStats(String name, int durability, int armor) {
         this.type = MaterialStatType.singleton(new MaterialStatsId(Extended_tinker.getResource(name)), this);
         this.durability = durability;
         this.armor = armor;

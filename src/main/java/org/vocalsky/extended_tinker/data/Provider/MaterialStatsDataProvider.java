@@ -36,8 +36,7 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
 
     private void addMisc() {
         addMaterialStats(MaterialIds.iron,         DragonArmorMaterialStats.IRON);
-//        addMaterialStats(MaterialIds.iron,         new DragonArmorMaterialStats(165, 2));
-//        addMaterialStats(MaterialIds.copper,       new DragonArmorMaterialStats(145, 2));
-//        addMaterialStats(MaterialIds.gold,         new DragonArmorMaterialStats(125, 0));
+        addMaterialStats(MaterialIds.copper,         DragonArmorMaterialStats.COPPER);
+        addMaterialStats(MaterialIds.gold,         DragonArmorMaterialStats.GOLD);
     }
 }
