@@ -2,18 +2,11 @@ package org.vocalsky.extended_tinker.data.Provider;
 
 
 import net.minecraft.data.PackOutput;
-import net.minecraft.tags.FluidTags;
-import net.minecraftforge.common.crafting.conditions.OrCondition;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import slimeknights.mantle.recipe.condition.TagFilledCondition;
-import slimeknights.tconstruct.TConstruct;
-import slimeknights.tconstruct.common.json.ConfigEnabledCondition;
+import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
-import slimeknights.tconstruct.tools.data.material.MaterialIds;
-
-import static slimeknights.mantle.Mantle.commonResource;
 
 public class MaterialDataProvider extends AbstractMaterialDataProvider {
     public MaterialDataProvider(PackOutput packOutput) {
@@ -27,6 +20,11 @@ public class MaterialDataProvider extends AbstractMaterialDataProvider {
 
     @Override
     protected void addMaterials() {
+        addMaterial(IafMaterials.silver, 2, ORDER_COMPAT, false);
+        addMaterial(IafMaterials.diamond, 3, ORDER_COMPAT, false);
+        addMaterial(IafMaterials.fire, 4, ORDER_COMPAT, false);
+        addMaterial(IafMaterials.ice, 4, ORDER_COMPAT, false);
+        addMaterial(IafMaterials.lightning, 4, ORDER_COMPAT, false);
     }
 
     private static MaterialId id(String name) {
