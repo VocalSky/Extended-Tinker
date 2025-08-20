@@ -4,7 +4,8 @@
       "type": "tconstruct:material_stats",
       "primary_part": 0,
       "stat_types": [
-        "extended_tinker:dragonarmor_silver"
+        "extended_tinker:dragonarmor_silver",
+        "tconstruct:plating_boots"
       ]
     },
     {

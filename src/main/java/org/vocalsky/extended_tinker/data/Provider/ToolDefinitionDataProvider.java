@@ -85,9 +85,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
 
         for (ItemDragonArmor.DragonArmorType type : ItemDragonArmor.DragonArmorType.values())
             defineArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL.get(type))
-            .module(slots -> MaterialStatsModule.stats().stat(DragonArmorMaterialStats.stats.get(type)).build())
-//            .module(slots -> MaterialStatsModule.stats().stat(PlatingMaterialStats.TYPES.get(slots.ordinal())).build())
-//            .module(slots -> MaterialStatsModule.stats().stat(DragonPlatingMaterialStats.TYPES.get(slots.ordinal())).build())
+            .module(slots -> MaterialStatsModule.stats().stat(DragonArmorMaterialStats.stats.get(type)).stat(PlatingMaterialStats.TYPES.get(slots.ordinal())).build())
             .module(DefaultMaterialsModule.builder().material(MaterialIds.cobalt).material(MaterialIds.ancientHide).build())
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 5.0f).set(ToolStats.ARMOR, 2.5f).set(ToolStats.ARMOR_TOUGHNESS, 1.75f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.5f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
