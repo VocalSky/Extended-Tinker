@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
+import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonPlatingArmorMaterialStats;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
@@ -41,6 +42,8 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(IafMaterials.fire, DragonArmorMaterialStats.FIRE);
         addMaterialStats(IafMaterials.ice, DragonArmorMaterialStats.ICE);
         addMaterialStats(IafMaterials.lightning, DragonArmorMaterialStats.LIGHTNING);
+
+        addMaterialStats(MaterialIds.iron, DragonPlatingArmorMaterialStats.BODY.getDefaultStats());
     }
 
     private void addMisc() {

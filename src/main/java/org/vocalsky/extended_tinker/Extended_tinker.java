@@ -16,11 +16,7 @@ import org.vocalsky.extended_tinker.common.*;
 import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import org.vocalsky.extended_tinker.compat.iaf.IafItems;
 import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
-import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import org.vocalsky.extended_tinker.network.PacketHandler;
-import slimeknights.tconstruct.library.materials.IMaterialRegistry;
-import slimeknights.tconstruct.library.materials.MaterialRegistry;
-import slimeknights.tconstruct.library.materials.MaterialRegistryImpl;
 import slimeknights.tconstruct.library.utils.Util;
 
 @Mod(Extended_tinker.MODID)
