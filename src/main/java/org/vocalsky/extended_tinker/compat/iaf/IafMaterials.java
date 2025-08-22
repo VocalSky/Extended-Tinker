@@ -20,14 +20,13 @@ public class IafMaterials {
     public static final MaterialId ice = id("dragon_armor_ice");
     public static final MaterialId lightning = id("dragon_armor_lightning");
 
-    public static final MaterialStatsId ARMOR = new MaterialStatsId(Extended_tinker.getResource("dragon_plating_armor"));
+//    public static final MaterialStatsId ARMOR = new MaterialStatsId(Extended_tinker.getResource("dragon_plating_armor"));
 
     static public void registry() {
         IMaterialRegistry registry = MaterialRegistry.getInstance();
         for (DragonArmorMaterialStats material : DragonArmorMaterialStats.values())
             registry.registerStatType(material.getType());
-        for (MaterialStatType<?> type : DragonPlatingArmorMaterialStats.TYPES) {
-            registry.registerStatType(type, ARMOR);
-        }
+//        for (MaterialStatType<?> type : DragonPlatingArmorMaterialStats.TYPES)
+//            registry.registerStatType(type, ARMOR);
     }
 }

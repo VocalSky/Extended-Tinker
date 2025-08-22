@@ -7,7 +7,10 @@ import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialSta
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonPlatingArmorMaterialStats;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
+import slimeknights.tconstruct.library.materials.stats.IMaterialStats;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
+import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
+import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
 public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider {
     public MaterialStatsDataProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
@@ -43,7 +46,9 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(IafMaterials.ice, DragonArmorMaterialStats.ICE);
         addMaterialStats(IafMaterials.lightning, DragonArmorMaterialStats.LIGHTNING);
 
-//        addMaterialStats(MaterialIds.iron, DragonPlatingArmorMaterialStats.BODY.getDefaultStats());
+//        addArmorShieldStats(MaterialIds.iron, DragonPlatingArmorMaterialStats.builder().durabilityFactor(15.0F).armor(2.0F, 4.0F, 5.0F, 2.0F), StatlessMaterialStats.MAILLE);
+//        addArmorShieldStats(MaterialIds.copper, DragonPlatingArmorMaterialStats.builder().durabilityFactor(13.0F).armor(1.0F, 2.0F, 3.0F, 1.0F), StatlessMaterialStats.MAILLE);;
+//        addArmorShieldStats(MaterialIds.gold, DragonPlatingArmorMaterialStats.builder().durabilityFactor(7.0F).armor(1.0F, 3.0F, 4.0F, 1.0F), StatlessMaterialStats.MAILLE);
     }
 
     private void addMisc() {

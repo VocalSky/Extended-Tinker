@@ -89,11 +89,6 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
             if (slot == ArmorItem.Type.BOOTS) return;
             partWithDummy(consumer, GolemItems.Parts.GOLEM_PLATING.get(slot), GolemItems.Parts.DUMMY_GOLEM_PLATING.get(slot), GolemItems.Casts.GOLEM_PLATING_CAST.get(slot), golem_plating_cost[slot.ordinal()] * 8, partFolder, castFolder);
         });
-//        partWithDummy(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE), GolemItems.Parts.DUMMY_GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE), GolemItems.Casts.GOLEM_PLATING_CAST.get(ArmorItem.Type.CHESTPLATE), 6, partFolder, castFolder);
-//        partWithDummy(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.LEGGINGS),   GolemItems.Parts.DUMMY_GOLEM_PLATING.get(ArmorItem.Type.LEGGINGS),   GolemItems.Casts.GOLEM_PLATING_CAST.get(ArmorItem.Type.LEGGINGS),   5, partFolder, castFolder);
-//        partRecipes(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.HELMET), GolemItems.Casts.HELMET_GOLEM_PLATING_CAST, 27, partFolder, castFolder);
-//        partRecipes(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.CHESTPLATE), GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST, 27, partFolder, castFolder);
-//        partRecipes(consumer, GolemItems.Parts.GOLEM_PLATING.get(ArmorItem.Type.LEGGINGS), GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST, 27, partFolder, castFolder);
     }
 
     @Override

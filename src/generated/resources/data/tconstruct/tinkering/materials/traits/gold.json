@@ -1,15 +1,5 @@
 {
   "perStat": {
-    "extended_tinker:dragon_plating_body": [
-      {
-        "level": 1,
-        "name": "tconstruct:golden"
-      },
-      {
-        "level": 1,
-        "name": "tconstruct:magic_protection"
-      }
-    ],
     "extended_tinker:dragonarmor_gold": [
       {
         "level": 1,
