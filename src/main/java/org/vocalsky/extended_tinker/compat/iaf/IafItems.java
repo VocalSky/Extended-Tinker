@@ -78,6 +78,12 @@ public class IafItems {
         }
 
         private static final Item.Properties PART_PROP = CommonItem;
+        public static final EnumMap<ItemDragonArmor.DragonArmorType, EnumObject<DragonArmor.Type, ToolPartItem>> DRAGON_ARMOR_PLATING = new EnumMap<>(ItemDragonArmor.DragonArmorType.class);
+        static {
+            for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
+                DRAGON_ARMOR_PLATING.put(armorType,
+            ITEMS.registerEnum("dragonarmor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase(), DragonArmor.Type.values(), type -> new ToolPartItem(PART_PROP, PlatingMaterialStats.TYPES.get(type.getSlot().ordinal()).getId())));
+        }
     }
 
     public static class Casts {

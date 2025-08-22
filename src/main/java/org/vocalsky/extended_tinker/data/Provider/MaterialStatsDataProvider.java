@@ -43,7 +43,7 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(IafMaterials.ice, DragonArmorMaterialStats.ICE);
         addMaterialStats(IafMaterials.lightning, DragonArmorMaterialStats.LIGHTNING);
 
-        addMaterialStats(MaterialIds.iron, DragonPlatingArmorMaterialStats.BODY.getDefaultStats());
+//        addMaterialStats(MaterialIds.iron, DragonPlatingArmorMaterialStats.BODY.getDefaultStats());
     }
 
     private void addMisc() {
