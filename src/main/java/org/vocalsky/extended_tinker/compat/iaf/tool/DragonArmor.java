@@ -462,6 +462,8 @@ public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
 //        tooltip.add(Component.translatable(words).withStyle(ChatFormatting.GRAY));
 //        System.out.println("DASDWDASDS");
 //        System.out.println(super.getDescriptionId());
+        System.out.println("RUNISGOOD");
+        System.out.println(tooltip);
         TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
     }
 
