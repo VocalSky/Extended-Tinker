@@ -14,6 +14,8 @@ import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -35,6 +37,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.util.ComponentUtil;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -450,21 +453,15 @@ public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         super.appendHoverText(stack, level, tooltip, flag);
-//        String var10000;
-//        switch (this.dragonSlot) {
-//            case 1 -> var10000 = "dragon.armor_neck";
-//            case 2 -> var10000 = "dragon.armor_body";
-//            case 3 -> var10000 = "dragon.armor_tail";
-//            default -> var10000 = "dragon.armor_head";
-//        }
-//
-//        String words = var10000;
-//        tooltip.add(Component.translatable(words).withStyle(ChatFormatting.GRAY));
-//        System.out.println("DASDWDASDS");
-//        System.out.println(super.getDescriptionId());
-        System.out.println("RUNISGOOD");
-        System.out.println(tooltip);
         TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
+        for (int i = 0; i < tooltip.size(); ++i) {
+            Component comp = tooltip.get(i);
+            comp = ComponentUtil.replaceText(comp, "stat.tconstruct.plating_helmet", "stat.extended_tinker.plating_head");
+            comp = ComponentUtil.replaceText(comp, "stat.tconstruct.plating_chestplate", "stat.extended_tinker.plating_body");
+            comp = ComponentUtil.replaceText(comp, "stat.tconstruct.plating_leggings", "stat.extended_tinker.plating_neck");
+            comp = ComponentUtil.replaceText(comp, "stat.tconstruct.plating_boots", "stat.extended_tinker.plating_tail");
+            tooltip.set(i, comp);
+        }
     }
 
     @Override

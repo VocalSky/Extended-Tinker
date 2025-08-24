@@ -2,7 +2,7 @@
   "modules": [
     {
       "type": "tconstruct:material_stats",
-      "primary_part": 0,
+      "primary_part": 1,
       "stat_types": [
         "extended_tinker:dragonarmor_iron",
         "tconstruct:plating_leggings"
