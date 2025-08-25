@@ -9,6 +9,7 @@ public class zh_tw implements ILang {
     enum LangData implements ILangData {
         ET_COMMON("itemGroup.extended_tinker.common_items", "匠魂擴張 | 常規物品"),
         ET_MG("itemGroup.extended_tinker.golem_items", "匠魂擴張 | 傀儡物品"),
+        ET_IAF("itemGroup.extended_tinker.iaf_items", "匠魂擴張 | 冰火傳說物品"),
         PATTERN_BRIDLE("pattern.extended_tinker.bridle", "馬籠頭"),
         BRIDLE_ITEM("item.extended_tinker.bridle", "馬籠頭"),
         BRIDLE_SAND_CAST("item.extended_tinker.bridle_sand_cast", "馬籠頭沙子鑄模"),

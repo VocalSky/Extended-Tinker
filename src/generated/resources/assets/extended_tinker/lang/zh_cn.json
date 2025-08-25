@@ -76,5 +76,6 @@
   "stat.extended_tinker.plating_body": "躯体镶板",
   "stat.extended_tinker.plating_head": "头部镶板",
   "stat.extended_tinker.plating_neck": "脖颈镶板",
-  "stat.extended_tinker.plating_tail": "尾部镶板"
+  "stat.extended_tinker.plating_tail": "尾部镶板",
+  "itemGroup.extended_tinker.iaf_items": "Extended Tinker | Iaf Items"
 }

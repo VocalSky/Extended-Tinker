@@ -2,6 +2,14 @@
   "modifier.extended_tinker": {
     "painless_horsearmor": "#778899",
     "asone_horsearmor": "#ffd54b",
-    "flight_firecrack": "#dcdcdc"
+    "flight_firecrack": "#dcdcdc",
+    "dragon_armor_iron": "#D8D8D8",
+    "dragon_armor_copper": "#E77C56",
+    "dragon_armor_silver": "#D3DFE8",
+    "dragon_armor_gold": "#FFD83E",
+    "dragon_armor_diamond": "#8cf4e2",
+    "dragon_armor_fire": "#4C4143",
+    "dragon_armor_ice": "#4C4143",
+    "dragon_armor_lightning": "#4C4143"
   }
 }
