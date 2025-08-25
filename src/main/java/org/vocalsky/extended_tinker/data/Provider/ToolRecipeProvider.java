@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -15,18 +16,26 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import org.vocalsky.extended_tinker.compat.iaf.IafItems;
+import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
+import slimeknights.mantle.recipe.helper.ItemOutput;
+import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
+import slimeknights.tconstruct.library.materials.definition.MaterialId;
+import slimeknights.tconstruct.library.recipe.FluidValues;
+import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.casting.material.MaterialCastingRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
 import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildingRecipeBuilder;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
+import slimeknights.tconstruct.library.tools.nbt.MaterialIdNBT;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import java.lang.reflect.Field;
+import java.util.Collections;
 import java.util.function.Consumer;
 
 public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecipeHelper, IToolRecipeHelper {
@@ -74,9 +83,21 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
                     throw new RuntimeException(e);
                 }
                 RegistryObject<ItemDragonArmor> reg = (RegistryObject<ItemDragonArmor>) item;
-                MaterialCastingRecipeBuilder.tableRecipe(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type)).setCast(MaterialIngredient.of(reg.get()), true).setItemCost(9).save(consumer, this.location(armorFolder + "dragonarmor_" + armorType.name().toLowerCase() + "_" + type.getName()));
+//                addDragonArmorRecipe(consumer, IafMaterials.copper, reg.get().asItem(), armorFolder);
+//                MaterialCastingRecipeBuilder.tableRecipe(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type)).
+//                setCast(MaterialIngredient.of(reg.get()), true).
+//                setItemCost(9).
+//                save(consumer, this.location(armorFolder + "dragonarmor_" + armorType.name().toLowerCase() + "_" + type.getName()));
             }
     }
+
+//    private void addDragonArmorRecipe(Consumer<FinishedRecipe> consumer, MaterialId material, ItemLike armor, String folder) {
+//        MaterialIdNBT nbt = new MaterialIdNBT(Collections.singletonList(material));
+//        ItemCastingRecipeBuilder.basinRecipe(ItemOutput.fromStack(nbt.updateStack(new ItemStack(TinkerTools.slimesuit.get(ArmorItem.Type.HELMET)))))
+//        .setCast(armor, true)
+//        .setFluidAndTime(TinkerFluids.enderSlime, FluidValues.SLIME_CONGEALED * 5)
+//        .save(consumer, location(folder + "slime_skull/" + material.getPath()));
+//    }
 
     private void addToolPartRecipes(Consumer<FinishedRecipe> consumer) {
         String partFolder = "tools/parts/";

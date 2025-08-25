@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:table_tool_casting",
+  "cast": {
+    "item": "iceandfire:dragonarmor_copper_head"
+  },
+  "item_cost": 9,
+  "result": {
+    "item": "extended_tinker:dragonarmor_copper_head",
+    "nbt": {
+      "Damage": 0,
+      "tic_broken": 0,
+      "tic_materials": [
+        "extend_tinker:copper"
+      ]
+    }
+  }
+}
