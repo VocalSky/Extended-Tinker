@@ -4,13 +4,9 @@ import net.minecraft.data.PackOutput;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
-import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonPlatingArmorMaterialStats;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
-import slimeknights.tconstruct.library.materials.stats.IMaterialStats;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
-import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
-import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
 public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider {
     public MaterialStatsDataProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {

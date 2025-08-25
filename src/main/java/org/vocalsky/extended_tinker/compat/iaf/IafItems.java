@@ -51,8 +51,6 @@ public class IafItems {
     public static boolean Loadable() { return ModList.get().isLoaded("iceandfire"); }
     public static void registers(IEventBus eventBus)  {
         if (!Loadable()) return;
-//        MaterialRegistry.getInstance().registerStatType(DragonArmorMaterialStats.TYPE, DragonArmorMaterialStats.ID);
-//        IafMaterialRegistry.init();
         Parts.init();
         Casts.init();
         Tools.init();
@@ -81,8 +79,7 @@ public class IafItems {
         public static final EnumMap<ItemDragonArmor.DragonArmorType, EnumObject<ArmorItem.Type, ToolPartItem>> DRAGON_ARMOR_PLATING = new EnumMap<>(ItemDragonArmor.DragonArmorType.class);
         static {
             for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-                DRAGON_ARMOR_PLATING.put(armorType,
-            ITEMS.registerEnum("dragon_plating_armor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase(), ArmorItem.Type.values(), type -> new ToolPartItem(PART_PROP, PlatingMaterialStats.TYPES.get(type.ordinal()).getId())));
+                DRAGON_ARMOR_PLATING.put(armorType, ITEMS.registerEnum("dragon_plating_armor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase(), ArmorItem.Type.values(), type -> new ToolPartItem(PART_PROP, PlatingMaterialStats.TYPES.get(type.ordinal()).getId())));
         }
     }
 
