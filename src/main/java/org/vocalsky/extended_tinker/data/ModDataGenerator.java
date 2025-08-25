@@ -10,7 +10,9 @@ import net.minecraftforge.fml.common.Mod;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.data.Provider.*;
 import org.vocalsky.extended_tinker.data.Provider.LangData.ILang;
+import org.vocalsky.extended_tinker.data.Provider.LangData.en_us;
 import org.vocalsky.extended_tinker.data.Provider.LangData.zh_cn;
+import org.vocalsky.extended_tinker.data.Provider.LangData.zh_tw;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -38,6 +40,8 @@ public class ModDataGenerator {
         generator.addProvider(server, materials);
         generator.addProvider(server, new MaterialStatsDataProvider(packOutput, materials));
         generator.addProvider(server, new MaterialTraitsDataProvider(packOutput, materials));
+        generator.addProvider(client, new LangProvider(packOutput, new en_us()));
         generator.addProvider(client, new LangProvider(packOutput, new zh_cn()));
+        generator.addProvider(client, new LangProvider(packOutput, new zh_tw()));
     }
 }
