@@ -2,10 +2,10 @@
   "modules": [
     {
       "type": "tconstruct:material_stats",
-      "primary_part": 0,
+      "primary_part": 1,
       "stat_types": [
-        "tconstruct:plating_helmet",
-        "extended_tinker:dragonarmor_lightning"
+        "extended_tinker:dragonarmor_lightning",
+        "tconstruct:plating_helmet"
       ]
     },
     {
@@ -24,10 +24,10 @@
     {
       "type": "tconstruct:multiply_stats",
       "multipliers": {
-        "tconstruct:armor": 2.5,
-        "tconstruct:armor_toughness": 1.75,
-        "tconstruct:durability": 5.0,
-        "tconstruct:knockback_resistance": 1.5
+        "tconstruct:armor": 5.0,
+        "tconstruct:armor_toughness": 2.75,
+        "tconstruct:durability": 7.5,
+        "tconstruct:knockback_resistance": 7.0
       }
     },
     {

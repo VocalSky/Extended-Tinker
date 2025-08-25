@@ -6,7 +6,9 @@
   "refmap": "extended_tinker.refmap.json",
   "mixins": [
     "common.HorseMixin",
-    "golem.EquipmentsMenuMixin"
+    "golem.EquipmentsMenuMixin",
+    "golem.MetalGolemEntityMixin",
+    "iaf.DragonBaseMixin"
   ],
   "client": [
     "common.HorseArmorLayerMixin",

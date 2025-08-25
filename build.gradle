@@ -140,6 +140,7 @@ repositories {
 
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
+    mavenLocal()
     flatDir {
         dirs 'libs'
     }
@@ -192,6 +193,8 @@ dependencies {
     // minecraft
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
+
     // mixin
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixin_extras_version}"))
@@ -205,6 +208,10 @@ dependencies {
     implementation fg.deobf("curse.maven:modulargolems-690937:${mg_file}")
     implementation fg.deobf("curse.maven:l2library-620203:${l2_file}")
     compileOnly fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+//    implementation fg.deobf(jarJar("dev.xkmc.mob_weapon_api:getItemBmob_weapon_api:0.2.3")) {
+//        transitive = false
+//        jarJar.ranged(it, "[0.1.10,)")
+//    }
 
     // iaf
     implementation fg.deobf("curse.maven:citadel-331936:${citadel_file}")
