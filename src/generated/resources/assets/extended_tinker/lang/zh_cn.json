@@ -41,6 +41,7 @@
   "item.extended_tinker.leggings_golem_plating_sand_cast": "傀儡护腿镶板沙子铸模",
   "itemGroup.extended_tinker.common_items": "匠魂扩张 | 常规物品",
   "itemGroup.extended_tinker.golem_items": "匠魂扩张 | 傀儡物品",
+  "itemGroup.extended_tinker.iaf_items": "匠魂扩张 | 冰火传说物品",
   "material.extended_tinker.dragon_armor_copper": "赤铜",
   "material.extended_tinker.dragon_armor_diamond": "钻石",
   "material.extended_tinker.dragon_armor_fire": "炎钢",
@@ -76,6 +77,5 @@
   "stat.extended_tinker.plating_body": "躯体镶板",
   "stat.extended_tinker.plating_head": "头部镶板",
   "stat.extended_tinker.plating_neck": "脖颈镶板",
-  "stat.extended_tinker.plating_tail": "尾部镶板",
-  "itemGroup.extended_tinker.iaf_items": "Extended Tinker | Iaf Items"
+  "stat.extended_tinker.plating_tail": "尾部镶板"
 }

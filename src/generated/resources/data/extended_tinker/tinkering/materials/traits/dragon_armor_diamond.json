@@ -4,6 +4,10 @@
       {
         "level": 1,
         "name": "tconstruct:diamond"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:boundless"
       }
     ]
   }

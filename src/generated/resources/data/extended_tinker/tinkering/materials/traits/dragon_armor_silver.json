@@ -3,6 +3,10 @@
     "extended_tinker:dragonarmor_silver": [
       {
         "level": 1,
+        "name": "tconstruct:frostshield"
+      },
+      {
+        "level": 1,
         "name": "tconstruct:consecrated"
       }
     ]
