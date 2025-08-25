@@ -16,7 +16,9 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
 
     @Override
     protected void addMaterialTraits() {
-        addTraits(MaterialIds.gold, DragonArmorMaterialStats.GOLD.getId(), TinkerModifiers.golden.getId(), ModifierIds.magicProtection);
+        addTraits(IafMaterials.iron, DragonArmorMaterialStats.IRON.getId(), TinkerModifiers.magnetic.getId(), ModifierIds.projectileProtection);
+        addTraits(IafMaterials.copper, DragonArmorMaterialStats.COPPER.getId(), TinkerModifiers.dwarven.getId(), ModifierIds.depthProtection);
+        addTraits(IafMaterials.gold, DragonArmorMaterialStats.GOLD.getId(), TinkerModifiers.golden.getId(), ModifierIds.magicProtection);
         addTraits(IafMaterials.silver, DragonArmorMaterialStats.SILVER.getId(), ModifierIds.consecrated);
         addTraits(IafMaterials.diamond, DragonArmorMaterialStats.DIAMOND.getId(), ModifierIds.diamond);
         addTraits(IafMaterials.fire, DragonArmorMaterialStats.FIRE.getId(), ModifierIds.dragonborn, ModifierIds.fireProtection);

@@ -33,9 +33,9 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
     }
 
     private void addArmor() {
-        addMaterialStats(MaterialIds.iron, DragonArmorMaterialStats.IRON);
-        addMaterialStats(MaterialIds.copper, DragonArmorMaterialStats.COPPER);
-        addMaterialStats(MaterialIds.gold, DragonArmorMaterialStats.GOLD);
+        addMaterialStats(IafMaterials.iron, DragonArmorMaterialStats.IRON);
+        addMaterialStats(IafMaterials.copper, DragonArmorMaterialStats.COPPER);
+        addMaterialStats(IafMaterials.gold, DragonArmorMaterialStats.GOLD);
         addMaterialStats(IafMaterials.silver, DragonArmorMaterialStats.SILVER);
         addMaterialStats(IafMaterials.diamond, DragonArmorMaterialStats.DIAMOND);
         addMaterialStats(IafMaterials.fire, DragonArmorMaterialStats.FIRE);

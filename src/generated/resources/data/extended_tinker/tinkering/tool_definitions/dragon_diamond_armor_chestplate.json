@@ -2,10 +2,10 @@
   "modules": [
     {
       "type": "tconstruct:material_stats",
-      "primary_part": 1,
+      "primary_part": 0,
       "stat_types": [
-        "extended_tinker:dragonarmor_diamond",
-        "tconstruct:plating_chestplate"
+        "tconstruct:plating_chestplate",
+        "extended_tinker:dragonarmor_diamond"
       ]
     },
     {

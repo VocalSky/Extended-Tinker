@@ -11,7 +11,10 @@ public class IafMaterials {
         return new MaterialId(Extended_tinker.MODID, name);
     }
 
+    public static final MaterialId iron = id("dragon_armor_iron");
+    public static final MaterialId copper = id("dragon_armor_copper");
     public static final MaterialId silver = id("dragon_armor_silver");
+    public static final MaterialId gold = id("dragon_armor_gold");
     public static final MaterialId diamond = id("dragon_armor_diamond");
     public static final MaterialId fire = id("dragon_armor_fire");
     public static final MaterialId ice = id("dragon_armor_ice");
