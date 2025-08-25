@@ -1,0 +1,14 @@
+{
+  "perStat": {
+    "extended_tinker:dragonarmor_iron": [
+      {
+        "level": 1,
+        "name": "tconstruct:magnetic"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:projectile_protection"
+      }
+    ]
+  }
+}
