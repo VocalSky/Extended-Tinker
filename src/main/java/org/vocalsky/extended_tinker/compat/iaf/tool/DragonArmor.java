@@ -74,7 +74,7 @@ import java.util.function.Consumer;
 import java.util.regex.Matcher;
 
 public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
-    protected static final EnumMap<EquipmentSlot, UUID> UUID = new EnumMap<>(EquipmentSlot.class);
+    public static final EnumMap<EquipmentSlot, UUID> UUID = new EnumMap<>(EquipmentSlot.class);
 
     static {
         for(EquipmentSlot slot : EquipmentSlot.values()) {

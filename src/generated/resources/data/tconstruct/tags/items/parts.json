@@ -19,6 +19,134 @@
     {
       "id": "extended_tinker:boots_golem_plating",
       "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_iron_core_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_iron_core_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_iron_core_neck",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_iron_core_tail",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_gold_core_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_gold_core_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_gold_core_neck",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_gold_core_tail",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_diamond_core_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_diamond_core_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_diamond_core_neck",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_diamond_core_tail",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_silver_core_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_silver_core_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_silver_core_neck",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_silver_core_tail",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_fire_core_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_fire_core_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_fire_core_neck",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_fire_core_tail",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_ice_core_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_ice_core_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_ice_core_neck",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_ice_core_tail",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_copper_core_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_copper_core_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_copper_core_neck",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_copper_core_tail",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_lightning_core_head",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_lightning_core_body",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_lightning_core_neck",
+      "required": false
+    },
+    {
+      "id": "extended_tinker:dragon_armor_dragonsteel_lightning_core_tail",
+      "required": false
     }
   ]
 }

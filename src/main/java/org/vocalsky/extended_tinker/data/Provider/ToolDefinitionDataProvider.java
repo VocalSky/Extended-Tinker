@@ -10,7 +10,9 @@ import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.ModToolDefinitions;
 import org.vocalsky.extended_tinker.compat.golem.GolemItems;
 import org.vocalsky.extended_tinker.compat.golem.GolemToolDefinitions;
+import org.vocalsky.extended_tinker.compat.iaf.IafItems;
 import org.vocalsky.extended_tinker.compat.iaf.IafToolDefinitions;
+import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
 import slimeknights.tconstruct.library.materials.RandomMaterial;
@@ -21,11 +23,14 @@ import slimeknights.tconstruct.library.tools.definition.module.build.ToolTraitsM
 import slimeknights.tconstruct.library.tools.definition.module.material.DefaultMaterialsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.MaterialStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.PartStatsModule;
+import slimeknights.tconstruct.library.tools.definition.module.material.PartsModule;
 import slimeknights.tconstruct.library.tools.nbt.MultiplierNBT;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
+
+import java.util.List;
 
 public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvider {
     RandomMaterial tier1Material = RandomMaterial.random().tier(1).build();
@@ -66,12 +71,13 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).set(ToolStats.ARMOR, 2.0f).set(ToolStats.ARMOR_TOUGHNESS, 1.5f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.5f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
 
-        for (ItemDragonArmor.DragonArmorType type : ItemDragonArmor.DragonArmorType.values())
-            defineArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL.get(type))
+        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
+            defineArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL.get(armorType))
             .module(slots -> MaterialStatsModule.stats()
-                    .stat(DragonArmorMaterialStats.stats.get(type).getIdentifier())
+                    .stat(DragonArmorMaterialStats.stats.get(armorType).getIdentifier())
                     .stat(PlatingMaterialStats.TYPES.get(slots.ordinal()).getId())
                     .primaryPart(1).build())
+            .module(slots -> new PartsModule(List.of(IafItems.Parts.DRAGON_ARMOR_CORE.get(armorType).get(DragonArmor.Type.values()[slots.ordinal()]))))
             .module(DefaultMaterialsModule.builder().material(MaterialIds.cobalt).material(MaterialIds.ancientHide).build())
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 7.5f).set(ToolStats.ARMOR, 5.0f).set(ToolStats.ARMOR_TOUGHNESS, 2.75f).set(ToolStats.KNOCKBACK_RESISTANCE, 7.0f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());

@@ -9,6 +9,12 @@
       ]
     },
     {
+      "type": "tconstruct:tool_parts",
+      "parts": [
+        "extended_tinker:dragon_armor_copper_core_head"
+      ]
+    },
+    {
       "type": "tconstruct:default_materials",
       "materials": [
         {

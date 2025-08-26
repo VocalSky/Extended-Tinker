@@ -60,14 +60,16 @@ public class ItemTagProvider extends ItemTagsProvider {
         });
 
         // iaf
-        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
+        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values()) {
             IafItems.Tools.DRAGON_ARMOR.get(armorType).forEach((type, item) -> {
-                for (TagKey<Item> tag : armorTags) {
-                    this.tag(tag).addOptional(LocExtractor.apply(item));
-                }
+                for (TagKey<Item> tag : armorTags) this.tag(tag).addOptional(LocExtractor.apply(item));
                 this.tag(getArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
                 this.tag(getForgeArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
             });
+            IafItems.Parts.DRAGON_ARMOR_CORE.get(armorType).forEach((type, item) -> {
+                this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));
+            });
+        }
     }
 
     private void addSmeltry() {

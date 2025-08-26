@@ -69,6 +69,11 @@ public class IafItems {
 
         private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
             Consumer<ItemStack> output = tab::accept;
+            DRAGON_ARMOR_CORE.forEach((armorType, enumItem) -> {
+                enumItem.forEach(((type, toolPartItem) -> {
+                    toolPartItem.addVariants(output, "");
+                }));
+            });
         }
 
         private static void accept(Consumer<ItemStack> output, Supplier<? extends IMaterialItem> item) {
@@ -76,10 +81,10 @@ public class IafItems {
         }
 
         private static final Item.Properties PART_PROP = CommonItem;
-        public static final EnumMap<ItemDragonArmor.DragonArmorType, EnumObject<ArmorItem.Type, ToolPartItem>> DRAGON_ARMOR_PLATING = new EnumMap<>(ItemDragonArmor.DragonArmorType.class);
+        public static final EnumMap<ItemDragonArmor.DragonArmorType, EnumObject<DragonArmor.Type, ToolPartItem>> DRAGON_ARMOR_CORE = new EnumMap<>(ItemDragonArmor.DragonArmorType.class);
         static {
             for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-                DRAGON_ARMOR_PLATING.put(armorType, ITEMS.registerEnum("dragon_plating_armor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase(), ArmorItem.Type.values(), type -> new ToolPartItem(PART_PROP, PlatingMaterialStats.TYPES.get(type.ordinal()).getId())));
+                DRAGON_ARMOR_CORE.put(armorType, ITEMS.registerEnum("dragon_armor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase() + "_core", DragonArmor.Type.values(), type -> new ToolPartItem(PART_PROP, DragonArmorMaterialStats.stats.get(armorType).getIdentifier())));
         }
     }
 

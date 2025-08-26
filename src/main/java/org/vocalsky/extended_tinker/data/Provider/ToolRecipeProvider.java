@@ -19,6 +19,7 @@ import org.vocalsky.extended_tinker.compat.iaf.IafItems;
 import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
 import slimeknights.mantle.recipe.helper.ItemOutput;
+import slimeknights.mantle.recipe.helper.TypeAwareRecipeSerializer;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
@@ -68,36 +69,27 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
         // iaf
         for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
             for (DragonArmor.Type type : DragonArmor.Type.values()) {
-                String name = "DRAGONARMOR_" + DragonArmor.fullNameOfArmorType(armorType) + "_" + type.getOrder();
-                Field field;
-                try {
-                    field = IafItemRegistry.class.getDeclaredField(name);
-                } catch (NoSuchFieldException e) {
-                    throw new RuntimeException(e);
-                }
-                field.setAccessible(true);
-                Object item;
-                try {
-                    item = field.get(null);
-                } catch (IllegalAccessException e) {
-                    throw new RuntimeException(e);
-                }
-                RegistryObject<ItemDragonArmor> reg = (RegistryObject<ItemDragonArmor>) item;
-//                addDragonArmorRecipe(consumer, IafMaterials.copper, reg.get().asItem(), armorFolder);
-//                MaterialCastingRecipeBuilder.tableRecipe(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type)).
-//                setCast(MaterialIngredient.of(reg.get()), true).
-//                setItemCost(9).
-//                save(consumer, this.location(armorFolder + "dragonarmor_" + armorType.name().toLowerCase() + "_" + type.getName()));
+//                String name = "DRAGONARMOR_" + DragonArmor.fullNameOfArmorType(armorType) + "_" + type.getOrder();
+//                Field field;
+//                try {
+//                    field = IafItemRegistry.class.getDeclaredField(name);
+//                } catch (NoSuchFieldException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                field.setAccessible(true);
+//                Object item;
+//                try {
+//                    item = field.get(null);
+//                } catch (IllegalAccessException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                RegistryObject<ItemDragonArmor> reg = (RegistryObject<ItemDragonArmor>) item;
+                MaterialCastingRecipeBuilder.tableRecipe(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type)).
+                setCast(MaterialIngredient.of(IafItems.Parts.DRAGON_ARMOR_CORE.get(armorType).get(type)), true).
+                setItemCost(9).
+                save(consumer, this.location(armorFolder + "dragonarmor_" + armorType.name().toLowerCase() + "_" + type.getName()));
             }
     }
-
-//    private void addDragonArmorRecipe(Consumer<FinishedRecipe> consumer, MaterialId material, ItemLike armor, String folder) {
-//        MaterialIdNBT nbt = new MaterialIdNBT(Collections.singletonList(material));
-//        ItemCastingRecipeBuilder.basinRecipe(ItemOutput.fromStack(nbt.updateStack(new ItemStack(TinkerTools.slimesuit.get(ArmorItem.Type.HELMET)))))
-//        .setCast(armor, true)
-//        .setFluidAndTime(TinkerFluids.enderSlime, FluidValues.SLIME_CONGEALED * 5)
-//        .save(consumer, location(folder + "slime_skull/" + material.getPath()));
-//    }
 
     private void addToolPartRecipes(Consumer<FinishedRecipe> consumer) {
         String partFolder = "tools/parts/";

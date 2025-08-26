@@ -9,6 +9,12 @@
       ]
     },
     {
+      "type": "tconstruct:tool_parts",
+      "parts": [
+        "extended_tinker:dragon_armor_silver_core_tail"
+      ]
+    },
+    {
       "type": "tconstruct:default_materials",
       "materials": [
         {

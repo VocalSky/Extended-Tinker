@@ -55,9 +55,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
             for (DragonArmor.Type type : DragonArmor.Type.values()) {
-                String texture = "dragonarmor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase() + "_" + type.getName();
+                String texture = "dragon_armor/dragonarmor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase() + "_" + type.getName();
                 basicItem(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type).asItem(), texture);
-//                generated(id(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type).asItem()), new ResourceLocation(IceAndFire.MODID, "item/" + texture));
+                basicItem(IafItems.Parts.DRAGON_ARMOR_CORE.get(armorType).get(type).asItem(), texture);
             }
     }
 

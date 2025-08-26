@@ -8,7 +8,7 @@
     "common.HorseMixin",
     "golem.EquipmentsMenuMixin",
     "golem.MetalGolemEntityMixin",
-    "iaf.DragonBaseMixin"
+    "iaf.EntityDragonBaseMixin"
   ],
   "client": [
     "common.HorseArmorLayerMixin",

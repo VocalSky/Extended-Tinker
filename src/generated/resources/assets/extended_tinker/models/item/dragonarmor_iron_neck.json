@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "extended_tinker:item/dragonarmor_iron_neck"
+    "layer0": "extended_tinker:item/dragon_armor/dragonarmor_iron_neck"
   }
 }
