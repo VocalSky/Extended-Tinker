@@ -175,8 +175,6 @@ public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
 
         this.defaultModifiers = builder.build();
         this.toolDefinition = toolDefinition;
-//        System.out.println("SDKJSNDJOIS");
-//        System.out.println(super.getDescriptionId());
     }
 
     public DragonArmor(DragonArmorType base, ModifiableArmorMaterial material, Type type, Properties properties) {

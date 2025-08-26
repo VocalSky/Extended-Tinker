@@ -45,6 +45,7 @@ public abstract class HorseMixin extends AbstractHorse {
 
     @Inject(method = "setArmorEquipment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/horse/Horse;isArmor(Lnet/minecraft/world/item/ItemStack;)Z", shift = At.Shift.BY, by = 1))
     public void setArmorEquipmentMixin(@NotNull ItemStack itemStack, CallbackInfo ci) {
+        if (this.level().isClientSide()) return;
         if (itemStack.getItem() instanceof HorseArmor) {
             Multimap<Attribute, AttributeModifier> builder = itemStack.getItem().getAttributeModifiers(EquipmentSlot.CHEST, itemStack);
             builder.forEach(((attribute, attributeModifier) -> {

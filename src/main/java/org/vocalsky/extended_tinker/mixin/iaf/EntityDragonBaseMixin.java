@@ -30,7 +30,7 @@ import java.util.Objects;
 @Mixin(EntityDragonBase.class)
 public abstract class EntityDragonBaseMixin extends TamableAnimal implements IPassabilityNavigator, ISyncMount, IFlyingMount, IMultipartEntity, IAnimatedEntity, IDragonFlute, IDeadMob, IVillagerFear, IAnimalFear, IDropArmor, IHasCustomizableAttributes, ICustomSizeNavigator, ICustomMoveController, ContainerListener {
     @Shadow
-    public abstract @NotNull ItemStack getItemBySlot(EquipmentSlot slotIn);
+    public abstract @NotNull ItemStack getItemBySlot(@NotNull EquipmentSlot slotIn);
 
     protected EntityDragonBaseMixin(EntityType<? extends TamableAnimal> p_21803_, Level p_21804_) {
         super(p_21803_, p_21804_);
@@ -58,13 +58,10 @@ public abstract class EntityDragonBaseMixin extends TamableAnimal implements IPa
     @Unique
     private void
     eT$updateTinkerAttributes(EquipmentSlot slot) {
+        if (this.level().isClientSide()) return;
         ItemStack itemStack = this.getItemBySlot(slot);
-        System.out.println("ET_UPDATING");
-        System.out.println(slot);
-        System.out.println(itemStack);
         if (!itemStack.isEmpty() && itemStack.getItem() instanceof DragonArmor) {
             Multimap<Attribute, AttributeModifier> builder = itemStack.getItem().getAttributeModifiers(slot, itemStack);
-            System.out.println(builder);
             builder.forEach(((attribute, attributeModifier) -> {
                 Objects.requireNonNull(this.getAttribute(attribute)).removeModifier(DragonArmor.UUID.get(slot));
                 Objects.requireNonNull(this.getAttribute(attribute)).addTransientModifier(attributeModifier);

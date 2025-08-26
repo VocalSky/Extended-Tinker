@@ -69,26 +69,28 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
         // iaf
         for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
             for (DragonArmor.Type type : DragonArmor.Type.values()) {
-//                String name = "DRAGONARMOR_" + DragonArmor.fullNameOfArmorType(armorType) + "_" + type.getOrder();
-//                Field field;
-//                try {
-//                    field = IafItemRegistry.class.getDeclaredField(name);
-//                } catch (NoSuchFieldException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                field.setAccessible(true);
-//                Object item;
-//                try {
-//                    item = field.get(null);
-//                } catch (IllegalAccessException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                RegistryObject<ItemDragonArmor> reg = (RegistryObject<ItemDragonArmor>) item;
                 MaterialCastingRecipeBuilder.tableRecipe(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type)).
                 setCast(MaterialIngredient.of(IafItems.Parts.DRAGON_ARMOR_CORE.get(armorType).get(type)), true).
                 setItemCost(9).
                 save(consumer, this.location(armorFolder + "dragonarmor_" + armorType.name().toLowerCase() + "_" + type.getName()));
             }
+    }
+
+    private <T, U> T getReflection(String name, Class<U> obj) {
+        Field field;
+        try {
+            field = obj.getDeclaredField(name);
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        field.setAccessible(true);
+        Object target;
+        try {
+            target = field.get(null);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+        return (T) target;
     }
 
     private void addToolPartRecipes(Consumer<FinishedRecipe> consumer) {
@@ -102,6 +104,12 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
             if (slot == ArmorItem.Type.BOOTS) return;
             partWithDummy(consumer, GolemItems.Parts.GOLEM_PLATING.get(slot), GolemItems.Parts.DUMMY_GOLEM_PLATING.get(slot), GolemItems.Casts.GOLEM_PLATING_CAST.get(slot), golem_plating_cost[slot.ordinal()] * 8, partFolder, castFolder);
         });
+
+        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
+            for (DragonArmor.Type type : DragonArmor.Type.values()) {
+                RegistryObject<ItemDragonArmor> reg = getReflection("DRAGONARMOR_" + DragonArmor.fullNameOfArmorType(armorType) + "_" + type.getOrder(), IafItemRegistry.class);
+                ;
+            }
     }
 
     @Override

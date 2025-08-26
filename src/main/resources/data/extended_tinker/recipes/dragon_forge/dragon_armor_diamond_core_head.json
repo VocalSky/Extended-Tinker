@@ -1,0 +1,19 @@
+{
+  "type": "iceandfire:dragonforge",
+  "dragon_type": "fire",
+  "cook_time": 1000,
+  "input": {
+    "item": "iceandfire:dragonarmor_diamond_head"
+  },
+  "blood": {
+    "item": "minecraft:dragon_breath"
+  },
+  "result": {
+    "item": "extended_tinker:dragon_armor_diamond_core_head",
+    "nbt": {
+      "tic_materials": [
+        "extended_tinker:diamond"
+      ]
+    }
+  }
+}
