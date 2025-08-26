@@ -105,11 +105,11 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
             partWithDummy(consumer, GolemItems.Parts.GOLEM_PLATING.get(slot), GolemItems.Parts.DUMMY_GOLEM_PLATING.get(slot), GolemItems.Casts.GOLEM_PLATING_CAST.get(slot), golem_plating_cost[slot.ordinal()] * 8, partFolder, castFolder);
         });
 
-        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-            for (DragonArmor.Type type : DragonArmor.Type.values()) {
-                RegistryObject<ItemDragonArmor> reg = getReflection("DRAGONARMOR_" + DragonArmor.fullNameOfArmorType(armorType) + "_" + type.getOrder(), IafItemRegistry.class);
-                ;
-            }
+//        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
+//            for (DragonArmor.Type type : DragonArmor.Type.values()) {
+//                RegistryObject<ItemDragonArmor> reg = getReflection("DRAGONARMOR_" + DragonArmor.fullNameOfArmorType(armorType) + "_" + type.getOrder(), IafItemRegistry.class);
+//                ;
+//            }
     }
 
     @Override

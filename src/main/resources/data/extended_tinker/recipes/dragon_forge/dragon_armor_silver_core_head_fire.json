@@ -1,0 +1,17 @@
+{
+  "type": "iceandfire:dragonforge",
+  "dragon_type": "fire",
+  "cook_time": 2024,
+  "input": {
+    "item": "iceandfire:dragonarmor_silver_head"
+  },
+  "blood": {
+    "item": "minecraft:dragon_breath"
+  },
+  "result": {
+    "item": "extended_tinker:dragon_armor_silver_core_head",
+    "nbt": {
+      "Material": "extended_tinker:dragon_armor_silver"
+    }
+  }
+}

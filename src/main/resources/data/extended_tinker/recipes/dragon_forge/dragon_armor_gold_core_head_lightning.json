@@ -1,0 +1,17 @@
+{
+  "type": "iceandfire:dragonforge",
+  "dragon_type": "lightning",
+  "cook_time": 2024,
+  "input": {
+    "item": "iceandfire:dragonarmor_gold_head"
+  },
+  "blood": {
+    "item": "minecraft:dragon_breath"
+  },
+  "result": {
+    "item": "extended_tinker:dragon_armor_gold_core_head",
+    "nbt": {
+      "Material": "extended_tinker:dragon_armor_gold"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "iceandfire:dragonforge",
+  "dragon_type": "fire",
+  "cook_time": 2024,
+  "input": {
+    "item": "iceandfire:dragonarmor_diamond_tail"
+  },
+  "blood": {
+    "item": "minecraft:dragon_breath"
+  },
+  "result": {
+    "item": "extended_tinker:dragon_armor_diamond_core_tail",
+    "nbt": {
+      "Material": "extended_tinker:dragon_armor_diamond"
+    }
+  }
+}
