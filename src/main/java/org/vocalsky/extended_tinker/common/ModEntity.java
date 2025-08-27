@@ -16,7 +16,7 @@ public class ModEntity {
 
     static {
         ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Extended_tinker.MODID);
-        firecrackEntity = ENTITY_TYPES.register("firecrack", () -> EntityType.Builder.<FirecrackEntity>of((entityType, level) -> new FirecrackEntity(entityType, level, new ItemStack(ModItems.Tools.FIRECRACK.get())), MobCategory.MISC).sized(0.25F, 0.25F).setTrackingRange(4).setUpdateInterval(10).setCustomClientFactory((spawnEntity, world) -> new FirecrackEntity(firecrackEntity.get(), world, new ItemStack(ModItems.Tools.FIRECRACK.get()))).setShouldReceiveVelocityUpdates(true).build(Extended_tinker.getResource("firecrack").toString()));
+        firecrackEntity = ENTITY_TYPES.register("firecrack", () -> EntityType.Builder.<FirecrackEntity>of((entityType, level) -> new FirecrackEntity(entityType, level, new ItemStack(ModCore.Tools.FIRECRACK.get())), MobCategory.MISC).sized(0.25F, 0.25F).setTrackingRange(4).setUpdateInterval(10).setCustomClientFactory((spawnEntity, world) -> new FirecrackEntity(firecrackEntity.get(), world, new ItemStack(ModCore.Tools.FIRECRACK.get()))).setShouldReceiveVelocityUpdates(true).build(Extended_tinker.getResource("firecrack").toString()));
     }
 
     public static void registers(IEventBus eventBus)  {

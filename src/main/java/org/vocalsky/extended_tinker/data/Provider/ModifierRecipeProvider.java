@@ -9,7 +9,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModItems;
+import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
@@ -46,7 +46,7 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .addInput(Items.ARMOR_STAND)
             .addInput(Items.GOLDEN_APPLE)
             .setSlots(SlotType.ABILITY, 1)
-            .setTools(Ingredient.of(ModItems.Tools.HORSE_ARMOR))
+            .setTools(Ingredient.of(ModCore.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
             .disallowCrystal()
             .saveSalvage(consumer, prefix(ModModifiers.ASONE.getId(), abilitySalvage))
@@ -58,7 +58,7 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .addInput(Items.LEAD)
             .addInput(ItemTags.MUSIC_DISCS)
             .setSlots(SlotType.ABILITY, 1)
-            .setTools(Ingredient.of(ModItems.Tools.HORSE_ARMOR))
+            .setTools(Ingredient.of(ModCore.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
             .disallowCrystal()
             .saveSalvage(consumer, prefix(ModModifiers.PAINLESS.getId(), abilitySalvage))
@@ -71,12 +71,12 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .addInput(Items.PAPER, 4)
             .setMaxLevel(5)
             .setSlots(SlotType.UPGRADE, 1)
-            .setTools(Ingredient.of(ModItems.Tools.FIRECRACK))
+            .setTools(Ingredient.of(ModCore.Tools.FIRECRACK))
             .disallowCrystal()
             .saveSalvage(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeSalvage))
             .save(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeFolder));
-        consumer.accept(new FirecrackStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firecrack_star"), Ingredient.of(ModItems.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
-        consumer.accept(new FirecrackStarModifierRecipe.FinishedSalvage(Extended_tinker.getResource(abilitySalvage + "firecrack_star"), Ingredient.of(ModItems.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
+        consumer.accept(new FirecrackStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firecrack_star"), Ingredient.of(ModCore.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
+        consumer.accept(new FirecrackStarModifierRecipe.FinishedSalvage(Extended_tinker.getResource(abilitySalvage + "firecrack_star"), Ingredient.of(ModCore.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
     }
 
     @Override

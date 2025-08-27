@@ -3,7 +3,6 @@ package org.vocalsky.extended_tinker.common.recipe;
 import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -17,7 +16,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.vocalsky.extended_tinker.common.ModItems;
+import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.modifier.Firecrack.FirecrackStarModifier;
 import slimeknights.mantle.data.loadable.field.ContextKey;
@@ -77,7 +76,7 @@ public class FirecrackStarModifierRecipe implements ITinkerStationRecipe, IDispl
             return false;
         ToolStack tool = inv.getTinkerable();
         ItemStack stack = inv.getTinkerableStack();
-        if (!stack.isEmpty() && stack.is(ModItems.Tools.FIRECRACK.get())) {
+        if (!stack.isEmpty() && stack.is(ModCore.Tools.FIRECRACK.get())) {
             if (tool.getFreeSlots(SlotType.ABILITY) == 0) {
                 return false;
             } else if (tool.getModifierLevel(ModModifiers.STAR.getId()) != 0) {

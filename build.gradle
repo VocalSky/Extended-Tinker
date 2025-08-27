@@ -209,6 +209,9 @@ dependencies {
     implementation fg.deobf("curse.maven:mantle-74924:${mantle_file}")
     implementation fg.deobf("curse.maven:tinkers-construct-74072:${tcon_file}")
 
+    //domain
+    implementation fg.deobf("curse.maven:tcondiadema-1218668:${domain_file}")
+
     // mg
     implementation fg.deobf("curse.maven:modulargolems-690937:${mg_file}")
     implementation fg.deobf("curse.maven:l2library-620203:${l2_file}")

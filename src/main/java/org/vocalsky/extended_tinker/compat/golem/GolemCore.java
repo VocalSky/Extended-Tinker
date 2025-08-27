@@ -7,7 +7,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModItems;
 import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmor;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
@@ -16,28 +15,24 @@ import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
-import slimeknights.tconstruct.library.tools.item.armor.ModifiableArmorItem;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
-import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.smeltery.item.DummyMaterialItem;
 import slimeknights.tconstruct.tables.TinkerTables;
-import slimeknights.tconstruct.tools.ArmorDefinitions;
-import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class GolemItems {
+public class GolemCore {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
     public static final RegistryObject<CreativeModeTab> GolemTab = CREATIVE_TABS.register(
     "golem", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "golem_items"))
                                         .icon(() -> Tools.GOLEM_ARMOR.get(ArmorItem.Type.HELMET).getRenderTool())
-                                        .displayItems(GolemItems::addTabItems)
+                                        .displayItems(GolemCore::addTabItems)
                                         .withTabsBefore(TinkerTables.tabTables.getId())
                                         .withSearchBar()
                                         .build());

@@ -13,8 +13,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.vocalsky.extended_tinker.common.*;
-import org.vocalsky.extended_tinker.compat.golem.GolemItems;
-import org.vocalsky.extended_tinker.compat.iaf.IafItems;
+import org.vocalsky.extended_tinker.compat.golem.GolemCore;
+import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.network.PacketHandler;
 import slimeknights.tconstruct.library.utils.Util;
@@ -31,11 +31,11 @@ public class Extended_tinker {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModModifiers.registers(modEventBus);
-        ModItems.registers(modEventBus);
+        ModCore.registers(modEventBus);
         ModEntity.registers(modEventBus);
 
-        GolemItems.registers(modEventBus);
-        IafItems.registers(modEventBus);
+        GolemCore.registers(modEventBus);
+        IafCore.registers(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

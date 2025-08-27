@@ -5,12 +5,12 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ArmorItem;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModItems;
+import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.ModToolDefinitions;
-import org.vocalsky.extended_tinker.compat.golem.GolemItems;
+import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.compat.golem.GolemToolDefinitions;
-import org.vocalsky.extended_tinker.compat.iaf.IafItems;
+import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafToolDefinitions;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
@@ -54,14 +54,14 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
             .module(ToolSlotsModule.builder().slots(SlotType.UPGRADE, 3).slots(SlotType.ABILITY, 3).build());
 
         defineArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL)
-            .module(PartStatsModule.parts().part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(ModItems.Parts.BRIDLE).build())
+            .module(PartStatsModule.parts().part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(ModCore.Parts.BRIDLE).build())
             .module(DefaultMaterialsModule.builder().material(MaterialIds.cobalt).material(MaterialIds.ancientHide).build())
             .module(ArmorItem.Type.CHESTPLATE, new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).set(ToolStats.ARMOR, 2.0f).set(ToolStats.ARMOR_TOUGHNESS, 1.5f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.25f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
 
         defineArmor(GolemToolDefinitions.GOLEM_ARMOR_MATERIAL)
             .modules(slots -> PartStatsModule.armor(slots)
-                    .part(GolemItems.Parts.GOLEM_PLATING, 1)
+                    .part(GolemCore.Parts.GOLEM_PLATING, 1)
                     .part(TinkerToolParts.maille, 1)
                     .part(TinkerToolParts.maille, 1)
                     .part(TinkerToolParts.shieldCore, 1)
@@ -77,7 +77,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
                     .stat(DragonArmorMaterialStats.stats.get(armorType).getIdentifier())
                     .stat(PlatingMaterialStats.TYPES.get(slots.ordinal()).getId())
                     .primaryPart(1).build())
-            .module(slots -> new PartsModule(List.of(IafItems.Parts.DRAGON_ARMOR_CORE.get(armorType).get(DragonArmor.Type.values()[slots.ordinal()]))))
+            .module(slots -> new PartsModule(List.of(IafCore.Parts.DRAGON_ARMOR_CORE.get(armorType).get(DragonArmor.Type.values()[slots.ordinal()]))))
             .module(DefaultMaterialsModule.builder().material(MaterialIds.cobalt).material(MaterialIds.ancientHide).build())
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 7.5f).set(ToolStats.ARMOR, 5.0f).set(ToolStats.ARMOR_TOUGHNESS, 2.75f).set(ToolStats.KNOCKBACK_RESISTANCE, 7.0f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());

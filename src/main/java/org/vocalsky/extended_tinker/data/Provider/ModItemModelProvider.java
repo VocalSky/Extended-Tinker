@@ -1,12 +1,8 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
 
-import com.github.alexthe666.iceandfire.IceAndFire;
-import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
@@ -17,17 +13,14 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModItems;
-import org.vocalsky.extended_tinker.compat.golem.GolemItems;
-import org.vocalsky.extended_tinker.compat.iaf.IafItems;
+import org.vocalsky.extended_tinker.common.ModCore;
+import org.vocalsky.extended_tinker.compat.golem.GolemCore;
+import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.data.model.MaterialModelBuilder;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.part.MaterialItem;
-import slimeknights.tconstruct.tools.TinkerToolParts;
-
-import static slimeknights.tconstruct.common.TinkerTags.Items.TOOL_PARTS;
 
 public class ModItemModelProvider extends ItemModelProvider {
     private final ModelFile.UncheckedModelFile GENERATED = new ModelFile.UncheckedModelFile("item/generated");
@@ -37,8 +30,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        part(ModItems.Parts.BRIDLE);
-        GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
+        part(ModCore.Parts.BRIDLE);
+        GolemCore.Parts.GOLEM_PLATING.forEach((slot, item) -> {
             if (slot == ArmorItem.Type.BOOTS) return;
             MaterialModelBuilder<ItemModelBuilder> b = this.part(item, "golem_armor/" + slot.getName() + "/" + slot.getName());
             if (slot == ArmorItem.Type.HELMET) {
@@ -48,16 +41,16 @@ public class ModItemModelProvider extends ItemModelProvider {
             }
         });
 
-        cast(ModItems.Casts.BRIDLE_CAST);
-        GolemItems.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
+        cast(ModCore.Casts.BRIDLE_CAST);
+        GolemCore.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
             cast(item);
         });
 
         for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
             for (DragonArmor.Type type : DragonArmor.Type.values()) {
                 String texture = "dragon_armor/dragonarmor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase() + "_" + type.getName();
-                basicItem(IafItems.Tools.DRAGON_ARMOR.get(armorType).get(type).asItem(), texture);
-                basicItem(IafItems.Parts.DRAGON_ARMOR_CORE.get(armorType).get(type).asItem(), texture);
+                basicItem(IafCore.Tools.DRAGON_ARMOR.get(armorType).get(type).asItem(), texture);
+                basicItem(IafCore.Parts.DRAGON_ARMOR_CORE.get(armorType).get(type).asItem(), texture);
             }
     }
 

@@ -8,9 +8,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModItems;
-import org.vocalsky.extended_tinker.compat.golem.GolemToolDefinitions;
-import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmor;
 //import org.vocalsky.extended_tinker.compat.iaf.materials.IafMaterialRegistry;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
@@ -19,30 +16,25 @@ import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
-import slimeknights.tconstruct.library.materials.IMaterialRegistry;
-import slimeknights.tconstruct.library.materials.MaterialRegistry;
-import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
-import slimeknights.tconstruct.smeltery.item.DummyMaterialItem;
 import slimeknights.tconstruct.tables.TinkerTables;
-import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import java.util.EnumMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class IafItems {
+public class IafCore {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
     public static final RegistryObject<CreativeModeTab> IafTab = CREATIVE_TABS.register(
     "iaf", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "iaf_items"))
                                         .icon(() -> Tools.DRAGON_ARMOR.get(ItemDragonArmor.DragonArmorType.FIRE).get(DragonArmor.Type.HEAD).getRenderTool())
-                                        .displayItems(IafItems::addTabItems)
+                                        .displayItems(IafCore::addTabItems)
                                         .withTabsBefore(TinkerTables.tabTables.getId())
                                         .withSearchBar()
                                         .build());
@@ -56,6 +48,7 @@ public class IafItems {
         Tools.init();
         ITEMS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
+        IafDiadema.DIADEMA_TYPES.register(eventBus);
     }
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {

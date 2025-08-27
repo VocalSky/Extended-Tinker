@@ -4,7 +4,6 @@ import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
@@ -15,17 +14,13 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.ModItems;
-import org.vocalsky.extended_tinker.compat.golem.GolemItems;
-import org.vocalsky.extended_tinker.compat.iaf.IafItems;
+import org.vocalsky.extended_tinker.common.ModCore;
+import org.vocalsky.extended_tinker.compat.golem.GolemCore;
+import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.registration.CastItemObject;
-import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -49,24 +44,24 @@ public class ItemTagProvider extends ItemTagsProvider {
         TagKey<Item>[] armorTags = new TagKey[]{BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR};
 
         // common
-        addToolTags(ModItems.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
-        addToolTags(ModItems.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
-        this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(ModItems.Parts.BRIDLE.get()));
+        addToolTags(ModCore.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
+        addToolTags(ModCore.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
+        this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(ModCore.Parts.BRIDLE.get()));
 
         // golems
-        addArmorTags(GolemItems.Tools.GOLEM_ARMOR, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
-        GolemItems.Parts.GOLEM_PLATING.forEach((slot, item) -> {
+        addArmorTags(GolemCore.Tools.GOLEM_ARMOR, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
+        GolemCore.Parts.GOLEM_PLATING.forEach((slot, item) -> {
             this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));
         });
 
         // iaf
         for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values()) {
-            IafItems.Tools.DRAGON_ARMOR.get(armorType).forEach((type, item) -> {
+            IafCore.Tools.DRAGON_ARMOR.get(armorType).forEach((type, item) -> {
                 for (TagKey<Item> tag : armorTags) this.tag(tag).addOptional(LocExtractor.apply(item));
                 this.tag(getArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
                 this.tag(getForgeArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
             });
-            IafItems.Parts.DRAGON_ARMOR_CORE.get(armorType).forEach((type, item) -> {
+            IafCore.Parts.DRAGON_ARMOR_CORE.get(armorType).forEach((type, item) -> {
                 this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));
             });
         }
@@ -98,18 +93,18 @@ public class ItemTagProvider extends ItemTagsProvider {
             this.tag(cast.getMultiUseTag()).addOptional(LocExtractor.apply(cast.get()));
 //            this.tag(cast.getMultiUseTag()).add(cast.get());
         };
-        addCast.accept(ModItems.Casts.BRIDLE_CAST);
+        addCast.accept(ModCore.Casts.BRIDLE_CAST);
 
-        GolemItems.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
+        GolemCore.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
             if (slot == ArmorItem.Type.BOOTS) return;
             addCast.accept(item);
         });
         this.tag(TinkerTags.Items.CHEST_PARTS).addOptionalTag(TinkerTags.Items.TOOL_PARTS.location());
-        for (Item item : GolemItems.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]))
+        for (Item item : GolemCore.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]))
             this.tag(TinkerTags.Items.CHEST_PARTS).addOptional(LocExtractor.apply(item));
-//        addCast.accept(GolemItems.Casts.HELMET_GOLEM_PLATING_CAST);
-//        addCast.accept(GolemItems.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
-//        addCast.accept(GolemItems.Casts.LEGGINGS_GOLEM_PLATING_CAST);
+//        addCast.accept(GolemCore.Casts.HELMET_GOLEM_PLATING_CAST);
+//        addCast.accept(GolemCore.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
+//        addCast.accept(GolemCore.Casts.LEGGINGS_GOLEM_PLATING_CAST);
     }
 
     @SafeVarargs

@@ -6,6 +6,8 @@ import slimeknights.tconstruct.library.materials.IMaterialRegistry;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 
+import static org.vocalsky.extended_tinker.compat.iaf.IafCore.Loadable;
+
 public class IafMaterials {
     private static MaterialId id(String name) {
         return new MaterialId(Extended_tinker.MODID, name);
@@ -21,6 +23,7 @@ public class IafMaterials {
     public static final MaterialId lightning = id("dragon_armor_lightning");
 
     static public void registry() {
+        if (!Loadable()) return;
         IMaterialRegistry registry = MaterialRegistry.getInstance();
         for (DragonArmorMaterialStats material : DragonArmorMaterialStats.values())
             registry.registerStatType(material.getType());
