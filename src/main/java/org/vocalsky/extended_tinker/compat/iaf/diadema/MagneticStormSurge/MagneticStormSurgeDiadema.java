@@ -21,7 +21,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.List;
 
 public class MagneticStormSurgeDiadema extends Diadema {
-    private static final double radius = 6;
+    private static final double radius = 16;
     private final SphereDiademaRange range = new SphereDiademaRange(this, radius);
 
     public MagneticStormSurgeDiadema(DiademaType type, DiademaMovement movement) {
@@ -36,7 +36,7 @@ public class MagneticStormSurgeDiadema extends Diadema {
     @Override
     protected void perTick() {
         var self = getCoreEntity();
-        if (!(self.tickCount % (6.6 * 20) == 0)) return;
+        if (!(self.tickCount % (5 * 20) == 0)) return;
 
         Vec3 pos = getPosition();
         ServerLevel level = getLevel();
@@ -50,9 +50,7 @@ public class MagneticStormSurgeDiadema extends Diadema {
                 lightningboltentity.getTags().add(ServerEvents.BOLT_DONT_DESTROY_LOOT);
                 lightningboltentity.getTags().add(self.getStringUUID());
                 lightningboltentity.moveTo(monster.position());
-                if (!monster.level().isClientSide) {
-                    monster.level().addFreshEntity(lightningboltentity);
-                }
+                if (!monster.level().isClientSide) monster.level().addFreshEntity(lightningboltentity);
             }
         }
     }

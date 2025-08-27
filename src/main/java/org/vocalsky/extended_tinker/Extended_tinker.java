@@ -26,19 +26,11 @@ public class Extended_tinker {
     public static final String MODID = "extended_tinker";
 
     public Extended_tinker() {
-//        MaterialRegistryImpl impl = new MaterialRegistryImpl();
-
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        ModModifiers.registers(modEventBus);
         ModCore.registers(modEventBus);
-        ModEntity.registers(modEventBus);
-
         GolemCore.registers(modEventBus);
         IafCore.registers(modEventBus);
-
         modEventBus.addListener(this::commonSetup);
-
         MinecraftForge.EVENT_BUS.register(this);
     }
 

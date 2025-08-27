@@ -47,6 +47,8 @@ public class ModCore {
         Tools.init();
         ITEMS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
+        ModEntity.registers(eventBus);
+        ModModifiers.registers(eventBus);
     }
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {

@@ -1,7 +1,5 @@
 package org.vocalsky.extended_tinker.compat.iaf;
 
-import com.csdy.tcondiadema.TconDiadema;
-import com.csdy.tcondiadema.diadema.warden.WardenDiadema;
 import com.csdy.tcondiadema.frames.CsdyRegistries;
 import com.csdy.tcondiadema.frames.diadema.DiademaType;
 import net.minecraftforge.registries.DeferredRegister;
