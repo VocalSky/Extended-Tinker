@@ -205,3 +205,4 @@
 /run/
 /src/generated/resources/.cache/
 /.idea/
+/.idea/modules/
