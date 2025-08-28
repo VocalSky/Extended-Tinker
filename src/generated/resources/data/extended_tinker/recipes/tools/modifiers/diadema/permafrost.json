@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "iceandfire:dragon_skull_ice"
+    },
+    {
+      "item": "iceandfire:ice_dragon_blood"
+    },
+    {
+      "item": "iceandfire:ice_dragon_heart"
+    }
+  ],
+  "level": 1,
+  "result": "extended_tinker:permafrost",
+  "slots": {
+    "diadema": 1
+  },
+  "tools": {
+    "tag": "extended_tinker:dragon_armor_ice"
+  }
+}

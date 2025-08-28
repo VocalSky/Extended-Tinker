@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "iceandfire:dragon_skull_lightning"
+    },
+    {
+      "item": "iceandfire:lightning_dragon_blood"
+    },
+    {
+      "item": "iceandfire:lightning_dragon_heart"
+    }
+  ],
+  "level": 1,
+  "result": "extended_tinker:magnetic_storm_surge",
+  "slots": {
+    "diadema": 1
+  },
+  "tools": {
+    "tag": "extended_tinker:dragon_armor_lightning"
+  }
+}

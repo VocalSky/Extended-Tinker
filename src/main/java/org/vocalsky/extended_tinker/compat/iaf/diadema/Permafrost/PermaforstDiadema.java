@@ -1,17 +1,15 @@
-package org.vocalsky.extended_tinker.compat.iaf.diadema.MagneticStormSurge;
+package org.vocalsky.extended_tinker.compat.iaf.diadema.Permafrost;
 
 import com.csdy.tcondiadema.diadema.api.ranges.SphereDiademaRange;
 import com.csdy.tcondiadema.frames.diadema.Diadema;
 import com.csdy.tcondiadema.frames.diadema.DiademaType;
 import com.csdy.tcondiadema.frames.diadema.movement.DiademaMovement;
 import com.csdy.tcondiadema.frames.diadema.range.DiademaRange;
-import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
-import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
-import com.github.alexthe666.iceandfire.event.ServerEvents;
+import com.github.alexthe666.iceandfire.entity.props.EntityDataProvider;
 import lombok.NonNull;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
@@ -20,11 +18,11 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-public class MagneticStormSurgeDiadema extends Diadema {
-    private static final double radius = 12;
+public class PermaforstDiadema extends Diadema {
+    private static final double radius = 10;
     private final SphereDiademaRange range = new SphereDiademaRange(this, radius);
 
-    public MagneticStormSurgeDiadema(DiademaType type, DiademaMovement movement) {
+    public PermaforstDiadema(DiademaType type, DiademaMovement movement) {
         super(type, movement);
     }
 
@@ -36,7 +34,7 @@ public class MagneticStormSurgeDiadema extends Diadema {
     @Override
     protected void perTick() {
         var self = getCoreEntity();
-        if (!(self.tickCount % (7 * 20) == 0)) return;
+        if (!(self.tickCount % (10 * 20) == 0)) return;
 
         Vec3 pos = getPosition();
         ServerLevel level = getLevel();
@@ -46,11 +44,9 @@ public class MagneticStormSurgeDiadema extends Diadema {
 
         for (Monster monster : listOfMonster(level, pos)) {
             if (!self.level().isClientSide) {
-                LightningBolt lightningboltentity = EntityType.LIGHTNING_BOLT.create(monster.level());
-                lightningboltentity.getTags().add(ServerEvents.BOLT_DONT_DESTROY_LOOT);
-                lightningboltentity.getTags().add(self.getStringUUID());
-                lightningboltentity.moveTo(monster.position());
-                if (!monster.level().isClientSide) monster.level().addFreshEntity(lightningboltentity);
+                EntityDataProvider.getCapability(monster).ifPresent((data) -> data.frozenData.setFrozen(monster, 100));
+                monster.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 2));
+                monster.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 100, 2));
             }
         }
     }

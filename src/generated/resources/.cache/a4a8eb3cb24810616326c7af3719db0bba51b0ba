@@ -1,9 +1,15 @@
-// 1.20.1	2025-05-07T13:30:49.7503418	Extended Tinker Modifier Recipe Provider
+// 1.20.1	2025-08-28T11:06:52.51108988	Extended Tinker Modifier Recipe Provider
 a37dbc2d02a22edec3d38a8686f355947f7ac60e data/extended_tinker/recipes/tools/modifiers/ability/asone_horsearmor.json
 e61781e0680d4014305d2ac9c4a6492303b9a3ef data/extended_tinker/recipes/tools/modifiers/ability/firecrack_star.json
 fbfab403514097221ad66de7cbc24ade5884dca4 data/extended_tinker/recipes/tools/modifiers/ability/painless_horsearmor.json
+e2ffa5d5891500acbc8c4b136e67f5570acba4f7 data/extended_tinker/recipes/tools/modifiers/diadema/burns_the_sky.json
+4d83d8f7aaa367306cd02e33a7201bd14825ae9a data/extended_tinker/recipes/tools/modifiers/diadema/magnetic_storm_surge.json
+180cffb834ba973c89c4c40ea6525646e1db3aad data/extended_tinker/recipes/tools/modifiers/diadema/permafrost.json
 246a99414d632c8440d357e041eaa572a16b223d data/extended_tinker/recipes/tools/modifiers/salvage/ability/asone_horsearmor.json
 c6043bd06e5b9fd95cdafc8be50d2e3f8f91063a data/extended_tinker/recipes/tools/modifiers/salvage/ability/firecrack_star.json
 564701ee954dae61de0d393e231ffa2e26de3455 data/extended_tinker/recipes/tools/modifiers/salvage/ability/painless_horsearmor.json
+0ebfd5bf3c6186fbf5420ebdaeab634ac3e078a1 data/extended_tinker/recipes/tools/modifiers/salvage/diadema/burns_the_sky.json
+9013b424c0ffd9a247c9da8fcecdc23aea512c6f data/extended_tinker/recipes/tools/modifiers/salvage/diadema/magnetic_storm_surge.json
+d811b5023039f866cf165674bd205bc1be00a6ef data/extended_tinker/recipes/tools/modifiers/salvage/diadema/permafrost.json
 64fa9437af385a37eb08b66d976a5c8a106d730f data/extended_tinker/recipes/tools/modifiers/salvage/upgrade/flight_firecrack.json
 6bce491ff974566cf2b2bee444d1d99832cf1bb4 data/extended_tinker/recipes/tools/modifiers/upgrade/flight_firecrack.json

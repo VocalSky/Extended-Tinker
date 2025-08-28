@@ -1,5 +1,8 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
+import com.csdy.tcondiadema.DiademaSlots;
+import com.github.alexthe666.iceandfire.item.IafItemRegistry;
+import com.github.alexthe666.iceandfire.misc.IafTagRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -12,10 +15,13 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
+import org.vocalsky.extended_tinker.compat.iaf.IafModifiers;
+import org.vocalsky.extended_tinker.util.ETTagsUtil;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.tools.TinkerTools;
+import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import java.util.function.Consumer;
 
@@ -40,6 +46,8 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
         String compatFolder = "tools/modifiers/compat/";
         String compatSalvage = "tools/modifiers/salvage/compat/";
         String worktableFolder = "tools/modifiers/worktable/";
+        String diademaFolder = "tools/modifiers/diadema/";
+        String diademaSalvage = "tools/modifiers/salvage/diadema/";
 
         ModifierRecipeBuilder.modifier(ModModifiers.ASONE.getId())
             .addInput(Items.GOLDEN_APPLE)
@@ -77,6 +85,36 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .save(consumer, prefix(ModModifiers.FLIGHT.getId(), upgradeFolder));
         consumer.accept(new FirecrackStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firecrack_star"), Ingredient.of(ModCore.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
         consumer.accept(new FirecrackStarModifierRecipe.FinishedSalvage(Extended_tinker.getResource(abilitySalvage + "firecrack_star"), Ingredient.of(ModCore.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
+        ModifierRecipeBuilder.modifier(IafModifiers.MagneticStormSurge.getId())
+            .addInput(IafItemRegistry.DRAGON_SKULL_LIGHTNING.get(), 1)
+            .addInput(IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get(), 1)
+            .addInput(IafItemRegistry.LIGHTNING_DRAGON_HEART.get(), 1)
+            .disallowCrystal()
+            .setSlots(DiademaSlots.DIADEMA, 1)
+            .setMaxLevel(1)
+            .setTools(ETTagsUtil.DRAGON_ARMOR_LIGHTNING)
+            .saveSalvage(consumer, prefix(IafModifiers.MagneticStormSurge.getId(), diademaSalvage))
+            .save(consumer, prefix(IafModifiers.MagneticStormSurge.getId(), diademaFolder));
+        ModifierRecipeBuilder.modifier(IafModifiers.BurnstheSky.getId())
+                .addInput(IafItemRegistry.DRAGON_SKULL_FIRE.get(), 1)
+                .addInput(IafItemRegistry.FIRE_DRAGON_BLOOD.get(), 1)
+                .addInput(IafItemRegistry.FIRE_DRAGON_HEART.get(), 1)
+                .disallowCrystal()
+                .setSlots(DiademaSlots.DIADEMA, 1)
+                .setMaxLevel(1)
+                .setTools(ETTagsUtil.DRAGON_ARMOR_FIRE)
+                .saveSalvage(consumer, prefix(IafModifiers.BurnstheSky.getId(), diademaSalvage))
+                .save(consumer, prefix(IafModifiers.BurnstheSky.getId(), diademaFolder));
+        ModifierRecipeBuilder.modifier(IafModifiers.Permafrost.getId())
+                .addInput(IafItemRegistry.DRAGON_SKULL_ICE.get(), 1)
+                .addInput(IafItemRegistry.ICE_DRAGON_BLOOD.get(), 1)
+                .addInput(IafItemRegistry.ICE_DRAGON_HEART.get(), 1)
+                .disallowCrystal()
+                .setSlots(DiademaSlots.DIADEMA, 1)
+                .setMaxLevel(1)
+                .setTools(ETTagsUtil.DRAGON_ARMOR_ICE)
+                .saveSalvage(consumer, prefix(IafModifiers.Permafrost.getId(), diademaSalvage))
+                .save(consumer, prefix(IafModifiers.Permafrost.getId(), diademaFolder));
     }
 
     @Override

@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "iceandfire:dragon_skull_fire"
+    },
+    {
+      "item": "iceandfire:fire_dragon_blood"
+    },
+    {
+      "item": "iceandfire:fire_dragon_heart"
+    }
+  ],
+  "level": 1,
+  "result": "extended_tinker:burns_the_sky",
+  "slots": {
+    "diadema": 1
+  },
+  "tools": {
+    "tag": "extended_tinker:dragon_armor_fire"
+  }
+}

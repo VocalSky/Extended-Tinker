@@ -26,6 +26,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import static slimeknights.tconstruct.common.TinkerTags.Items.*;
+import static org.vocalsky.extended_tinker.util.ETTagsUtil.*;
 
 public class ItemTagProvider extends ItemTagsProvider {
     private final Function<Item, ResourceLocation> LocExtractor = (item) -> item.builtInRegistryHolder().key().location();
@@ -55,11 +56,20 @@ public class ItemTagProvider extends ItemTagsProvider {
         });
 
         // iaf
+        this.tag(DRAGON_ARMOR).addTags(DRAGON_ARMOR_FIRE, DRAGON_ARMOR_FIRE, DRAGON_ARMOR_LIGHTNING);
         for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values()) {
             IafCore.Tools.DRAGON_ARMOR.get(armorType).forEach((type, item) -> {
                 for (TagKey<Item> tag : armorTags) this.tag(tag).addOptional(LocExtractor.apply(item));
                 this.tag(getArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
                 this.tag(getForgeArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
+                if (armorType == ItemDragonArmor.DragonArmorType.LIGHTNING)
+                    this.tag(DRAGON_ARMOR_LIGHTNING).addOptional(LocExtractor.apply(item));
+                else if (armorType == ItemDragonArmor.DragonArmorType.FIRE)
+                    this.tag(DRAGON_ARMOR_FIRE).addOptional(LocExtractor.apply(item));
+                else if (armorType == ItemDragonArmor.DragonArmorType.ICE)
+                    this.tag(DRAGON_ARMOR_ICE).addOptional(LocExtractor.apply(item));
+                else
+                    this.tag(DRAGON_ARMOR).addOptional(LocExtractor.apply(item));
             });
             IafCore.Parts.DRAGON_ARMOR_CORE.get(armorType).forEach((type, item) -> {
                 this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));
@@ -75,23 +85,14 @@ public class ItemTagProvider extends ItemTagsProvider {
         IntrinsicTagAppender<Item> singleUseCasts = this.tag(TinkerTags.Items.SINGLE_USE_CASTS);
         IntrinsicTagAppender<Item> multiUseCasts = this.tag(TinkerTags.Items.MULTI_USE_CASTS);
         Consumer<CastItemObject> addCast = cast -> {
-            // tag based on material
             goldCasts.addOptional(LocExtractor.apply(cast.get()));
-//            goldCasts.add(cast.get());
             sandCasts.addOptional(LocExtractor.apply(cast.getSand()));
-//            sandCasts.add(cast.getSand());
             redSandCasts.addOptional(LocExtractor.apply(cast.getRedSand()));
-//            redSandCasts.add(cast.getRedSand());
-            // tag based on usage
             singleUseCasts.addOptionalTag(cast.getSingleUseTag().location());
-//            singleUseCasts.addTag(cast.getSingleUseTag());
             this.tag(cast.getSingleUseTag()).addOptional(LocExtractor.apply(cast.getSand()));
             this.tag(cast.getSingleUseTag()).addOptional(LocExtractor.apply(cast.getRedSand()));
-//            this.tag(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand());
             multiUseCasts.addOptionalTag(cast.getMultiUseTag().location());
-//            multiUseCasts.addTag(cast.getMultiUseTag());
             this.tag(cast.getMultiUseTag()).addOptional(LocExtractor.apply(cast.get()));
-//            this.tag(cast.getMultiUseTag()).add(cast.get());
         };
         addCast.accept(ModCore.Casts.BRIDLE_CAST);
 
@@ -102,9 +103,6 @@ public class ItemTagProvider extends ItemTagsProvider {
         this.tag(TinkerTags.Items.CHEST_PARTS).addOptionalTag(TinkerTags.Items.TOOL_PARTS.location());
         for (Item item : GolemCore.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]))
             this.tag(TinkerTags.Items.CHEST_PARTS).addOptional(LocExtractor.apply(item));
-//        addCast.accept(GolemCore.Casts.HELMET_GOLEM_PLATING_CAST);
-//        addCast.accept(GolemCore.Casts.CHESTPLATE_GOLEM_PLATING_CAST);
-//        addCast.accept(GolemCore.Casts.LEGGINGS_GOLEM_PLATING_CAST);
     }
 
     @SafeVarargs
