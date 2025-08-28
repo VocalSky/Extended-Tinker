@@ -205,3 +205,5 @@
 /run/
 /src/generated/resources/.cache/
 /.idea/
+/.idea/modules/ET.main.iml
+/.idea/modules/ET.test.iml
