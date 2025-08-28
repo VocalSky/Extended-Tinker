@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:table_tool_casting",
-  "cast": {
-    "type": "tconstruct:material",
-    "item": "extended_tinker:dragon_armor_iron_core_body"
-  },
-  "item_cost": 9,
-  "result": "extended_tinker:dragonarmor_iron_body"
-}

@@ -49,13 +49,12 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
         GolemCore.Tools.GOLEM_ARMOR.forEach(item -> toolBuilding(consumer, item, armorFolder, Extended_tinker.getResource("golem_armor")));
 
         // iaf
-        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-            for (DragonArmor.Type type : DragonArmor.Type.values()) {
-                MaterialCastingRecipeBuilder.tableRecipe(IafCore.Tools.DRAGON_ARMOR.get(armorType).get(type)).
-                setCast(MaterialIngredient.of(IafCore.Parts.DRAGON_ARMOR_CORE.get(armorType).get(type)), true).
-                setItemCost(9).
-                save(consumer, this.location(armorFolder + "dragonarmor_" + armorType.name().toLowerCase() + "_" + type.getName()));
-            }
+        for (DragonArmor.Type type : DragonArmor.Type.values()) {
+            MaterialCastingRecipeBuilder.tableRecipe(IafCore.Tools.DRAGON_ARMOR.get(type)).
+            setCast(MaterialIngredient.of(IafCore.Parts.DRAGON_ARMOR_CORE.get(type)), true).
+            setItemCost(9).
+            save(consumer, this.location(armorFolder + "dragonarmor_" + type.getName()));
+        }
     }
 
     private void addToolPartRecipes(Consumer<FinishedRecipe> consumer) {

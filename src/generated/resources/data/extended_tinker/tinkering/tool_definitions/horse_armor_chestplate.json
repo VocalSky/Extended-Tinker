@@ -15,12 +15,19 @@
       "type": "tconstruct:default_materials",
       "materials": [
         {
-          "type": "tconstruct:fixed",
-          "material": "tconstruct:cobalt"
+          "type": "tconstruct:random"
         },
         {
-          "type": "tconstruct:fixed",
-          "material": "tconstruct:ancient_hide"
+          "type": "tconstruct:random"
+        },
+        {
+          "type": "tconstruct:random"
+        },
+        {
+          "type": "tconstruct:random"
+        },
+        {
+          "type": "tconstruct:random"
         }
       ]
     },

@@ -33,7 +33,7 @@ public class IafCore {
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
     public static final RegistryObject<CreativeModeTab> IafTab = CREATIVE_TABS.register(
     "iaf", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "iaf_items"))
-                                        .icon(() -> Tools.DRAGON_ARMOR.get(ItemDragonArmor.DragonArmorType.FIRE).get(DragonArmor.Type.HEAD).getRenderTool())
+                                        .icon(() -> Tools.DRAGON_ARMOR.get(DragonArmor.Type.HEAD).getRenderTool())
                                         .displayItems(IafCore::addTabItems)
                                         .withTabsBefore(TinkerTables.tabTables.getId())
                                         .withSearchBar()
@@ -63,10 +63,8 @@ public class IafCore {
 
         private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
             Consumer<ItemStack> output = tab::accept;
-            DRAGON_ARMOR_CORE.forEach((armorType, enumItem) -> {
-                enumItem.forEach(((type, toolPartItem) -> {
+            DRAGON_ARMOR_CORE.forEach((type, toolPartItem) -> {
                     toolPartItem.addVariants(output, "");
-                }));
             });
         }
 
@@ -75,11 +73,7 @@ public class IafCore {
         }
 
         private static final Item.Properties PART_PROP = CommonItem;
-        public static final EnumMap<ItemDragonArmor.DragonArmorType, EnumObject<DragonArmor.Type, ToolPartItem>> DRAGON_ARMOR_CORE = new EnumMap<>(ItemDragonArmor.DragonArmorType.class);
-        static {
-            for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-                DRAGON_ARMOR_CORE.put(armorType, ITEMS.registerEnum("dragon_armor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase() + "_core", DragonArmor.Type.values(), type -> new ToolPartItem(PART_PROP, DragonArmorMaterialStats.stats.get(armorType).getIdentifier())));
-        }
+        public static final EnumObject<DragonArmor.Type, ToolPartItem> DRAGON_ARMOR_CORE = ITEMS.registerEnum("dragon_armor_core", DragonArmor.Type.values(), type -> new ToolPartItem(PART_PROP, DragonArmorMaterialStats.TYPES.get(type.getOrder()).getId()));
     }
 
     public static class Casts {
@@ -124,16 +118,10 @@ public class IafCore {
 
         private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
             Consumer<ItemStack> output = tab::accept;
-            for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-                acceptTools(output, DRAGON_ARMOR.get(armorType));
+            acceptTools(output, DRAGON_ARMOR);
         }
 
-        public static final EnumMap<ItemDragonArmor.DragonArmorType, EnumObject<DragonArmor.Type, DragonArmor>> DRAGON_ARMOR = new EnumMap<>(ItemDragonArmor.DragonArmorType.class);
-
-        static {
-            for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-                DRAGON_ARMOR.put(armorType, ITEMS.registerEnum("dragonarmor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase(), DragonArmor.Type.values(), type -> new DragonArmor(armorType, IafToolDefinitions.DRAGON_ARMOR_MATERIAL.get(armorType), type, TOOL_PROP)));
-        }
+        public static final EnumObject<DragonArmor.Type, DragonArmor> DRAGON_ARMOR = ITEMS.registerEnum("dragonarmor", DragonArmor.Type.values(), type -> new DragonArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL, type, TOOL_PROP));
 
         private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {
             ToolBuildHandler.addVariants(output, tool.get(), "");

@@ -56,25 +56,15 @@ public class ItemTagProvider extends ItemTagsProvider {
         });
 
         // iaf
-        this.tag(DRAGON_ARMOR).addTags(DRAGON_ARMOR_FIRE, DRAGON_ARMOR_FIRE, DRAGON_ARMOR_LIGHTNING);
-        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values()) {
-            IafCore.Tools.DRAGON_ARMOR.get(armorType).forEach((type, item) -> {
-                for (TagKey<Item> tag : armorTags) this.tag(tag).addOptional(LocExtractor.apply(item));
-                this.tag(getArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
-                this.tag(getForgeArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
-                if (armorType == ItemDragonArmor.DragonArmorType.LIGHTNING)
-                    this.tag(DRAGON_ARMOR_LIGHTNING).addOptional(LocExtractor.apply(item));
-                else if (armorType == ItemDragonArmor.DragonArmorType.FIRE)
-                    this.tag(DRAGON_ARMOR_FIRE).addOptional(LocExtractor.apply(item));
-                else if (armorType == ItemDragonArmor.DragonArmorType.ICE)
-                    this.tag(DRAGON_ARMOR_ICE).addOptional(LocExtractor.apply(item));
-                else
-                    this.tag(DRAGON_ARMOR).addOptional(LocExtractor.apply(item));
-            });
-            IafCore.Parts.DRAGON_ARMOR_CORE.get(armorType).forEach((type, item) -> {
-                this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));
-            });
-        }
+        IafCore.Tools.DRAGON_ARMOR.forEach((type, item) -> {
+            for (TagKey<Item> tag : armorTags) this.tag(tag).addOptional(LocExtractor.apply(item));
+            this.tag(getArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
+            this.tag(getForgeArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
+            this.tag(DRAGON_ARMOR).addOptional(LocExtractor.apply(item));
+        });
+        IafCore.Parts.DRAGON_ARMOR_CORE.forEach((type, item) -> {
+            this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));
+        });
     }
 
     private void addSmeltry() {

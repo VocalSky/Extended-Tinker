@@ -12,7 +12,7 @@ std::string data = R"({
     "item": "minecraft:dragon_breath"
   },
   "result": {
-    "item": "extended_tinker:dragon_armor_MATERIAL_core_PART",
+    "item": "extended_tinker:dragon_armor_core_PART",
     "nbt": {
       "Material": "extended_tinker:dragon_armor_CORE"
     }

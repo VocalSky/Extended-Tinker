@@ -9,7 +9,7 @@
     "item": "minecraft:dragon_breath"
   },
   "result": {
-    "item": "extended_tinker:dragon_armor_copper_core_tail",
+    "item": "extended_tinker:dragon_armor_core_tail",
     "nbt": {
       "Material": "extended_tinker:dragon_armor_copper"
     }

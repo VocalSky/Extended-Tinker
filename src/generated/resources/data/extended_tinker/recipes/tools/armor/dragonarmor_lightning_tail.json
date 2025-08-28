@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:table_tool_casting",
-  "cast": {
-    "type": "tconstruct:material",
-    "item": "extended_tinker:dragon_armor_dragonsteel_lightning_core_tail"
-  },
-  "item_cost": 9,
-  "result": "extended_tinker:dragonarmor_dragonsteel_lightning_tail"
-}

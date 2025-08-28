@@ -38,6 +38,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
     DefaultMaterialsModule defaultTwoParts = DefaultMaterialsModule.builder().material(tier1Material, tier1Material).build();
     DefaultMaterialsModule defaultThreeParts = DefaultMaterialsModule.builder().material(tier1Material, tier1Material, tier1Material).build();
     DefaultMaterialsModule defaultFourParts = DefaultMaterialsModule.builder().material(tier1Material, tier1Material, tier1Material, tier1Material).build();
+    DefaultMaterialsModule randomFiveParts = DefaultMaterialsModule.builder().material(randomMaterial, randomMaterial,randomMaterial, randomMaterial, randomMaterial).build();
     DefaultMaterialsModule defaultAncient = DefaultMaterialsModule.builder().material(randomMaterial, randomMaterial).build();
 
     public ToolDefinitionDataProvider(PackOutput packOutput) {
@@ -55,7 +56,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
 
         defineArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL)
             .module(PartStatsModule.parts().part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(ModCore.Parts.BRIDLE).build())
-            .module(DefaultMaterialsModule.builder().material(MaterialIds.cobalt).material(MaterialIds.ancientHide).build())
+            .module(randomFiveParts)
             .module(ArmorItem.Type.CHESTPLATE, new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).set(ToolStats.ARMOR, 2.0f).set(ToolStats.ARMOR_TOUGHNESS, 1.5f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.25f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
 
@@ -67,20 +68,19 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
                     .part(TinkerToolParts.shieldCore, 1)
                     .part(TinkerToolParts.shieldCore, 1)
             )
-            .module(DefaultMaterialsModule.builder().material(MaterialIds.cobalt).material(MaterialIds.ancientHide).build())
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).set(ToolStats.ARMOR, 2.0f).set(ToolStats.ARMOR_TOUGHNESS, 1.5f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.5f).build()))
-            .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
+                .module(randomFiveParts)
+                .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
 
-        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-            defineArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL.get(armorType))
-            .module(slots -> MaterialStatsModule.stats()
-                    .stat(DragonArmorMaterialStats.stats.get(armorType).getIdentifier())
-                    .stat(PlatingMaterialStats.TYPES.get(slots.ordinal()).getId())
-                    .primaryPart(1).build())
-            .module(slots -> new PartsModule(List.of(IafCore.Parts.DRAGON_ARMOR_CORE.get(armorType).get(DragonArmor.Type.values()[slots.ordinal()]))))
-            .module(DefaultMaterialsModule.builder().material(MaterialIds.cobalt).material(MaterialIds.ancientHide).build())
-            .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 7.5f).set(ToolStats.ARMOR, 5.0f).set(ToolStats.ARMOR_TOUGHNESS, 2.75f).set(ToolStats.KNOCKBACK_RESISTANCE, 7.0f).build()))
-            .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
+        defineArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL)
+        .module(slots -> MaterialStatsModule.stats()
+                .stat(DragonArmorMaterialStats.TYPES.get(slots.ordinal()).getId())
+                .stat(PlatingMaterialStats.TYPES.get(slots.ordinal()).getId())
+                .primaryPart(1).build())
+        .module(slots -> new PartsModule(List.of(IafCore.Parts.DRAGON_ARMOR_CORE.get(DragonArmor.Type.values()[slots.ordinal()]))))
+        .module(DefaultMaterialsModule.builder().material(randomMaterial, randomMaterial).build())
+        .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 7.5f).set(ToolStats.ARMOR, 5.0f).set(ToolStats.ARMOR_TOUGHNESS, 2.75f).set(ToolStats.KNOCKBACK_RESISTANCE, 7.0f).build()))
+        .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
     }
 
     @Override

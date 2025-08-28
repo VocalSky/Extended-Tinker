@@ -20,8 +20,8 @@ public class MaterialDataProvider extends AbstractMaterialDataProvider {
 
     @Override
     protected void addMaterials() {
+        addMaterial(IafMaterials.copper, 1, ORDER_COMPAT, false);
         addMaterial(IafMaterials.iron, 2, ORDER_COMPAT, false);
-        addMaterial(IafMaterials.copper, 2, ORDER_COMPAT, false);
         addMaterial(IafMaterials.gold, 2, ORDER_COMPAT, false);
         addMaterial(IafMaterials.silver, 2, ORDER_COMPAT, false);
         addMaterial(IafMaterials.diamond, 3, ORDER_COMPAT, false);

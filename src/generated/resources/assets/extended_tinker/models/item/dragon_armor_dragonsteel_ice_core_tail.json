@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "extended_tinker:item/dragon_armor/dragonarmor_dragonsteel_ice_tail"
-  }
-}

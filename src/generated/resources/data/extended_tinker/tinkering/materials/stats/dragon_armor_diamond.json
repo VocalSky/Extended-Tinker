@@ -1,5 +1,29 @@
 {
   "stats": {
-    "extended_tinker:dragonarmor_diamond": {}
+    "extended_tinker:banner_core": {
+      "durability": 324,
+      "knockback_resistance": 0.05
+    },
+    "extended_tinker:body_core": {
+      "armor": 5.0,
+      "durability": 270,
+      "knockback_resistance": 0.05
+    },
+    "extended_tinker:head_core": {
+      "armor": 5.0,
+      "durability": 198,
+      "knockback_resistance": 0.05
+    },
+    "extended_tinker:neck_core": {
+      "armor": 5.0,
+      "durability": 288,
+      "knockback_resistance": 0.05
+    },
+    "extended_tinker:tail_core": {
+      "armor": 5.0,
+      "durability": 234,
+      "knockback_resistance": 0.05
+    },
+    "tconstruct:maille": {}
   }
 }

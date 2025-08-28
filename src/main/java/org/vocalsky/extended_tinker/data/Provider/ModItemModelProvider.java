@@ -1,7 +1,5 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
-
-import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -46,12 +44,10 @@ public class ModItemModelProvider extends ItemModelProvider {
             cast(item);
         });
 
-        for (ItemDragonArmor.DragonArmorType armorType : ItemDragonArmor.DragonArmorType.values())
-            for (DragonArmor.Type type : DragonArmor.Type.values()) {
-                String texture = "dragon_armor/dragonarmor_" + DragonArmor.fullNameOfArmorType(armorType).toLowerCase() + "_" + type.getName();
-                basicItem(IafCore.Tools.DRAGON_ARMOR.get(armorType).get(type).asItem(), texture);
-                basicItem(IafCore.Parts.DRAGON_ARMOR_CORE.get(armorType).get(type).asItem(), texture);
-            }
+        for (DragonArmor.Type type : DragonArmor.Type.values()) {
+            String texture = "dragon_armor/dragonarmor_" + type.getName();
+            basicItem(IafCore.Parts.DRAGON_ARMOR_CORE.get(type).asItem(), texture);
+        }
     }
 
     private ResourceLocation id(ItemLike item) {

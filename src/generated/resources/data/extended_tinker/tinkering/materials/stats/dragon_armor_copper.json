@@ -1,5 +1,24 @@
 {
   "stats": {
-    "extended_tinker:dragonarmor_copper": {}
+    "extended_tinker:banner_core": {
+      "durability": 234
+    },
+    "extended_tinker:body_core": {
+      "armor": 1.0,
+      "durability": 195
+    },
+    "extended_tinker:head_core": {
+      "armor": 1.0,
+      "durability": 143
+    },
+    "extended_tinker:neck_core": {
+      "armor": 1.0,
+      "durability": 208
+    },
+    "extended_tinker:tail_core": {
+      "armor": 1.0,
+      "durability": 169
+    },
+    "tconstruct:maille": {}
   }
 }

@@ -1,5 +1,34 @@
 {
   "stats": {
-    "extended_tinker:dragonarmor_fire": {}
+    "extended_tinker:banner_core": {
+      "durability": 630,
+      "knockback_resistance": 0.2,
+      "toughness": 3.0
+    },
+    "extended_tinker:body_core": {
+      "armor": 10.0,
+      "durability": 525,
+      "knockback_resistance": 0.2,
+      "toughness": 3.0
+    },
+    "extended_tinker:head_core": {
+      "armor": 10.0,
+      "durability": 385,
+      "knockback_resistance": 0.2,
+      "toughness": 3.0
+    },
+    "extended_tinker:neck_core": {
+      "armor": 10.0,
+      "durability": 560,
+      "knockback_resistance": 0.2,
+      "toughness": 3.0
+    },
+    "extended_tinker:tail_core": {
+      "armor": 10.0,
+      "durability": 455,
+      "knockback_resistance": 0.2,
+      "toughness": 3.0
+    },
+    "tconstruct:maille": {}
   }
 }

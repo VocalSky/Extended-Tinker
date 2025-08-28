@@ -1,0 +1,10 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "0":      "extended_tinker:item/tool/dragon_armor/neck/dragonarmor_neck"
+  },
+  "parts": [
+    { "name": "0", "index": 1 }
+  ]
+}

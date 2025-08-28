@@ -5,8 +5,12 @@ import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialSta
 import slimeknights.tconstruct.library.materials.IMaterialRegistry;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
+import slimeknights.tconstruct.library.materials.stats.MaterialStatType;
+import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
+import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import static org.vocalsky.extended_tinker.compat.iaf.IafCore.Loadable;
+import static slimeknights.tconstruct.library.materials.MaterialRegistry.ARMOR;
 
 public class IafMaterials {
     private static MaterialId id(String name) {
@@ -22,10 +26,11 @@ public class IafMaterials {
     public static final MaterialId ice = id("dragon_armor_ice");
     public static final MaterialId lightning = id("dragon_armor_lightning");
 
+    public static final MaterialStatsId dragon_armor = new MaterialStatsId(Extended_tinker.getResource("dragon_armor"));
+
     static public void registry() {
         if (!Loadable()) return;
         IMaterialRegistry registry = MaterialRegistry.getInstance();
-        for (DragonArmorMaterialStats material : DragonArmorMaterialStats.values())
-            registry.registerStatType(material.getType());
+        for (MaterialStatType<?> type : DragonArmorMaterialStats.TYPES) registry.registerStatType(type, dragon_armor);
     }
 }

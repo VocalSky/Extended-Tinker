@@ -37,11 +37,14 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.util.ComponentUtil;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.library.materials.definition.Material;
+import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.armor.ElytraFlightModifierHook;
@@ -75,11 +78,20 @@ import java.util.regex.Matcher;
 
 public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
     public static final EnumMap<EquipmentSlot, UUID> UUID = new EnumMap<>(EquipmentSlot.class);
+    public static final Map<MaterialId, DragonArmorType> MATERIAL_TO_DRAGON_ARMOR_TYPE = new HashMap<>();
 
     static {
         for(EquipmentSlot slot : EquipmentSlot.values()) {
             UUID.put(slot, java.util.UUID.randomUUID());
         }
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.iron, DragonArmorType.IRON);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.gold, DragonArmorType.GOLD);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.copper, DragonArmorType.COPPER);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.silver, DragonArmorType.SILVER);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.diamond, DragonArmorType.DIAMOND);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.fire, DragonArmorType.FIRE);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.ice, DragonArmorType.ICE);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.lightning, DragonArmorType.LIGHTNING);
     }
 
     public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
@@ -157,8 +169,8 @@ public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
         return this.type.getSlot();
     }
 
-    public DragonArmor(DragonArmorType base, ArmorMaterial materialIn, Type type, Properties builderIn, ToolDefinition toolDefinition) {
-        super(base, type.getOrder());
+    public DragonArmor(ArmorMaterial materialIn, Type type, Properties builderIn, ToolDefinition toolDefinition) {
+        super(DragonArmorType.DIAMOND, type.getOrder());
         this.material = materialIn;
         this.type = type;
         this.defense = materialIn.getDefenseForType(type.ArmorType());
@@ -177,8 +189,8 @@ public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
         this.toolDefinition = toolDefinition;
     }
 
-    public DragonArmor(DragonArmorType base, ModifiableArmorMaterial material, Type type, Properties properties) {
-        this(base, material, type, properties, Objects.requireNonNull(material.getArmorDefinition(type.ArmorType()), "Missing tool definition for " + type.getName()));
+    public DragonArmor(ModifiableArmorMaterial material, Type type, Properties properties) {
+        this(material, type, properties, Objects.requireNonNull(material.getArmorDefinition(type.ArmorType()), "Missing tool definition for " + type.getName()));
     }
 
     /* Basic properties */
@@ -237,6 +249,7 @@ public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
     @Nullable
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
+        super.type = MATERIAL_TO_DRAGON_ARMOR_TYPE.get(ToolStack.from(stack).getMaterial(0).getId());
         return new ToolCapabilityProvider(stack);
     }
 

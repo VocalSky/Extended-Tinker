@@ -5,35 +5,7 @@
       "required": false
     },
     {
-      "id": "extended_tinker:dragonarmor_iron_neck",
-      "required": false
-    },
-    {
-      "id": "extended_tinker:dragonarmor_gold_neck",
-      "required": false
-    },
-    {
-      "id": "extended_tinker:dragonarmor_diamond_neck",
-      "required": false
-    },
-    {
-      "id": "extended_tinker:dragonarmor_silver_neck",
-      "required": false
-    },
-    {
-      "id": "extended_tinker:dragonarmor_dragonsteel_fire_neck",
-      "required": false
-    },
-    {
-      "id": "extended_tinker:dragonarmor_dragonsteel_ice_neck",
-      "required": false
-    },
-    {
-      "id": "extended_tinker:dragonarmor_copper_neck",
-      "required": false
-    },
-    {
-      "id": "extended_tinker:dragonarmor_dragonsteel_lightning_neck",
+      "id": "extended_tinker:dragonarmor_neck",
       "required": false
     }
   ]
