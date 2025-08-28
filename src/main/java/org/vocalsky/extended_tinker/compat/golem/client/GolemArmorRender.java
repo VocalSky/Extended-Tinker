@@ -19,19 +19,12 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.spongepowered.asm.mixin.Unique;
-import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.tool.IArmorModel;
 import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmor;
 import org.vocalsky.extended_tinker.util.TextureInformation;
-import slimeknights.tconstruct.library.client.materials.MaterialRenderInfo;
-import slimeknights.tconstruct.library.client.materials.MaterialRenderInfoLoader;
-import slimeknights.tconstruct.library.materials.definition.MaterialVariant;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 import static dev.xkmc.modulargolems.content.client.armor.GolemEquipmentModels.LIST;
 

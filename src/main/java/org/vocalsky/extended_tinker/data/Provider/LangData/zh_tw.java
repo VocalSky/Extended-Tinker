@@ -116,7 +116,16 @@ public class zh_tw implements ILang {
         PART_DRAGON_ARMOR_LIGHTNING_CORE_HEAD("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_head", "頭部基底"),
         PART_DRAGON_ARMOR_LIGHTNING_CORE_BODY("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_body", "軀體基底"),
         PART_DRAGON_ARMOR_LIGHTNING_CORE_NECK("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_neck", "脖頸基底"),
-        PART_DRAGON_ARMOR_LIGHTNING_CORE_TAIL("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_tail", "尾部基底");;
+        PART_DRAGON_ARMOR_LIGHTNING_CORE_TAIL("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_tail", "尾部基底"),
+        MAGNETIC_STORM_SURGE("modifier.extended_tinker.magnetic_storm_surge", "磁暴電湧"),
+        MAGNETIC_STORM_SURGE_FLAVOR("modifier.extended_tinker.magnetic_storm_surge.flavor", "雷電降臨！"),
+        MAGNETIC_STORM_SURGE_DESCRIPTION("modifier.extended_tinker.magnetic_storm_surge.description", "領域內的怪物將直面雷霆的威光。"),
+        BURNS_THE_SKY("modifier.extended_tinker.burns_the_sky", "焚天滅世"),
+        BURNS_THE_SKY_FLAVOR("modifier.extended_tinker.burns_the_sky.flavor", "KFC 自動化！"),
+        BURNS_THE_SKY_DESCRIPTION("modifier.extended_tinker.burns_the_sky.description", "領域內的怪物將被烈火焚身。"),
+        PERMAFROST("modifier.extended_tinker.permafrost", "永恆凍土"),
+        PERMAFROST_FLAVOR("modifier.extended_tinker.permafrost.flavor", "來堆雪人！"),
+        PERMAFROST_DESCRIPTION("modifier.extended_tinker.permafrost.description", "領域內的怪物將被送入永恆的冬眠。");
 
         @Getter
         private final String key;

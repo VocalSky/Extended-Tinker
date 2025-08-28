@@ -117,7 +117,16 @@ public class en_us implements ILang {
         PART_DRAGON_ARMOR_LIGHTNING_CORE_HEAD("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_head", "Dragonsteel Head Core"),
         PART_DRAGON_ARMOR_LIGHTNING_CORE_BODY("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_body", "Dragonsteel Body Core"),
         PART_DRAGON_ARMOR_LIGHTNING_CORE_NECK("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_neck", "Dragonsteel Neck Core"),
-        PART_DRAGON_ARMOR_LIGHTNING_CORE_TAIL("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_tail", "Dragonsteel Tail Core");
+        PART_DRAGON_ARMOR_LIGHTNING_CORE_TAIL("item.extended_tinker.dragon_armor_dragonsteel_lightning_core_tail", "Dragonsteel Tail Core"),
+        MAGNETIC_STORM_SURGE("modifier.extended_tinker.magnetic_storm_surge", "Magnetic Storm Surge"),
+        MAGNETIC_STORM_SURGE_FLAVOR("modifier.extended_tinker.magnetic_storm_surge.flavor", "System Keraunos!"),
+        MAGNETIC_STORM_SURGE_DESCRIPTION("modifier.extended_tinker.magnetic_storm_surge.description", "Every monster in the domain will face the majesty of the lightning."),
+        BURNS_THE_SKY("modifier.extended_tinker.burns_the_sky", "Burns the sky"),
+        BURNS_THE_SKY_FLAVOR("modifier.extended_tinker.burns_the_sky.flavor", "Turning into KFC!"),
+        BURNS_THE_SKY_DESCRIPTION("modifier.extended_tinker.burns_the_sky.description", "Every monster in the domain will be burned by the fire."),
+        PERMAFROST("modifier.extended_tinker.permafrost", "Permafrost"),
+        PERMAFROST_FLAVOR("modifier.extended_tinker.permafrost.flavor", "Building ice sculptures!"),
+        PERMAFROST_DESCRIPTION("modifier.extended_tinker.permafrost.description", "Every monster in the domain will be put into suspended animation.");
 
         @Getter
         private final String key;

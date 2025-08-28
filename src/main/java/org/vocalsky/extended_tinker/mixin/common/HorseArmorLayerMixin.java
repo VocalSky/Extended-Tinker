@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.HorseArmorLayer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Final;
@@ -19,18 +18,9 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.tool.IArmorModel;
 import org.vocalsky.extended_tinker.util.TextureInformation;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
-import slimeknights.mantle.data.loadable.IAmLoadable;
-import slimeknights.tconstruct.library.client.materials.MaterialRenderInfo;
-import slimeknights.tconstruct.library.client.materials.MaterialRenderInfoLoader;
-import slimeknights.tconstruct.library.materials.definition.MaterialVariant;
-import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
-
-import java.util.Optional;
 
 @Mixin(HorseArmorLayer.class)
 public abstract class HorseArmorLayerMixin extends RenderLayer<Horse, HorseModel<Horse>>  {

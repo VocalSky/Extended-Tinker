@@ -9,7 +9,7 @@ import org.vocalsky.extended_tinker.compat.iaf.diadema.BurnstheSky.BurnstheSkyDi
 import org.vocalsky.extended_tinker.compat.iaf.diadema.MagneticStormSurge.MagneticStormSurgeDiadema;
 import org.vocalsky.extended_tinker.compat.iaf.diadema.Permafrost.PermaforstDiadema;
 
-public class IafDiadema {
+public class IafDiademas {
     public static final DeferredRegister<DiademaType> DIADEMA_TYPES = DeferredRegister.create(CsdyRegistries.DIADEMA_TYPE, Extended_tinker.MODID);
 
     public static final RegistryObject<DiademaType> MagneticStormSurge = DIADEMA_TYPES.register("magnetic_storm_surge", () -> DiademaType.create(MagneticStormSurgeDiadema::new));

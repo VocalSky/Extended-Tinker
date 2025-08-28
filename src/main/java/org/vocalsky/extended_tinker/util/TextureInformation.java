@@ -1,7 +1,6 @@
 package org.vocalsky.extended_tinker.util;
 
 import net.minecraft.resources.ResourceLocation;
-import org.vocalsky.extended_tinker.common.tool.IArmorModel;
 import slimeknights.tconstruct.library.client.materials.MaterialRenderInfo;
 import slimeknights.tconstruct.library.client.materials.MaterialRenderInfoLoader;
 import slimeknights.tconstruct.library.materials.definition.MaterialVariant;
