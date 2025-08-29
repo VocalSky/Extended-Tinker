@@ -48,9 +48,9 @@ public class IafCore {
         Tools.init();
         ITEMS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
-        IafDiademas.DIADEMA_TYPES.register(eventBus);
         IafModifiers.MODIFIERS.register(eventBus);
-//        if (Extended_tinker.DiademaLoadable())
+        if (Extended_tinker.DiademaLoadable())
+            IafDiademas.DIADEMA_TYPES.register(eventBus);
     }
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {

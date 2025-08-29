@@ -64,5 +64,5 @@ public class Extended_tinker {
         return Component.translatable(makeTranslationKey(base, name));
     }
 
-//    public static boolean DiademaLoadable() { return ModList.get().isLoaded("tcondiadema"); }
+    public static boolean DiademaLoadable() { return ModList.get().isLoaded("tcondiadema"); }
 }
