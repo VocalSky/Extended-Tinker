@@ -3,19 +3,19 @@
     "extended_tinker:banner_core": {
       "durability": 234
     },
-    "extended_tinker:body_core": {
+    "extended_tinker:dragon_armor_body_core": {
       "armor": 1.0,
       "durability": 195
     },
-    "extended_tinker:head_core": {
+    "extended_tinker:dragon_armor_head_core": {
       "armor": 1.0,
       "durability": 143
     },
-    "extended_tinker:neck_core": {
+    "extended_tinker:dragon_armor_neck_core": {
       "armor": 1.0,
       "durability": 208
     },
-    "extended_tinker:tail_core": {
+    "extended_tinker:dragon_armor_tail_core": {
       "armor": 1.0,
       "durability": 169
     },

@@ -13,6 +13,7 @@ import org.vocalsky.extended_tinker.data.Provider.LangData.ILang;
 import org.vocalsky.extended_tinker.data.Provider.LangData.en_us;
 import org.vocalsky.extended_tinker.data.Provider.LangData.zh_cn;
 import org.vocalsky.extended_tinker.data.Provider.LangData.zh_tw;
+import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
 import slimeknights.tconstruct.tools.data.sprite.TinkerMaterialSpriteProvider;
 import slimeknights.tconstruct.tools.data.sprite.TinkerPartSpriteProvider;
 
@@ -43,7 +44,10 @@ public class ModDataGenerator {
         generator.addProvider(server, new MaterialStatsDataProvider(packOutput, materials));
         generator.addProvider(server, new MaterialTraitsDataProvider(packOutput, materials));
         MaterialSpriteProvider materialSprites = new MaterialSpriteProvider();
+        PartSpriteProvider partSprites = new PartSpriteProvider();
         generator.addProvider(client, new MaterialRenderInfoProvider(packOutput, materialSprites, existingFileHelper));
+        generator.addProvider(client, new MaterialPartTextureGenerator(packOutput, existingFileHelper, partSprites, new TinkerMaterialSpriteProvider(), materialSprites));
+        generator.addProvider(client, new MaterialPartTextureGenerator(packOutput, existingFileHelper, new TinkerPartSpriteProvider(), materialSprites));
         generator.addProvider(client, new LangProvider(packOutput, new en_us()));
         generator.addProvider(client, new LangProvider(packOutput, new zh_cn()));
         generator.addProvider(client, new LangProvider(packOutput, new zh_tw()));

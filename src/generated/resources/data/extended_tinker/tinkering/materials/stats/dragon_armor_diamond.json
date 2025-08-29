@@ -4,22 +4,22 @@
       "durability": 324,
       "knockback_resistance": 0.05
     },
-    "extended_tinker:body_core": {
+    "extended_tinker:dragon_armor_body_core": {
       "armor": 5.0,
       "durability": 270,
       "knockback_resistance": 0.05
     },
-    "extended_tinker:head_core": {
+    "extended_tinker:dragon_armor_head_core": {
       "armor": 5.0,
       "durability": 198,
       "knockback_resistance": 0.05
     },
-    "extended_tinker:neck_core": {
+    "extended_tinker:dragon_armor_neck_core": {
       "armor": 5.0,
       "durability": 288,
       "knockback_resistance": 0.05
     },
-    "extended_tinker:tail_core": {
+    "extended_tinker:dragon_armor_tail_core": {
       "armor": 5.0,
       "durability": 234,
       "knockback_resistance": 0.05

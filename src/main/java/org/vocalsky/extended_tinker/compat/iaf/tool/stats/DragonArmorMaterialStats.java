@@ -44,10 +44,10 @@ public record DragonArmorMaterialStats(MaterialStatType<?> getType, int durabili
             ToolStats.ARMOR_TOUGHNESS.getDescription(),
             ToolStats.KNOCKBACK_RESISTANCE.getDescription());
     /* Types */
-    public static final MaterialStatType<DragonArmorMaterialStats> HEAD = makeType("head_core");
-    public static final MaterialStatType<DragonArmorMaterialStats> BODY = makeType("body_core");
-    public static final MaterialStatType<DragonArmorMaterialStats> NECK = makeType("neck_core");
-    public static final MaterialStatType<DragonArmorMaterialStats> TAIL = makeType("tail_core");
+    public static final MaterialStatType<DragonArmorMaterialStats> HEAD = makeType("dragon_armor_head_core");
+    public static final MaterialStatType<DragonArmorMaterialStats> BODY = makeType("dragon_armor_body_core");
+    public static final MaterialStatType<DragonArmorMaterialStats> NECK = makeType("dragon_armor_neck_core");
+    public static final MaterialStatType<DragonArmorMaterialStats> TAIL = makeType("dragon_armor_tail_core");
     /** Shield loadable does not support armor */
     public static final MaterialStatType<DragonArmorMaterialStats> BANNER = new MaterialStatType<DragonArmorMaterialStats>(new MaterialStatsId(Extended_tinker.MODID, "banner_core"), type -> new DragonArmorMaterialStats(type, 1, 0, 0, 0), RecordLoadable.create(
             MaterialStatType.CONTEXT_KEY.requiredField(), IRepairableMaterialStats.DURABILITY_FIELD, TOUGHNESS, KNOCKBACK_RESISTANCE,

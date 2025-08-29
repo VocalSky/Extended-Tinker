@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "forge:item/default",
+  "loader": "tconstruct:material",
   "textures": {
-    "layer0": "extended_tinker:item/dragon_armor/dragonarmor_head"
+    "texture": "extended_tinker:item/tool/parts/dragonarmor_head"
   }
 }

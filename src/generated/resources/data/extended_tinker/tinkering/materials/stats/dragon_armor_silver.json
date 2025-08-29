@@ -4,22 +4,22 @@
       "durability": 198,
       "toughness": 1.5
     },
-    "extended_tinker:body_core": {
+    "extended_tinker:dragon_armor_body_core": {
       "armor": 3.0,
       "durability": 165,
       "toughness": 1.5
     },
-    "extended_tinker:head_core": {
+    "extended_tinker:dragon_armor_head_core": {
       "armor": 3.0,
       "durability": 121,
       "toughness": 1.5
     },
-    "extended_tinker:neck_core": {
+    "extended_tinker:dragon_armor_neck_core": {
       "armor": 3.0,
       "durability": 176,
       "toughness": 1.5
     },
-    "extended_tinker:tail_core": {
+    "extended_tinker:dragon_armor_tail_core": {
       "armor": 3.0,
       "durability": 143,
       "toughness": 1.5
