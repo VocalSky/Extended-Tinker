@@ -25,7 +25,6 @@ public class ModEntity {
                         () -> EntityType.Builder.<TconBoatEntity>of(
                                 TconBoatEntity::new,
                                 MobCategory.MISC).build(Extended_tinker.getResource("tcon_boat").toString()));
-//        tconBoatEntity = ENTITY_TYPES.register("boat", () -> EntityType.Builder.<TconBoatEntity>of(TconBoatEntity::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10));
     }
 
     public static void registers(IEventBus eventBus)  {

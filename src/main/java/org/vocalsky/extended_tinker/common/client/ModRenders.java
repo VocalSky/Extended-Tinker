@@ -12,5 +12,6 @@ public class ModRenders {
     @SubscribeEvent
     static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntity.firecrackEntity.get(), FirecrackEntityRender::new);
+        event.registerEntityRenderer(ModEntity.tconBoatEntity.get(), TconBoatEntityRender::new);
     }
 }
