@@ -50,6 +50,7 @@ public class IafCore {
         CREATIVE_TABS.register(eventBus);
         IafDiademas.DIADEMA_TYPES.register(eventBus);
         IafModifiers.MODIFIERS.register(eventBus);
+//        if (Extended_tinker.DiademaLoadable())
     }
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {

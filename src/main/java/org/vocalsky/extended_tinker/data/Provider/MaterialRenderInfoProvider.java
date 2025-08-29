@@ -22,7 +22,7 @@ public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvid
         buildRenderInfo(IafMaterials.diamond).color(0x55FFFF).fallbacks("metal");
         buildRenderInfo(IafMaterials.fire).color(0x555555).fallbacks("metal");
         buildRenderInfo(IafMaterials.ice).color(0xD3DFE8).fallbacks("metal");
-        buildRenderInfo(IafMaterials.lightning).color(0xEBF1DE).fallbacks("metal");
+        buildRenderInfo(IafMaterials.lightning).color(0x17365D).fallbacks("metal");
     }
 
     @Override

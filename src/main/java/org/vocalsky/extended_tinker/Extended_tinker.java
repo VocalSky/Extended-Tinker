@@ -7,6 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -62,4 +63,6 @@ public class Extended_tinker {
     public static MutableComponent makeTranslation(String base, String name) {
         return Component.translatable(makeTranslationKey(base, name));
     }
+
+//    public static boolean DiademaLoadable() { return ModList.get().isLoaded("tcondiadema"); }
 }

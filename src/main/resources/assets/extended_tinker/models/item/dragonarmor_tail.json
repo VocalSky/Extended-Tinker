@@ -2,9 +2,11 @@
   "loader": "tconstruct:tool",
   "parent": "forge:item/default-tool",
   "textures": {
-    "0":      "extended_tinker:item/tool/dragon_armor/tail/dragonarmor_tail"
+    "core":      "extended_tinker:item/tool/dragon_armor/tail/dragonarmor_tail_core",
+    "plating":      "extended_tinker:item/tool/dragon_armor/tail/dragonarmor_tail_plating"
   },
   "parts": [
-    { "name": "0", "index": 0 }
+    { "name": "core", "index": 0 },
+    { "name": "plating", "index": 1 }
   ]
 }
