@@ -1,6 +1,7 @@
 package org.vocalsky.extended_tinker.common;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -9,9 +10,11 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.common.entity.TconBorderEntity;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
 //import org.vocalsky.extended_tinker.util.ModCastItemObject;
+import org.vocalsky.extended_tinker.common.tool.TconBorder;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -51,10 +54,13 @@ public class ModCore {
         ModModifiers.registers(eventBus);
     }
 
+    public static ItemObject<TconBorder> TCON_BORDER = ITEMS.register("tcon_border", () -> new TconBorder(false, TconBorderEntity.Type.OAK, CommonItem));
+
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         Parts.addTabItems(itemDisplayParameters, tab);
         Casts.addTabItems(itemDisplayParameters, tab);
         Tools.addTabItems(itemDisplayParameters, tab);
+        tab.accept(TCON_BORDER);
     }
 
     public static class Parts {
