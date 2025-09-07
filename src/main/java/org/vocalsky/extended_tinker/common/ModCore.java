@@ -54,7 +54,7 @@ public class ModCore {
         ModModifiers.registers(eventBus);
     }
 
-    public static ItemObject<TconBorder> TCON_BORDER = ITEMS.register("tcon_border", () -> new TconBorder(false, TconBorderEntity.Type.OAK, CommonItem));
+    public static ItemObject<TconBorder> TCON_BORDER = ITEMS.register("tcon_border", () -> new TconBorder(Stack1Item));
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         Parts.addTabItems(itemDisplayParameters, tab);

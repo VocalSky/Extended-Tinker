@@ -23,7 +23,9 @@ public class ModEntity {
                 ENTITY_TYPES.register("tcon_border",
                         () -> EntityType.Builder.<TconBorderEntity>of(
                                 TconBorderEntity::new,
-                                MobCategory.MISC).build(Extended_tinker.getResource("tcon_border").toString()));
+                                MobCategory.MISC)
+                                .sized(3, 2)
+                                .build(Extended_tinker.getResource("tcon_border").toString()));
     }
 
     public static void registers(IEventBus eventBus)  {

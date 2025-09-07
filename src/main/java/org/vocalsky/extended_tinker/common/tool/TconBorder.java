@@ -22,18 +22,15 @@ import java.util.function.Predicate;
 
 public class TconBorder extends Item {
     private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
-    private final TconBorderEntity.Type type;
-    private final boolean hasChest;
 
-    public TconBorder(boolean p_220013_, TconBorderEntity.Type p_220014_, Item.Properties p_220015_) {
+    public TconBorder(Item.Properties p_220015_) {
         super(p_220015_);
-        this.hasChest = p_220013_;
-        this.type = p_220014_;
     }
 
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         HitResult hitresult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY);
+        System.out.println("use status is " + hitresult.getType());
         if (hitresult.getType() == HitResult.Type.MISS) {
             return InteractionResultHolder.pass(itemstack);
         } else {
@@ -50,11 +47,12 @@ public class TconBorder extends Item {
                     }
                 }
             }
+            System.out.println("use status enter BLOCK");
 
             if (hitresult.getType() == HitResult.Type.BLOCK) {
                 TconBorderEntity boat = this.getBoat(level, hitresult);
-                boat.setVariant(this.type);
                 boat.setYRot(player.getYRot());
+                System.out.println("level collision " + level.noCollision(boat, boat.getBoundingBox()));
                 if (!level.noCollision(boat, boat.getBoundingBox())) {
                     return InteractionResultHolder.fail(itemstack);
                 } else {
@@ -75,7 +73,7 @@ public class TconBorder extends Item {
         }
     }
 
-    private TconBorderEntity getBoat(Level p_220017_, HitResult p_220018_) {
-        return new TconBorderEntity(p_220017_, p_220018_.getLocation().x, p_220018_.getLocation().y, p_220018_.getLocation().z);
+    private TconBorderEntity getBoat(Level level, HitResult hitResult) {
+        return new TconBorderEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
     }
 }
