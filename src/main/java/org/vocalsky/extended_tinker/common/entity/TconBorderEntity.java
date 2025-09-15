@@ -1,57 +1,24 @@
 package org.vocalsky.extended_tinker.common.entity;
 
-import com.google.common.collect.Lists;
-import net.minecraft.BlockUtil;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.game.ServerboundPaddleBoatPacket;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.ByIdMap;
-import net.minecraft.util.Mth;
-import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.WaterAnimal;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.entity.vehicle.DismountHelper;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.WaterlilyBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.BooleanOp;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.common.extensions.IForgeBoat;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.common.ModEntity;
-import org.vocalsky.extended_tinker.common.tool.TconBorder;
 
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.function.IntFunction;
 
-public class TconBorderEntity extends Entity {
-    public TconBorderEntity(EntityType<?> entityType, Level level) {
+public class TconBorderEntity extends Mob {
+    public TconBorderEntity(EntityType<? extends TconBorderEntity> entityType, Level level) {
         super(entityType, level);
+    }
+
+    public static AttributeSupplier.Builder bakeAttributes() {
+        return LivingEntity.createLivingAttributes()
+                .add(Attributes.MAX_HEALTH, 1024.00)
+                .add(Attributes.MOVEMENT_SPEED, 3.0D)
+                .add(Attributes.FOLLOW_RANGE, 16.0D);
     }
 
     public TconBorderEntity(Level level, double xo, double yo, double zo) {
@@ -62,17 +29,45 @@ public class TconBorderEntity extends Entity {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+    }
+
+    @Override
     protected void defineSynchedData() {
-
+        super.defineSynchedData();
     }
 
     @Override
-    protected void readAdditionalSaveData(@NotNull CompoundTag compoundTag) {
-
+    public void readAdditionalSaveData(@NotNull CompoundTag compoundTag) {
+        super.readAdditionalSaveData(compoundTag);
     }
 
     @Override
-    protected void addAdditionalSaveData(@NotNull CompoundTag compoundTag) {
-
+    public void addAdditionalSaveData(@NotNull CompoundTag compoundTag) {
+        super.addAdditionalSaveData(compoundTag);
     }
+
+//    private void doPlayerRide(@NotNull Player player) {
+//        if (!this.level().isClientSide) {
+//            player.setYRot(this.getYRot());
+//            player.setXRot(this.getXRot());
+//            player.startRiding(this);
+////            this.addPassenger(player);
+//        }
+//    }
+
+//    @Override
+//    public @NotNull InteractionResult interact(@NotNull Player player, @NotNull InteractionHand hand) {
+//        return super.interact(player, hand);
+//////        System.out.println("interacting by " + player);
+////        boolean flag = player.isSecondaryUseActive();
+//////        System.out.println("interact type  " + this.isVehicle() + " " + player.isSecondaryUseActive());
+////        if (!this.isVehicle() && !flag) {
+////            doPlayerRide(player);
+////            return InteractionResult.sidedSuccess(this.level().isClientSide);
+////        } else {
+////            return super.interact(player, hand);
+////        }
+//    }
 }

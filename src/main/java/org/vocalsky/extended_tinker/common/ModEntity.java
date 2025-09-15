@@ -1,9 +1,13 @@
 package org.vocalsky.extended_tinker.common;
 
+import com.github.alexthe666.iceandfire.entity.EntityDragonEgg;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -11,6 +15,11 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.entity.FirecrackEntity;
 import org.vocalsky.extended_tinker.common.entity.TconBorderEntity;
 
+
+@Mod.EventBusSubscriber(
+        modid = Extended_tinker.MODID,
+        bus = Mod.EventBusSubscriber.Bus.MOD
+)
 public class ModEntity {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES;
     public static RegistryObject<EntityType<FirecrackEntity>> firecrackEntity;
@@ -30,5 +39,11 @@ public class ModEntity {
 
     public static void registers(IEventBus eventBus)  {
         ENTITY_TYPES.register(eventBus);
+    }
+
+    @SubscribeEvent
+    public static void bakeAttributes(EntityAttributeCreationEvent creationEvent) {
+        System.out.println("bake attributes running");
+        creationEvent.put(tconBoatEntity.get(), TconBorderEntity.bakeAttributes().build());
     }
 }
