@@ -212,6 +212,9 @@ dependencies {
     //domain
     implementation fg.deobf("curse.maven:tcondiadema-1218668:${domain_file}")
 
+    //levelling addon
+    implementation fg.deobf("curse.maven:tinkers-levelling-addon-709416:${lvad_file}")
+
     // mg
     implementation fg.deobf("curse.maven:modulargolems-690937:${mg_file}")
     implementation fg.deobf("curse.maven:l2library-620203:${l2_file}")

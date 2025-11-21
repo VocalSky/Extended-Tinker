@@ -10,12 +10,16 @@ import org.vocalsky.extended_tinker.common.modifier.Firecrack.FirecrackStarModif
 import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorAsoneModifier;
 import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorPainlessModifier;
 import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
+import org.vocalsky.extended_tinker.common.recipe.ToolExpExportRecipe;
+import org.vocalsky.extended_tinker.common.recipe.ToolExpImportRecipe;
 import slimeknights.mantle.recipe.helper.LoadableRecipeSerializer;
+import slimeknights.mantle.recipe.helper.SimpleRecipeSerializer;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.ModifierSalvage;
+import slimeknights.tconstruct.tools.recipe.ArmorDyeingRecipe;
 
 @Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModModifiers {
@@ -33,4 +37,6 @@ public class ModModifiers {
 
     public static final RegistryObject<RecipeSerializer<FirecrackStarModifierRecipe>> STAR_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier", () -> LoadableRecipeSerializer.of(FirecrackStarModifierRecipe.LOADER));
     public static final RegistryObject<RecipeSerializer<ModifierSalvage>> STAR_SALVAGE_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier_salvage", () -> LoadableRecipeSerializer.of(ModifierSalvage.LOADER));
+    public static final RegistryObject<RecipeSerializer<ToolExpExportRecipe>> TOOL_EXP_EXPORT_SERIALIZER = RECIPE_SERIALIZERS.register("exp_export", () -> LoadableRecipeSerializer.of(ToolExpExportRecipe.LOADER));
+    public static final RegistryObject<RecipeSerializer<ToolExpImportRecipe>> TOOL_EXP_IMPORT_SERIALIZER = RECIPE_SERIALIZERS.register("exp_import", () -> new SimpleRecipeSerializer<>(ToolExpImportRecipe::new));
 }

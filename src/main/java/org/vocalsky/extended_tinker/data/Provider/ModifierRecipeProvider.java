@@ -2,7 +2,6 @@ package org.vocalsky.extended_tinker.data.Provider;
 
 import com.csdy.tcondiadema.DiademaSlots;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
-import com.github.alexthe666.iceandfire.misc.IafTagRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -14,14 +13,15 @@ import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.ModModifiers;
+import org.vocalsky.extended_tinker.common.recipe.Builder.ToolExpExportRecipeBuilder;
 import org.vocalsky.extended_tinker.common.recipe.FirecrackStarModifierRecipe;
 import org.vocalsky.extended_tinker.compat.iaf.IafModifiers;
 import org.vocalsky.extended_tinker.util.ETTagsUtil;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
+import slimeknights.mantle.recipe.helper.SimpleFinishedRecipe;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.tools.TinkerTools;
-import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import java.util.function.Consumer;
 
@@ -115,6 +115,10 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
                 .setTools(ETTagsUtil.DRAGON_ARMOR)
                 .saveSalvage(consumer, prefix(IafModifiers.Permafrost.getId(), diademaSalvage))
                 .save(consumer, prefix(IafModifiers.Permafrost.getId(), diademaFolder));
+        ToolExpExportRecipeBuilder.export()
+            .addInput(ModCore.ExpTransfer)
+            .save(consumer, location(worktableFolder + "exp_export"));
+        consumer.accept(new SimpleFinishedRecipe(location(slotlessFolder + "exp_import"), ModModifiers.TOOL_EXP_IMPORT_SERIALIZER.get()));
     }
 
     @Override

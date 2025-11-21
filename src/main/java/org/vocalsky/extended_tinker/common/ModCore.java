@@ -1,20 +1,20 @@
 package org.vocalsky.extended_tinker.common;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.entity.TconBorderEntity;
+import org.vocalsky.extended_tinker.common.item.ExpTransfer;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
 //import org.vocalsky.extended_tinker.util.ModCastItemObject;
-import org.vocalsky.extended_tinker.common.tool.TconBorder;
+import pyre.tinkerslevellingaddon.TinkersLevellingAddon;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -54,13 +54,14 @@ public class ModCore {
         ModModifiers.registers(eventBus);
     }
 
-    public static ItemObject<TconBorder> TCON_BORDER = ITEMS.register("tcon_border", () -> new TconBorder(Stack1Item));
+    public static boolean LevellingAddonLoaded() { return ModList.get().isLoaded("tinkerslevellingaddon"); }
+    public static ItemObject<ExpTransfer> ExpTransfer = ITEMS.register("exp_transfer", () -> new ExpTransfer(CommonItem));
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         Parts.addTabItems(itemDisplayParameters, tab);
         Casts.addTabItems(itemDisplayParameters, tab);
         Tools.addTabItems(itemDisplayParameters, tab);
-        tab.accept(TCON_BORDER);
+        if (LevellingAddonLoaded()) tab.accept(ExpTransfer);
     }
 
     public static class Parts {
@@ -84,7 +85,6 @@ public class ModCore {
         public static void init() {}
 
         private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
-            Consumer<ItemStack> output = tab::accept;
             addCasts(tab, CastItemObject::get);
             addCasts(tab, CastItemObject::getSand);
             addCasts(tab, CastItemObject::getRedSand);

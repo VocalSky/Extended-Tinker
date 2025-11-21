@@ -5,7 +5,6 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -15,14 +14,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.vocalsky.extended_tinker.common.*;
-import org.vocalsky.extended_tinker.common.entity.TconBorderEntity;
 import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.network.PacketHandler;
 import slimeknights.tconstruct.library.utils.Util;
-
-import static org.vocalsky.extended_tinker.common.ModEntity.tconBoatEntity;
 
 @Mod(Extended_tinker.MODID)
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
