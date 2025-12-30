@@ -90,7 +90,10 @@ public class zh_tw implements ILang {
         BURNS_THE_SKY_DESCRIPTION("modifier.extended_tinker.burns_the_sky.description", "領域內的怪物將被烈火焚身。"),
         PERMAFROST("modifier.extended_tinker.permafrost", "永恆凍土"),
         PERMAFROST_FLAVOR("modifier.extended_tinker.permafrost.flavor", "來堆雪人！"),
-        PERMAFROST_DESCRIPTION("modifier.extended_tinker.permafrost.description", "領域內的怪物將被送入永恆的冬眠。");
+        PERMAFROST_DESCRIPTION("modifier.extended_tinker.permafrost.description", "領域內的怪物將被送入永恆的冬眠。"),
+        EXP_TRANSFER_ORB_ITEM("item.extended_tinker.exp_transfer_orb", "經驗轉移寶珠"),
+        EXP_TRANSFER_ORB_EXPORT_TITLE("recipe.extended_tinker.exp_export.title", "經驗轉移"),
+        EXP_TRANSFER_ORB_EXPORT_DESCRIPTION("recipe.extended_tinker.exp_export.description", "將工具的經驗轉移到寶珠上，可以在工匠砧上將寶珠的經驗注入回工具中（寶珠將會被消耗）。");
 
         @Getter
         private final String key;

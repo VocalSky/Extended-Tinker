@@ -11,8 +11,10 @@ import org.jetbrains.annotations.Nullable;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.ModModifiers;
+import org.vocalsky.extended_tinker.common.item.ExpTransferOrb;
 import pyre.tinkerslevellingaddon.ImprovableModifier;
 import pyre.tinkerslevellingaddon.setup.Registration;
+import pyre.tinkerslevellingaddon.util.ToolLevellingUtil;
 import slimeknights.mantle.data.loadable.field.ContextKey;
 import slimeknights.mantle.data.loadable.record.RecordLoadable;
 import slimeknights.mantle.recipe.ingredient.SizedIngredient;
@@ -29,6 +31,7 @@ import java.util.List;
 public class ToolExpExportRecipe extends AbstractWorktableRecipe {
     int currentLevel = 0;
     int currentExperience = 0;
+    boolean currentIsBoard = false;
 
     private static final Component TITLE = Extended_tinker.makeTranslation("recipe", "exp_export.title");
     private static final Component DESCRIPTION = Extended_tinker.makeTranslation("recipe", "exp_export.description");
@@ -39,7 +42,7 @@ public class ToolExpExportRecipe extends AbstractWorktableRecipe {
     private static ItemStack getTarget(ITinkerableContainer inv) {
         ItemStack target = null;
         for (int i = 0; i < inv.getTinkerableSize(); ++i)
-            if (inv.getInput(i).is(ModCore.ExpTransfer.asItem())) {
+            if (inv.getInput(i).is(ModCore.ExpTransferOrb.asItem())) {
                 target = inv.getInput(i);
                 break;
             }
@@ -91,6 +94,7 @@ public class ToolExpExportRecipe extends AbstractWorktableRecipe {
         ModDataNBT data = tool.getPersistentData();
         currentLevel = data.getInt(ImprovableModifier.LEVEL_KEY);
         currentExperience = data.getInt(ImprovableModifier.EXPERIENCE_KEY);
+        currentIsBoard = ToolLevellingUtil.isBroadTool(tool);
         data.putInt(ImprovableModifier.LEVEL_KEY, 0);
         data.putInt(ImprovableModifier.EXPERIENCE_KEY, 0);
         return LazyToolStack.success(tool, inv.getTinkerableSize());
@@ -104,6 +108,7 @@ public class ToolExpExportRecipe extends AbstractWorktableRecipe {
             CompoundTag tag = target.getOrCreateTag();
             tag.putInt(ImprovableModifier.LEVEL_KEY.toString(), currentLevel);
             tag.putInt(ImprovableModifier.EXPERIENCE_KEY.toString(), currentExperience);
+            tag.putBoolean(ExpTransferOrb.IS_BOARD_KEY.toString(), currentIsBoard);
         }
     }
 

@@ -5,11 +5,13 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextColor;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import pyre.tinkerslevellingaddon.ImprovableModifier;
 import pyre.tinkerslevellingaddon.config.Config;
@@ -21,8 +23,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExpTransfer extends Item {
-    public ExpTransfer(Properties properties) {
+public class ExpTransferOrb extends Item {
+    public static final ResourceLocation IS_BOARD_KEY = Extended_tinker.getResource("is_board");
+
+    public ExpTransferOrb(Properties properties) {
         super(properties);
     }
 

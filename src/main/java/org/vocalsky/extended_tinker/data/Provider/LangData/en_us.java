@@ -94,7 +94,10 @@ public class en_us implements ILang {
         BURNS_THE_SKY_DESCRIPTION("modifier.extended_tinker.burns_the_sky.description", "Every monster in the domain will be burned by the fire."),
         PERMAFROST("modifier.extended_tinker.permafrost", "Permafrost"),
         PERMAFROST_FLAVOR("modifier.extended_tinker.permafrost.flavor", "Building ice sculptures!"),
-        PERMAFROST_DESCRIPTION("modifier.extended_tinker.permafrost.description", "Every monster in the domain will be put into suspended animation.");
+        PERMAFROST_DESCRIPTION("modifier.extended_tinker.permafrost.description", "Every monster in the domain will be put into suspended animation."),
+        EXP_TRANSFER_ORB_ITEM("item.extended_tinker.exp_transfer_orb", "Exp Transfer Orb"),
+        EXP_TRANSFER_ORB_EXPORT_TITLE("recipe.extended_tinker.exp_export.title", "Transfer experience"),
+        EXP_TRANSFER_ORB_EXPORT_DESCRIPTION("recipe.extended_tinker.exp_export.description", "You can transfer the experience from a tool to a gem, and then use an artisan's anvil to inject the gem's experience back into the tool (the gem will be consumed).");
 
         @Getter
         private final String key;

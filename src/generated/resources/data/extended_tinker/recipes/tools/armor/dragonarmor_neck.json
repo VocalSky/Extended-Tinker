@@ -4,6 +4,7 @@
     "type": "tconstruct:material",
     "item": "extended_tinker:dragon_armor_core_neck"
   },
+  "cast_purpose": "maybe_material",
   "item_cost": 9,
   "result": "extended_tinker:dragonarmor_neck"
 }

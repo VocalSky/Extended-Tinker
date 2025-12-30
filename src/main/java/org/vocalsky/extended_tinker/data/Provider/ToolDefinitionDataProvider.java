@@ -1,6 +1,5 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
-import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ArmorItem;
 import org.jetbrains.annotations.NotNull;
@@ -20,6 +19,7 @@ import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.definition.module.build.MultiplyStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.ToolSlotsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.ToolTraitsModule;
+import slimeknights.tconstruct.library.tools.definition.module.display.FixedMaterialToolName;
 import slimeknights.tconstruct.library.tools.definition.module.material.DefaultMaterialsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.MaterialStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.PartStatsModule;
@@ -27,7 +27,6 @@ import slimeknights.tconstruct.library.tools.definition.module.material.PartsMod
 import slimeknights.tconstruct.library.tools.nbt.MultiplierNBT;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.TinkerToolParts;
-import slimeknights.tconstruct.tools.data.material.MaterialIds;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import java.util.List;
@@ -35,11 +34,13 @@ import java.util.List;
 public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvider {
     RandomMaterial tier1Material = RandomMaterial.random().tier(1).build();
     RandomMaterial randomMaterial = RandomMaterial.random().build();
-    DefaultMaterialsModule defaultTwoParts = DefaultMaterialsModule.builder().material(tier1Material, tier1Material).build();
-    DefaultMaterialsModule defaultThreeParts = DefaultMaterialsModule.builder().material(tier1Material, tier1Material, tier1Material).build();
-    DefaultMaterialsModule defaultFourParts = DefaultMaterialsModule.builder().material(tier1Material, tier1Material, tier1Material, tier1Material).build();
-    DefaultMaterialsModule randomFiveParts = DefaultMaterialsModule.builder().material(randomMaterial, randomMaterial,randomMaterial, randomMaterial, randomMaterial).build();
-    DefaultMaterialsModule defaultAncient = DefaultMaterialsModule.builder().material(randomMaterial, randomMaterial).build();
+    RandomMaterial anyMaterial = RandomMaterial.random().allowHidden().build();
+    RandomMaterial nonHiddenMaterial = RandomMaterial.random().build();
+    DefaultMaterialsModule defaultTwoParts = DefaultMaterialsModule.builder().material(nonHiddenMaterial, nonHiddenMaterial).build();
+    DefaultMaterialsModule defaultThreeParts = DefaultMaterialsModule.builder().material(nonHiddenMaterial, nonHiddenMaterial, nonHiddenMaterial).build();
+    DefaultMaterialsModule defaultFourParts = DefaultMaterialsModule.builder().material(nonHiddenMaterial, nonHiddenMaterial, nonHiddenMaterial, nonHiddenMaterial).build();
+    DefaultMaterialsModule defaultFiveParts = DefaultMaterialsModule.builder().material(nonHiddenMaterial, nonHiddenMaterial, nonHiddenMaterial, nonHiddenMaterial, nonHiddenMaterial).build();
+    DefaultMaterialsModule defaultAncient = DefaultMaterialsModule.builder().material(nonHiddenMaterial, nonHiddenMaterial).build();
 
     public ToolDefinitionDataProvider(PackOutput packOutput) {
         super(packOutput, Extended_tinker.MODID);
@@ -53,10 +54,16 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).build()))
             .module(ToolTraitsModule.builder().trait(ModModifiers.FLIGHT.getId(), 1).build())
             .module(ToolSlotsModule.builder().slots(SlotType.UPGRADE, 3).slots(SlotType.ABILITY, 3).build());
+        define(ModToolDefinitions.FIREWORK_ROCKET)
+            .module(PartStatsModule.parts().part(TinkerToolParts.arrowHead).part(TinkerToolParts.arrowShaft).build())
+            .module(defaultTwoParts)
+            .module(ToolTraitsModule.builder().trait(ModModifiers.FLIGHT.getId(), 1).build())
+            .module(FixedMaterialToolName.FIRST)
+            .module(ToolSlotsModule.builder().slots(SlotType.UPGRADE, 3).slots(SlotType.ABILITY, 3).build());
 
         defineArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL)
             .module(PartStatsModule.parts().part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(ModCore.Parts.BRIDLE).build())
-            .module(randomFiveParts)
+            .module(defaultFiveParts)
             .module(ArmorItem.Type.CHESTPLATE, new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).set(ToolStats.ARMOR, 2.0f).set(ToolStats.ARMOR_TOUGHNESS, 1.5f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.25f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
 
@@ -69,7 +76,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
                     .part(TinkerToolParts.shieldCore, 1)
             )
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).set(ToolStats.ARMOR, 2.0f).set(ToolStats.ARMOR_TOUGHNESS, 1.5f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.5f).build()))
-                .module(randomFiveParts)
+                .module(defaultFiveParts)
                 .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
 
         defineArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL)

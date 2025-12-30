@@ -47,6 +47,7 @@ import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.capability.inventory.ToolInventoryCapability;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
+import slimeknights.tconstruct.library.tools.definition.module.display.ToolNameHook;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
@@ -455,7 +456,7 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
 
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
-        return TooltipUtil.getDisplayName(stack, getToolDefinition());
+        return ToolNameHook.getName(this.getToolDefinition(), stack);
     }
 
     @Override

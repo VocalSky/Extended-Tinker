@@ -46,9 +46,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         for (DragonArmor.Type type : DragonArmor.Type.values()) {
             part(IafCore.Parts.DRAGON_ARMOR_CORE.get(type), "parts/dragonarmor_" + type.getName());
-//            String texture = "dragon_armor/dragonarmor_" + type.getName();
-//            basicItem(IafCore.Parts.DRAGON_ARMOR_CORE.get(type).asItem(), texture);
         }
+
+        basicItem(ModCore.ExpTransferOrb.asItem(), "exp_transfer_orb");
     }
 
     private ResourceLocation id(ItemLike item) {

@@ -43,6 +43,7 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
 
         // common
         ToolBuildingRecipeBuilder.toolBuildingRecipe(ModCore.Tools.FIRECRACK.get()).addExtraRequirement(Ingredient.of(Items.GUNPOWDER)).addExtraRequirement(Ingredient.of(Items.PAPER)).save(consumer, this.prefix(this.id(ModCore.Tools.FIRECRACK.get()), folder));
+        ToolBuildingRecipeBuilder.toolBuildingRecipe(ModCore.Tools.FIREWORK_ROCKET.get()).addExtraRequirement(Ingredient.of(Items.PAPER)).save(consumer, this.prefix(this.id(ModCore.Tools.FIREWORK_ROCKET.get()), folder));
         toolBuilding(consumer, ModCore.Tools.HORSE_ARMOR, armorFolder);
 
         // golems

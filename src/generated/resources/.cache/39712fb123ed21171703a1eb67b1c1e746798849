@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-29T08:38:58.573272613	Item Models: extended_tinker
+// 1.20.1	2025-12-28T17:51:05.4411681	Item Models: extended_tinker
 ae98b8f88b10d90d5aeeac8413136a92eadc5596 assets/extended_tinker/models/item/bridle.json
 71594fea48ad87f73adbaeb66c547cc79adad553 assets/extended_tinker/models/item/bridle_cast.json
 c4d56608a5d51cc132151643c0609e952037e59e assets/extended_tinker/models/item/bridle_red_sand_cast.json
@@ -11,6 +11,7 @@ d7bc8ac386707c0ce89b5adef028cceeb1f1fc84 assets/extended_tinker/models/item/brid
 83e58e3a7a9b53fd39d1d2e69ac3b91a2861073a assets/extended_tinker/models/item/dragon_armor_core_head.json
 206a5bfb0863a5d27ffdd7beffef2181664198d2 assets/extended_tinker/models/item/dragon_armor_core_neck.json
 849a3cd5c8ade20c8a6e476158d9900a8800a8bb assets/extended_tinker/models/item/dragon_armor_core_tail.json
+df8122b1edaa787402a120efac1a3e47bf5fdc09 assets/extended_tinker/models/item/exp_transfer_orb.json
 9417bd06f4e39b6a5af2c4c5159126717b76ca1f assets/extended_tinker/models/item/helmet_golem_plating.json
 c1ab04216899403f9362740b9dc14a4db27d8b89 assets/extended_tinker/models/item/helmet_golem_plating_cast.json
 baa370edf1edb206ec168c56252083ab323d08e3 assets/extended_tinker/models/item/helmet_golem_plating_red_sand_cast.json

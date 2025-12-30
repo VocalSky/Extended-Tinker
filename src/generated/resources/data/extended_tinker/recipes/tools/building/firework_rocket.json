@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:tool_building",
+  "extra_requirements": [
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": "extended_tinker:firework_rocket",
+  "result_count": 1
+}

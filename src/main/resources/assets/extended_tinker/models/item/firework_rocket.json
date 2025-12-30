@@ -1,0 +1,15 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "head":      "extended_tinker:item/tool/firework_rocket/head",
+    "shaft":      "extended_tinker:item/tool/firework_rocket/shaft",
+    "handle":      "extended_tinker:item/tool/firework_rocket/handle"
+  },
+  "modifier_roots": [ "extended_tinker:item/tool/firework_rocket/modifiers/" ],
+  "parts": [
+    { "name": "head",    "index": 0 },
+    { "name": "shaft", "index": 1 },
+    { "name": "handle" }
+  ]
+}

@@ -36,6 +36,12 @@ public class StationSlotLayoutProvider extends AbstractStationSlotLayoutProvider
             .addInputItem(new Pattern(Extended_tinker.MODID, "gunpowder"), net.minecraft.world.item.Items.GUNPOWDER, 30, 30)
             .addInputItem(new Pattern(Extended_tinker.MODID, "paper"), net.minecraft.world.item.Items.PAPER, 50, 50)
             .build();
+        defineModifiable(ModCore.Tools.FIREWORK_ROCKET)
+            .sortIndex(1145)
+            .addInputItem(TinkerToolParts.arrowHead, 30, 30)
+            .addInputItem(TinkerToolParts.arrowShaft, 30, 50)
+            .addInputItem(new Pattern(Extended_tinker.MODID, "paper"), net.minecraft.world.item.Items.PAPER, 50, 50)
+            .build();
 
         // golems
         define(Extended_tinker.getResource("golem_armor"))

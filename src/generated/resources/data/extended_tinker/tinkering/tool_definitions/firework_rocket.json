@@ -3,8 +3,8 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        "tconstruct:tool_handle",
-        "tconstruct:bow_limb"
+        "tconstruct:arrow_head",
+        "tconstruct:arrow_shaft"
       ],
       "primary_part": 0
     },
@@ -20,12 +20,6 @@
       ]
     },
     {
-      "type": "tconstruct:multiply_stats",
-      "multipliers": {
-        "tconstruct:durability": 2.0
-      }
-    },
-    {
       "type": "tconstruct:traits",
       "traits": [
         {
@@ -33,6 +27,10 @@
           "name": "extended_tinker:flight_firecrack"
         }
       ]
+    },
+    {
+      "type": "tconstruct:fixed_material_name",
+      "index": 0
     },
     {
       "type": "tconstruct:modifier_slots",

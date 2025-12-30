@@ -10,11 +10,11 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.common.item.ExpTransfer;
+import org.vocalsky.extended_tinker.common.item.ExpTransferOrb;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
+import org.vocalsky.extended_tinker.common.tool.FireworkRocket;
 import org.vocalsky.extended_tinker.common.tool.HorseArmor;
 //import org.vocalsky.extended_tinker.util.ModCastItemObject;
-import pyre.tinkerslevellingaddon.TinkersLevellingAddon;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -55,13 +55,13 @@ public class ModCore {
     }
 
     public static boolean LevellingAddonLoaded() { return ModList.get().isLoaded("tinkerslevellingaddon"); }
-    public static ItemObject<ExpTransfer> ExpTransfer = ITEMS.register("exp_transfer", () -> new ExpTransfer(CommonItem));
+    public static ItemObject<ExpTransferOrb> ExpTransferOrb = ITEMS.register("exp_transfer_orb", () -> new ExpTransferOrb(Stack1Item));
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         Parts.addTabItems(itemDisplayParameters, tab);
         Casts.addTabItems(itemDisplayParameters, tab);
         Tools.addTabItems(itemDisplayParameters, tab);
-        if (LevellingAddonLoaded()) tab.accept(ExpTransfer);
+        if (LevellingAddonLoaded()) tab.accept(ExpTransferOrb);
     }
 
     public static class Parts {
@@ -127,9 +127,11 @@ public class ModCore {
             Consumer<ItemStack> output = tab::accept;
             acceptTool(output, HORSE_ARMOR);
             acceptTool(output, FIRECRACK);
+            acceptTool(output, FIREWORK_ROCKET);
         }
 
         public static final ItemObject<Firecrack> FIRECRACK = ITEMS.register("firecrack", () -> new Firecrack(TOOL_PROP, ModToolDefinitions.FIRECRACK));
+        public static final ItemObject<FireworkRocket> FIREWORK_ROCKET = ITEMS.register("firework_rocket", () -> new FireworkRocket(CommonItem, ModToolDefinitions.FIRECRACK));
         public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, TOOL_PROP));
 
         private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {

@@ -2,7 +2,7 @@
   "type": "extended_tinker:exp_export",
   "inputs": [
     {
-      "item": "extended_tinker:exp_transfer"
+      "item": "extended_tinker:exp_transfer_orb"
     }
   ]
 }

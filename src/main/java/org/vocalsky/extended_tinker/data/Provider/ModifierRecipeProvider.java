@@ -116,7 +116,7 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
                 .saveSalvage(consumer, prefix(IafModifiers.Permafrost.getId(), diademaSalvage))
                 .save(consumer, prefix(IafModifiers.Permafrost.getId(), diademaFolder));
         ToolExpExportRecipeBuilder.export()
-            .addInput(ModCore.ExpTransfer)
+            .addInput(ModCore.ExpTransferOrb)
             .save(consumer, location(worktableFolder + "exp_export"));
         consumer.accept(new SimpleFinishedRecipe(location(slotlessFolder + "exp_import"), ModModifiers.TOOL_EXP_IMPORT_SERIALIZER.get()));
     }
