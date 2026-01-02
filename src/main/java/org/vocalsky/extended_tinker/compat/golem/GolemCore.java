@@ -7,7 +7,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmor;
+import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmorItem;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -126,7 +126,7 @@ public class GolemCore {
             acceptTools(output, GOLEM_ARMOR);
         }
 
-        public static final EnumObject<ArmorItem.Type, GolemArmor> GOLEM_ARMOR = ITEMS.registerEnum("golem", new ArmorItem.Type[]{ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS}, type -> new GolemArmor(GolemToolDefinitions.GOLEM_ARMOR_MATERIAL, type, TOOL_PROP));
+        public static final EnumObject<ArmorItem.Type, GolemArmorItem> GOLEM_ARMOR = ITEMS.registerEnum("golem", new ArmorItem.Type[]{ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS}, type -> new GolemArmorItem(GolemToolDefinitions.GOLEM_ARMOR_MATERIAL, type, TOOL_PROP));
 
         private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {
             ToolBuildHandler.addVariants(output, tool.get(), "");

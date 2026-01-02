@@ -1,6 +1,7 @@
 package org.vocalsky.extended_tinker.common;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -12,13 +13,15 @@ import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.item.ExpTransferOrb;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
-import org.vocalsky.extended_tinker.common.tool.FireworkRocket;
-import org.vocalsky.extended_tinker.common.tool.HorseArmor;
+import org.vocalsky.extended_tinker.common.tool.FireworkRocketItem;
+import org.vocalsky.extended_tinker.common.tool.HorseArmorItem;
 //import org.vocalsky.extended_tinker.util.ModCastItemObject;
+import slimeknights.mantle.Mantle;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
+import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
@@ -45,6 +48,7 @@ public class ModCore {
     private static final Item.Properties Stack1Item = new Item.Properties().stacksTo(1);
     private static final Item.Properties CommonItem = new Item.Properties();
     public static void registers(IEventBus eventBus)  {
+        Tags.init();
         Parts.init();
         Casts.init();
         Tools.init();
@@ -131,8 +135,8 @@ public class ModCore {
         }
 
         public static final ItemObject<Firecrack> FIRECRACK = ITEMS.register("firecrack", () -> new Firecrack(TOOL_PROP, ModToolDefinitions.FIRECRACK));
-        public static final ItemObject<FireworkRocket> FIREWORK_ROCKET = ITEMS.register("firework_rocket", () -> new FireworkRocket(CommonItem, ModToolDefinitions.FIRECRACK));
-        public static final ItemObject<HorseArmor> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, TOOL_PROP));
+        public static final ItemObject<FireworkRocketItem> FIREWORK_ROCKET = ITEMS.register("firework_rocket", () -> new FireworkRocketItem(CommonItem, ModToolDefinitions.FIRECRACK));
+        public static final ItemObject<HorseArmorItem> HORSE_ARMOR = ITEMS.register( "horse_armor_chestplate", () -> new HorseArmorItem(ModToolDefinitions.HORSE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, TOOL_PROP));
 
         private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {
             ToolBuildHandler.addVariants(output, tool.get(), "");
@@ -141,6 +145,20 @@ public class ModCore {
         /** Adds a tool to the tab */
         private static void acceptTools(Consumer<ItemStack> output, EnumObject<?,? extends IModifiable> tools) {
             tools.forEach(tool -> ToolBuildHandler.addVariants(output, tool, ""));
+        }
+    }
+
+    public static class Tags {
+        public static void init() {}
+
+        public static final TagKey<Item> FIREWORK_FLINT = local("firework_flint");
+
+        private static TagKey<Item> local(String name) {
+            return TagKey.create(Registries.ITEM, TConstruct.getResource(name));
+        }
+
+        private static TagKey<Item> common(String name) {
+            return TagKey.create(Registries.ITEM, Mantle.commonResource(name));
         }
     }
 }

@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
@@ -20,6 +21,7 @@ import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.registration.CastItemObject;
+import slimeknights.tconstruct.tools.TinkerTools;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -47,7 +49,10 @@ public class ItemTagProvider extends ItemTagsProvider {
         // common
         addToolTags(ModCore.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
         addToolTags(ModCore.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
+        addToolTags(ModCore.Tools.FIREWORK_ROCKET, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
         this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(ModCore.Parts.BRIDLE.get()));
+
+        this.tag(ModCore.Tags.FIREWORK_FLINT).replace(false).add(TinkerTools.flintAndBrick.get(), Items.FLINT_AND_STEEL);
 
         // golems
         addArmorTags(GolemCore.Tools.GOLEM_ARMOR, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);

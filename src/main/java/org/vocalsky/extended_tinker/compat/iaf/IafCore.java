@@ -1,6 +1,5 @@
 package org.vocalsky.extended_tinker.compat.iaf;
 
-import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
@@ -9,7 +8,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
 //import org.vocalsky.extended_tinker.compat.iaf.materials.IafMaterialRegistry;
-import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
+import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmorItem;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
@@ -23,7 +22,6 @@ import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tables.TinkerTables;
 
-import java.util.EnumMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -33,7 +31,7 @@ public class IafCore {
     protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
     public static final RegistryObject<CreativeModeTab> IafTab = CREATIVE_TABS.register(
     "iaf", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "iaf_items"))
-                                        .icon(() -> Tools.DRAGON_ARMOR.get(DragonArmor.Type.HEAD).getRenderTool())
+                                        .icon(() -> Tools.DRAGON_ARMOR.get(DragonArmorItem.Type.HEAD).getRenderTool())
                                         .displayItems(IafCore::addTabItems)
                                         .withTabsBefore(TinkerTables.tabTables.getId())
                                         .withSearchBar()
@@ -74,7 +72,7 @@ public class IafCore {
         }
 
         private static final Item.Properties PART_PROP = CommonItem;
-        public static final EnumObject<DragonArmor.Type, ToolPartItem> DRAGON_ARMOR_CORE = ITEMS.registerEnum("dragon_armor_core", DragonArmor.Type.values(), type -> new ToolPartItem(PART_PROP, DragonArmorMaterialStats.TYPES.get(type.getOrder()).getId()));
+        public static final EnumObject<DragonArmorItem.Type, ToolPartItem> DRAGON_ARMOR_CORE = ITEMS.registerEnum("dragon_armor_core", DragonArmorItem.Type.values(), type -> new ToolPartItem(PART_PROP, DragonArmorMaterialStats.TYPES.get(type.getOrder()).getId()));
     }
 
     public static class Casts {
@@ -122,7 +120,7 @@ public class IafCore {
             acceptTools(output, DRAGON_ARMOR);
         }
 
-        public static final EnumObject<DragonArmor.Type, DragonArmor> DRAGON_ARMOR = ITEMS.registerEnum("dragonarmor", DragonArmor.Type.values(), type -> new DragonArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL, type, TOOL_PROP));
+        public static final EnumObject<DragonArmorItem.Type, DragonArmorItem> DRAGON_ARMOR = ITEMS.registerEnum("dragonarmor", DragonArmorItem.Type.values(), type -> new DragonArmorItem(IafToolDefinitions.DRAGON_ARMOR_MATERIAL, type, TOOL_PROP));
 
         private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {
             ToolBuildHandler.addVariants(output, tool.get(), "");

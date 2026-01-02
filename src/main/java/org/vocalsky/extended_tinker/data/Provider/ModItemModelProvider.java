@@ -14,7 +14,7 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafCore;
-import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
+import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmorItem;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.data.model.MaterialModelBuilder;
 import slimeknights.tconstruct.common.registration.CastItemObject;
@@ -44,7 +44,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             cast(item);
         });
 
-        for (DragonArmor.Type type : DragonArmor.Type.values()) {
+        for (DragonArmorItem.Type type : DragonArmorItem.Type.values()) {
             part(IafCore.Parts.DRAGON_ARMOR_CORE.get(type), "parts/dragonarmor_" + type.getName());
         }
 

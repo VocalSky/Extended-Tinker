@@ -50,7 +50,6 @@ import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.helper.TooltipUtil;
 import slimeknights.tconstruct.library.tools.item.IModifiableDisplay;
-import slimeknights.tconstruct.library.tools.item.ModifiableArrowItem;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
@@ -62,7 +61,7 @@ import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class HorseArmor extends HorseArmorItem implements Equipable, IModifiableDisplay, IArmorModel {
+public class HorseArmorItem extends net.minecraft.world.item.HorseArmorItem implements Equipable, IModifiableDisplay, IArmorModel {
     public static UUID HorseArmorUUID = UUID.fromString("556E1665-8B10-40C8-8F9D-CF9B1667F295");
     public static final DispenseItemBehavior DISPENSE_ITEM_BEHAVIOR = new DefaultDispenseItemBehavior() {
         protected @NotNull ItemStack execute(@NotNull BlockSource p_40408_, @NotNull ItemStack p_40409_) {
@@ -113,7 +112,7 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         }
     }
 
-    public HorseArmor(ArmorMaterial materialIn, ArmorItem.Type type, Item.Properties builderIn, ToolDefinition toolDefinition) {
+    public HorseArmorItem(ArmorMaterial materialIn, ArmorItem.Type type, Item.Properties builderIn, ToolDefinition toolDefinition) {
         super(0, "", builderIn.defaultDurability(materialIn.getDurabilityForType(type)));
         this.material = materialIn;
         this.type = type;
@@ -134,7 +133,7 @@ public class HorseArmor extends HorseArmorItem implements Equipable, IModifiable
         this.toolDefinition = toolDefinition;
     }
 
-    public HorseArmor(ModifiableArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
+    public HorseArmorItem(ModifiableArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
         this(material, type, properties, Objects.requireNonNull(material.getArmorDefinition(type), "Missing tool definition for " + type.getName()));
     }
 

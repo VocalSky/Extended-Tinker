@@ -19,7 +19,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmor;
+import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmorItem;
 import org.vocalsky.extended_tinker.util.TextureInformation;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
@@ -42,7 +42,7 @@ public class GolemArmorRender extends RenderLayer<MetalGolemEntity, MetalGolemMo
     public void render(@NotNull PoseStack pose, @NotNull MultiBufferSource source, int i, @NotNull MetalGolemEntity entity, float f1, float f2, float f3, float f4, float f5, float f6) {
         for (var e : EquipmentSlot.values()) {
             ItemStack stack = ((Mob)entity).getItemBySlot(e);
-            if (stack.getItem() instanceof GolemArmor armor) {
+            if (stack.getItem() instanceof GolemArmorItem armor) {
                 ResourceLocation modelType = null;
                 if (armor.getType() == ArmorItem.Type.HELMET)
                     modelType = GolemModelPaths.HELMETS;

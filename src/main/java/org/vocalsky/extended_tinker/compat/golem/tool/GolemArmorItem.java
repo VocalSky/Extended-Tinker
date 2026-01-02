@@ -64,7 +64,7 @@ import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay, IArmorModel {
+public class GolemArmorItem extends GolemEquipmentItem implements IModifiableDisplay, IArmorModel {
     /** Volatile modifier tag to make piglins neutal when worn */
     public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
     /** Volatile modifier tag to make this item an elytra */
@@ -145,7 +145,7 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
 //        return this.getMaterial().getEquipSound();
 //    }
 
-    public GolemArmor(ArmorMaterial materialIn, ArmorItem.Type type, Properties builderIn, ToolDefinition toolDefinition) {
+    public GolemArmorItem(ArmorMaterial materialIn, ArmorItem.Type type, Properties builderIn, ToolDefinition toolDefinition) {
         super(builderIn.defaultDurability(materialIn.getDurabilityForType(type)), type.getSlot(), GolemTypes.ENTITY_GOLEM::get, builder -> {});
         this.material = materialIn;
         this.type = type;
@@ -165,7 +165,7 @@ public class GolemArmor extends GolemEquipmentItem implements IModifiableDisplay
         this.toolDefinition = toolDefinition;
     }
 
-    public GolemArmor(ModifiableArmorMaterial material, ArmorItem.Type type, Properties properties) {
+    public GolemArmorItem(ModifiableArmorMaterial material, ArmorItem.Type type, Properties properties) {
         this(material, type, properties, Objects.requireNonNull(material.getArmorDefinition(type), "Missing tool definition for " + type.getName()));
     }
 

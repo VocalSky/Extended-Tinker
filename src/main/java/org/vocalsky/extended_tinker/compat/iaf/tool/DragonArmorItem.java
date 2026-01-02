@@ -4,18 +4,13 @@ import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import dev.xkmc.l2library.util.math.MathHelper;
-import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import lombok.Getter;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -34,24 +29,18 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.util.ComponentUtil;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
-import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.TConstruct;
-import slimeknights.tconstruct.library.materials.definition.Material;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
-import slimeknights.tconstruct.library.modifiers.hook.armor.ElytraFlightModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.behavior.AttributesModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.DurabilityDisplayModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.SlotStackModifierHook;
 import slimeknights.tconstruct.library.modifiers.modules.build.RarityModule;
 import slimeknights.tconstruct.library.tools.IndestructibleItemEntity;
@@ -75,9 +64,8 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.regex.Matcher;
 
-public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
+public class DragonArmorItem extends ItemDragonArmor implements IModifiableDisplay {
     public static final EnumMap<EquipmentSlot, UUID> UUID = new EnumMap<>(EquipmentSlot.class);
     public static final Map<MaterialId, DragonArmorType> MATERIAL_TO_DRAGON_ARMOR_TYPE = new HashMap<>();
 
@@ -170,7 +158,7 @@ public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
         return this.type.getSlot();
     }
 
-    public DragonArmor(ArmorMaterial materialIn, Type type, Properties builderIn, ToolDefinition toolDefinition) {
+    public DragonArmorItem(ArmorMaterial materialIn, Type type, Properties builderIn, ToolDefinition toolDefinition) {
         super(DragonArmorType.DIAMOND, type.getOrder());
         this.material = materialIn;
         this.type = type;
@@ -190,7 +178,7 @@ public class DragonArmor extends ItemDragonArmor implements IModifiableDisplay {
         this.toolDefinition = toolDefinition;
     }
 
-    public DragonArmor(ModifiableArmorMaterial material, Type type, Properties properties) {
+    public DragonArmorItem(ModifiableArmorMaterial material, Type type, Properties properties) {
         this(material, type, properties, Objects.requireNonNull(material.getArmorDefinition(type.ArmorType()), "Missing tool definition for " + type.getName()));
     }
 

@@ -1,6 +1,5 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
-import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -12,7 +11,7 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafCore;
-import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
+import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmorItem;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
 import slimeknights.tconstruct.library.recipe.casting.material.MaterialCastingRecipeBuilder;
@@ -50,7 +49,7 @@ public class ToolRecipeProvider extends RecipeProvider implements IMaterialRecip
         GolemCore.Tools.GOLEM_ARMOR.forEach(item -> toolBuilding(consumer, item, armorFolder, Extended_tinker.getResource("golem_armor")));
 
         // iaf
-        for (DragonArmor.Type type : DragonArmor.Type.values()) {
+        for (DragonArmorItem.Type type : DragonArmorItem.Type.values()) {
             MaterialCastingRecipeBuilder.tableRecipe(IafCore.Tools.DRAGON_ARMOR.get(type)).
             setCast(MaterialIngredient.of(IafCore.Parts.DRAGON_ARMOR_CORE.get(type)), true).
             setItemCost(9).

@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmor;
+import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmorItem;
 
 import java.util.Objects;
 
@@ -47,7 +47,7 @@ public abstract class EntityDragonBaseMixin extends TamableAnimal implements IPa
             for(EquipmentSlot slot : EquipmentSlot.values()) {
                 if (slot.getType() == EquipmentSlot.Type.ARMOR) {
                     ItemStack itemstack = this.getItemBySlot(slot);
-                    if ((!damageSource.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof DragonArmor) {
+                    if ((!damageSource.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof DragonArmorItem) {
                         itemstack.hurtAndBreak((int)damage, this, (entity) -> entity.broadcastBreakEvent(slot));
                     }
                 }
@@ -60,10 +60,10 @@ public abstract class EntityDragonBaseMixin extends TamableAnimal implements IPa
     eT$updateTinkerAttributes(EquipmentSlot slot) {
         if (this.level().isClientSide()) return;
         ItemStack itemStack = this.getItemBySlot(slot);
-        if (!itemStack.isEmpty() && itemStack.getItem() instanceof DragonArmor) {
+        if (!itemStack.isEmpty() && itemStack.getItem() instanceof DragonArmorItem) {
             Multimap<Attribute, AttributeModifier> builder = itemStack.getItem().getAttributeModifiers(slot, itemStack);
             builder.forEach(((attribute, attributeModifier) -> {
-                Objects.requireNonNull(this.getAttribute(attribute)).removeModifier(DragonArmor.UUID.get(slot));
+                Objects.requireNonNull(this.getAttribute(attribute)).removeModifier(DragonArmorItem.UUID.get(slot));
                 Objects.requireNonNull(this.getAttribute(attribute)).addTransientModifier(attributeModifier);
             }));
         }

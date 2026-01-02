@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.vocalsky.extended_tinker.util.TextureInformation;
-import org.vocalsky.extended_tinker.common.tool.HorseArmor;
+import org.vocalsky.extended_tinker.common.tool.HorseArmorItem;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 @Mixin(HorseArmorLayer.class)
@@ -50,7 +50,7 @@ public abstract class HorseArmorLayerMixin extends RenderLayer<Horse, HorseModel
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/animal/horse/Horse;FFFFFF)V", at = @At("HEAD"), cancellable = true)
     public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int packedLightIn, Horse horse, float p_117036_, float p_117037_, float p_117038_, float p_117039_, float p_117040_, float p_117041_, CallbackInfo ci) {
         ItemStack armor = horse.getArmor();
-        if (armor.getItem() instanceof HorseArmor) {
+        if (armor.getItem() instanceof HorseArmorItem) {
             this.getParentModel().copyPropertiesTo(this.model);
             this.model.prepareMobModel(horse, p_117036_, p_117037_, p_117038_);
             this.model.setupAnim(horse, p_117036_, p_117037_, p_117039_, p_117040_, p_117041_);

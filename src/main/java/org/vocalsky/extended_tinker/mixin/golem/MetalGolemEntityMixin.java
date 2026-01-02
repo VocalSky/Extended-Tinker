@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
-import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmor;
+import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmorItem;
 
 @Mixin(MetalGolemEntity.class)
 public abstract class MetalGolemEntityMixin extends SweepGolemEntity<MetalGolemEntity, MetalGolemPartType> {
@@ -31,7 +31,7 @@ public abstract class MetalGolemEntityMixin extends SweepGolemEntity<MetalGolemE
             for(EquipmentSlot slot : EquipmentSlot.values()) {
                 if (slot.getType() == EquipmentSlot.Type.ARMOR) {
                     ItemStack itemstack = this.getItemBySlot(slot);
-                    if ((!damageSource.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof GolemArmor) {
+                    if ((!damageSource.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof GolemArmorItem) {
                         itemstack.hurtAndBreak((int)damage, this, (entity) -> entity.broadcastBreakEvent(slot));
                     }
                 }
