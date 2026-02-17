@@ -1,0 +1,10 @@
+{
+  "type": "extended_tinker:star_modifier_salvage",
+  "modifier": "extended_tinker:firework_star",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "extended_tinker:firecrack"
+  }
+}

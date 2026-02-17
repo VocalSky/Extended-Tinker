@@ -1,0 +1,29 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "extended_tinker:firework_inventory",
+      "limit": {
+        "flat": 1
+      },
+      "pattern": "extended_tinker:fireworks",
+      "slots": {
+        "each_level": 1
+      }
+    },
+    {
+      "type": "extended_tinker:shoot_firework"
+    },
+    {
+      "type": "tconstruct:inventory_menu",
+      "on_key": "any"
+    },
+    {
+      "type": "tconstruct:modifier_slot",
+      "each_level": 1,
+      "name": "abilities"
+    }
+  ],
+  "priority": 200,
+  "tooltip_display": "tinker_station"
+}

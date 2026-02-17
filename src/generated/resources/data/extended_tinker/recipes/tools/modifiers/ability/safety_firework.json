@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:name_tag"
+    },
+    {
+      "item": "minecraft:compass"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": "extended_tinker:safety_firework",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "extended_tinker:firecrack"
+  }
+}

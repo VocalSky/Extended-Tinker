@@ -1,0 +1,12 @@
+{
+  "type": "extended_tinker:star_modifier",
+  "allow_crystal": false,
+  "level": 5,
+  "result": "extended_tinker:firework_star",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "extended_tinker:firecrack"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "extended_tinker:firework_rocket"
+    }
+  ],
+  "priority": 200,
+  "tooltip_display": "always"
+}
