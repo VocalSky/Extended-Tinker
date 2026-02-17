@@ -31,7 +31,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
+import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import org.vocalsky.extended_tinker.util.ComponentUtil;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
@@ -73,14 +73,14 @@ public class DragonArmorItem extends ItemDragonArmor implements IModifiableDispl
         for(EquipmentSlot slot : EquipmentSlot.values()) {
             UUID.put(slot, java.util.UUID.randomUUID());
         }
-        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.iron, DragonArmorType.IRON);
-        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.gold, DragonArmorType.GOLD);
-        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.copper, DragonArmorType.COPPER);
-        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.silver, DragonArmorType.SILVER);
-        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.diamond, DragonArmorType.DIAMOND);
-        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.fire, DragonArmorType.FIRE);
-        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.ice, DragonArmorType.ICE);
-        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafMaterials.lightning, DragonArmorType.LIGHTNING);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafCore.Materials.iron, DragonArmorType.IRON);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafCore.Materials.gold, DragonArmorType.GOLD);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafCore.Materials.copper, DragonArmorType.COPPER);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafCore.Materials.silver, DragonArmorType.SILVER);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafCore.Materials.diamond, DragonArmorType.DIAMOND);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafCore.Materials.fire, DragonArmorType.FIRE);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafCore.Materials.ice, DragonArmorType.ICE);
+        MATERIAL_TO_DRAGON_ARMOR_TYPE.put(IafCore.Materials.lightning, DragonArmorType.LIGHTNING);
     }
 
     public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");

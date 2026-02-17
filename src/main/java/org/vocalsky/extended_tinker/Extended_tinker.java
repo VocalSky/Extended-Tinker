@@ -16,7 +16,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.vocalsky.extended_tinker.common.*;
 import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafCore;
-import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
 import org.vocalsky.extended_tinker.network.PacketHandler;
 import slimeknights.tconstruct.library.utils.Util;
 
@@ -29,15 +28,15 @@ public class Extended_tinker {
     public Extended_tinker() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModCore.registers(modEventBus);
-        GolemCore.registers(modEventBus);
-        IafCore.registers(modEventBus);
+        if (MGLoadable()) GolemCore.registers(modEventBus);
+        if (IAFLoadable()) IafCore.registers(modEventBus);
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         PacketHandler.Init();
-        event.enqueueWork(IafMaterials::registry);
+        event.enqueueWork(IafCore.Materials::registry);
     }
 
     @SubscribeEvent
@@ -65,4 +64,6 @@ public class Extended_tinker {
     }
 
     public static boolean DiademaLoadable() { return ModList.get().isLoaded("tcondiadema"); }
+    public static boolean MGLoadable() { return ModList.get().isLoaded("modulargolems"); }
+    public static boolean IAFLoadable() { return ModList.get().isLoaded("iceandfire"); }
 }

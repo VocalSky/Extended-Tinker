@@ -6,12 +6,13 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.common.recipe.ToolExpExportRecipe;
+import slimeknights.mantle.recipe.data.AbstractRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.worktable.AbstractSizedIngredientRecipeBuilder;
 
 import java.util.function.Consumer;
 
-@RequiredArgsConstructor(staticName = "export")
-public class ToolExpExportRecipeBuilder extends AbstractSizedIngredientRecipeBuilder<ToolExpExportRecipeBuilder> {
+@RequiredArgsConstructor(staticName = "star")
+public class FireworkStarRecipeBuilder extends AbstractSizedIngredientRecipeBuilder<FireworkStarRecipeBuilder> {
     @Override
     public void save(@NotNull Consumer<FinishedRecipe> consumer) {
         save(consumer, BuiltInRegistries.ITEM.getKey((inputs.get(0).getMatchingStacks().get(0).getItem())));

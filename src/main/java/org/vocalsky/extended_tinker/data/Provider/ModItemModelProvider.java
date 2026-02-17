@@ -30,7 +30,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         part(ModCore.Parts.BRIDLE);
         GolemCore.Parts.GOLEM_PLATING.forEach((slot, item) -> {
-            if (slot == ArmorItem.Type.BOOTS) return;
+//            if (slot == ArmorItem.Type.BOOTS) return;
             MaterialModelBuilder<ItemModelBuilder> b = this.part(item, "golem_armor/" + slot.getName() + "/" + slot.getName());
             if (slot == ArmorItem.Type.HELMET) {
                 b.offset(0, 2);

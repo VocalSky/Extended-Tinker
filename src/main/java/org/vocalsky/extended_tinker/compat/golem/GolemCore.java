@@ -1,6 +1,7 @@
 package org.vocalsky.extended_tinker.compat.golem;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,6 +14,7 @@ import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
+import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
@@ -38,9 +40,7 @@ public class GolemCore {
                                         .build());
     private static final Item.Properties Stack1Item = new Item.Properties().stacksTo(1);
     private static final Item.Properties CommonItem = new Item.Properties();
-    public static boolean Loadable() { return ModList.get().isLoaded("modulargolems"); }
     public static void registers(IEventBus eventBus)  {
-        if (!Loadable()) return;
         Parts.init();
         Casts.init();
         Tools.init();
@@ -117,7 +117,19 @@ public class GolemCore {
     }
 
     public static class Tools {
-        public static void init() {}
+        public static class Definitions {
+            public static void init() {}
+
+            public static final ModifiableArmorMaterial GOLEM_ARMOR_MATERIAL;
+
+            static {
+                GOLEM_ARMOR_MATERIAL = ModifiableArmorMaterial.create(Extended_tinker.getResource("golem_armor"), SoundEvents.ARMOR_EQUIP_GENERIC);
+            }
+        }
+
+        public static void init() {
+            Definitions.init();
+        }
 
         private static final Item.Properties TOOL_PROP = Stack1Item;
 
@@ -126,7 +138,7 @@ public class GolemCore {
             acceptTools(output, GOLEM_ARMOR);
         }
 
-        public static final EnumObject<ArmorItem.Type, GolemArmorItem> GOLEM_ARMOR = ITEMS.registerEnum("golem", new ArmorItem.Type[]{ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS}, type -> new GolemArmorItem(GolemToolDefinitions.GOLEM_ARMOR_MATERIAL, type, TOOL_PROP));
+        public static final EnumObject<ArmorItem.Type, GolemArmorItem> GOLEM_ARMOR = ITEMS.registerEnum("golem", new ArmorItem.Type[]{ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS}, type -> new GolemArmorItem(Definitions.GOLEM_ARMOR_MATERIAL, type, TOOL_PROP));
 
         private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {
             ToolBuildHandler.addVariants(output, tool.get(), "");

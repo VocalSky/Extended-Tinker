@@ -6,15 +6,14 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.vocalsky.extended_tinker.Extended_tinker;
-import org.vocalsky.extended_tinker.network.packet.FirecrackShotPacket;
 
 public class PacketHandler {
     private static final String VERSION = "1.0";
-    public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(Extended_tinker.MODID, "tinker_packet"), () -> { return VERSION; }, (version) -> { return version.equals(VERSION); }, (version) -> { return version.equals(VERSION); });
+    public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(Extended_tinker.getResource("tinker_packet"), () -> VERSION, (version) -> version.equals(VERSION), (version) -> version.equals(VERSION));
     private static int packet_id = 0;
 
     public static void Init() {
-        INSTANCE.registerMessage(packet_id++, FirecrackShotPacket.class, FirecrackShotPacket::encode, FirecrackShotPacket::decode, FirecrackShotPacket::handle);
+//        INSTANCE.registerMessage(packet_id++, FirecrackShotPacket.class, FirecrackShotPacket::encode, FirecrackShotPacket::decode, FirecrackShotPacket::handle);
     }
 
     public static <MSG> void sendToServer(MSG msg){

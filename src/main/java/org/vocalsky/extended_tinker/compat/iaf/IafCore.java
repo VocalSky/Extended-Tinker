@@ -1,13 +1,22 @@
 package org.vocalsky.extended_tinker.compat.iaf;
 
+import com.csdy.tcondiadema.frames.CsdyRegistries;
+import com.csdy.tcondiadema.frames.diadema.DiademaType;
+import com.csdy.tcondiadema.modifier.CommonDiademaModifier;
+import com.csdy.tcondiadema.modifier.DiademaModifier;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
 //import org.vocalsky.extended_tinker.compat.iaf.materials.IafMaterialRegistry;
+import org.vocalsky.extended_tinker.compat.iaf.diadema.BurnstheSky.BurnstheSkyDiadema;
+import org.vocalsky.extended_tinker.compat.iaf.diadema.MagneticStormSurge.MagneticStormSurgeDiadema;
+import org.vocalsky.extended_tinker.compat.iaf.diadema.Permafrost.PermaforstDiadema;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmorItem;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
@@ -15,6 +24,14 @@ import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
+import slimeknights.tconstruct.library.materials.IMaterialRegistry;
+import slimeknights.tconstruct.library.materials.MaterialRegistry;
+import slimeknights.tconstruct.library.materials.definition.MaterialId;
+import slimeknights.tconstruct.library.materials.stats.MaterialStatType;
+import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
+import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
+import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
+import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
@@ -38,17 +55,17 @@ public class IafCore {
                                         .build());
     private static final Item.Properties Stack1Item = new Item.Properties().stacksTo(1);
     private static final Item.Properties CommonItem = new Item.Properties();
-    public static boolean Loadable() { return ModList.get().isLoaded("iceandfire"); }
     public static void registers(IEventBus eventBus)  {
-        if (!Loadable()) return;
         Parts.init();
         Casts.init();
         Tools.init();
+        Modifiers.init();
+        Materials.init();
         ITEMS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
-        IafModifiers.MODIFIERS.register(eventBus);
+        Modifiers.MODIFIERS.register(eventBus);
         if (Extended_tinker.DiademaLoadable())
-            IafDiademas.DIADEMA_TYPES.register(eventBus);
+            Modifiers.Diademas.DIADEMA_TYPES.register(eventBus);
     }
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
@@ -111,7 +128,19 @@ public class IafCore {
     }
 
     public static class Tools {
-        public static void init() {}
+        public static class Definitions {
+            public static void init() {}
+
+            public static final ModifiableArmorMaterial DRAGON_ARMOR_MATERIAL;
+
+            static  {
+                DRAGON_ARMOR_MATERIAL = ModifiableArmorMaterial.create(Extended_tinker.getResource("dragon_armor"), SoundEvents.ARMOR_EQUIP_GENERIC);
+            }
+        }
+
+        public static void init() {
+            Definitions.init();
+        }
 
         private static final Item.Properties TOOL_PROP = Stack1Item;
 
@@ -120,7 +149,7 @@ public class IafCore {
             acceptTools(output, DRAGON_ARMOR);
         }
 
-        public static final EnumObject<DragonArmorItem.Type, DragonArmorItem> DRAGON_ARMOR = ITEMS.registerEnum("dragonarmor", DragonArmorItem.Type.values(), type -> new DragonArmorItem(IafToolDefinitions.DRAGON_ARMOR_MATERIAL, type, TOOL_PROP));
+        public static final EnumObject<DragonArmorItem.Type, DragonArmorItem> DRAGON_ARMOR = ITEMS.registerEnum("dragonarmor", DragonArmorItem.Type.values(), type -> new DragonArmorItem(Definitions.DRAGON_ARMOR_MATERIAL, type, TOOL_PROP));
 
         private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {
             ToolBuildHandler.addVariants(output, tool.get(), "");
@@ -131,4 +160,48 @@ public class IafCore {
             tools.forEach(tool -> ToolBuildHandler.addVariants(output, tool, ""));
         }
     }
+
+    public static class Modifiers {
+        public static void init() {
+            if (Extended_tinker.DiademaLoadable()) Diademas.init();
+        }
+        public static ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(Extended_tinker.MODID);
+        public static final StaticModifier<DiademaModifier> MagneticStormSurge = MODIFIERS.register("magnetic_storm_surge", CommonDiademaModifier.Create(Diademas.MagneticStormSurge));
+        public static final StaticModifier<DiademaModifier> BurnstheSky = MODIFIERS.register("burns_the_sky", CommonDiademaModifier.Create(Diademas.BurnstheSky));
+        public static final StaticModifier<DiademaModifier> Permafrost = MODIFIERS.register("permafrost", CommonDiademaModifier.Create(Diademas.Permafrost));
+
+        public static class Diademas {
+            public static void init() {}
+
+            public static final DeferredRegister<DiademaType> DIADEMA_TYPES = DeferredRegister.create(CsdyRegistries.DIADEMA_TYPE, Extended_tinker.MODID);
+
+            public static final RegistryObject<DiademaType> MagneticStormSurge = DIADEMA_TYPES.register("magnetic_storm_surge", () -> DiademaType.create(MagneticStormSurgeDiadema::new));
+            public static final RegistryObject<DiademaType> BurnstheSky = DIADEMA_TYPES.register("burns_the_sky", () -> DiademaType.create(BurnstheSkyDiadema::new));
+            public static final RegistryObject<DiademaType> Permafrost = DIADEMA_TYPES.register("permafrost", () -> DiademaType.create(PermaforstDiadema::new));
+        }
+    }
+
+    public static class Materials {
+        public static void init() {}
+        private static MaterialId id(String name) {
+            return new MaterialId(Extended_tinker.MODID, name);
+        }
+
+        public static final MaterialId iron = id("dragon_armor_iron");
+        public static final MaterialId copper = id("dragon_armor_copper");
+        public static final MaterialId silver = id("dragon_armor_silver");
+        public static final MaterialId gold = id("dragon_armor_gold");
+        public static final MaterialId diamond = id("dragon_armor_diamond");
+        public static final MaterialId fire = id("dragon_armor_fire");
+        public static final MaterialId ice = id("dragon_armor_ice");
+        public static final MaterialId lightning = id("dragon_armor_lightning");
+
+        public static final MaterialStatsId dragon_armor = new MaterialStatsId(Extended_tinker.getResource("dragon_armor"));
+
+        static public void registry() {
+            IMaterialRegistry registry = MaterialRegistry.getInstance();
+            for (MaterialStatType<?> type : DragonArmorMaterialStats.TYPES) registry.registerStatType(type, dragon_armor);
+        }
+    }
+
 }

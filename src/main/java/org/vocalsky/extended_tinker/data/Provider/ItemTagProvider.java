@@ -49,7 +49,7 @@ public class ItemTagProvider extends ItemTagsProvider {
         // common
         addToolTags(ModCore.Tools.HORSE_ARMOR, CHESTPLATES, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
         addToolTags(ModCore.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
-        addToolTags(ModCore.Tools.FIREWORK_ROCKET, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
+        addToolTags(ModCore.Tools.FIREWORK_ROCKET, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
         this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(ModCore.Parts.BRIDLE.get()));
 
         this.tag(ModCore.Tags.FIREWORK_FLINT).replace(false).add(TinkerTools.flintAndBrick.get(), Items.FLINT_AND_STEEL);

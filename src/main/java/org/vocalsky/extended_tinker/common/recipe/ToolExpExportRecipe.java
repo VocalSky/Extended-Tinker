@@ -10,7 +10,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
-import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.item.ExpTransferOrb;
 import pyre.tinkerslevellingaddon.ImprovableModifier;
 import pyre.tinkerslevellingaddon.setup.Registration;
@@ -114,6 +113,6 @@ public class ToolExpExportRecipe extends AbstractWorktableRecipe {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return ModModifiers.TOOL_EXP_EXPORT_SERIALIZER.get();
+        return ModCore.Modifiers.TOOL_EXP_EXPORT_SERIALIZER.get();
     }
 }

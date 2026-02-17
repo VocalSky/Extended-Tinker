@@ -5,12 +5,8 @@ import net.minecraft.world.item.ArmorItem;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
-import org.vocalsky.extended_tinker.common.ModModifiers;
-import org.vocalsky.extended_tinker.common.ModToolDefinitions;
 import org.vocalsky.extended_tinker.compat.golem.GolemCore;
-import org.vocalsky.extended_tinker.compat.golem.GolemToolDefinitions;
 import org.vocalsky.extended_tinker.compat.iaf.IafCore;
-import org.vocalsky.extended_tinker.compat.iaf.IafToolDefinitions;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmorItem;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
@@ -48,26 +44,24 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
 
     @Override
     protected void addToolDefinitions() {
-        define(ModToolDefinitions.FIRECRACK)
-            .module(PartStatsModule.parts().part(TinkerToolParts.toolHandle).part(TinkerToolParts.bowLimb).build())
+        define(ModCore.Tools.Definitions.FIRECRACK)
+            .module(PartStatsModule.parts().part(TinkerToolParts.largePlate).part(TinkerToolParts.arrowShaft).build())
             .module(defaultTwoParts)
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).build()))
-            .module(ToolTraitsModule.builder().trait(ModModifiers.FLIGHT.getId(), 1).build())
+            .module(ToolTraitsModule.builder().trait(ModCore.Modifiers.FIREWORK_FLIGHT.getId(), 1).build())
             .module(ToolSlotsModule.builder().slots(SlotType.UPGRADE, 3).slots(SlotType.ABILITY, 3).build());
-        define(ModToolDefinitions.FIREWORK_ROCKET)
-            .module(PartStatsModule.parts().part(TinkerToolParts.arrowHead).part(TinkerToolParts.arrowShaft).build())
+        define(ModCore.Tools.Definitions.FIREWORK_ROCKET)
+            .module(PartStatsModule.parts().part(TinkerToolParts.smallBlade).part(TinkerToolParts.arrowShaft).build())
             .module(defaultTwoParts)
-            .module(ToolTraitsModule.builder().trait(ModModifiers.FLIGHT.getId(), 1).build())
-            .module(FixedMaterialToolName.FIRST)
-            .module(ToolSlotsModule.builder().slots(SlotType.UPGRADE, 3).slots(SlotType.ABILITY, 3).build());
+            .module(FixedMaterialToolName.FIRST);
 
-        defineArmor(ModToolDefinitions.HORSE_ARMOR_MATERIAL)
+        defineArmor(ModCore.Tools.Definitions.HORSE_ARMOR_MATERIAL)
             .module(PartStatsModule.parts().part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(TinkerToolParts.maille).part(TinkerToolParts.shieldCore).part(ModCore.Parts.BRIDLE).build())
             .module(defaultFiveParts)
             .module(ArmorItem.Type.CHESTPLATE, new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).set(ToolStats.ARMOR, 2.0f).set(ToolStats.ARMOR_TOUGHNESS, 1.5f).set(ToolStats.KNOCKBACK_RESISTANCE, 1.25f).build()))
             .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
 
-        defineArmor(GolemToolDefinitions.GOLEM_ARMOR_MATERIAL)
+        defineArmor(GolemCore.Tools.Definitions.GOLEM_ARMOR_MATERIAL)
             .modules(slots -> PartStatsModule.armor(slots)
                     .part(GolemCore.Parts.GOLEM_PLATING, 1)
                     .part(TinkerToolParts.maille, 1)
@@ -79,7 +73,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
                 .module(defaultFiveParts)
                 .module(ToolSlotsModule.builder().slots(SlotType.ABILITY, 1).slots(SlotType.UPGRADE, 3).slots(SlotType.DEFENSE, 1).build());
 
-        defineArmor(IafToolDefinitions.DRAGON_ARMOR_MATERIAL)
+        defineArmor(IafCore.Tools.Definitions.DRAGON_ARMOR_MATERIAL)
         .module(slots -> MaterialStatsModule.stats()
                 .stat(DragonArmorMaterialStats.TYPES.get(slots.ordinal()).getId())
                 .stat(PlatingMaterialStats.TYPES.get(slots.ordinal()).getId())

@@ -3,10 +3,6 @@
     {
       "id": "extended_tinker:firecrack",
       "required": false
-    },
-    {
-      "id": "extended_tinker:firework_rocket",
-      "required": false
     }
   ]
 }

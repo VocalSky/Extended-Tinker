@@ -2,14 +2,14 @@
   "loader": "tconstruct:tool",
   "parent": "forge:item/default-tool",
   "textures": {
-    "handle":      "extended_tinker:item/tool/firecrack/handle",
+    "head":      "extended_tinker:item/tool/firecrack/head",
     "limb":      "extended_tinker:item/tool/firecrack/limb",
-    "other":      "extended_tinker:item/tool/firecrack/other"
+    "handle":      "extended_tinker:item/tool/firework_rocket/handle"
   },
   "modifier_roots": [ "extended_tinker:item/tool/firecrack/modifiers/" ],
   "parts": [
-    { "name": "handle", "index": 0 },
-    { "name": "limb", "index": 2 },
-    { "name": "other",    "index": 1 }
+    { "name": "head", "index": 0 },
+    { "name": "limb", "index": 1 },
+    { "name": "handle" }
   ]
 }

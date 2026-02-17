@@ -6,38 +6,29 @@
   "input_slots": [
     {
       "filter": {
-        "item": "tconstruct:tool_handle"
+        "item": "tconstruct:arrow_head"
       },
-      "icon": "tconstruct:tool_handle",
-      "translation_key": "item.tconstruct.tool_handle",
-      "x": 30,
-      "y": 50
-    },
-    {
-      "filter": {
-        "item": "tconstruct:bow_limb"
-      },
-      "icon": "tconstruct:bow_limb",
-      "translation_key": "item.tconstruct.bow_limb",
-      "x": 10,
-      "y": 50
-    },
-    {
-      "filter": {
-        "item": "minecraft:gunpowder"
-      },
-      "icon": "extended_tinker:gunpowder",
-      "translation_key": "item.minecraft.gunpowder",
+      "icon": "tconstruct:arrow_head",
+      "translation_key": "item.tconstruct.arrow_head",
       "x": 30,
       "y": 30
     },
     {
       "filter": {
-        "item": "minecraft:paper"
+        "item": "tconstruct:arrow_shaft"
       },
-      "icon": "extended_tinker:paper",
-      "translation_key": "item.minecraft.paper",
-      "x": 50,
+      "icon": "tconstruct:arrow_shaft",
+      "translation_key": "item.tconstruct.arrow_shaft",
+      "x": 30,
+      "y": 50
+    },
+    {
+      "filter": {
+        "item": "tconstruct:large_plate"
+      },
+      "icon": "tconstruct:large_plate",
+      "translation_key": "item.tconstruct.large_plate",
+      "x": 10,
       "y": 50
     }
   ],

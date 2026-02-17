@@ -3,8 +3,8 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        "tconstruct:tool_handle",
-        "tconstruct:bow_limb"
+        "tconstruct:large_plate",
+        "tconstruct:arrow_shaft"
       ],
       "primary_part": 0
     },
@@ -30,7 +30,7 @@
       "traits": [
         {
           "level": 1,
-          "name": "extended_tinker:flight_firecrack"
+          "name": "extended_tinker:firework_flight"
         }
       ]
     },

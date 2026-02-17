@@ -3,13 +3,13 @@
   "allow_crystal": false,
   "inputs": [
     {
-      "item": "tconstruct:travelers_shield"
+      "item": "minecraft:shield"
     },
     {
       "item": "minecraft:hay_block"
     },
     {
-      "item": "tconstruct:plate_shield"
+      "item": "minecraft:shield"
     },
     {
       "item": "minecraft:lead"

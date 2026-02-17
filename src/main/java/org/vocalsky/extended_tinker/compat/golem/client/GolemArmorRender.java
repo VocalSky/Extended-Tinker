@@ -41,7 +41,7 @@ public class GolemArmorRender extends RenderLayer<MetalGolemEntity, MetalGolemMo
     @Override
     public void render(@NotNull PoseStack pose, @NotNull MultiBufferSource source, int i, @NotNull MetalGolemEntity entity, float f1, float f2, float f3, float f4, float f5, float f6) {
         for (var e : EquipmentSlot.values()) {
-            ItemStack stack = ((Mob)entity).getItemBySlot(e);
+            ItemStack stack = entity.getItemBySlot(e);
             if (stack.getItem() instanceof GolemArmorItem armor) {
                 ResourceLocation modelType = null;
                 if (armor.getType() == ArmorItem.Type.HELMET)
@@ -50,6 +50,8 @@ public class GolemArmorRender extends RenderLayer<MetalGolemEntity, MetalGolemMo
                     modelType = GolemModelPaths.CHESTPLATES;
                 if (armor.getType() == ArmorItem.Type.LEGGINGS)
                     modelType = GolemModelPaths.LEGGINGS;
+                if (armor.getType() == ArmorItem.Type.BOOTS)
+                    modelType = GolemModelPaths.BOOTS_NETHERITE;
                 if (modelType == null) continue;
                 GolemModelPath path = GolemModelPath.get(modelType);
                 ToolStack tool = ToolStack.from(stack);

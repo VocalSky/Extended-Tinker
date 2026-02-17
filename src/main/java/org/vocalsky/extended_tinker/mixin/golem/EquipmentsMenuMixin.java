@@ -18,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmorItem;
 
+import java.util.Set;
 import java.util.function.Function;
 
 @Mixin(EquipmentsMenu.class)
@@ -29,10 +30,10 @@ public class EquipmentsMenuMixin extends BaseContainerMenu<EquipmentsMenu>  {
     }
 
     @Inject(method = "getSlotForItem", at = @At(value = "TAIL"), cancellable = true, remap = false)
-    public void getSlotForItemMixin(ItemStack stack, CallbackInfoReturnable<EquipmentSlot> cir) {
+    public void getSlotForItemMixin(ItemStack stack, CallbackInfoReturnable<Set<EquipmentSlot>> cir) {
         if (golem instanceof MetalGolemEntity) {
             if (stack.getItem() instanceof GolemArmorItem armor) {
-                cir.setReturnValue(armor.getSlot());
+                cir.setReturnValue(Set.of(armor.getSlot()));
             }
         }
     }

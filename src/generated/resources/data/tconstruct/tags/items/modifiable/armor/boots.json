@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "extended_tinker:golem_boots",
+      "required": false
+    },
+    {
       "id": "extended_tinker:dragonarmor_tail",
       "required": false
     }

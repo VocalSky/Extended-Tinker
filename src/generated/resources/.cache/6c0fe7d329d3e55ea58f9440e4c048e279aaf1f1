@@ -1,5 +1,8 @@
-// 1.20.1	2025-08-04T09:40:50.1790511	Extended Tinker Modifier Provider
+// 1.20.1	2026-02-17T09:33:38.1629001	Extended Tinker Modifier Provider
 740ed888263a27ae654151a5cfba71aee556cf18 data/extended_tinker/tinkering/modifiers/asone_horsearmor.json
-000dc3c8542f382b252ff5e03f5341644dfd2541 data/extended_tinker/tinkering/modifiers/flight_firecrack.json
+000dc3c8542f382b252ff5e03f5341644dfd2541 data/extended_tinker/tinkering/modifiers/firework_flight.json
+cbfe7ef3fa9903cc4d902aea8c4994687a630f49 data/extended_tinker/tinkering/modifiers/firework_rocket.json
+acf059d7b54553d0e26b33e38e1bcfb97ab15f05 data/extended_tinker/tinkering/modifiers/firework_star.json
 740ed888263a27ae654151a5cfba71aee556cf18 data/extended_tinker/tinkering/modifiers/painless_horsearmor.json
-740ed888263a27ae654151a5cfba71aee556cf18 data/extended_tinker/tinkering/modifiers/star_firecrack.json
+8519eb9ac67c9811651d84f5f0096262eba25615 data/extended_tinker/tinkering/modifiers/safety_firework.json
+85003dd9ad163eb8dff7de86178857f97929e535 data/extended_tinker/tinkering/modifiers/shoot_firework.json

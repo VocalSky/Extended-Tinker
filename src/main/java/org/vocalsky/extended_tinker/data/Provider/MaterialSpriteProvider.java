@@ -1,7 +1,7 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
 import org.jetbrains.annotations.NotNull;
-import org.vocalsky.extended_tinker.compat.iaf.IafMaterials;
+import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToColorMapping;
 
@@ -13,9 +13,9 @@ public class MaterialSpriteProvider extends AbstractMaterialSpriteProvider {
 
     @Override
     protected void addAllMaterials() {
-        buildMaterial(IafMaterials.copper)
+        buildMaterial(IafCore.Materials.copper)
             .fallbacks("metal")
-            .statType(IafMaterials.dragon_armor)
+            .statType(IafCore.Materials.dragon_armor)
             .colorMapper(
                 GreyToColorMapping.builderFromBlack()
                 .addARGB(63, -9620447)

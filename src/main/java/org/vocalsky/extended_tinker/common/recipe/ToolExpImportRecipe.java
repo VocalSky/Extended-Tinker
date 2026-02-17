@@ -9,7 +9,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.common.ModCore;
-import org.vocalsky.extended_tinker.common.ModModifiers;
 import org.vocalsky.extended_tinker.common.item.ExpTransferOrb;
 import pyre.tinkerslevellingaddon.ImprovableModifier;
 import pyre.tinkerslevellingaddon.setup.Registration;
@@ -79,7 +78,7 @@ public class ToolExpImportRecipe implements ITinkerStationRecipe {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return ModModifiers.STAR_SERIALIZER.get();
+        return ModCore.Modifiers.STAR_SERIALIZER.get();
     }
 
     @Override

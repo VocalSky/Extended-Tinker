@@ -25,6 +25,10 @@
       "required": false
     },
     {
+      "id": "extended_tinker:golem_boots",
+      "required": false
+    },
+    {
       "id": "extended_tinker:dragonarmor_head",
       "required": false
     },
