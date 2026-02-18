@@ -25,7 +25,7 @@ public class zh_tw implements ILang {
         ASONE_HORSEARMOR_FLAVOR("modifier.extended_tinker.asone_horsearmor.flavor", "不求同年同月生，但求同年同月死"),
         ASONE_HORSEARMOR_DESCRIPTION("modifier.extended_tinker.asone_horsearmor.description", "當玩家乘騎時，馬和玩家分攤傷害。"),
         FIRECRACK("item.extended_tinker.firecrack", "煙火"),
-        FIRECRACK_DESCRIPTION("item.extended_tinker.firecrack.description", "煙火是一種模組化的工具。"),
+        FIRECRACK_DESCRIPTION("item.extended_tinker.firecrack.description", "煙火是一種模組化的工具。使用時需要手持打火石來點燃。"),
         FIREWORK_FLIGHT("modifier.extended_tinker.firework_flight", "飛行"),
         FIREWORK_FLIGHT_FLAVOR("modifier.extended_tinker.firework_flight.flavor", "它能飛多久？"),
         FIREWORK_FLIGHT_DESCRIPTION("modifier.extended_tinker.firework_flight.description", "影響飛行時間。"),

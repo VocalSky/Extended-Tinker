@@ -3,6 +3,9 @@
     "painless_horsearmor": "#778899",
     "asone_horsearmor": "#ffd54b",
     "firework_flight": "#dcdcdc",
+    "firework_star": "#EF5C20",
+    "shoot_firework": "#EFE220",
+    "safety_firework": "#60EB49",
     "golem_beacon": "#50e4f8",
     "golem_weapon": "#4855A4"
   },

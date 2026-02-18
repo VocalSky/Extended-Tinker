@@ -9,10 +9,6 @@
       "required": false
     },
     {
-      "id": "extended_tinker:firework_rocket",
-      "required": false
-    },
-    {
       "id": "extended_tinker:golem_helmet",
       "required": false
     },

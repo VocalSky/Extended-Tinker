@@ -29,7 +29,7 @@
   "item.extended_tinker.dragonarmor_tail.description": "龙铠是一件特别的防具，用传统的工匠技艺无法锻造，可以尝试借助末影龙和龙钢锻炉的力量。",
   "item.extended_tinker.exp_transfer_orb": "经验转移宝珠",
   "item.extended_tinker.firecrack": "烟火",
-  "item.extended_tinker.firecrack.description": "烟火是一种模块化的工具。",
+  "item.extended_tinker.firecrack.description": "烟火是一种模块化的工具。使用时需要手持打火石来点燃。",
   "item.extended_tinker.golem_boots": "傀儡装甲战靴",
   "item.extended_tinker.golem_boots.description": "为大型金属傀儡定制。",
   "item.extended_tinker.golem_chestplate": "傀儡装甲胸甲",

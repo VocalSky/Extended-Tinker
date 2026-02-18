@@ -29,7 +29,7 @@
   "item.extended_tinker.dragonarmor_tail.description": "Dragon armor is a special kind of armor that cannot be created with traditional skill, but you can try to get the help from the ender dragon and the dragon forge.",
   "item.extended_tinker.exp_transfer_orb": "Exp Transfer Orb",
   "item.extended_tinker.firecrack": "Firecrack",
-  "item.extended_tinker.firecrack.description": "Firecrack is a modular firework.",
+  "item.extended_tinker.firecrack.description": "Firecrack is a modular firework.It needs to be ignited by holding and striking the flint when in use.",
   "item.extended_tinker.golem_boots": "Golem Armor Boots",
   "item.extended_tinker.golem_boots.description": "Customized for the metal golem.",
   "item.extended_tinker.golem_chestplate": "Golem Armor Chestplate",

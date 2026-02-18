@@ -25,7 +25,7 @@ public class en_us implements ILang {
         ASONE_HORSEARMOR_FLAVOR("modifier.extended_tinker.asone_horsearmor.flavor", "Born apart, die together."),
         ASONE_HORSEARMOR_DESCRIPTION("modifier.extended_tinker.asone_horsearmor.description", "You will take damage along with your mount."),
         FIRECRACK("item.extended_tinker.firecrack", "Firecrack"),
-        FIRECRACK_DESCRIPTION("item.extended_tinker.firecrack.description", "Firecrack is a modular firework."),
+        FIRECRACK_DESCRIPTION("item.extended_tinker.firecrack.description", "Firecrack is a modular firework.It needs to be ignited by holding and striking the flint when in use."),
         FIREWORK_FLIGHT("modifier.extended_tinker.firework_flight", "Flight"),
         FIREWORK_FLIGHT_FLAVOR("modifier.extended_tinker.firework_flight.flavor", "How long can it fly?"),
         FIREWORK_FLIGHT_DESCRIPTION("modifier.extended_tinker.firework_flight.description", "Affects flight time."),

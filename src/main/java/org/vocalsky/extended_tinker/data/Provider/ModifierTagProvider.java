@@ -17,7 +17,7 @@ public class ModifierTagProvider extends AbstractModifierTagProvider {
 
     @Override
     protected void addTags() {
-        this.tag(UPGRADES).replace(false).addOptional(ModCore.Modifiers.Ids.firework_flight);
+        this.tag(RANGED_UPGRADES).replace(false).addOptional(ModCore.Modifiers.Ids.firework_flight);
         this.tag(INTERACTION_ABILITIES).replace(false).addOptional(ModCore.Modifiers.Ids.firework_star);
         this.tag(CHESTPLATE_ABILITIES).replace(false).addOptional(ModCore.Modifiers.Ids.painless, ModCore.Modifiers.Ids.asone);
         this.tag(RANGED_ABILITIES).replace(false).add(ModCore.Modifiers.Ids.shoot_firework);
