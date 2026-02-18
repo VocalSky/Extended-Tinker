@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:item_part_builder",
+  "cost": 16,
+  "material": "tconstruct:rock",
+  "pattern": "extended_tinker:boots_golem_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "extended_tinker:boots_golem_plating_cast"
+    }
+  ],
+  "result": "extended_tinker:boots_golem_plating_dummy"
+}

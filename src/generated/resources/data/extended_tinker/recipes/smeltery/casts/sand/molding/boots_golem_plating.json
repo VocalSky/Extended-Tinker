@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:molding_table",
+  "material": {
+    "tag": "tconstruct:casts/sand"
+  },
+  "pattern": [
+    {
+      "type": "tconstruct:material",
+      "item": "extended_tinker:boots_golem_plating"
+    },
+    {
+      "item": "extended_tinker:boots_golem_plating_dummy"
+    }
+  ],
+  "result": "extended_tinker:boots_golem_plating_sand_cast"
+}

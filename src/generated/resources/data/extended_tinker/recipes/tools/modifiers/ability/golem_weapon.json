@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "modulargolems:metal_golem_template"
+    },
+    {
+      "item": "modulargolems:metal_golem_template"
+    }
+  ],
+  "result": "extended_tinker:golem_weapon",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:golem_weapon"
+  }
+}

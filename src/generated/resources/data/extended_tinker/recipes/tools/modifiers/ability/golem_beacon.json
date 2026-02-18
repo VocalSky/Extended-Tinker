@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:beacon"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "minecraft:anvil"
+    },
+    {
+      "item": "minecraft:anvil"
+    }
+  ],
+  "result": "extended_tinker:golem_beacon",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "extended_tinker:golem_boots"
+  }
+}
