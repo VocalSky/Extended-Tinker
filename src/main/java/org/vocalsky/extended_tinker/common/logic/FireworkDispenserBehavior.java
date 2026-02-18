@@ -31,7 +31,7 @@ public class FireworkDispenserBehavior extends AbstractProjectileDispenseBehavio
         level.addFreshEntity(projectile);
         System.out.println("execute launched");
         if (projectile instanceof FireworkRocketEntity firework) {
-            System.out.println("Type test passed with " + ToolStack.from(firework.getDisplayTool()).getModifierLevel(ModCore.Modifiers.firework_rocket));
+            System.out.println("Type test passed with " + ToolStack.from(firework.getDisplayTool()).getModifierLevel(ModCore.Modifiers.Ids.firework_rocket));
         }
         ToolStack tool = ToolStack.from(itemStack);
         ToolDamageUtil.damage(tool, 1, null, itemStack);

@@ -2,10 +2,12 @@ package org.vocalsky.extended_tinker.data.Provider;
 
 import com.csdy.tcondiadema.DiademaSlots;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
+import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
@@ -15,6 +17,7 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.recipe.Builder.ToolExpExportRecipeBuilder;
 import org.vocalsky.extended_tinker.common.recipe.FireworkStarModifierRecipe;
+import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafCore;
 import org.vocalsky.extended_tinker.util.ETTagsUtil;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
@@ -50,7 +53,7 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
         String diademaFolder = "tools/modifiers/diadema/";
         String diademaSalvage = "tools/modifiers/salvage/diadema/";
 
-        ModifierRecipeBuilder.modifier(ModCore.Modifiers.AS_ONE.getId())
+        ModifierRecipeBuilder.modifier(ModCore.Modifiers.Ids.asone)
             .addInput(Items.GOLDEN_APPLE)
             .addInput(Items.ARMOR_STAND)
             .addInput(Items.GOLDEN_APPLE)
@@ -58,9 +61,9 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .setTools(Ingredient.of(ModCore.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
             .disallowCrystal()
-            .saveSalvage(consumer, prefix(ModCore.Modifiers.AS_ONE.getId(), abilitySalvage))
-            .save(consumer, prefix(ModCore.Modifiers.AS_ONE.getId(), abilityFolder));
-        ModifierRecipeBuilder.modifier(ModCore.Modifiers.PAINLESS.getId())
+            .saveSalvage(consumer, prefix(ModCore.Modifiers.Ids.asone, abilitySalvage))
+            .save(consumer, prefix(ModCore.Modifiers.Ids.asone, abilityFolder));
+        ModifierRecipeBuilder.modifier(ModCore.Modifiers.Ids.painless)
             .addInput(Items.SHIELD)
             .addInput(Items.HAY_BLOCK)
             .addInput(Items.SHIELD)
@@ -70,9 +73,9 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .setTools(Ingredient.of(ModCore.Tools.HORSE_ARMOR))
             .setMaxLevel(1)
             .disallowCrystal()
-            .saveSalvage(consumer, prefix(ModCore.Modifiers.PAINLESS.getId(), abilitySalvage))
-            .save(consumer, prefix(ModCore.Modifiers.PAINLESS.getId(), abilityFolder));
-        ModifierRecipeBuilder.modifier(ModCore.Modifiers.FIREWORK_FLIGHT)
+            .saveSalvage(consumer, prefix(ModCore.Modifiers.Ids.painless, abilitySalvage))
+            .save(consumer, prefix(ModCore.Modifiers.Ids.painless, abilityFolder));
+        ModifierRecipeBuilder.modifier(ModCore.Modifiers.Ids.firework_flight)
             .addInput(Tags.Items.GUNPOWDER, 8)
             .addInput(Tags.Items.GUNPOWDER, 8)
             .addInput(Tags.Items.GUNPOWDER, 8)
@@ -82,8 +85,8 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .setSlots(SlotType.UPGRADE, 1)
             .setTools(Ingredient.of(ModCore.Tools.FIRECRACK))
             .disallowCrystal()
-            .saveSalvage(consumer, prefix(ModCore.Modifiers.FIREWORK_FLIGHT.getId(), upgradeSalvage))
-            .save(consumer, prefix(ModCore.Modifiers.FIREWORK_FLIGHT.getId(), upgradeFolder));
+            .saveSalvage(consumer, prefix(ModCore.Modifiers.Ids.firework_flight, upgradeSalvage))
+            .save(consumer, prefix(ModCore.Modifiers.Ids.firework_flight, upgradeFolder));
         consumer.accept(new FireworkStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firework_star"), Ingredient.of(ModCore.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
         consumer.accept(new FireworkStarModifierRecipe.FinishedSalvage(Extended_tinker.getResource(abilitySalvage + "firework_star"), Ingredient.of(ModCore.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
         ModifierRecipeBuilder.modifier(IafCore.Modifiers.MagneticStormSurge.getId())
@@ -116,30 +119,42 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .setTools(ETTagsUtil.DRAGON_ARMOR)
             .saveSalvage(consumer, prefix(IafCore.Modifiers.Permafrost.getId(), diademaSalvage))
             .save(consumer, prefix(IafCore.Modifiers.Permafrost.getId(), diademaFolder));
-        ModifierRecipeBuilder.modifier(ModCore.Modifiers.shoot_firework)
+        ModifierRecipeBuilder.modifier(ModCore.Modifiers.Ids.shoot_firework)
             .addInput(Items.FIREWORK_ROCKET)
             .addInput(Items.FLINT)
             .addInput(Items.GUNPOWDER)
             .setSlots(SlotType.ABILITY, 1)
             .setTools(TinkerTags.Items.BOWS)
-            .saveSalvage(consumer, prefix(ModCore.Modifiers.shoot_firework, abilitySalvage))
+            .saveSalvage(consumer, prefix(ModCore.Modifiers.Ids.shoot_firework, abilitySalvage))
             .setTools(IntersectionIngredient.of(Ingredient.of(TinkerTags.Items.BOWS), Ingredient.of(TinkerTags.Items.INTERACTABLE)))
-            .save(consumer, prefix(ModCore.Modifiers.shoot_firework, abilityFolder));
+            .save(consumer, prefix(ModCore.Modifiers.Ids.shoot_firework, abilityFolder));
         ToolExpExportRecipeBuilder.export()
             .addInput(ModCore.ExpTransferOrb)
             .save(consumer, location(worktableFolder + "exp_export"));
         consumer.accept(new SimpleFinishedRecipe(location(slotlessFolder + "exp_import"), ModCore.Modifiers.TOOL_EXP_IMPORT_SERIALIZER.get()));
-        ModifierRecipeBuilder.modifier(ModCore.Modifiers.safety_firework)
+        ModifierRecipeBuilder.modifier(ModCore.Modifiers.Ids.safety_firework)
             .addInput(Items.NAME_TAG)
             .addInput(Items.COMPASS)
             .addInput(Items.WATER_BUCKET)
             .setSlots(SlotType.ABILITY, 1)
             .setTools(Ingredient.of(ModCore.Tools.FIRECRACK))
-            .save(consumer, prefix(ModCore.Modifiers.safety_firework, abilityFolder));
-//        consumer.accept(new SimpleFinishedRecipe(location(abilityFolder + "firework_star"), ModCore.Modifiers.STAR_SERIALIZER.get()));
-//        FireworkStarRecipeBuilder.star()
-//            .addInput(Items.FIREWORK_STAR)
-//            .save(consumer, location(worktableFolder + "firework_star"));
+            .save(consumer, prefix(ModCore.Modifiers.Ids.safety_firework, abilityFolder));
+        ModifierRecipeBuilder.modifier(GolemCore.Modifiers.Ids.golem_beacon)
+            .addInput(Items.BEACON)
+            .addInput(Items.NETHER_STAR)
+            .addInput(Items.NETHER_STAR)
+            .addInput(Items.ANVIL)
+            .addInput(Items.ANVIL)
+            .setSlots(SlotType.ABILITY, 1)
+            .setTools(Ingredient.of(GolemCore.Tools.GOLEM_ARMOR.get(ArmorItem.Type.BOOTS)))
+            .save(consumer, prefix(GolemCore.Modifiers.Ids.golem_beacon, abilityFolder));
+        ModifierRecipeBuilder.modifier(GolemCore.Modifiers.Ids.golem_weapon)
+            .addInput(Items.NETHER_STAR)
+            .addInput(GolemItems.GOLEM_TEMPLATE)
+            .addInput(GolemItems.GOLEM_TEMPLATE)
+            .setSlots(SlotType.ABILITY, 1)
+            .setTools(GolemCore.Tags.GOLEM_WEAPON)
+            .save(consumer, prefix(GolemCore.Modifiers.Ids.golem_weapon, abilityFolder));
     }
 
     @Override

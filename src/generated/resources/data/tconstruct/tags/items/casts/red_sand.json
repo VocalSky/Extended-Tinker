@@ -15,6 +15,10 @@
     {
       "id": "extended_tinker:leggings_golem_plating_red_sand_cast",
       "required": false
+    },
+    {
+      "id": "extended_tinker:boots_golem_plating_red_sand_cast",
+      "required": false
     }
   ]
 }

@@ -59,9 +59,9 @@ public enum FireworkRocketModule implements ModifierModule, ProjectileShootModif
 
     @Override
     public void onProjectileShoot(@NotNull IToolStackView iToolStackView, @NotNull ModifierEntry modifierEntry, @Nullable LivingEntity livingEntity, @NotNull ItemStack itemStack, @NotNull Projectile projectile, @Nullable AbstractArrow abstractArrow, @NotNull ModDataNBT modDataNBT, boolean b) {
-        int lifetime = iToolStackView.getModifierLevel(ModCore.Modifiers.FIREWORK_FLIGHT.getId()) * 10 + projectile.random.nextInt(6) + projectile.random.nextInt(7);
+        int lifetime = iToolStackView.getModifierLevel(ModCore.Modifiers.Ids.firework_flight) * 10 + projectile.random.nextInt(6) + projectile.random.nextInt(7);
         modDataNBT.putInt(KEY_LIFETIME, lifetime);
-        modDataNBT.putBoolean(KEY_SAFETY, iToolStackView.getModifierLevel(ModCore.Modifiers.safety_firework) > 0);
+        modDataNBT.putBoolean(KEY_SAFETY, iToolStackView.getModifierLevel(ModCore.Modifiers.Ids.safety_firework) > 0);
         modDataNBT.put(FireworkStarModifier.fireworks, FireworkStarModifier.getStar(iToolStackView));
         projectile.setNoGravity(true);
     }

@@ -1,6 +1,5 @@
 package org.vocalsky.extended_tinker.data.Provider;
 
-import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -41,6 +40,7 @@ public class ItemTagProvider extends ItemTagsProvider {
     public void addTags(HolderLookup.@NotNull Provider provider) {
         this.addTools();
         this.addSmeltry();
+        this.addCommon();
     }
 
     private void addTools() {
@@ -51,8 +51,6 @@ public class ItemTagProvider extends ItemTagsProvider {
         addToolTags(ModCore.Tools.FIRECRACK, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_LEFT, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
         addToolTags(ModCore.Tools.FIREWORK_ROCKET, BONUS_SLOTS, DURABILITY, MULTIPART_TOOL, SMALL_TOOLS, AOE, INTERACTABLE_RIGHT, SPECIAL_TOOLS);
         this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(ModCore.Parts.BRIDLE.get()));
-
-        this.tag(ModCore.Tags.FIREWORK_FLINT).replace(false).add(TinkerTools.flintAndBrick.get(), Items.FLINT_AND_STEEL);
 
         // golems
         addArmorTags(GolemCore.Tools.GOLEM_ARMOR, BONUS_SLOTS, DURABILITY, LOOT_CAPABLE_TOOL, MULTIPART_TOOL, BOOK_ARMOR);
@@ -91,13 +89,16 @@ public class ItemTagProvider extends ItemTagsProvider {
         };
         addCast.accept(ModCore.Casts.BRIDLE_CAST);
 
-        GolemCore.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> {
-            if (slot == ArmorItem.Type.BOOTS) return;
-            addCast.accept(item);
-        });
+        GolemCore.Casts.GOLEM_PLATING_CAST.forEach((slot, item) -> addCast.accept(item));
         this.tag(TinkerTags.Items.CHEST_PARTS).addOptionalTag(TinkerTags.Items.TOOL_PARTS.location());
         for (Item item : GolemCore.Parts.DUMMY_GOLEM_PLATING.values().toArray(new Item[0]))
             this.tag(TinkerTags.Items.CHEST_PARTS).addOptional(LocExtractor.apply(item));
+    }
+
+    private void addCommon() {
+        this.tag(ModCore.Tags.FIREWORK_FLINT).replace(false).add(TinkerTools.flintAndBrick.get(), Items.FLINT_AND_STEEL);
+
+        this.tag(GolemCore.Tags.GOLEM_WEAPON).add(TinkerTools.cleaver.get(), TinkerTools.broadAxe.get());
     }
 
     @SafeVarargs

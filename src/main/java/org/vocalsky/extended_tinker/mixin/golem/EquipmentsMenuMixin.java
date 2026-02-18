@@ -16,7 +16,10 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.compat.golem.tool.GolemArmorItem;
+import slimeknights.tconstruct.library.tools.item.ModifiableItem;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.Set;
 import java.util.function.Function;
@@ -34,6 +37,8 @@ public class EquipmentsMenuMixin extends BaseContainerMenu<EquipmentsMenu>  {
         if (golem instanceof MetalGolemEntity) {
             if (stack.getItem() instanceof GolemArmorItem armor) {
                 cir.setReturnValue(Set.of(armor.getSlot()));
+            } else if (stack.getItem() instanceof ModifiableItem && ToolStack.from(stack).getModifierLevel(GolemCore.Modifiers.Ids.golem_weapon) != 0) {
+                cir.setReturnValue(Set.of(EquipmentSlot.MAINHAND));
             }
         }
     }

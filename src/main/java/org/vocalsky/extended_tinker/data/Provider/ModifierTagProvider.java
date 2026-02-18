@@ -5,6 +5,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
+import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierTagProvider;
 
 import static slimeknights.tconstruct.common.TinkerTags.Modifiers.*;
@@ -16,10 +17,11 @@ public class ModifierTagProvider extends AbstractModifierTagProvider {
 
     @Override
     protected void addTags() {
-        this.tag(RANGED_UPGRADES).replace(false).addOptional(ModCore.Modifiers.FIREWORK_FLIGHT.getId());
-        this.tag(INTERACTION_ABILITIES).replace(false).addOptional(ModCore.Modifiers.FIREWORK_STAR.getId());
-        this.tag(CHESTPLATE_ABILITIES).replace(false).addOptional(ModCore.Modifiers.PAINLESS.getId(), ModCore.Modifiers.AS_ONE.getId());
-        this.tag(RANGED_ABILITIES).replace(false).add(ModCore.Modifiers.shoot_firework);
+        this.tag(UPGRADES).replace(false).addOptional(ModCore.Modifiers.Ids.firework_flight);
+        this.tag(INTERACTION_ABILITIES).replace(false).addOptional(ModCore.Modifiers.Ids.firework_star);
+        this.tag(CHESTPLATE_ABILITIES).replace(false).addOptional(ModCore.Modifiers.Ids.painless, ModCore.Modifiers.Ids.asone);
+        this.tag(RANGED_ABILITIES).replace(false).add(ModCore.Modifiers.Ids.shoot_firework);
+        this.tag(BOOT_ABILITIES).replace(false).addOptional(GolemCore.Modifiers.Ids.golem_beacon);
     }
 
     @Override

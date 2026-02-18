@@ -48,7 +48,7 @@ public class ToolDefinitionDataProvider extends AbstractToolDefinitionDataProvid
             .module(PartStatsModule.parts().part(TinkerToolParts.largePlate).part(TinkerToolParts.arrowShaft).build())
             .module(defaultTwoParts)
             .module(new MultiplyStatsModule(MultiplierNBT.builder().set(ToolStats.DURABILITY, 2.0f).build()))
-            .module(ToolTraitsModule.builder().trait(ModCore.Modifiers.FIREWORK_FLIGHT.getId(), 1).build())
+            .module(ToolTraitsModule.builder().trait(ModCore.Modifiers.Ids.firework_flight, 1).build())
             .module(ToolSlotsModule.builder().slots(SlotType.UPGRADE, 3).slots(SlotType.ABILITY, 3).build());
         define(ModCore.Tools.Definitions.FIREWORK_ROCKET)
             .module(PartStatsModule.parts().part(TinkerToolParts.smallBlade).part(TinkerToolParts.arrowShaft).build())

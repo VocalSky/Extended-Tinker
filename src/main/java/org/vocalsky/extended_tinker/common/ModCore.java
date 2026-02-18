@@ -268,6 +268,17 @@ public class ModCore {
 
     @Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class Modifiers {
+        public static class Ids {
+            private static ModifierId id(String name) { return new ModifierId(Extended_tinker.MODID, name); }
+            public static ModifierId painless = id("painless_horsearmor");
+            public static ModifierId asone = id("asone_horsearmor");
+            public static ModifierId firework_flight = id("firework_flight");
+            public static ModifierId shoot_firework = id("shoot_firework");
+            public static ModifierId firework_star = id("firework_star");
+            public static ModifierId firework_rocket = id("firework_rocket");
+            public static ModifierId safety_firework = id("safety_firework");
+        }
+
         public static void init() {}
         public static ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(Extended_tinker.MODID);
 
@@ -285,17 +296,8 @@ public class ModCore {
                 ModifierModule.LOADER.register(Extended_tinker.getResource("firework_rocket"), FireworkRocketModule.LOADER);
             }
         }
-
-        public static StaticModifier<Modifier> PAINLESS = MODIFIERS.register("painless_horsearmor", HorseArmorPainlessModifier::new);
-        public static StaticModifier<Modifier> AS_ONE = MODIFIERS.register("asone_horsearmor", HorseArmorAsoneModifier::new);
         public static StaticModifier<FireworkFlight> FIREWORK_FLIGHT = MODIFIERS.register("firework_flight", FireworkFlight::new);
         public static StaticModifier<FireworkStarModifier> FIREWORK_STAR = MODIFIERS.register("firework_star", FireworkStarModifier::new);
-
-        private static ModifierId id(String name) { return new ModifierId(Extended_tinker.MODID, name); }
-        public static ModifierId shoot_firework = id("shoot_firework");
-        public static ModifierId firework_rocket = id("firework_rocket");
-        public static ModifierId firework_star = id("firework_star");
-        public static ModifierId safety_firework = id("safety_firework");
 
         public static final RegistryObject<RecipeSerializer<FireworkStarModifierRecipe>> STAR_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier", () -> LoadableRecipeSerializer.of(FireworkStarModifierRecipe.LOADER));
         public static final RegistryObject<RecipeSerializer<ModifierSalvage>> STAR_SALVAGE_SERIALIZER = RECIPE_SERIALIZERS.register("star_modifier_salvage", () -> LoadableRecipeSerializer.of(ModifierSalvage.LOADER));

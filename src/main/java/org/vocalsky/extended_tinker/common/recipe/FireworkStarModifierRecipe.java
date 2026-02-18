@@ -80,7 +80,7 @@ public class FireworkStarModifierRecipe implements ITinkerStationRecipe, IDispla
         if (!stack.isEmpty() && stack.is(ModCore.Tools.FIRECRACK.get())) {
             if (tool.getFreeSlots(SlotType.ABILITY) == 0) {
                 return false;
-            } else if (tool.getModifierLevel(ModCore.Modifiers.FIREWORK_STAR.getId()) >= maxLevel()) {
+            } else if (tool.getModifierLevel(ModCore.Modifiers.Ids.firework_star) >= maxLevel()) {
                 return false;
             } else {
                 return this.checkMeta(inv);
@@ -100,7 +100,7 @@ public class FireworkStarModifierRecipe implements ITinkerStationRecipe, IDispla
                 CompoundTag tag = input.getTagElement("Explosion");
                 ListTag listTag = new ListTag();
                 if (tag != null) listTag.add(tag);
-                newTool.addModifier(ModCore.Modifiers.FIREWORK_STAR.getId(), 1);
+                newTool.addModifier(ModCore.Modifiers.Ids.firework_star, 1);
                 CompoundTag compoundTag = new CompoundTag();
                 compoundTag.put("Explosions", listTag);
                 FireworkStarModifier.setStar(newTool, compoundTag);
@@ -135,7 +135,7 @@ public class FireworkStarModifierRecipe implements ITinkerStationRecipe, IDispla
             JsonObject slotJson = new JsonObject();
             slotJson.addProperty(this.slots.type().getName(), this.slots.count());
             json.add("slots", slotJson);
-            json.addProperty("result", ModCore.Modifiers.FIREWORK_STAR.getId().toString());
+            json.addProperty("result", ModCore.Modifiers.Ids.firework_star.toString());
             json.addProperty("level", maxLevel());
         }
 
@@ -170,7 +170,7 @@ public class FireworkStarModifierRecipe implements ITinkerStationRecipe, IDispla
             JsonObject slotJson = new JsonObject();
             slotJson.addProperty(this.slots.type().getName(), this.slots.count());
             json.add("slots", slotJson);
-            json.addProperty("modifier", ModCore.Modifiers.FIREWORK_STAR.getId().toString());
+            json.addProperty("modifier", ModCore.Modifiers.Ids.firework_star.toString());
         }
 
         @Override
@@ -235,7 +235,7 @@ public class FireworkStarModifierRecipe implements ITinkerStationRecipe, IDispla
 //    }
 
     /* JEI display */
-    private static final ModifierEntry result = new ModifierEntry(ModCore.Modifiers.FIREWORK_STAR, 1);
+    private static final ModifierEntry result = new ModifierEntry(ModCore.Modifiers.Ids.firework_star, 1);
     private static final Ingredient toolRequirement = Ingredient.of(ModCore.Tools.FIRECRACK);
     private static final SlotType.SlotCount slotCount = new SlotType.SlotCount(SlotType.ABILITY, 1);
     @Nullable

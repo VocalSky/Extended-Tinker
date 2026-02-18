@@ -30,9 +30,9 @@ public class FireworkRocketItem extends ModifiableArrowItem {
         MaterialNBT materialNBT = toolStack.getMaterials();
         ToolStack ammo = ToolStack.createTool(ModCore.Tools.FIREWORK_ROCKET.asItem(), ModCore.Tools.Definitions.FIREWORK_ROCKET, materialNBT);
         ammo.setUpgrades(toolStack.getUpgrades());
-        ammo.addModifier(ModCore.Modifiers.FIREWORK_FLIGHT.getId(), toolStack.getModifierLevel(ModCore.Modifiers.FIREWORK_FLIGHT.getId()));
-        ammo.addModifier(ModCore.Modifiers.firework_rocket, 1);
-        if (toolStack.getModifierLevel(ModCore.Modifiers.FIREWORK_STAR.getId()) > 0)
+        ammo.addModifier(ModCore.Modifiers.Ids.firework_flight, toolStack.getModifierLevel(ModCore.Modifiers.Ids.firework_flight));
+        ammo.addModifier(ModCore.Modifiers.Ids.firework_rocket, 1);
+        if (toolStack.getModifierLevel(ModCore.Modifiers.Ids.firework_star) > 0)
             FireworkStarModifier.setStar(ammo, FireworkStarModifier.getStar(toolStack));
         return ammo.createStack(1);
     }

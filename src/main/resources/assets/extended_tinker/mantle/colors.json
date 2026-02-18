@@ -2,7 +2,9 @@
   "modifier.extended_tinker": {
     "painless_horsearmor": "#778899",
     "asone_horsearmor": "#ffd54b",
-    "flight_firecrack": "#dcdcdc"
+    "firework_flight": "#dcdcdc",
+    "golem_beacon": "#50e4f8",
+    "golem_weapon": "#4855A4"
   },
   "material.extended_tinker": {
     "dragon_armor_iron": "#D8D8D8",

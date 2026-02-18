@@ -21,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.tool.HorseArmorItem;
+import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.Objects;
@@ -57,10 +58,11 @@ public abstract class HorseMixin extends AbstractHorse {
             if (damage < 1.0F) {
                 damage = 1.0F;
             }
-
-            ItemStack itemstack = this.getArmor();
-            if ((!damageSource.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof HorseArmorItem) {
-                itemstack.hurtAndBreak((int)damage, (AbstractHorse)this, (abstractHorse) -> abstractHorse.broadcastBreakEvent(EquipmentSlot.CHEST));
+            ItemStack stack = this.getArmor();
+            if ((!damageSource.is(DamageTypeTags.IS_FIRE) || !stack.getItem().isFireResistant()) && stack.getItem() instanceof HorseArmorItem) {
+                ToolStack tool = ToolStack.from(stack);
+                ToolDamageUtil.damage(tool, (int)damage, this, stack);
+                tool.updateStack(stack);
             }
         }
     }
@@ -68,7 +70,7 @@ public abstract class HorseMixin extends AbstractHorse {
     @Inject(method = "getHurtSound", at = @At("HEAD"), cancellable = true)
     public void getHurtSoundMixin(DamageSource damageSource, CallbackInfoReturnable<SoundEvent> cir) {
         if (getArmor().getItem() instanceof HorseArmorItem)
-            if(isVehicle() && ToolStack.from(getArmor()).getModifierLevel(ModCore.Modifiers.PAINLESS.get()) > 0)
+            if(isVehicle() && ToolStack.from(getArmor()).getModifierLevel(ModCore.Modifiers.Ids.painless) > 0)
                 cir.setReturnValue(SoundEvents.HORSE_HURT);
     }
 }

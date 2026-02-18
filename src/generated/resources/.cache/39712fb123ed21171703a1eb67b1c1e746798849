@@ -1,5 +1,8 @@
-// 1.20.1	2026-02-16T13:08:27.9790967	Item Models: extended_tinker
+// 1.20.1	2026-02-17T11:45:40.4672434	Item Models: extended_tinker
 0962799859270281891268ab8bda91b33dfc7c16 assets/extended_tinker/models/item/boots_golem_plating.json
+d69bac28970584f42b046ae92bdd7226d57c02d6 assets/extended_tinker/models/item/boots_golem_plating_cast.json
+43361e7aec88f6e321f2c89aaa65e21254ab2aa1 assets/extended_tinker/models/item/boots_golem_plating_red_sand_cast.json
+9fe91c2f4e2f72da794e505df4cadc25d0d9c7ef assets/extended_tinker/models/item/boots_golem_plating_sand_cast.json
 ae98b8f88b10d90d5aeeac8413136a92eadc5596 assets/extended_tinker/models/item/bridle.json
 71594fea48ad87f73adbaeb66c547cc79adad553 assets/extended_tinker/models/item/bridle_cast.json
 c4d56608a5d51cc132151643c0609e952037e59e assets/extended_tinker/models/item/bridle_red_sand_cast.json

@@ -1,6 +1,8 @@
-// 1.20.1	2026-02-17T09:33:38.1694926	Extended Tinker Modifier Recipe Provider
+// 1.20.1	2026-02-18T13:43:33.4590901	Extended Tinker Modifier Recipe Provider
 a37dbc2d02a22edec3d38a8686f355947f7ac60e data/extended_tinker/recipes/tools/modifiers/ability/asone_horsearmor.json
 c48c04a8e3c72673b62456462e9e886cf9b77eca data/extended_tinker/recipes/tools/modifiers/ability/firework_star.json
+ae7e5e5e40ee74c2c6121240e91add0a1ed3377e data/extended_tinker/recipes/tools/modifiers/ability/golem_beacon.json
+77f3676614ffa19cae28ebced55177b3ac4ec0ae data/extended_tinker/recipes/tools/modifiers/ability/golem_weapon.json
 46ae780d52c5b7ae79a3382a6aac3e32ee2f17f8 data/extended_tinker/recipes/tools/modifiers/ability/painless_horsearmor.json
 ff6457b1f2c9c24de5a118b3d7dbe9f6db501b18 data/extended_tinker/recipes/tools/modifiers/ability/safety_firework.json
 b0781f3c2f9a531a7a7188e38bc731cfd4e7a30e data/extended_tinker/recipes/tools/modifiers/ability/shoot_firework.json

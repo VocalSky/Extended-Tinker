@@ -2,19 +2,27 @@ package org.vocalsky.extended_tinker.compat.golem.tool;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.equipments.GolemEquipmentItem;
+import dev.xkmc.modulargolems.content.item.equipments.TickEquipmentItem;
+import dev.xkmc.modulargolems.init.data.MGLangData;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import lombok.Getter;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -31,6 +39,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.jetbrains.annotations.NotNull;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.util.IArmorModel;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
@@ -64,7 +73,7 @@ import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class GolemArmorItem extends GolemEquipmentItem implements IModifiableDisplay, IArmorModel {
+public class GolemArmorItem extends GolemEquipmentItem implements TickEquipmentItem, IModifiableDisplay, IArmorModel {
     /** Volatile modifier tag to make piglins neutal when worn */
     public static final ResourceLocation PIGLIN_NEUTRAL = TConstruct.getResource("piglin_neutral");
     /** Volatile modifier tag to make this item an elytra */
@@ -142,10 +151,6 @@ public class GolemArmorItem extends GolemEquipmentItem implements IModifiableDis
         return this.type.getSlot();
     }
 
-//    public SoundEvent getEquipSound() {
-//        return this.getMaterial().getEquipSound();
-//    }
-
     public GolemArmorItem(ArmorMaterial materialIn, ArmorItem.Type type, Properties builderIn, ToolDefinition toolDefinition) {
         super(builderIn.defaultDurability(materialIn.getDurabilityForType(type)), type.getSlot(), GolemTypes.ENTITY_GOLEM::get, builder -> {});
         this.material = materialIn;
@@ -161,7 +166,6 @@ public class GolemArmorItem extends GolemEquipmentItem implements IModifiableDis
         if (this.knockbackResistance > 0) {
             builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", this.knockbackResistance, AttributeModifier.Operation.ADDITION));
         }
-
         this.defaultModifiers = builder.build();
         this.toolDefinition = toolDefinition;
     }
@@ -463,6 +467,10 @@ public class GolemArmorItem extends GolemEquipmentItem implements IModifiableDis
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
+        ToolStack tool = ToolStack.from(stack);
+        tooltip.add(MGLangData.GOLEM_EQUIPMENT.get((GolemTypes.ENTITY_GOLEM.get()).getDescription().copy().withStyle(ChatFormatting.GOLD)));
+        if (tool.getModifierLevel(GolemCore.Modifiers.Ids.golem_beacon) == 0) return;
+        tooltip.add(MGLangData.BEACON_BOOTS.get(effDesc(MobEffects.DAMAGE_BOOST, 1), effDesc(MobEffects.DAMAGE_RESISTANCE, 1)));
     }
 
     @Override
@@ -483,5 +491,32 @@ public class GolemArmorItem extends GolemEquipmentItem implements IModifiableDis
             toolForRendering = ToolBuildHandler.buildToolForRendering(this, this.getToolDefinition());
         }
         return toolForRendering;
+    }
+
+    private static Component effDesc(MobEffect eff, int amp) {
+        MutableComponent lang = Component.translatable(eff.getDescriptionId());
+        if (amp > 0) {
+            lang = Component.translatable("potion.withAmplifier", lang, Component.translatable("potion.potency." + amp));
+        }
+        return lang.withStyle(eff.getCategory().getTooltipFormatting());
+    }
+
+    public void tick(@NotNull ItemStack stack, Level level, @NotNull Entity user) {
+        ToolStack tool = ToolStack.from(stack);
+        if (tool.getModifierLevel(GolemCore.Modifiers.Ids.golem_beacon) == 0) return;
+        if ((double)level.getGameTime() % (double)80.0F == (double)0.0F) {
+            if (user instanceof AbstractGolemEntity) {
+                AbstractGolemEntity<?, ?> golem = (AbstractGolemEntity)user;
+                double range = 40.0F;
+                AABB aabb = golem.getBoundingBox().inflate(range).expandTowards(0.0F, level.getHeight(), (double)0.0F);
+                Objects.requireNonNull(golem);
+
+                for(LivingEntity e : level.getEntitiesOfClass(LivingEntity.class, aabb, golem::isAlliedTo)) {
+                    e.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 1, true, true));
+                    e.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, true, true));
+                    e.heal(2.0F);
+                }
+            }
+        }
     }
 }

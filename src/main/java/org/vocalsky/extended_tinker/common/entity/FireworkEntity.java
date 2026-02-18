@@ -84,7 +84,7 @@ public class FireworkEntity extends Projectile {
         this.life = 0;
         this.setPos(x, y, z);
         this.setDeltaMovement(this.random.triangle(0.0, 0.002297), 0.05, this.random.triangle(0.0, 0.002297));
-        this.lifetime = 10 * tool.getModifierLevel(ModCore.Modifiers.FIREWORK_FLIGHT.get()) + this.random.nextInt(6) + this.random.nextInt(7);
+        this.lifetime = 10 * tool.getModifierLevel(ModCore.Modifiers.Ids.firework_flight) + this.random.nextInt(6) + this.random.nextInt(7);
     }
 
     public FireworkEntity(Level level, @Nullable Entity entity, double x, double y, double z, ItemStack itemStack, boolean isShotAtAngle) {
@@ -126,7 +126,7 @@ public class FireworkEntity extends Projectile {
     }
 
     private CompoundTag getStarTag(ToolStack tool) {
-        if (tool.getModifierLevel(ModCore.Modifiers.FIREWORK_STAR.getId()) == 0) return new CompoundTag();
+        if (tool.getModifierLevel(ModCore.Modifiers.Ids.firework_star) == 0) return new CompoundTag();
         return FireworkStarModifier.getStar(tool);
     }
 
@@ -141,13 +141,13 @@ public class FireworkEntity extends Projectile {
         }
 
         if (f > 0.0F) {
-            if (this.attachedToEntity != null && (tool.getModifierLevel(ModCore.Modifiers.safety_firework) == 0 || this.attachedToEntity != this.getLivingOwner()))
+            if (this.attachedToEntity != null && (tool.getModifierLevel(ModCore.Modifiers.Ids.safety_firework) == 0 || this.attachedToEntity != this.getLivingOwner()))
                 this.attachedToEntity.hurt(this.damageSources().source(DamageTypes.FIREWORKS, this, this.getOwner()), 5.0F + (float)(listtag.size() * 2));
 
             Vec3 vec3 = this.position();
 
             for(LivingEntity livingentity : this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(5.0))) {
-                if (livingentity != this.attachedToEntity && (tool.getModifierLevel(ModCore.Modifiers.safety_firework) == 0 || livingentity != this.getLivingOwner()) && !(this.distanceToSqr(livingentity) > 25.0)) {
+                if (livingentity != this.attachedToEntity && (tool.getModifierLevel(ModCore.Modifiers.Ids.safety_firework) == 0 || livingentity != this.getLivingOwner()) && !(this.distanceToSqr(livingentity) > 25.0)) {
                     boolean flag = false;
 
                     for(int i = 0; i < 2; ++i) {

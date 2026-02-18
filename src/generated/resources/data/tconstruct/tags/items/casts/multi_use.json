@@ -15,6 +15,10 @@
     {
       "id": "#extended_tinker:casts/multi_use/leggings_golem_plating",
       "required": false
+    },
+    {
+      "id": "#extended_tinker:casts/multi_use/boots_golem_plating",
+      "required": false
     }
   ]
 }
