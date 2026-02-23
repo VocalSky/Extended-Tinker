@@ -89,7 +89,7 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .save(consumer, prefix(ModCore.Modifiers.Ids.firework_flight, upgradeFolder));
         consumer.accept(new FireworkStarModifierRecipe.Finished(Extended_tinker.getResource(abilityFolder + "firework_star"), Ingredient.of(ModCore.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
         consumer.accept(new FireworkStarModifierRecipe.FinishedSalvage(Extended_tinker.getResource(abilitySalvage + "firework_star"), Ingredient.of(ModCore.Tools.FIRECRACK), new SlotType.SlotCount(SlotType.ABILITY, 1)));
-        ModifierRecipeBuilder.modifier(IafCore.Modifiers.MagneticStormSurge.getId())
+        ModifierRecipeBuilder.modifier(IafCore.Modifiers.MagneticStormSurge.get().getId())
             .addInput(IafItemRegistry.DRAGON_SKULL_LIGHTNING.get(), 1)
             .addInput(IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get(), 1)
             .addInput(IafItemRegistry.LIGHTNING_DRAGON_HEART.get(), 1)
@@ -97,9 +97,9 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .setSlots(DiademaSlots.DIADEMA, 1)
             .setMaxLevel(1)
             .setTools(ETTagsUtil.DRAGON_ARMOR)
-            .saveSalvage(consumer, prefix(IafCore.Modifiers.MagneticStormSurge.getId(), diademaSalvage))
-            .save(consumer, prefix(IafCore.Modifiers.MagneticStormSurge.getId(), diademaFolder));
-        ModifierRecipeBuilder.modifier(IafCore.Modifiers.BurnstheSky.getId())
+            .saveSalvage(consumer, prefix(IafCore.Modifiers.MagneticStormSurge.get().getId(), diademaSalvage))
+            .save(consumer, prefix(IafCore.Modifiers.MagneticStormSurge.get().getId(), diademaFolder));
+        ModifierRecipeBuilder.modifier(IafCore.Modifiers.BurnstheSky.get().getId())
             .addInput(IafItemRegistry.DRAGON_SKULL_FIRE.get(), 1)
             .addInput(IafItemRegistry.FIRE_DRAGON_BLOOD.get(), 1)
             .addInput(IafItemRegistry.FIRE_DRAGON_HEART.get(), 1)
@@ -107,9 +107,9 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .setSlots(DiademaSlots.DIADEMA, 1)
             .setMaxLevel(1)
             .setTools(ETTagsUtil.DRAGON_ARMOR)
-            .saveSalvage(consumer, prefix(IafCore.Modifiers.BurnstheSky.getId(), diademaSalvage))
-            .save(consumer, prefix(IafCore.Modifiers.BurnstheSky.getId(), diademaFolder));
-        ModifierRecipeBuilder.modifier(IafCore.Modifiers.Permafrost.getId())
+            .saveSalvage(consumer, prefix(IafCore.Modifiers.BurnstheSky.get().getId(), diademaSalvage))
+            .save(consumer, prefix(IafCore.Modifiers.BurnstheSky.get().getId(), diademaFolder));
+        ModifierRecipeBuilder.modifier(IafCore.Modifiers.Permafrost.get().getId())
             .addInput(IafItemRegistry.DRAGON_SKULL_ICE.get(), 1)
             .addInput(IafItemRegistry.ICE_DRAGON_BLOOD.get(), 1)
             .addInput(IafItemRegistry.ICE_DRAGON_HEART.get(), 1)
@@ -117,8 +117,8 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .setSlots(DiademaSlots.DIADEMA, 1)
             .setMaxLevel(1)
             .setTools(ETTagsUtil.DRAGON_ARMOR)
-            .saveSalvage(consumer, prefix(IafCore.Modifiers.Permafrost.getId(), diademaSalvage))
-            .save(consumer, prefix(IafCore.Modifiers.Permafrost.getId(), diademaFolder));
+            .saveSalvage(consumer, prefix(IafCore.Modifiers.Permafrost.get().getId(), diademaSalvage))
+            .save(consumer, prefix(IafCore.Modifiers.Permafrost.get().getId(), diademaFolder));
         ModifierRecipeBuilder.modifier(ModCore.Modifiers.Ids.shoot_firework)
             .addInput(Items.FIREWORK_ROCKET)
             .addInput(Items.FLINT)

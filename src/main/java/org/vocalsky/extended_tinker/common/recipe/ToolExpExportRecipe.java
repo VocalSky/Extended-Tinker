@@ -60,6 +60,7 @@ public class ToolExpExportRecipe extends AbstractWorktableRecipe {
 
     @Override
     public boolean matches(ITinkerableContainer inv, @NotNull Level world) {
+        if (!Extended_tinker.LVLoadable()) return false;
         if (!inv.getTinkerableStack().is(TinkerTags.Items.MODIFIABLE)) return false;
         if (inv.getTinkerable().getModifierLevel(Registration.IMPROVABLE.getId()) == 0) return false;
         return checkTargetValid(getTarget(inv));

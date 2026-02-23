@@ -3,11 +3,13 @@ package org.vocalsky.extended_tinker.common.recipe;
 import lombok.Getter;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.item.ExpTransferOrb;
 import pyre.tinkerslevellingaddon.ImprovableModifier;
@@ -51,6 +53,7 @@ public class ToolExpImportRecipe implements ITinkerStationRecipe {
 
     @Override
     public boolean matches(ITinkerStationContainer inv, @NotNull Level level) {
+        if (!Extended_tinker.LVLoadable()) return false;
         if (!(inv.getTinkerableStack().getItem() instanceof ModifiableItem)) return false;
         ToolStack tool = inv.getTinkerable();
         return tool.getModifierLevel(Registration.IMPROVABLE.get()) != 0 && this.checkMeta(tool, inv);

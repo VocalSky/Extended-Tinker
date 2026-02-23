@@ -66,4 +66,5 @@ public class Extended_tinker {
     public static boolean DiademaLoadable() { return ModList.get().isLoaded("tcondiadema"); }
     public static boolean MGLoadable() { return ModList.get().isLoaded("modulargolems"); }
     public static boolean IAFLoadable() { return ModList.get().isLoaded("iceandfire"); }
+    public static boolean LVLoadable() { return ModList.get().isLoaded("tinkerslevellingaddon"); }
 }

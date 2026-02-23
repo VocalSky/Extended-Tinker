@@ -66,7 +66,7 @@ public class ExpTransferOrb extends Item {
     @Override
     public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> componentList, @NotNull TooltipFlag tooltipFlag) {
         super.appendHoverText(itemStack, level, componentList, tooltipFlag);
-        if (!ModCore.LevellingAddonLoaded()) return;
+        if (!Extended_tinker.LVLoadable()) return;
         List<Component> infoEntries = prepareGeneralInfo(itemStack);
         componentList.addAll(infoEntries);
     }

@@ -1,57 +1,57 @@
 package org.vocalsky.extended_tinker.common;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 import org.vocalsky.extended_tinker.Extended_tinker;
+import org.vocalsky.extended_tinker.common.block.entity.UltraPartBuilderBlockEntity;
 import org.vocalsky.extended_tinker.common.client.FirecrackEntityRender;
 import org.vocalsky.extended_tinker.common.client.FireworkRocketEntityRender;
+import org.vocalsky.extended_tinker.common.client.screen.UltraPartBuilderScreen;
 import org.vocalsky.extended_tinker.common.entity.FireworkEntity;
 import org.vocalsky.extended_tinker.common.entity.FireworkRocketEntity;
 import org.vocalsky.extended_tinker.common.item.ExpTransferOrb;
 import org.vocalsky.extended_tinker.common.logic.FireworkDispenserBehavior;
+import org.vocalsky.extended_tinker.common.menu.UltraPartBuilderContainerMenu;
 import org.vocalsky.extended_tinker.common.modifier.Firecrack.*;
-import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorAsoneModifier;
-import org.vocalsky.extended_tinker.common.modifier.HorseArmor.HorseArmorPainlessModifier;
 import org.vocalsky.extended_tinker.common.recipe.FireworkStarModifierRecipe;
 import org.vocalsky.extended_tinker.common.recipe.ToolExpExportRecipe;
 import org.vocalsky.extended_tinker.common.recipe.ToolExpImportRecipe;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
 import org.vocalsky.extended_tinker.common.tool.FireworkRocketItem;
 import org.vocalsky.extended_tinker.common.tool.HorseArmorItem;
-//import org.vocalsky.extended_tinker.util.ModCastItemObject;
 import slimeknights.mantle.Mantle;
 import slimeknights.mantle.recipe.helper.LoadableRecipeSerializer;
 import slimeknights.mantle.recipe.helper.SimpleRecipeSerializer;
-import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
-import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
-import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
+import slimeknights.mantle.registration.deferred.*;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.registration.CastItemObject;
-import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
@@ -59,16 +59,14 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.ModifierSalvage;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
-import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
+import slimeknights.tconstruct.shared.block.TableBlock;
 import slimeknights.tconstruct.tables.TinkerTables;
-import slimeknights.tconstruct.tools.TinkerTools;
-import slimeknights.tconstruct.tools.logic.ModifiableArrowDispenserBehavior;
-import slimeknights.tconstruct.tools.logic.ModifiableShurikenDispenserBehavior;
+import slimeknights.tconstruct.tables.block.GenericTableBlock;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import java.util.function.Consumer;
@@ -78,7 +76,13 @@ import java.util.function.Supplier;
 @Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModCore {
     public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(Extended_tinker.MODID);
-    protected static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
+    public static final BlockDeferredRegister BLOCKS = new BlockDeferredRegister(Extended_tinker.MODID);
+    public static final BlockEntityTypeDeferredRegister BLOCK_ENTITIES = new BlockEntityTypeDeferredRegister(Extended_tinker.MODID);
+    public static final MenuTypeDeferredRegister MENUS = new MenuTypeDeferredRegister(Extended_tinker.MODID);
+    public static final ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(Extended_tinker.MODID);
+    public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(Extended_tinker.MODID);
+    public static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Extended_tinker.MODID);
+    public static final SynchronizedDeferredRegister<CreativeModeTab> CREATIVE_TABS = SynchronizedDeferredRegister.create(Registries.CREATIVE_MODE_TAB, Extended_tinker.MODID);
     public static final RegistryObject<CreativeModeTab> CommonTab = CREATIVE_TABS.register(
     "common", () -> CreativeModeTab.builder().title(Extended_tinker.makeTranslation("itemGroup", "common_items"))
                                         .icon(() -> Tools.HORSE_ARMOR.get().getRenderTool())
@@ -89,6 +93,8 @@ public class ModCore {
     private static final Item.Properties Stack1Item = new Item.Properties().stacksTo(1);
     private static final Item.Properties CommonItem = new Item.Properties();
     public static void registers(IEventBus eventBus)  {
+        Menus.init();
+        Blocks.init();
         Tags.init();
         Parts.init();
         Casts.init();
@@ -96,26 +102,55 @@ public class ModCore {
         Entities.init();
         Modifiers.init();
         ITEMS.register(eventBus);
+        MENUS.register(eventBus);
+        BLOCKS.register(eventBus);
+        BLOCK_ENTITIES.register(eventBus);
+        RECIPE_SERIALIZERS.register(eventBus);
+        MODIFIERS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
-        Entities.registers(eventBus);
-        Modifiers.registers(eventBus);
+        ENTITIES.register(eventBus);
     }
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent event) {
-        System.out.println("modCore commonSetup firecrack");
         event.enqueueWork(() -> {
             DispenserBlock.registerBehavior(Tools.FIRECRACK.get(), FireworkDispenserBehavior.INSTANCE);
         });
     }
 
-    public static boolean LevellingAddonLoaded() { return ModList.get().isLoaded("tinkerslevellingaddon"); }
     public static ItemObject<ExpTransferOrb> ExpTransferOrb = ITEMS.register("exp_transfer_orb", () -> new ExpTransferOrb(Stack1Item));
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         Parts.addTabItems(itemDisplayParameters, tab);
         Casts.addTabItems(itemDisplayParameters, tab);
         Tools.addTabItems(itemDisplayParameters, tab);
-        if (LevellingAddonLoaded()) tab.accept(ExpTransferOrb);
+        if (Extended_tinker.LVLoadable()) tab.accept(ExpTransferOrb);
+    }
+
+    @Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class Menus {
+        public static void init() {}
+
+        public static RegistryObject<MenuType<UltraPartBuilderContainerMenu>> ultraPartBuilderContainer = MENUS.register("ultra_part_builder", UltraPartBuilderContainerMenu::new);
+
+        @SubscribeEvent
+        static void setupClient(final FMLClientSetupEvent event) {
+            MenuScreens.register(Menus.ultraPartBuilderContainer.get(), UltraPartBuilderScreen::new);
+        }
+    }
+
+    public static class Blocks {
+        public static void init() {}
+
+        protected static BlockBehaviour.Properties builder(SoundType soundType) {
+            return BlockBehaviour.Properties.of().sound(soundType);
+        }
+
+        protected static BlockBehaviour.Properties builder(MapColor color, SoundType soundType) {
+            return builder(soundType).mapColor(color);
+        }
+
+        public static final ItemObject<TableBlock> ULTRA_PART_BUILDER = BLOCKS.register("ultra_part_builder", () -> new GenericTableBlock(builder(MapColor.WOOD, SoundType.WOOD).instrument(NoteBlockInstrument.BASS).strength(1.0F, 5.0F).noOcclusion(), UltraPartBuilderBlockEntity::new), (b) -> new BlockItem(b, CommonItem));
+        public static final RegistryObject<BlockEntityType<UltraPartBuilderBlockEntity>> ultraPartBuilderTile = BLOCK_ENTITIES.register("ultra_part_builder", UltraPartBuilderBlockEntity::new, ULTRA_PART_BUILDER);
     }
 
     public static class Parts {
@@ -234,18 +269,12 @@ public class ModCore {
     public static class Entities {
         public static void init() {}
 
-        public static final EntityTypeDeferredRegister ENTITYS;
         public static RegistryObject<EntityType<FireworkEntity>> firecrackEntity;
         public static RegistryObject<EntityType<FireworkRocketEntity>> fireworkRocketEntity;
 
         static {
-            ENTITYS = new EntityTypeDeferredRegister(Extended_tinker.MODID);
-            firecrackEntity = ENTITYS.register("firecrack", () -> EntityType.Builder.<FireworkEntity>of(FireworkEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).setTrackingRange(4).setUpdateInterval(10).setCustomClientFactory((spawnEntity, world) -> new FireworkEntity(firecrackEntity.get(), world)).setShouldReceiveVelocityUpdates(true));
-            fireworkRocketEntity = ENTITYS.register("firework_rocket", () -> EntityType.Builder.<FireworkRocketEntity>of(FireworkRocketEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).setTrackingRange(4).setUpdateInterval(10).setCustomClientFactory(((spawnEntity, level) -> new FireworkRocketEntity(fireworkRocketEntity.get(), level))).setShouldReceiveVelocityUpdates(true));
-        }
-
-        public static void registers(IEventBus eventBus)  {
-            ENTITYS.register(eventBus);
+            firecrackEntity = ENTITIES.register("firecrack", () -> EntityType.Builder.<FireworkEntity>of(FireworkEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).setTrackingRange(4).setUpdateInterval(10).setCustomClientFactory((spawnEntity, world) -> new FireworkEntity(firecrackEntity.get(), world)).setShouldReceiveVelocityUpdates(true));
+            fireworkRocketEntity = ENTITIES.register("firework_rocket", () -> EntityType.Builder.<FireworkRocketEntity>of(FireworkRocketEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).setTrackingRange(4).setUpdateInterval(10).setCustomClientFactory(((spawnEntity, level) -> new FireworkRocketEntity(fireworkRocketEntity.get(), level))).setShouldReceiveVelocityUpdates(true));
         }
 
         @SubscribeEvent
@@ -280,13 +309,6 @@ public class ModCore {
         }
 
         public static void init() {}
-        public static ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(Extended_tinker.MODID);
-
-        public static void registers(IEventBus bus) {
-            MODIFIERS.register(bus);
-            RECIPE_SERIALIZERS.register(bus);
-        }
-        protected static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Extended_tinker.MODID);
 
         @SubscribeEvent
         public static void registerSerializers(RegisterEvent event) {

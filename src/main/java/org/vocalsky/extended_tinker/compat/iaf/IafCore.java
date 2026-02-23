@@ -39,6 +39,8 @@ import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tables.TinkerTables;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -65,7 +67,7 @@ public class IafCore {
         CREATIVE_TABS.register(eventBus);
         Modifiers.MODIFIERS.register(eventBus);
         if (Extended_tinker.DiademaLoadable())
-            Modifiers.Diademas.DIADEMA_TYPES.register(eventBus);
+            Modifiers.Diademas.DIADEMA_TYPES.get().register(eventBus);
     }
 
     private static void addTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
@@ -166,18 +168,20 @@ public class IafCore {
             if (Extended_tinker.DiademaLoadable()) Diademas.init();
         }
         public static ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(Extended_tinker.MODID);
-        public static final StaticModifier<DiademaModifier> MagneticStormSurge = MODIFIERS.register("magnetic_storm_surge", CommonDiademaModifier.Create(Diademas.MagneticStormSurge));
-        public static final StaticModifier<DiademaModifier> BurnstheSky = MODIFIERS.register("burns_the_sky", CommonDiademaModifier.Create(Diademas.BurnstheSky));
-        public static final StaticModifier<DiademaModifier> Permafrost = MODIFIERS.register("permafrost", CommonDiademaModifier.Create(Diademas.Permafrost));
+        public static final Optional<StaticModifier<DiademaModifier>> MagneticStormSurge = Diademas.load() ? Optional.of(MODIFIERS.register("magnetic_storm_surge", CommonDiademaModifier.Create(Diademas.MagneticStormSurge.get()))) : Optional.empty();
+        public static final Optional<StaticModifier<DiademaModifier>> BurnstheSky = Diademas.load() ? Optional.of(MODIFIERS.register("burns_the_sky", CommonDiademaModifier.Create(Diademas.BurnstheSky.get()))) : Optional.empty();
+        public static final Optional<StaticModifier<DiademaModifier>> Permafrost = Diademas.load() ? Optional.of(MODIFIERS.register("permafrost", CommonDiademaModifier.Create(Diademas.Permafrost.get()))) : Optional.empty();
 
         public static class Diademas {
+            static boolean load() { return Extended_tinker.DiademaLoadable(); }
+
             public static void init() {}
 
-            public static final DeferredRegister<DiademaType> DIADEMA_TYPES = DeferredRegister.create(CsdyRegistries.DIADEMA_TYPE, Extended_tinker.MODID);
+            public static final Optional<DeferredRegister<DiademaType>> DIADEMA_TYPES = load() ? Optional.of(DeferredRegister.create(CsdyRegistries.DIADEMA_TYPE, Extended_tinker.MODID)) : Optional.empty();
 
-            public static final RegistryObject<DiademaType> MagneticStormSurge = DIADEMA_TYPES.register("magnetic_storm_surge", () -> DiademaType.create(MagneticStormSurgeDiadema::new));
-            public static final RegistryObject<DiademaType> BurnstheSky = DIADEMA_TYPES.register("burns_the_sky", () -> DiademaType.create(BurnstheSkyDiadema::new));
-            public static final RegistryObject<DiademaType> Permafrost = DIADEMA_TYPES.register("permafrost", () -> DiademaType.create(PermaforstDiadema::new));
+            public static final Optional<RegistryObject<DiademaType>> MagneticStormSurge = load() ? Optional.of(DIADEMA_TYPES.get().register("magnetic_storm_surge", () -> DiademaType.create(MagneticStormSurgeDiadema::new))) : Optional.empty();
+            public static final Optional<RegistryObject<DiademaType>> BurnstheSky = load() ? Optional.of(DIADEMA_TYPES.get().register("burns_the_sky", () -> DiademaType.create(BurnstheSkyDiadema::new))) : Optional.empty();
+            public static final Optional<RegistryObject<DiademaType>> Permafrost = load() ? Optional.of(DIADEMA_TYPES.get().register("permafrost", () -> DiademaType.create(PermaforstDiadema::new))) : Optional.empty();
         }
     }
 
