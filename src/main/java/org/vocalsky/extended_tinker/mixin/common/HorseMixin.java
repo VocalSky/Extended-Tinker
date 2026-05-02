@@ -39,17 +39,17 @@ public abstract class HorseMixin extends AbstractHorse {
         super(p_30531_, p_30532_);
     }
 
-    @Inject(method = "setArmorEquipment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/horse/Horse;isArmor(Lnet/minecraft/world/item/ItemStack;)Z", shift = At.Shift.BY, by = 1))
-    public void setArmorEquipmentMixin(@NotNull ItemStack itemStack, CallbackInfo ci) {
-        if (this.level().isClientSide()) return;
-        if (itemStack.getItem() instanceof HorseArmorItem) {
-            Multimap<Attribute, AttributeModifier> builder = itemStack.getItem().getAttributeModifiers(EquipmentSlot.CHEST, itemStack);
-            builder.forEach(((attribute, attributeModifier) -> {
-                Objects.requireNonNull(getAttribute(attribute)).removeModifier(HorseArmorUUID);
-                Objects.requireNonNull(getAttribute(attribute)).addTransientModifier(attributeModifier);
-            }));
-        }
-    }
+//    @Inject(method = "setArmorEquipment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/horse/Horse;isArmor(Lnet/minecraft/world/item/ItemStack;)Z", shift = At.Shift.BY, by = 1))
+//    public void setArmorEquipmentMixin(@NotNull ItemStack itemStack, CallbackInfo ci) {
+//        if (this.level().isClientSide()) return;
+//        if (itemStack.getItem() instanceof HorseArmorItem) {
+//            Multimap<Attribute, AttributeModifier> builder = itemStack.getItem().getAttributeModifiers(EquipmentSlot.CHEST, itemStack);
+//            builder.forEach(((attribute, attributeModifier) -> {
+//                Objects.requireNonNull(getAttribute(attribute)).removeModifier(HorseArmorUUID);
+//                Objects.requireNonNull(getAttribute(attribute)).addTransientModifier(attributeModifier);
+//            }));
+//        }
+//    }
 
     @Override
     protected void hurtArmor(@NotNull DamageSource damageSource, float damage) {

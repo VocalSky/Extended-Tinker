@@ -27,7 +27,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import static slimeknights.tconstruct.common.TinkerTags.Items.*;
-import static org.vocalsky.extended_tinker.util.ETTagsUtil.*;
 
 public class ItemTagProvider extends ItemTagsProvider {
     private final Function<Item, ResourceLocation> LocExtractor = (item) -> item.builtInRegistryHolder().key().location();
@@ -62,7 +61,7 @@ public class ItemTagProvider extends ItemTagsProvider {
             for (TagKey<Item> tag : armorTags) this.tag(tag).addOptional(LocExtractor.apply(item));
             this.tag(getArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
             this.tag(getForgeArmorTag(type.ArmorType())).addOptional(LocExtractor.apply(item));
-            this.tag(DRAGON_ARMOR).addOptional(LocExtractor.apply(item));
+            this.tag(IafCore.Tags.DRAGON_ARMOR).addOptional(LocExtractor.apply(item));
         });
         IafCore.Parts.DRAGON_ARMOR_CORE.forEach((type, item) -> {
             this.tag(TOOL_PARTS).replace(false).addOptional(LocExtractor.apply(item));

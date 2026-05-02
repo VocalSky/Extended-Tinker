@@ -18,10 +18,12 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.block.entity.inventory.UltraPartBuilderContainerWrapper;
 import org.vocalsky.extended_tinker.common.menu.UltraPartBuilderContainerMenu;
+import org.vocalsky.extended_tinker.common.recipe.UltraPartRecipe;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.recipe.TinkerRecipeTypes;
 import slimeknights.tconstruct.library.recipe.material.IMaterialValue;
 import slimeknights.tconstruct.library.recipe.partbuilder.IPartBuilderRecipe;
+import slimeknights.tconstruct.library.recipe.partbuilder.PartRecipe;
 import slimeknights.tconstruct.library.recipe.partbuilder.Pattern;
 import slimeknights.tconstruct.shared.inventory.ConfigurableInvWrapperCapability;
 import slimeknights.tconstruct.tables.block.entity.inventory.LazyResultContainer;
@@ -59,7 +61,7 @@ public class UltraPartBuilderBlockEntity extends RetexturedTableBlockEntity impl
     private Pattern selectedPattern = null;
 
     public UltraPartBuilderBlockEntity(BlockPos pos, BlockState state) {
-        super(ModCore.Blocks.ultraPartBuilderTile.get(), pos, state, NAME, 3);
+        super(ModCore.Blocks.ultraPartBuilderTile.get(), pos, state, NAME, 4);
         this.itemHandler = new ConfigurableInvWrapperCapability(this, false, false);
         this.itemHandlerCap = LazyOptional.of(() -> this.itemHandler);
         this.inventoryWrapper = new UltraPartBuilderContainerWrapper(this);
@@ -83,7 +85,7 @@ public class UltraPartBuilderBlockEntity extends RetexturedTableBlockEntity impl
                 record PatternRecipe(Pattern pattern, IPartBuilderRecipe recipe) {}
                 // fetch all recipes that can match these inputs, the map ensures the patterns are unique
                 recipes = level.getRecipeManager().byType(TinkerRecipeTypes.PART_BUILDER.get()).values().stream()
-                        .filter(r -> r.partialMatch(inventoryWrapper))
+                        .filter(r -> (r instanceof PartRecipe ? new UltraPartRecipe((PartRecipe) r) : r).partialMatch(inventoryWrapper))
                         .sorted(Comparator.comparing(Recipe::getId))
                         .flatMap(r -> r.getPatterns(inventoryWrapper).map(p -> new PatternRecipe(p, r)))
                         .collect(Collectors.toMap(PatternRecipe::pattern, PatternRecipe::recipe, (a, b) -> a));
@@ -91,11 +93,6 @@ public class UltraPartBuilderBlockEntity extends RetexturedTableBlockEntity impl
                         .stream()
                         .sorted(Comparator.<Map.Entry<Pattern,IPartBuilderRecipe>>comparingInt(ent -> ent.getValue().getCost()).thenComparing(Map.Entry::getKey))
                         .map(Map.Entry::getKey).collect(Collectors.toList());
-                System.out.println("Found " + recipes.size() + " recipes for pattern " + getItem(PATTERN_SLOT) + ":");
-                for (Map.Entry<Pattern, IPartBuilderRecipe> entry : recipes.entrySet()) {
-                    selectedPattern = entry.getKey();
-                    System.out.println("- " + entry.getKey() + ": " + entry.getValue());
-                }
             }
         }
         return recipes;
@@ -118,10 +115,10 @@ public class UltraPartBuilderBlockEntity extends RetexturedTableBlockEntity impl
      */
     @Nullable
     public IPartBuilderRecipe getPartRecipe() {
-        if (selectedPattern != null) {
-            return getCurrentRecipes().get(selectedPattern);
-        }
-        return null;
+        if (selectedPattern == null) return null;
+        IPartBuilderRecipe recipe = getCurrentRecipes().get(selectedPattern);
+        if (!(recipe instanceof PartRecipe)) return recipe;
+        return new UltraPartRecipe((PartRecipe) recipe);
     }
 
     /** Gets the first available recipe */
@@ -150,7 +147,7 @@ public class UltraPartBuilderBlockEntity extends RetexturedTableBlockEntity impl
         this.recipes = null;
         this.sortedButtons = null;
         this.craftingResult.clearContent();
-        // update screen display
+        if (getFirstRecipe() != null) this.selectedPattern = getFirstRecipe().getPattern();
         syncScreenToRelevantPlayers();
     }
 
@@ -173,12 +170,12 @@ public class UltraPartBuilderBlockEntity extends RetexturedTableBlockEntity impl
         } else if (original.getItem() != stack.getItem()) {
             refresh();
         }
+        refresh();
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int menuId, @NotNull Inventory playerInventory, @NotNull Player playerEntity) {
-        System.out.println("create menu on " + playerEntity.level().isClientSide());
         return new UltraPartBuilderContainerMenu(menuId, playerInventory, this);
     }
 
@@ -193,19 +190,11 @@ public class UltraPartBuilderBlockEntity extends RetexturedTableBlockEntity impl
         return ItemStack.EMPTY;
     }
 
-    /**
-     * Shrinks the given slot
-     * @param slot    Slot
-     * @param amount  Amount to shrink
-     */
     private void shrinkSlot(int slot, int amount, Player player) {
-        System.out.println("side is " + player.level().isClientSide());
-        System.out.println("perform shrink slot on " + slot + " with amount " + amount);
         if (amount <= 0) {
             return;
         }
         ItemStack stack = getItem(slot);
-        System.out.println("check " + (!stack.isEmpty()));
         if (!stack.isEmpty()) {
             ItemStack container = stack.getCraftingRemainingItem().copy();
             if (amount > 1) {
@@ -222,17 +211,14 @@ public class UltraPartBuilderBlockEntity extends RetexturedTableBlockEntity impl
 
     @Override
     public void onCraft(@NotNull Player player, @NotNull ItemStack result, int amount) {
-        System.out.println("on craft " + player.level().isClientSide);
         if (amount == 0 || this.level == null) {
             return;
         }
-        // the recipe should match if we got this far, but being null is a problem
         IPartBuilderRecipe recipe = getPartRecipe();
         if (recipe == null) {
             return;
         }
 
-        // we are definitely crafting at this point
         result.onCraftedBy(this.level, player, amount);
         ForgeEventFactory.firePlayerCraftingEvent(player, result, this.inventoryWrapper);
         this.playCraftSound(player);

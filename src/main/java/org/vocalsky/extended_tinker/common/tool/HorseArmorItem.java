@@ -297,18 +297,11 @@ public class HorseArmorItem extends net.minecraft.world.item.HorseArmorItem impl
             if (!tool.isBroken()) {
                 StatsNBT statsNBT = tool.getStats();
                 UUID uuid = HorseArmorUUID;
-//                builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Horse armor bonus", (double) statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
-//                builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Horse armor bonus", (double) statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
-//                double knockbackResistance = (double) statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
-//                if (knockbackResistance != (double)0.0F) {
-//                    builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Horse armor bonus", knockbackResistance, AttributeModifier.Operation.ADDITION));
-//                }
                 builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "tconstruct.armor.armor", (double) statsNBT.get(ToolStats.ARMOR), AttributeModifier.Operation.ADDITION));
                 builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "tconstruct.armor.toughness", (double) statsNBT.get(ToolStats.ARMOR_TOUGHNESS), AttributeModifier.Operation.ADDITION));
                 double knockbackResistance = (double) statsNBT.get(ToolStats.KNOCKBACK_RESISTANCE);
-                if (knockbackResistance != (double)0.0F) {
+                if (knockbackResistance != (double)0.0F)
                     builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "tconstruct.armor.knockback_resistance", knockbackResistance, AttributeModifier.Operation.ADDITION));
-                }
 
                 Objects.requireNonNull(builder);
                 BiConsumer<Attribute, AttributeModifier> attributeConsumer = builder::put;

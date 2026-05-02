@@ -96,7 +96,7 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .disallowCrystal()
             .setSlots(DiademaSlots.DIADEMA, 1)
             .setMaxLevel(1)
-            .setTools(ETTagsUtil.DRAGON_ARMOR)
+            .setTools(IafCore.Tags.DRAGON_ARMOR)
             .saveSalvage(consumer, prefix(IafCore.Modifiers.MagneticStormSurge.get().getId(), diademaSalvage))
             .save(consumer, prefix(IafCore.Modifiers.MagneticStormSurge.get().getId(), diademaFolder));
         ModifierRecipeBuilder.modifier(IafCore.Modifiers.BurnstheSky.get().getId())
@@ -106,7 +106,7 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .disallowCrystal()
             .setSlots(DiademaSlots.DIADEMA, 1)
             .setMaxLevel(1)
-            .setTools(ETTagsUtil.DRAGON_ARMOR)
+            .setTools(IafCore.Tags.DRAGON_ARMOR)
             .saveSalvage(consumer, prefix(IafCore.Modifiers.BurnstheSky.get().getId(), diademaSalvage))
             .save(consumer, prefix(IafCore.Modifiers.BurnstheSky.get().getId(), diademaFolder));
         ModifierRecipeBuilder.modifier(IafCore.Modifiers.Permafrost.get().getId())
@@ -116,7 +116,7 @@ public class ModifierRecipeProvider extends RecipeProvider  implements IRecipeHe
             .disallowCrystal()
             .setSlots(DiademaSlots.DIADEMA, 1)
             .setMaxLevel(1)
-            .setTools(ETTagsUtil.DRAGON_ARMOR)
+            .setTools(IafCore.Tags.DRAGON_ARMOR)
             .saveSalvage(consumer, prefix(IafCore.Modifiers.Permafrost.get().getId(), diademaSalvage))
             .save(consumer, prefix(IafCore.Modifiers.Permafrost.get().getId(), diademaFolder));
         ModifierRecipeBuilder.modifier(ModCore.Modifiers.Ids.shoot_firework)

@@ -19,4 +19,22 @@ public class ReflectionUtil {
         }
         return (T) target;
     }
+
+    public static <T, U> T getReflection(String name, U instance) {
+        Class<?> obj = instance.getClass();
+        Field field;
+        try {
+            field = obj.getDeclaredField(name);
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        field.setAccessible(true);
+        Object target;
+        try {
+            target = field.get(instance);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+        return (T) target;
+    }
 }

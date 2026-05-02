@@ -25,6 +25,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmorItem;
 
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.Objects;
 
 @Mixin(EntityDragonBase.class)
@@ -32,8 +33,11 @@ public abstract class EntityDragonBaseMixin extends TamableAnimal implements IPa
     @Shadow
     public abstract @NotNull ItemStack getItemBySlot(@NotNull EquipmentSlot slotIn);
 
-    protected EntityDragonBaseMixin(EntityType<? extends TamableAnimal> p_21803_, Level p_21804_) {
-        super(p_21803_, p_21804_);
+    @Shadow
+    public abstract int getArmorOrdinal(ItemStack stack);
+
+    protected EntityDragonBaseMixin(EntityType<? extends TamableAnimal> entityType, Level level) {
+        super(entityType, level);
     }
 
     @Override
@@ -53,27 +57,5 @@ public abstract class EntityDragonBaseMixin extends TamableAnimal implements IPa
                 }
             }
         }
-    }
-
-    @Unique
-    private void
-    eT$updateTinkerAttributes(EquipmentSlot slot) {
-        if (this.level().isClientSide()) return;
-        ItemStack itemStack = this.getItemBySlot(slot);
-        if (!itemStack.isEmpty() && itemStack.getItem() instanceof DragonArmorItem) {
-            Multimap<Attribute, AttributeModifier> builder = itemStack.getItem().getAttributeModifiers(slot, itemStack);
-            builder.forEach(((attribute, attributeModifier) -> {
-                Objects.requireNonNull(this.getAttribute(attribute)).removeModifier(DragonArmorItem.UUID.get(slot));
-                Objects.requireNonNull(this.getAttribute(attribute)).addTransientModifier(attributeModifier);
-            }));
-        }
-    }
-
-    @Inject(method = "updateAttributes", at = @At("HEAD"), remap = false)
-    public void updateAttributes(CallbackInfo ci) {
-        eT$updateTinkerAttributes(EquipmentSlot.HEAD);
-        eT$updateTinkerAttributes(EquipmentSlot.CHEST);
-        eT$updateTinkerAttributes(EquipmentSlot.LEGS);
-        eT$updateTinkerAttributes(EquipmentSlot.FEET);
     }
 }

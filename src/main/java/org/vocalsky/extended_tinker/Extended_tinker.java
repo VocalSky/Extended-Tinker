@@ -16,6 +16,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.vocalsky.extended_tinker.common.*;
 import org.vocalsky.extended_tinker.compat.golem.GolemCore;
 import org.vocalsky.extended_tinker.compat.iaf.IafCore;
+import org.vocalsky.extended_tinker.compat.iaf.network.IafPacketHandler;
 import org.vocalsky.extended_tinker.network.PacketHandler;
 import slimeknights.tconstruct.library.utils.Util;
 
@@ -36,6 +37,7 @@ public class Extended_tinker {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         PacketHandler.Init();
+        if (IAFLoadable()) IafPacketHandler.Init();
         event.enqueueWork(IafCore.Materials::registry);
     }
 

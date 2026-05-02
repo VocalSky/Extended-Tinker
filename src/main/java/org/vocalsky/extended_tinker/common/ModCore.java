@@ -44,6 +44,7 @@ import org.vocalsky.extended_tinker.common.recipe.ToolExpImportRecipe;
 import org.vocalsky.extended_tinker.common.tool.Firecrack;
 import org.vocalsky.extended_tinker.common.tool.FireworkRocketItem;
 import org.vocalsky.extended_tinker.common.tool.HorseArmorItem;
+import org.vocalsky.extended_tinker.util.ETTagsUtil;
 import slimeknights.mantle.Mantle;
 import slimeknights.mantle.recipe.helper.LoadableRecipeSerializer;
 import slimeknights.mantle.recipe.helper.SimpleRecipeSerializer;
@@ -57,6 +58,7 @@ import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.ModifierSalvage;
+import slimeknights.tconstruct.library.recipe.partbuilder.PartRecipe;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
@@ -69,6 +71,7 @@ import slimeknights.tconstruct.tables.TinkerTables;
 import slimeknights.tconstruct.tables.block.GenericTableBlock;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
+import java.lang.reflect.Field;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -168,6 +171,8 @@ public class ModCore {
         private static final Item.Properties PART_PROP = CommonItem;
 
         public static final ItemObject<ToolPartItem> BRIDLE = ITEMS.register("bridle", () -> new ToolPartItem(PART_PROP, PlatingMaterialStats.CHESTPLATE.getId()));
+
+//        public static final RegistryObject<RecipeSerializer<UltraPartRecipe>> ultraPartRecipeSerializer = RECIPE_SERIALIZERS.register("ultra_part_builder", () -> LoadableRecipeSerializer.of(UltraPartRecipe.LOADER));
     }
 
     public static class Casts {
@@ -254,15 +259,7 @@ public class ModCore {
     public static class Tags {
         public static void init() {}
 
-        public static final TagKey<Item> FIREWORK_FLINT = local("firework_flint");
-
-        private static TagKey<Item> local(String name) {
-            return TagKey.create(Registries.ITEM, TConstruct.getResource(name));
-        }
-
-        private static TagKey<Item> common(String name) {
-            return TagKey.create(Registries.ITEM, Mantle.commonResource(name));
-        }
+        public static final TagKey<Item> FIREWORK_FLINT = ETTagsUtil.local("firework_flint");
     }
 
     @Mod.EventBusSubscriber(modid = Extended_tinker.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -326,5 +323,4 @@ public class ModCore {
         public static final RegistryObject<RecipeSerializer<ToolExpExportRecipe>> TOOL_EXP_EXPORT_SERIALIZER = RECIPE_SERIALIZERS.register("exp_export", () -> LoadableRecipeSerializer.of(ToolExpExportRecipe.LOADER));
         public static final RegistryObject<RecipeSerializer<ToolExpImportRecipe>> TOOL_EXP_IMPORT_SERIALIZER = RECIPE_SERIALIZERS.register("exp_import", () -> new SimpleRecipeSerializer<>(ToolExpImportRecipe::new));
     }
-
 }

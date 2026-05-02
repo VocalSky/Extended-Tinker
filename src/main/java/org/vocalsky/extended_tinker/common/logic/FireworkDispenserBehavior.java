@@ -4,19 +4,15 @@ import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 import org.jetbrains.annotations.NotNull;
-import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.entity.FireworkRocketEntity;
 import org.vocalsky.extended_tinker.common.tool.FireworkRocketItem;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
-import slimeknights.tconstruct.tools.entity.ModifiableArrow;
 
 public class FireworkDispenserBehavior extends AbstractProjectileDispenseBehavior {
     public static FireworkDispenserBehavior INSTANCE = new FireworkDispenserBehavior();
@@ -29,10 +25,6 @@ public class FireworkDispenserBehavior extends AbstractProjectileDispenseBehavio
         Projectile projectile = this.getProjectile(level, position, itemStack);
         projectile.shoot(direction.getStepX(), (float)direction.getStepY() + 0.1F, direction.getStepZ(), this.getPower(), this.getUncertainty());
         level.addFreshEntity(projectile);
-        System.out.println("execute launched");
-        if (projectile instanceof FireworkRocketEntity firework) {
-            System.out.println("Type test passed with " + ToolStack.from(firework.getDisplayTool()).getModifierLevel(ModCore.Modifiers.Ids.firework_rocket));
-        }
         ToolStack tool = ToolStack.from(itemStack);
         ToolDamageUtil.damage(tool, 1, null, itemStack);
         tool.updateStack(itemStack);

@@ -8,11 +8,13 @@
     "common.HorseMixin",
     "golem.EquipmentsMenuMixin",
     "golem.MetalGolemEntityMixin",
-    "iaf.EntityDragonBaseMixin"
+    "iaf.EntityDragonBaseMixin",
+    "iaf.EntityHippocampusMixin"
   ],
   "client": [
     "common.HorseArmorLayerMixin",
-    "golem.MetalGolemRenderMixin"
+    "golem.MetalGolemRenderMixin",
+    "iaf.RenderRenderHippocampusMixin"
   ],
   "injectors": {
     "defaultRequire": 1

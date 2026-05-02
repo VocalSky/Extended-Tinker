@@ -7,9 +7,7 @@ import org.vocalsky.extended_tinker.Extended_tinker;
 import slimeknights.tconstruct.TConstruct;
 
 public class ETTagsUtil {
-    public static final TagKey<Item> DRAGON_ARMOR = local("dragon_armor");
-
-    private static TagKey<Item> local(String name) {
+    public static TagKey<Item> local(String name) {
         return TagKey.create(Registries.ITEM, Extended_tinker.getResource(name));
     }
 }

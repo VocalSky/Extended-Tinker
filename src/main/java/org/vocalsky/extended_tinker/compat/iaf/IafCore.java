@@ -6,6 +6,7 @@ import com.csdy.tcondiadema.modifier.CommonDiademaModifier;
 import com.csdy.tcondiadema.modifier.DiademaModifier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,10 +20,13 @@ import org.vocalsky.extended_tinker.compat.iaf.diadema.MagneticStormSurge.Magnet
 import org.vocalsky.extended_tinker.compat.iaf.diadema.Permafrost.PermaforstDiadema;
 import org.vocalsky.extended_tinker.compat.iaf.tool.DragonArmorItem;
 import org.vocalsky.extended_tinker.compat.iaf.tool.stats.DragonArmorMaterialStats;
+import org.vocalsky.extended_tinker.util.ETTagsUtil;
+import slimeknights.mantle.Mantle;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
+import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.materials.IMaterialRegistry;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
@@ -63,6 +67,7 @@ public class IafCore {
         Tools.init();
         Modifiers.init();
         Materials.init();
+        Tags.init();
         ITEMS.register(eventBus);
         CREATIVE_TABS.register(eventBus);
         Modifiers.MODIFIERS.register(eventBus);
@@ -208,4 +213,9 @@ public class IafCore {
         }
     }
 
+    public static class Tags {
+        public static void init() {}
+
+        public static final TagKey<Item> DRAGON_ARMOR = ETTagsUtil.local("dragon_armor");
+    }
 }

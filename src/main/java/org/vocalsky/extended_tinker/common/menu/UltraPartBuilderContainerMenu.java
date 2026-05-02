@@ -4,7 +4,6 @@ import lombok.Getter;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -12,6 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import org.vocalsky.extended_tinker.common.ModCore;
 import org.vocalsky.extended_tinker.common.block.entity.UltraPartBuilderBlockEntity;
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tables.block.entity.inventory.LazyResultContainer;
 import slimeknights.tconstruct.tables.menu.TabbedContainerMenu;
 import slimeknights.tconstruct.tables.menu.slot.LazyResultSlot;
@@ -32,7 +32,7 @@ public class UltraPartBuilderContainerMenu extends TabbedContainerMenu<UltraPart
         // unfortunately, nothing works with no tile
         if (tile != null) {
             // slots
-            this.addSlot(this.outputSlot = new ResultSlot(tile.getCraftingResult(), 138, 45));
+            this.addSlot(this.outputSlot = new LazyResultSlot(tile.getCraftingResult(), 138, 45));
             // inputs
             this.addSlot(this.patternSlot = new PatternSlot(tile, 75, 45));
             this.addSlot(this.inputSlot = new MaterialSlot(tile, UltraPartBuilderBlockEntity.MATERIAL_SLOT, 96, 45));
@@ -44,28 +44,11 @@ public class UltraPartBuilderContainerMenu extends TabbedContainerMenu<UltraPart
 
             // update for the first time
             this.updateScreen();
-
-            System.out.println("Menu create " + ultraPartBuilderBlockEntity.getLevel().isClientSide + " " + this.slots.size());
-            for (int i = 0; i < this.slots.size(); i++) {
-                Slot s = this.slots.get(i);
-                System.out.println("[UPB] slot[" + i + "] class=" + s.getClass().getSimpleName() + " container=" + s.container.getClass().getSimpleName() + " indexInContainer=" + s.index);
-            }
         } else {
             this.patternSlot = null;
             this.inputSlot = null;
             this.fuelSlot = null;
             this.outputSlot = null;
-        }
-    }
-
-    @Override
-    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
-        System.out.println("[UPB] quickMoveStack called on server? player=" + playerIn.level().isClientSide + " index=" + index);
-        try {
-            return super.quickMoveStack(playerIn, index);
-        } catch (Exception e) {
-            System.out.println("[UPB] quickMoveStack exception: " + e);
-            throw e;
         }
     }
 
@@ -124,32 +107,7 @@ public class UltraPartBuilderContainerMenu extends TabbedContainerMenu<UltraPart
 
         @Override
         public boolean mayPlace(ItemStack stack) {
-            return stack.is(TinkerTags.Items.REUSABLE_PATTERNS);
-        }
-    }
-
-    private class ResultSlot extends LazyResultSlot {
-        public ResultSlot(LazyResultContainer inventory, int xPosition, int yPosition) {
-            super(inventory, xPosition, yPosition);
-        }
-        public ItemStack remove(int amount) {
-            System.out.println("result slot remove called");
-            return super.remove(amount);
-        }
-
-        public void onTake(Player player, ItemStack stack) {
-            System.out.println("result slot onTake called " + player.level().isClientSide);
-            super.onTake(player, stack);
-        }
-
-        protected void onQuickCraft(ItemStack stack, int amount) {
-            System.out.println("result slot onQuickCraft called");
-            super.onQuickCraft(stack, amount);
-        }
-
-        protected void onSwapCraft(int numItemsCrafted) {
-            System.out.println("result slot onSwapCraft called");
-            super.onSwapCraft(numItemsCrafted);
+            return (stack.is(TinkerTags.Items.GOLD_CASTS) || stack.is(TinkerTags.Items.SAND_CASTS) || stack.is(TinkerTags.Items.RED_SAND_CASTS)) && (!stack.is(TinkerSmeltery.blankSandCast.get()) && !stack.is(TinkerSmeltery.blankRedSandCast.get()));
         }
     }
 }
